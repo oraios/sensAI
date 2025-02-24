@@ -105,3 +105,18 @@ jobs:
             - name: Build Documentation
               run: sh build-docs.sh
 
+            - name: Prepare Pages
+              if: github.ref == 'refs/heads/develop'
+              run: |
+                  mv docs/build/* public/docs
+
+            - name: Deploy Pages
+              if: github.ref == 'refs/heads/develop'
+              uses: JamesIves/github-pages-deploy-action@3.7.1
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  BRANCH: gh-pages
+                  FOLDER: public
+                  TARGET_FOLDER: .
+                  CLEAN: true
+                  SINGLE_COMMIT: true
