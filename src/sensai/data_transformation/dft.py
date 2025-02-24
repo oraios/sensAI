@@ -110,6 +110,9 @@ class DataFrameTransformer(ABC, ToStringMixin):
             normalisation_rule_template=normalisation_rule_template, add_categorical_default_rules=add_categorical_default_rules
         )
 
+    def chain(self, *others: "DataFrameTransformer") -> "DataFrameTransformerChain":
+        return DataFrameTransformerChain(self, *others)
+
 
 class DFTFromFeatureGenerator(DataFrameTransformer):
     def _fit(self, df: pd.DataFrame):
