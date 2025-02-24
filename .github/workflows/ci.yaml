@@ -77,12 +77,26 @@ jobs:
                     pytest notebooks;
                   fi
 
+            - name: Upload Notebook Artifacts
+              if: matrix.env_name == 'py_latest_dependencies'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: docs_outputs
+                  path: docs/
+
     # Documentation build job
     docs:
+        needs: test
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Code
               uses: actions/checkout@v3
+
+            - name: Download Notebook Artifacts
+              uses: actions/download-artifact@v4
+              with:
+                  name: docs_outputs
+                  path: docs/
 
             - name: Setup Python
               uses: actions/setup-python@v4
