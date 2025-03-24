@@ -17,6 +17,8 @@
       * Use autocommit and remove option of using deferred commits as it's the only way to guarantee
         that no stale data is read due to transactions going on too long
       * Handle duplicate key upon insertion due to race condition by providing a more informative Exception
+  * `util.logging`:
+      * `configure`: Allow the output stream to be configured 
 
 
 ## 1.4.0 (2025-01-21)
