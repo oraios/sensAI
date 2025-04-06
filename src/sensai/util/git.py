@@ -22,7 +22,13 @@ class GitStatus(ToStringMixin):
                     self.has_untracked_files)
 
 
-def git_status() -> Optional[GitStatus]:
+def git_status(log_error: bool = True) -> Optional[GitStatus]:
+    """
+    Gets the git status of the current repository.
+
+    :param log_error: whether to log an error if the git status cannot be determined
+    :return: the git status, or None if it cannot be determined
+    """
     try:
         commit_hash = subprocess.check_output(['git', 'rev-parse', 'HEAD']).decode('ascii').strip()
         unstaged = bool(subprocess.check_output(['git', 'diff', '--name-only']).decode('ascii').strip())
@@ -35,5 +41,6 @@ def git_status() -> Optional[GitStatus]:
             has_untracked_files=untracked
         )
     except Exception as e:
-        log.error("Error determining Git status", exc_info=e)
+        if log_error:
+            log.error("Error determining Git status", exc_info=e)
         return None
