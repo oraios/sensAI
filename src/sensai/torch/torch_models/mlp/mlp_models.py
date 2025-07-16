@@ -1,5 +1,5 @@
 import logging
-from typing import Callable, Optional, Sequence, Union
+from typing import Callable, Optional, Sequence, Union, Dict, Hashable
 
 import torch.nn.functional
 
@@ -83,7 +83,8 @@ class MultiLayerPerceptronVectorClassificationModel(TorchVectorClassificationMod
             input_dim: Optional[int] = None,
             normalisation_mode: NormalisationMode = NormalisationMode.NONE, cuda: bool = True,
             p_dropout: Optional[float] = None,
-            nn_optimiser_params: Optional[NNOptimiserParams] = None) -> None:
+            nn_optimiser_params: Optional[NNOptimiserParams] = None,
+            class_weights: Optional[Dict[Hashable, float]] = None) -> None:
         """
         :param hidden_dims: sequence containing the number of neurons to use in hidden layers
         :param hid_activation_function: the activation function (torch.nn.functional.* or torch.*) to use for all hidden layers
@@ -93,6 +94,8 @@ class MultiLayerPerceptronVectorClassificationModel(TorchVectorClassificationMod
         :param cuda: whether to use CUDA (GPU acceleration)
         :param p_dropout: the probability with which to apply dropouts after each hidden layer
         :param nn_optimiser_params: parameters for NNOptimiser; if None, use default
+        :param class_weights: a mapping from class labels to weights (which will be applied in the default loss evaluator,
+            provided that it is not overridden in `nn_optimiser_params`)
         """
         self.hidden_dims = hidden_dims
         self.hid_activation_function = hid_activation_function
@@ -104,7 +107,8 @@ class MultiLayerPerceptronVectorClassificationModel(TorchVectorClassificationMod
         super().__init__(output_mode,
             self._create_torch_model,
             normalisation_mode,
-            nn_optimiser_params)
+            nn_optimiser_params=nn_optimiser_params,
+            class_weights=class_weights)
 
     def _create_torch_model(self) -> MultiLayerPerceptronTorchModel:
         return MultiLayerPerceptronTorchModel(self.cuda, self.hidden_dims, self.hid_activation_function, self.output_activation_function,

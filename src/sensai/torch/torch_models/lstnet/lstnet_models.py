@@ -1,7 +1,7 @@
 import collections
 import logging
 import re
-from typing import Optional, Union
+from typing import Optional, Union, Dict, Hashable
 
 import pandas as pd
 import torch
@@ -29,7 +29,8 @@ class LSTNetworkVectorClassificationModel(TorchVectorClassificationModel):
     def __init__(self, num_input_time_slices, input_dim_per_time_slice, num_classes: Optional[int] = None,
             num_convolutions: int = 100, num_cnn_time_slices: int = 6, hid_rnn: int = 100, skip: int = 0, hid_skip: int = 5,
             hw_window: int = 0, hw_combine: str = "plus", dropout=0.2, output_activation=ActivationFunction.LOG_SOFTMAX, cuda=True,
-            nn_optimiser_params: Union[dict, NNOptimiserParams] = None):
+            nn_optimiser_params: Union[dict, NNOptimiserParams] = None,
+            class_weights: Optional[Dict[Hashable, float]] = None) -> None:
         """
         :param num_input_time_slices: the number of input time slices
         :param input_dim_per_time_slice: the dimension of the input data per time slice
@@ -49,6 +50,8 @@ class LSTNetworkVectorClassificationModel(TorchVectorClassificationModel):
         :param dropout: the dropout probability to use during training (dropouts are applied after every major step in the evaluation path)
         :param output_activation: the output activation function
         :param nn_optimiser_params: parameters for NNOptimiser to use for training
+        :param class_weights: a mapping from class labels to weights (which will be applied in the default loss evaluator,
+            provided that it is not overridden in `nn_optimiser_params`)
         """
         self.num_input_time_slices = num_input_time_slices
         self.input_dim_per_time_slice = input_dim_per_time_slice
@@ -64,7 +67,7 @@ class LSTNetworkVectorClassificationModel(TorchVectorClassificationModel):
         self.output_activation = output_activation
         self.num_classes = num_classes
         output_mode = ClassificationOutputMode.for_activation_fn(ActivationFunction.torch_function_from_any(output_activation))
-        super().__init__(output_mode, self._create_lst_network_model, nn_optimiser_params=nn_optimiser_params)
+        super().__init__(output_mode, self._create_lst_network_model, nn_optimiser_params=nn_optimiser_params, class_weights=class_weights)
 
     def _create_lst_network_model(self):
         return self._LSTNetworkModel(self)

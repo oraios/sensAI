@@ -99,6 +99,26 @@ class ResultWriter:
             df.to_csv(p, index=index, header=header)
         return p
 
+    def write_data_frame_excel_file(self, filename_suffix: str, df: "pd.DataFrame", index=True, header=True, sheet_name="Sheet1"):
+        """
+        Saves the given data frame to an Excel spreadsheet.
+
+        Requires that an appropriate engine be installed, e.g. openpyxl.
+
+        :param filename_suffix: the filename suffix (or full basename for the case where no prefix was specified at construction),
+            to which the extension .xlsx will be added by default if no extension is given
+        :param df: the data frame to save
+        :param index: whether to save the index
+        :param header: whether to save the header row
+        :param sheet_name: the name of the spreadsheet
+        :return: the path to the saved file
+        """
+        p = self.path(filename_suffix, extension_to_add="xlsx")
+        if self.enabled:
+            self.log.info(f"Saving data frame Excel file {p}")
+            df.to_excel(p, index=index, header=header, sheet_name=sheet_name)
+        return p
+
     def write_figure(self, filename_suffix: str, fig: "plt.Figure", close_figure: Optional[bool] = None):
         """
         :param filename_suffix: the filename suffix, which may or may not include a file extension, valid extensions being {"png", "jpg"}
@@ -220,3 +240,34 @@ def create_file_path(root, *path_elems, make_dirs: bool = False) -> str:
 
 def create_dir_path(root, *path_elems, make_dirs: bool = False) -> str:
     return create_path(root, *path_elems, is_dir=True, make_dirs=make_dirs)
+
+
+def filename_compatible(fn: str, replacement: str = "-") -> str:
+    """
+    Converts the given string into a string that can be used in a filename
+
+    :param fn: original filename, which may or may not be compatible with common filenames
+    :param replacement: default character to use as a replacement
+    :return: adapted filename
+    """
+    # Replace prohibited characters
+    # Windows prohibits: \ / : * ? " < > |
+    # Unix/Linux prohibits: /
+    # macOS prohibits: / and :
+    replacements = {
+        ">": "gt",
+        "<": "lt",
+        "/": replacement,
+        "\\": replacement,
+        ":": replacement,
+        "*": replacement,
+        "?": replacement,
+        "\"": replacement,
+        "|": replacement
+    }
+
+    result = fn
+    for char, repl in replacements.items():
+        result = result.replace(char, repl)
+
+    return result

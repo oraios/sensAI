@@ -60,6 +60,14 @@ class ResultSet:
     def _show_df(self, df: pd.DataFrame):
         print(df.to_string())
 
+    @staticmethod
+    def col_name_predicted(predicted_var_name: str):
+        return f"{predicted_var_name}_predicted"
+
+    @staticmethod
+    def col_name_ground_truth(predicted_var_name: str):
+        return f"{predicted_var_name}_true"
+
 
 class RegressionResultSet(ResultSet):
     def __init__(self, df: pd.DataFrame, predicted_var_names: List[str]):
@@ -87,14 +95,6 @@ class RegressionResultSet(ResultSet):
 
     def _create_result_set(self, df: pd.DataFrame):
         return self.__class__(df, self.predicted_var_names)
-
-    @staticmethod
-    def col_name_predicted(predicted_var_name: str):
-        return f"{predicted_var_name}_predicted"
-
-    @staticmethod
-    def col_name_ground_truth(predicted_var_name: str):
-        return f"{predicted_var_name}_true"
 
     @staticmethod
     def col_name_error(predicted_var_name: str):

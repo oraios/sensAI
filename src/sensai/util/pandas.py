@@ -1,12 +1,15 @@
 import logging
+import re
 from abc import ABC, abstractmethod
 from copy import copy
-from typing import List, Optional
+from typing import List, Optional, Sequence, Union
 
 import numpy as np
 import pandas as pd
 
 from sensai.util import mark_used
+from sensai.util.pickle import getstate
+from sensai.util.string import ToStringMixin
 
 log = logging.getLogger(__name__)
 
@@ -65,6 +68,80 @@ class DataFrameColumnChangeTracker:
         if self.final_columns is None:
             raise Exception(f"No change was tracked yet. "
                             f"Did you forget to call trackChange on the resulting data frame?")
+
+
+class ColumnMatcher(ToStringMixin, ABC):
+    @abstractmethod
+    def matches(self, name: str) -> bool:
+        pass
+
+
+class ColumnMatcherCollection:
+    def __init__(self, matchers: Sequence[Union[str, ColumnMatcher]]):
+        self.matchers = []
+        for m in matchers:
+            if isinstance(m, str):
+                self.matchers.append(ColumnName(m))
+            elif isinstance(m, ColumnMatcher):
+                self.matchers.append(m)
+            else:
+                raise ValueError(f"{m} is not a string or ColumnMatcher")
+
+    def matching_columns(self, columns: Sequence[str], require_all_matchers_applied: bool = True) -> List[str]:
+        """
+        :param columns: the columns to check
+        :param require_all_matchers_applied: whether to require all matchers to match at least one column and raise
+            an exception otherwise
+        :return: the subset of the given columns that match at least one of this collection's matchers
+        """
+        result = []
+        for m in self.matchers:
+            found_match = False
+            for c in columns:
+                if m.matches(c):
+                    result.append(c)
+                    found_match = True
+                    break
+            if not found_match and require_all_matchers_applied:
+                raise ValueError(f"{m} did not match any columns in {columns}")
+        return result
+
+    def not_matching_columns(self, columns: Sequence[str]) -> List[str]:
+        """
+        :param columns: the columns to check
+        :return: the subset of the given columns that do not match any of this collection's matchers
+        """
+        matching_columns = set(self.matching_columns(columns, require_all_matchers_applied=False))
+        return [c for c in columns if c not in matching_columns]
+
+
+class ColumnName(ColumnMatcher):
+    def __init__(self, name: str):
+        self.name = name
+
+    def matches(self, name: str) -> bool:
+        return self.name == name
+
+
+class ColumnRegex(ColumnMatcher):
+    def __init__(self, regex: str, flags: int = 0):
+        self.regex = regex
+        self.flags = flags
+        self._pattern = None
+
+    def __getstate__(self):
+        return getstate(ColumnRegex, self, transient_properties=["_pattern"])
+
+    def _tostring_exclude_private(self) -> bool:
+        return True
+
+    def _get_pattern(self) -> re.Pattern:
+        if self._pattern is None:
+            self._pattern = re.compile(self.regex, flags=self.flags)
+        return self._pattern
+
+    def matches(self, name: str) -> bool:
+        return self._get_pattern().fullmatch(name) is not None
 
 
 def extract_array(df: pd.DataFrame, dtype=None):

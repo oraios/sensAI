@@ -1,5 +1,6 @@
+import itertools
 from bisect import bisect_right, bisect_left
-from typing import Optional, TypeVar, Sequence, Any, List
+from typing import Iterable, Optional, TypeVar, Sequence, Any, List
 
 T = TypeVar("T")
 
@@ -196,3 +197,10 @@ def value_slice_outer(keys, lower_bound_key, upper_bound_key, values=None, fallb
         else:
             raise Exception(f"Bounds would exceed end of array (upperBoundKey={upper_bound_key}, largest key={keys[-1]})")
     return values[first_idx:last_idx+1]
+
+
+def all_equal(iterable: Iterable) -> bool:
+    """Whether all elements in the iterable are equal to each other (or the input is an empty sequence)."""
+    # see https://stackoverflow.com/questions/3844801/check-if-all-elements-in-a-list-are-equal?
+    g = itertools.groupby(iterable)
+    return next(g, True) and not next(g, False)

@@ -1,5 +1,7 @@
 import atexit
+import inspect
 import logging as lg
+import os
 import sys
 import time
 from abc import ABC, abstractmethod
@@ -489,3 +491,75 @@ class SuspendedLoggersContext:
 
         # Restore all saved loggers
         lg.root.manager.loggerDict.update(self.saved_loggers)
+
+
+class LogLevelsChangedContext:
+    """
+    A context manager that temporarily changes the log levels of given loggers.
+    """
+
+    def __init__(self, log_levels: Dict[str, int]):
+        """
+        :param log_levels: a mapping from logger name to desired log level
+        """
+        self.log_levels = log_levels
+        self.saved_log_levels: Dict[str, int] | None = None
+
+    def __enter__(self) -> None:
+        self.saved_log_levels = {}
+        for name, new_level in self.log_levels.items():
+            logger = lg.getLogger(name)
+            self.saved_log_levels[name] = logger.level
+            logger.setLevel(new_level)
+
+    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+        for name, level in self.saved_log_levels.items():
+            lg.getLogger(name).setLevel(level)
+
+
+def loggers_in_hierarchy(logger_name: str) -> List[str]:
+    """
+    For a given logger name, returns all the loggers in its hierarchy, i.e. the logger itself
+    and all its ancestors
+
+    :param logger_name: the name of a logger (e.g. "a.b.c")
+    :return: the names of all loggers in the given loggers hierarchy (e.g. ["a", "a.b", "a.b.c"])
+    """
+    components = logger_name.split(".")
+    result = []
+    for i in range(len(components)):
+        result.append(".".join(components[:i+1]))
+    return result
+
+
+def format_log_message(logger: Logger, level: int, msg: str, formatter: Formatter, stacklevel: int = 1) -> str:
+    """
+    Formats a log message as it would have been created by `logger.log(level, msg)` with the given formatter
+
+    :param logger: the logger
+    :param level: the log level
+    :param msg: the message
+    :param formatter: the formatter
+    :param stacklevel: the stack level of the function to report as the generator
+    :return: the formatted log message (not including trailing newline)
+    """
+    frame_info = inspect.stack()[stacklevel]
+    pathname = frame_info.filename
+    lineno = frame_info.lineno
+    func = frame_info.function
+
+    record = logger.makeRecord(
+        name=logger.name,
+        level=level,
+        fn=pathname,
+        lno=lineno,
+        msg=msg,
+        args=(),
+        exc_info=None,
+        func=func,
+        extra=None,
+    )
+    record.created = time.time()
+    record.asctime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(record.created))
+
+    return formatter.format(record)

@@ -10,6 +10,9 @@ class Version:
         """
         self.components = package.__version__.split(".")
 
+    def __str__(self):
+        return ".".join(self.components)
+
     def is_at_least(self, *components: int):
         """
         Checks this version against the given version components.

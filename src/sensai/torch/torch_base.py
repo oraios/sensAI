@@ -3,7 +3,7 @@ import io
 import logging
 import typing
 from abc import ABC, abstractmethod
-from typing import Union, Tuple, Callable, Optional, List, Sequence
+from typing import Union, Tuple, Callable, Optional, List, Sequence, Dict, Hashable
 
 import numpy as np
 import pandas as pd
@@ -657,13 +657,16 @@ class TorchVectorClassificationModel(VectorClassificationModel):
     def __init__(self, output_mode: ClassificationOutputMode,
             torch_model_factory: Callable[[], TorchModel],
             normalisation_mode: NormalisationMode = NormalisationMode.NONE,
-            nn_optimiser_params: Optional[NNOptimiserParams] = None) -> None:
+            nn_optimiser_params: Optional[NNOptimiserParams] = None,
+            class_weights: Optional[Dict[Hashable, float]] = None) -> None:
         """
         :param output_mode: specifies the nature of the output of the underlying neural network model
         :param torch_model_factory: the factory function with which to create the contained TorchModel instance that the instance is to
             encapsulate. For the instance to be picklable, this cannot be a lambda or locally defined function.
         :param normalisation_mode: the normalisation mode to apply to input data frames
         :param nn_optimiser_params: the parameters to apply in NNOptimiser during training
+        :param class_weights: a mapping from class labels to weights (which will be applied in the default loss evaluator,
+            provided that it is not overridden in `nn_optimiser_params`)
         """
         super().__init__()
 
@@ -671,7 +674,7 @@ class TorchVectorClassificationModel(VectorClassificationModel):
             nn_optimiser_params = NNOptimiserParams()
         if nn_optimiser_params.loss_evaluator is None:
             loss_function = NNLossEvaluatorClassification.LossFunction.default_for_output_mode(output_mode)
-            nn_optimiser_params.loss_evaluator = NNLossEvaluatorClassification(loss_function)
+            nn_optimiser_params.loss_evaluator = NNLossEvaluatorClassification(loss_function, class_weights=class_weights, parent=self)
 
         self.outputMode = output_mode
         self.torch_model_factory = torch_model_factory

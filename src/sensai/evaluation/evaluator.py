@@ -10,7 +10,7 @@ from .eval_stats import GUESS
 from .eval_stats.eval_stats_base import EvalStats, EvalStatsCollection
 from .eval_stats.eval_stats_classification import ClassificationEvalStats, ClassificationMetric
 from .eval_stats.eval_stats_regression import RegressionEvalStats, RegressionEvalStatsCollection, RegressionMetric
-from .result_set import RegressionResultSet
+from .result_set import RegressionResultSet, ResultSet
 from ..data import DataSplitter, DataSplitterFractional, InputOutputData
 from ..data_transformation import DataFrameTransformer
 from ..tracking import TrackingMixin, TrackedExperiment
@@ -451,6 +451,33 @@ class VectorClassificationModelEvaluationData(VectorModelEvaluationData[Classifi
         indices = eval_stats.get_misclassified_indices()
         return [(eval_stats.y_predicted[i], eval_stats.y_true[i], self.input_data.iloc[i]) for i in indices]
 
+    def to_data_frame(self, modify_input_df: bool = False, output_col_name_override: Optional[str] = None):
+        """
+        Creates a data frame with all inputs, predictions and prediction errors.
+        For each predicted variable "y", there will be columns "y_predicted", "y_true", "y_error" and
+        "y_abs_error".
+        If there is only a single predicted variable, the variable can be renamed for convenience.
+
+        The resulting data frame can be conveniently queried and analysed using class ResultSet.
+
+        :param modify_input_df: whether to modify the input data frame in-place to generate the data frame
+            (instead of copying it). This can be reasonable in cases where the data is very large.
+        :param output_col_name_override: overrides the output column name. For example, if this is set to "y",
+            then the columns named in the description above will be present in the data frame.
+        :return: a data frame containing all inputs, outputs and prediction errors
+        """
+        df = self.io_data.inputs
+        if not modify_input_df:
+            df = df.copy()
+        for predicted_var_name, eval_stats in self.eval_stats_by_var_name.items():
+            y_predicted = np.array(eval_stats.y_predicted)
+            y_true = np.array(eval_stats.y_true)
+            if output_col_name_override is not None:
+                assert(len(self.eval_stats_by_var_name)) == 1, "Column name override is only valid for a single output variable"
+                predicted_var_name = output_col_name_override
+            df[ResultSet.col_name_predicted(predicted_var_name)] = y_predicted
+            df[ResultSet.col_name_ground_truth(predicted_var_name)] = y_true
+        return df
 
 class ClassificationEvaluatorParams(EvaluatorParams):
     def __init__(self, data_splitter: DataSplitter = None, fractional_split_test_fraction: float = None, fractional_split_random_seed=42,

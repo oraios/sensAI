@@ -1,23 +1,25 @@
-from dataclasses import dataclass
-from datetime import datetime
-from concurrent.futures import ProcessPoolExecutor
-import uuid
-
+import itertools
 import logging
 import os
-import pandas as pd
 from abc import ABC
 from abc import abstractmethod
+from concurrent.futures import ProcessPoolExecutor
+from dataclasses import dataclass
+from datetime import datetime
 from random import Random
-from typing import Dict, Sequence, Any, Callable, Generator, Union, Tuple, List, Optional, Hashable
+from typing import Dict, Sequence, Any, Callable, Generator, Union, Tuple, List, Optional, Hashable, Iterator, TypeVar, Iterable, Generic
+
+import pandas as pd
 
 from .evaluation.evaluator import MetricsDictProvider
 from .local_search import SACostValue, SACostValueNumeric, SAOperator, SAState, SimulatedAnnealing, \
     SAProbabilitySchedule, SAProbabilityFunctionLinear
 from .tracking.tracking_base import TrackingMixin, TrackedExperiment
+from .util.string import ToStringMixin
 from .vector_model import VectorModel
 
 log = logging.getLogger(__name__)
+T = TypeVar("T")
 
 
 def iter_param_combinations(hyper_param_values: Dict[str, Sequence[Any]]) -> Generator[Dict[str, Any], None, None]:
@@ -45,6 +47,15 @@ def iter_param_combinations(hyper_param_values: Dict[str, Sequence[Any]]) -> Gen
                 yield from _iter_recursive_param_combinations(pairs, i+1, params)
 
     return _iter_recursive_param_combinations(pairs, 0, {})
+
+
+def iter_subsets(s: Iterable[T]) -> Iterator[Sequence[T]]:
+    """
+    :param s: a set of items
+    :return: iterator over subsets of the given set
+    """
+    s = list(s)
+    return itertools.chain.from_iterable(itertools.combinations(s, r) for r in range(len(s) + 1))
 
 
 class ParameterCombinationSkipDecider(ABC):
@@ -539,3 +550,137 @@ class SAHyperOpt(TrackingMixin):
 
     def get_simulated_annealing(self) -> SimulatedAnnealing:
         return self._sa
+
+
+TKey = TypeVar("TKey", bound=Hashable)
+TValue = TypeVar("TValue")
+
+
+class Option(Generic[TKey, TValue], ToStringMixin):
+    """Represents a single option with an optional value"""
+
+    def __init__(self, key: TKey, value: TValue | None = None):
+        """
+        :param key: a hashable identifier for the option
+        :param value: an optional associated value
+        """
+        self.key = key
+        self.value = value
+
+
+class OptionsGenerator(Generic[TKey, TValue], ABC):
+    """Represents a generator for combinations of options"""
+
+    @abstractmethod
+    def iter_options(self) -> Iterator[list[Option]]:
+        """
+        Returns an iterator over lists of options representing valid combinations.
+
+        :return: an iterator of option combinations
+        """
+        pass
+
+    def times(self, other: "OptionsGenerator[TKey, TValue]") -> "OptionsGenerator[TKey, TValue]":
+        """
+        Returns a new options generator representing the Cartesian product of this generator with another generator.
+
+        :param other: another generator to combine with
+        :return: a new generator yielding the Cartesian product
+        """
+        return OptionsProduct(self, other)
+
+
+class OptionsProduct(Generic[TKey, TValue], OptionsGenerator[TKey, TValue]):
+    """An options generator that produces the cartesian product of two other generators"""
+
+    def __init__(self, o1: OptionsGenerator[TKey, TValue], o2: OptionsGenerator[TKey, TValue]):
+        """
+        :param o1: the first option generator
+        :param o2: the second option generator
+        """
+        self.o1 = o1
+        self.o2 = o2
+
+    def iter_options(self) -> Iterator[list[Option]]:
+        for r1 in self.o1.iter_options():
+            for r2 in self.o2.iter_options():
+                yield r1 + r2
+
+
+class OptionsGeneratorBase(Generic[TKey, TValue], OptionsGenerator[TKey, TValue], ABC):
+    """Base class for option generators that are backed by a static collection"""
+
+    def __init__(self, o: Iterable[TKey] | dict[TKey, TValue]):
+        """
+        :param o: an iterable of keys or a dictionary mapping keys to values
+        """
+        if isinstance(o, dict):
+            self.options = {k: Option(k, v) for k, v in o.items()}
+        else:
+            self.options = {k: Option(k) for k in o}
+
+
+class OptionsAllOf(Generic[TKey, TValue], OptionsGeneratorBase[TKey, TValue]):
+    """Options generator that includes all the given options"""
+
+    def iter_options(self) -> Iterator[list[Option]]:
+        yield list(self.options.values())
+
+
+class OptionsOneOf(Generic[TKey, TValue], OptionsGeneratorBase[TKey, TValue]):
+    """Options generator that includes exactly one of the given options"""
+
+    def iter_options(self) -> Iterator[list[Option]]:
+        for option in self.options.values():
+            yield [option]
+
+
+class OptionsMinMaxOf(Generic[TKey, TValue], OptionsGeneratorBase[TKey, TValue]):
+    """Options generator that includes subsets of the given options within a specified size range."""
+
+    def __init__(self, o: Iterable[TKey] | dict[TKey, TValue], n_min: int, n_max: int):
+        """
+        :param o: an iterable of option keys or a dictionary mapping option keys to values
+        :param n_min: the minimum number of options to consider
+        :param n_max: the maximum number of options to consider
+        """
+        super().__init__(o)
+        self.n_min = n_min
+        self.n_max = n_max
+
+    def iter_options(self) -> Iterator[list[Option]]:
+        for n in range(self.n_min, self.n_max + 1):
+            for result in itertools.combinations(self.options.values(), n):
+                yield list(result)
+
+
+class OptionsOneOrNoneOf(Generic[TKey, TValue], OptionsMinMaxOf[TKey, TValue]):
+    """Options generator that includes either none or one of the given options"""
+
+    def __init__(self, o: Iterable[TKey] | dict[TKey, TValue]):
+        """
+        :param o: an iterable of keys or a dictionary mapping keys to values
+        """
+        super().__init__(o, 0, 1)
+
+
+class OptionsNOf(Generic[TKey, TValue], OptionsMinMaxOf[TKey, TValue]):
+    """Options generator that includes exactly N options from the given set of options"""
+
+    def __init__(self, o: Iterable[TKey] | dict[TKey, TValue], n: int):
+        """
+        :param o: an iterable of keys or a dictionary mapping keys to values
+        :param n: the number of options to sample
+        """
+        super().__init__(o, n, n)
+
+
+class OptionsSubsets(Generic[TKey, TValue], OptionsGeneratorBase[TKey, TValue]):
+    """
+    Generator that includes all possible subsets of the given options, including the empty set,
+    i.e. if N options are provided, then 2^N subsets are generated (powerset).
+    """
+
+    def iter_options(self) -> Iterator[list[Option]]:
+        for result in iter_subsets(self.options.values()):
+            yield list(result)

@@ -72,11 +72,12 @@ class EncoderFactory(ToStringMixin, ABC):
 
 class DecoderFactory(ToStringMixin, ABC):
     @abstractmethod
-    def create_decoder(self, latent_dim: int, target_feature_dim: int) -> TDecoder:
+    def create_decoder(self, latent_dim: int, target_feature_dim: int, output_dim: int = 1) -> TDecoder:
         """
         :param latent_dim: the latent vector size which is used for the representation of the history
         :param target_feature_dim: the number of dimensions/features that are given for each prediction to be made
             (each future sequence item)
+        :param output_dim: the number of outputs/targets to predict (per output time slice)
         :return: a torch module satisfying :class:`DecoderProtocol`
         """
         pass
@@ -125,27 +126,31 @@ class RnnEncoderModule(torch.nn.Module):
     The input sequence may either be fixed-length or variable-length.
     """
 
-    class RnnType:
+    class RnnType(Enum):
         GRU = "gru"
         """gated recurrent unit"""
 
         LSTM = "lstm"
         """long short-term memory"""
 
-    def __init__(self, input_dim, latent_dim: int, rnn_type: RnnType = RnnType.LSTM):
+    def __init__(self, input_dim, latent_dim: int, rnn_type: RnnType = RnnType.LSTM, num_layers: int = 1):
         """
         :param input_dim: the input dimension per time slice
         :param latent_dim: the dimension of the latent output vector
         :param rnn_type: the type of recurrent network to use
+        :param num_layers: the number of recurrent layers (e.g. num_layers=2 would mean stacking two
+            models, with the second model receiving the outputs of the first and computing the final result)
         """
         super().__init__()
         self.window_dim_per_item = input_dim
         self.latent_dim = latent_dim
         self.rnn_type = rnn_type
         if rnn_type == self.RnnType.GRU:
-            self.rnn = torch.nn.GRU(input_size=self.window_dim_per_item, hidden_size=latent_dim, batch_first=True)
+            self.rnn = torch.nn.GRU(input_size=self.window_dim_per_item, hidden_size=latent_dim, batch_first=True,
+                num_layers=num_layers)
         elif rnn_type == self.RnnType.LSTM:
-            self.rnn = torch.nn.LSTM(input_size=self.window_dim_per_item, hidden_size=latent_dim, batch_first=True)
+            self.rnn = torch.nn.LSTM(input_size=self.window_dim_per_item, hidden_size=latent_dim, batch_first=True,
+                num_layers=num_layers)
         else:
             raise ValueError(f"Unknown rnn type '{rnn_type}', use either 'gru' or 'lstm'")
 
@@ -160,29 +165,25 @@ class RnnEncoderModule(torch.nn.Module):
         :return: a tensor of size (batch_size, latent_dim)
         """
         if lengths is not None:
-            x = torch.nn.utils.rnn.pack_padded_sequence(x, lengths, batch_first=True, enforce_sorted=False)
+            x = torch.nn.utils.rnn.pack_padded_sequence(x, lengths.cpu(), batch_first=True, enforce_sorted=False)
         if self.rnn_type == self.RnnType.GRU:
             _, l = self.rnn(x)
         elif self.rnn_type == self.RnnType.LSTM:
             _o, (l, _c) = self.rnn(x)
         else:
             raise ValueError(self.rnn_type)
-        # l has shape (1, batch_size, latent_dim)
-        l = l.squeeze(0)
+        # l has shape (num_layers, batch_size, latent_dim)
+        l = l[-1]  # take latent state of last layer
         return l  # (batch_size, latent_dim)
 
 
 class RnnEncoderFactory(EncoderFactory):
-    def __init__(self,
-            input_dim: int,
-            latent_dim: int,
-            rnn_type: RnnEncoderModule.RnnType = RnnEncoderModule.RnnType.GRU):
-        self.input_dim = input_dim
-        self.latent_dim = latent_dim
+    def __init__(self, rnn_type: RnnEncoderModule.RnnType = RnnEncoderModule.RnnType.GRU, num_layers: int = 1):
         self.rnn_type = rnn_type
+        self.num_layers = num_layers
 
     def create_encoder(self, input_dim: int, latent_dim: int):
-        return RnnEncoderModule(input_dim, latent_dim, self.rnn_type)
+        return RnnEncoderModule(input_dim, latent_dim, self.rnn_type, num_layers=self.num_layers)
 
 
 class LSTNetworkEncoder(torch.nn.Module):
@@ -449,23 +450,21 @@ class TargetSequenceDecoderFactory(DecoderFactory):
             output_mode: TargetSequenceDecoderModule.OutputMode = TargetSequenceDecoderModule.OutputMode.MULTI_OUTPUT,
             latent_pass_on_mode: TargetSequenceDecoderModule.LatentPassOnMode = TargetSequenceDecoderModule.LatentPassOnMode.CONCAT_INPUT,
             predictor_factory: Optional[PredictorFactory] = None,
-            p_recurrent_dropout: float = 0.0,
-            output_dim: int = 1):
+            p_recurrent_dropout: float = 0.0):
         if predictor_factory is None:
             predictor_factory = LinearPredictorFactory()
-        self.output_dim = output_dim
         self.p_recurrent_dropout = p_recurrent_dropout
         self.prediction_mode = prediction_mode
         self.output_mode = output_mode
         self.latent_pass_on_mode = latent_pass_on_mode
         self.predictor_factory = predictor_factory
 
-    def create_decoder(self, latent_dim: int, target_feature_dim: int) -> torch.nn.Module:
+    def create_decoder(self, latent_dim: int, target_feature_dim: int, output_dim: int = 1) -> torch.nn.Module:
         return TargetSequenceDecoderModule(target_feature_dim, latent_dim, self.predictor_factory,
             prediction_mode=self.prediction_mode,
             output_mode=self.output_mode,
             latent_pass_on_mode=self.latent_pass_on_mode,
-            output_dim=self.output_dim,
+            output_dim=output_dim,
             p_recurrent_dropout=self.p_recurrent_dropout)
 
 
@@ -477,8 +476,8 @@ class SingleTargetDecoderFactory(DecoderFactory):
     def __init__(self, predictor_factory: PredictorFactory):
         self.predictor_factory = predictor_factory
 
-    def create_decoder(self, latent_dim: int, target_feature_dim: int) -> torch.nn.Module:
-        return SingleTargetDecoderModule(target_feature_dim, latent_dim, self.predictor_factory)
+    def create_decoder(self, latent_dim: int, target_feature_dim: int, output_dim: int = 1) -> torch.nn.Module:
+        return SingleTargetDecoderModule(target_feature_dim, latent_dim, self.predictor_factory, output_dim=output_dim)
 
 
 class EncoderDecoderModule(torch.nn.Module):

@@ -20,10 +20,11 @@ from torch import cuda as torchcuda
 from .torch_data import TensorScaler, DataUtil, TorchDataSet, TorchDataSetProviderFromDataUtil, TorchDataSetProvider, \
     TensorScalerIdentity, TensorTransformer
 from .torch_enums import ClassificationOutputMode
+from ..util.pickle import setstate
 from ..util.string import ToStringMixin
 
 if TYPE_CHECKING:
-    from .torch_base import TorchModel
+    from .torch_base import TorchModel, TorchVectorClassificationModel
 
 log = logging.getLogger(__name__)
 
@@ -464,17 +465,21 @@ class NNLossEvaluatorClassification(NNLossEvaluatorFixedDim):
         CROSSENTROPY = "CrossEntropy"
         NLL = "NegativeLogLikelihood"
 
-        def create_criterion(self) -> Callable:
+        def create_criterion(self, class_weights: Optional[torch.tensor]) -> Callable:
             if self is self.CROSSENTROPY:
-                return nn.CrossEntropyLoss(reduction='sum')
+                return nn.CrossEntropyLoss(reduction='sum', weight=class_weights)
             elif self is self.NLL:
-                return nn.NLLLoss(reduction="sum")
+                return nn.NLLLoss(reduction="sum", weight=class_weights)
+            else:
+                raise ValueError(self)
 
         def get_validation_metric_key(self) -> str:
             if self is self.CROSSENTROPY:
                 return "CE"
             elif self is self.NLL:
                 return "NLL"
+            else:
+                raise ValueError(self)
 
         @classmethod
         def default_for_output_mode(cls, output_mode: ClassificationOutputMode):
@@ -489,27 +494,58 @@ class NNLossEvaluatorClassification(NNLossEvaluatorFixedDim):
             else:
                 raise ValueError(f"No default specified for {output_mode}")
 
-    def __init__(self, loss_fn: LossFunction):
+    def __init__(self,
+            loss_fn: LossFunction,
+            class_weights: Optional[dict[Any, float]] = None,
+            parent: Optional["TorchVectorClassificationModel"] = None):
+        """
+        :param loss_fn: the loss function to use
+        :param class_weights: a mapping from class labels to weights; if None, all classes are treated equally
+        :param parent: the parent model from which the order of the label is to be obtained (required if
+            `class_weights` is specified)
+        """
         self.lossFn: "NNLossEvaluatorClassification.LossFunction" = self.LossFunction(loss_fn)
+        self.class_weights = class_weights
+        self.parent = parent
+
+    def __setstate__(self, state):
+        setstate(NNLossEvaluatorClassification, self, state, new_optional_properties=["class_weights", "parent"])
 
     def __str__(self):
         return f"{self.__class__.__name__}[{self.lossFn}]"
 
     def create_validation_loss_evaluator(self, cuda):
-        return self.ValidationLossEvaluator(cuda, self.lossFn)
+        return self.ValidationLossEvaluator(cuda, self.get_training_criterion())
 
     def get_training_criterion(self):
-        return self.lossFn.create_criterion()
+        return self.lossFn.create_criterion(self.get_class_weights_tensor())
 
     def get_output_dim_weights(self) -> Optional[np.ndarray]:
+        # NOTE: This does not apply to classification models (use class_weights instead)
         return None
 
+    def get_class_weights_tensor(self) -> Optional[torch.Tensor]:
+        """
+        :return: the class weights tensor, if any
+        """
+        if self.class_weights is None:
+            return None
+        else:
+            if self.parent is None:
+                raise ValueError("Class weights are defined, but no parent model defining the order of the labels was specified.")
+            weights = []
+            for label in self.parent.get_class_labels():
+                if label not in self.class_weights:
+                    raise ValueError(f"Class weight for label '{label}' is not defined; got {self.class_weights}")
+                weights.append(self.class_weights[label])
+            weights_tensor = torch.tensor(weights, dtype=torch.float)
+            return weights_tensor
+
     class ValidationLossEvaluator(NNLossEvaluatorFixedDim.ValidationLossEvaluator):
-        def __init__(self, cuda: bool, loss_fn: "NNLossEvaluatorClassification.LossFunction"):
-            self.loss_fn = loss_fn
+        def __init__(self, cuda: bool, criterion: torch.nn.Module):
             self.total_loss = None
             self.num_validation_samples = None
-            self.criterion = self.loss_fn.create_criterion()
+            self.criterion = criterion
             if cuda:
                 self.criterion = self.criterion.cuda()
 

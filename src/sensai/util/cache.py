@@ -8,14 +8,14 @@ import re
 import sqlite3
 import threading
 import time
-from abc import abstractmethod, ABC
+from abc import ABC, abstractmethod
 from collections import OrderedDict
 from functools import wraps
 from pathlib import Path
-from typing import Any, Callable, Iterator, List, Optional, TypeVar, Generic, Union, Hashable
+from typing import Any, Callable, Generic, Hashable, Iterator, List, Optional, TypeVar, Union
 
 from .hash import pickle_hash
-from .pickle import load_pickle, dump_pickle, setstate
+from .pickle import dump_pickle, load_pickle, setstate
 
 log = logging.getLogger(__name__)
 
@@ -788,6 +788,15 @@ class PickleLoadSaveMixin(LoadSaveInterface):
         :param path:
         :param backend: pickle, cloudpickle, or joblib
         """
+        if not hasattr(self, "__getstate__"):
+            log.warning(
+                f"You are persisting an object {self} without __getstate__. "
+                f"This may lead to irrecoverable problems with backwards compatibility! "
+                f"It is highly recommended that you implement __getstate__ for everything you persist (especially for stateless classes, since"
+                f"adding state later on means they won't be able to load and even implementing __setstate__ won't help then). "
+                f"The easiest and recommended way to do this is to also inherit from `sensai.util.pickle.PersistableObject` whenever"
+                f"you inherit from `PickleLoadSaveMixin`"
+            )
         dump_pickle(self, path, backend=backend)
 
     @classmethod
