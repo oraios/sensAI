@@ -1,3 +1,5 @@
+from typing import List, Optional
+
 import numpy as np
 import pandas as pd
 from tensorboard.backend.event_processing import event_accumulator
@@ -43,7 +45,7 @@ class TensorboardData:
 
         return pd.Series(values, index=steps, name=tag)
 
-    def get_tags(self) -> list[str]:
+    def get_tags(self) -> List[str]:
         """
         Get list of available scalar tags in the events.
 
@@ -51,7 +53,7 @@ class TensorboardData:
         """
         return self.events.Tags()['scalars']
 
-    def get_data_frame(self, tags: list[str] | None = None, smoothing_factor: float = 0.0) -> pd.DataFrame:
+    def get_data_frame(self, tags: Optional[List[str]] = None, smoothing_factor: float = 0.0) -> pd.DataFrame:
         """
         Gets multiple series as a DataFrame.
 

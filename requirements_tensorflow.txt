@@ -1,3 +1,0 @@
-# Requirements for extra 'tensorflow'
-# These are the pinned lowest versions we test; setup.py relaxes them, changing them to lower bounds
-tensorflow~=2.0

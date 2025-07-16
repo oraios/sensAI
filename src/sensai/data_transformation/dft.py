@@ -110,6 +110,9 @@ class DataFrameTransformer(ABC, ToStringMixin):
             normalisation_rule_template=normalisation_rule_template, add_categorical_default_rules=add_categorical_default_rules
         )
 
+    def chain(self, *others: "DataFrameTransformer") -> "DataFrameTransformerChain":
+        return DataFrameTransformerChain(self, *others)
+
     def get_column_change_tracker(self) -> DataFrameColumnChangeTracker:
         return self._columnChangeTracker
 

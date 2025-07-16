@@ -3,7 +3,7 @@ import logging
 import math
 import queue
 from abc import ABC, abstractmethod
-from typing import List, Sequence, Iterator, Callable, Optional, Union, Tuple
+from typing import List, Sequence, Iterator, Optional, Union, Tuple
 
 log = logging.getLogger(__name__)
 
@@ -85,6 +85,7 @@ class GreedyAgglomerativeClustering(object):
         while not self.prioritised_merges.empty():
             self.log.debug("Clustering step %d" % (steps+1))
             have_merge = False
+            merge: Optional[GreedyAgglomerativeClustering.ClusterMerge] = None
             while not have_merge and not self.prioritised_merges.empty():
                 merge = self.prioritised_merges.get()
                 if not merge.evaporated:
@@ -101,7 +102,7 @@ class GreedyAgglomerativeClustering(object):
         """
         Wrapper for clusters which stores additional data required for clustering (internal use only)
         """
-        def __init__(self, cluster, idx, clusterer: "GreedyAgglomerativeClustering"):
+        def __init__(self, cluster: "GreedyAgglomerativeClustering.Cluster", idx, clusterer: "GreedyAgglomerativeClustering"):
             self.merged_into_cluster: Optional[GreedyAgglomerativeClustering.WrappedCluster] = None
             self.merges = []
             self.cluster = cluster
@@ -178,12 +179,12 @@ class GreedyAgglomerativeClustering(object):
             return self.merge_cost < other.merge_cost
 
     class MergeCandidateDeterminationStrategy(ABC):
-        def __init__(self):
-            self.clusterer: Optional["GreedyAgglomerativeClustering"] = None
-
         """
         Determines the indices of clusters which should be evaluated with regard to their merge costs
         """
+        def __init__(self):
+            self.clusterer: Optional["GreedyAgglomerativeClustering"] = None
+
         def set_clusterer(self, clusterer: "GreedyAgglomerativeClustering"):
             """
             Initialises the clusterer the strategy is applied to
@@ -201,7 +202,7 @@ class GreedyAgglomerativeClustering(object):
             :param merged_cluster_indices: [for initial=False] the pair of cluster indices that were just joined to form the updated
                 cluster wc
             :return: an iterator of cluster indices that should be evaluated as potential merge partners for wc (it may contain the
-                index of wc, which will be ignored)
+                index of wc, which will be ignored) or of corresponding ClusterMerge objects
             """
             pass
 
@@ -210,6 +211,6 @@ class GreedyAgglomerativeClustering(object):
                 merged_cluster_indices: Tuple[int, int] = None) -> Iterator[Union[int, "GreedyAgglomerativeClustering.ClusterMerge"]]:
             n = len(self.clusterer.wrapped_clusters)
             if initial:
-                return range(wc.idx + 1, n)
+                yield from range(wc.idx + 1, n)
             else:
-                return range(n)
+                yield from range(n)

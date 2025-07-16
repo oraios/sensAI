@@ -1,6 +1,7 @@
+from .string import ToStringMixin
 
 
-class Version:
+class Version(ToStringMixin):
     """
     Assists in checking the version of a Python package based on the __version__ attribute
     """

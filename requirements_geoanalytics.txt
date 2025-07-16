@@ -1,6 +1,6 @@
 # Requirements for extra 'geoanalytics'
 # These are the pinned lowest versions we test; setup.py relaxes them, changing them to lower bounds
-networkx==2.4
-Shapely~=1.7.0
-geopandas==0.7.0
+networkx==2.6
+Shapely~=1.8.0
+geopandas~=0.10.0
 utm==0.7.0

@@ -2,7 +2,7 @@
 # NOTE: versions are mostly unpinned, because this facilitates conda dependency resolution. Also,
 # sensAI should be compatible to all (newer) versions of the dependencies. If it isn't, we need to specify 
 # an upper version bound in setup.py (where it matters the most) as well as here.
-# Compatibility with old (pinned) versions and the latest versions is tested in the tox build.
+# Compatibility with old (pinned) versions and the latest versions is tested in the GitHub CI build.
 name: sensai
 channels:
   - pytorch
@@ -10,8 +10,7 @@ channels:
   - conda-forge
 dependencies:
   # basics
-  # we use Python 3.8 because it has better conda dependency support; the code must still be compatible to 3.7 (which is tested by the github build)
-  - python=3.8
+  - python=3.10
   - pip
   # optional sensai conda dependencies for development
   # NOTE: catboost is disabled, because it causes conflicts
@@ -40,9 +39,8 @@ dependencies:
       # non-optional sensai dependencies
       - -r requirements-relaxed.txt
       # optional sensai pip dependencies
-      # clearml is only available through pip, and pulling tensorflow from conda causes dependency issues
+      # clearml is only available through pip
       - clearml
-      - tensorflow-cpu
       - pytorch-lightning
       - jsonargparse
       - docstring_parser

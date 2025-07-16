@@ -1,0 +1,136 @@
+name: CI
+
+on:
+    push:
+        branches: [develop, master]
+    pull_request:
+        branches: [develop]
+
+jobs:
+    # Define matrix build for multiple test scenarios
+    test:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                # py_backwardscompat is not included because there is also an issue with numpy compatibility on Python 3.10
+                env_name: [py_pinned_dependencies, py_latest_dependencies]
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v3
+              with:
+                  lfs: true
+
+            - name: Setup Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.10"
+
+            - name: Install Dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  if [[ "${{ matrix.env_name }}" == "py_pinned_dependencies" ]]; then
+                    pip install -v \
+                      -r requirements.txt \
+                      -r requirements_torch.txt \
+                      -r requirements_lightgbm.txt \
+                      -r requirements_geoanalytics.txt \
+                      -r requirements_xgboost.txt \
+                      pytest \
+                      pytest-cov \
+                      pytest-xdist \
+                      pytorch-lightning~=1.1.0 \
+                      coverage \
+                      coverage-badge
+                  elif [[ "${{ matrix.env_name }}" == "py_latest_dependencies" ]]; then
+                    pip install \
+                      pytest \
+                      jupyter==1.0.0 \
+                      nbconvert==6.5.0 \
+                      clearml==0.17.1 \
+                      "pytorch-lightning>=1.1" \
+                      ".[full]"
+                  elif [[ "${{ matrix.env_name }}" == "py_backwardscompat" ]]; then
+                    pip install \
+                      pytest \
+                      "scikit-learn==1.0.2" \
+                      "numpy<1.21" \
+                      ".[torch]"
+                  fi
+                  pip install --no-deps -e .
+
+            - name: Run Tests
+              run: |
+                  if [[ "${{ matrix.env_name }}" == "py_pinned_dependencies" ]]; then
+                    coverage erase
+                    pytest -n 4 --cov --cov-append --cov-report=term-missing tests;
+                    coverage html
+                    coverage-badge -o badges/coverage.svg -f
+                  elif [[ "${{ matrix.env_name }}" == "py_latest_dependencies" ]]; then
+                    pytest
+                  elif [[ "${{ matrix.env_name }}" == "py_backwardscompat" ]]; then
+                    pytest tests/backwardscompat;
+                  fi
+
+            - name: Run Notebook Tests
+              run: |
+                  if [[ "${{ matrix.env_name }}" == "py_latest_dependencies" ]]; then
+                    pytest notebooks;
+                  fi
+
+            - name: Upload Notebook Artifacts
+              if: matrix.env_name == 'py_latest_dependencies'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: docs_outputs
+                  path: docs/
+
+    # Documentation build job
+    docs:
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v3
+
+            - name: Download Notebook Artifacts
+              uses: actions/download-artifact@v4
+              with:
+                  name: docs_outputs
+                  path: docs/
+
+            - name: Setup Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.10"
+
+            - name: Install Documentation Dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install \
+                    sphinx==5.0.2 \
+                    sphinxcontrib-websupport==1.2.4 \
+                    sphinx-toolbox==3.7.0 \
+                    sphinx_rtd_theme \
+                    nbsphinx \
+                    ipython \
+                    ipywidgets \
+                    jupyter-book==0.15.1
+
+            - name: Build Documentation
+              run: sh build-docs.sh
+
+            - name: Prepare Pages
+              if: github.ref == 'refs/heads/develop'
+              run: |
+                  mv docs/build/* public/docs
+
+            - name: Deploy Pages
+              if: github.ref == 'refs/heads/develop'
+              uses: JamesIves/github-pages-deploy-action@3.7.1
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  BRANCH: gh-pages
+                  FOLDER: public
+                  TARGET_FOLDER: .
+                  CLEAN: true
+                  SINGLE_COMMIT: true

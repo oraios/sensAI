@@ -646,10 +646,10 @@ class FeatureGeneratorTargetDistribution(FeatureGenerator):
         """
         :param columns: the categorical columns for which to generate distribution features
         :param target_column: the column the distributions over which will make up the features.
-            If targetColumnBins is not None, this column will be discretised before computing the conditional distributions
+            If `target_column_bins` is not None, this column will be discretised before computing the conditional distributions
         :param target_column_bins: if not None, specifies the binning to apply via pandas.cut
             (see https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.cut.html).
-            Note that if a value should match no bin, NaN will generated. To avoid this when specifying bin boundaries in a list,
+            Note that if a value should match no bin, NaN will be generated. To avoid this when specifying bin boundaries in a list,
             -inf and +inf should be used as the first and last entries.
         :param target_column_in_features_df: if True, when fitting will look for targetColumn in the features data frame (X) instead of in
             target data frame (Y)

@@ -7,7 +7,7 @@
   <div align="center" style="text-align:center">
   <a href="https://pypi.org/project/sensai/" style="text-decoration:none"><img src="https://img.shields.io/pypi/v/sensai.svg" alt="PyPI"></a>
   <a href="https://raw.githubusercontent.com/jambit/sensAI/master/LICENSE" style="text-decoration:none"><img alt="License" src="https://img.shields.io/pypi/l/sensai"></a>
-  <a href="https://github.com/jambit/sensAI/actions/workflows/tox.yaml" style="text-decoration:none"><img src="https://github.com/jambit/sensAI/actions/workflows/tox.yaml/badge.svg" alt="Build status"></a>
+  <a href="https://github.com/jambit/sensAI/actions/workflows/ci.yaml" style="text-decoration:none"><img src="https://github.com/jambit/sensAI/actions/workflows/ci.yaml/badge.svg" alt="Build status"></a>
   </div>
 </p>
 

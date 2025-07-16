@@ -18,30 +18,39 @@ Use conda to set up the Python environment:
 
 Solving the environment may take several minutes (but should ultimately work).
 
-NOTE: versions are mostly unpinned in the environment specification, because this facilitates conda dependency resolution. Also, sensAI is intended to be compatible with *all* (newer) versions of the dependencies. If it isn't, we need to specify  an upper version bound in `setup.py` (where it matters the most) as well as in `environment.yml`. Compatibility with old (pinned) versions and the latest versions is tested in the tox build (see below).
+NOTE: versions are mostly unpinned in the environment specification, because this facilitates conda dependency resolution. 
+Also, sensAI is intended to be compatible with *all* (newer) versions of the dependencies. 
+If it isn't, we need to specify  an upper version bound in `setup.py` (where it matters the most) as well as in `environment.yml`. 
+Compatibility with old (pinned) versions and the latest versions is tested in the GitHub build (see below).
 
 # Build and Test Pipeline
 
-The tests and docs build are executed via **tox** in several environments:
-* `py`: the "regular" test environment, where we test against the pinned dependencies (by explicitly including `requirements.txt` with the pinned versions; this is also the environment in which we test the execution of notebooks
-* `py_latest_dependencies`: the environment where we use the latest versions of all dependencies (except where we have identified an incompatibility; see `setup.py` definitions `DEPS_VERSION_LOWER_BOUND` and `DEPS_VERSION_UPPER_BOUND_EXCLUSIVE`); by not including `requirements.txt`, we depend on the latest admissible versions according to `setup.py`
-* `docs`: the environment in which docs are built via sphinx 
+The tests and docs build are executed in several environments:
+* `py_pinned_dependencies`: the "regular" test environment, where we test against the pinned dependencies 
+  (by explicitly including `requirements.txt` with the pinned versions; this is also the environment in which we test the 
+  execution of notebooks
+* `py_latest_dependencies`: the environment where we use the latest versions of all dependencies (except where we have  
+  identified an incompatibility; see `setup.py` definitions `DEPS_VERSION_LOWER_BOUND` and `DEPS_VERSION_UPPER_BOUND_EXCLUSIVE`); 
+  by not including `requirements.txt`, we depend on the latest admissible versions according to `setup.py`
+* `py_backwardscompa`: a special environment with old versions of some critical dependences where we can test backwards compatibility
+  with persisted models of very old sensAI versions (that used older versions of the dependencies, e.g. sklearn)
 
 ## Automated Tests
 
-The tests can be locally run without tox via
+The tests can be locally via
 
     sh run_pytest_tests.sh
 
 ## Docs Build
 
-Docs are automatically created during the GitHub build via tox.
+Docs are automatically created during the GitHub build.
 
 All .rst files are auto-generated (by `build_scripts/update_docs.py`), with the exception of the root index file  `index.rst`.
 
-### Declaring Optional Dependencies
+### Declaring Mock Imports for Dependencies
 
-**Attention**: Make sure that any optional sensAI dependencies (which are not included in the `docs` tox environment) are added to `docs/conf.py` under `autodoc_mock_imports`. Otherwise the tox build will fail.
+**Attention**: Make sure that any sensAI dependencies are added to `docs/_config.yml` under `autodoc_mock_imports`. 
+Otherwise, the docs build will fail.
 
 ### Notebooks
 
@@ -55,7 +64,7 @@ For changes in notebooks to be reflected in the docs build, the test needs to be
 
 ### Manually Running the Docs Build
 
-The docs build can be run without tox via 
+The docs build can be run via 
 
     sh build-docs.sh
 

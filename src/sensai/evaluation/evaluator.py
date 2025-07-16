@@ -433,6 +433,10 @@ class VectorRegressionModelEvaluator(VectorModelEvaluator[VectorRegressionModelE
         """
         predictions = model.predict(io_data.inputs)
         ground_truth = io_data.outputs
+        if len(predictions) != len(ground_truth):
+            log.debug(f"Model reduced number of rows: {len(predictions)} -> {len(ground_truth)}; projecting ground truth")
+            ground_truth = ground_truth.loc[predictions.index]
+            assert len(predictions) == len(ground_truth), "Ground truth projection unsuccessful; ensure common index for inputs and outputs"
         if self.params.output_data_frame_transformer:
             predictions = self.params.output_data_frame_transformer.apply(predictions)
             ground_truth = self.params.output_data_frame_transformer.apply(ground_truth)
@@ -581,6 +585,12 @@ class VectorClassificationModelEvaluator(VectorModelEvaluator[VectorClassificati
             class_probabilities = None
             predictions = model.predict(io_data.inputs)
         ground_truth = io_data.outputs
+
+        if len(predictions) != len(ground_truth):
+            log.debug(f"Model reduced number of rows: {len(predictions)} -> {len(ground_truth)}; projecting ground truth")
+            ground_truth = ground_truth.loc[predictions.index]
+            assert len(predictions) == len(ground_truth), "Ground truth projection unsuccessful; ensure common index for inputs and outputs"
+
         return predictions, class_probabilities, ground_truth
 
 

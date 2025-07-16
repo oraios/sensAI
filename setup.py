@@ -13,8 +13,6 @@ DEPS_VERSION_LOWER_BOUND = [
     "pandas", "scipy", "numpy", "scikit-learn", "seaborn", "typing-extensions",
     # extra "torch"
     "torch", "torchtext",
-    # extra "tensorflow"
-    "tensorflow",
     # extra "lightgbm"
     "lightgbm",
     # extra "geoanalytics"
@@ -69,16 +67,14 @@ setup(
     url="https://github.com/aai-institute/sensAI",
     packages=find_namespace_packages(where="src"),
     include_package_data=True,
-    version='1.3.0',
+    version='1.4.0',
     description='The Python library for sensible AI',
     install_requires=relaxed_requirements_from_file("requirements.txt"),
     dependency_links=["https://download.pytorch.org/whl/torch_stable.html"],
     setup_requires=["wheel"],
     extras_require=extras_require,
-    author='appliedAI Institute gGmbh & jambit GmbH',
+    author='Dominik Jain et al.',
     classifiers=[
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "License :: OSI Approved :: MIT License"

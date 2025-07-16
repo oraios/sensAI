@@ -15,7 +15,12 @@ def deprecated(message):
     def deprecated_decorator(func):
         @wraps(func)
         def deprecated_func(*args, **kwargs):
-            msg = "{} is a deprecated function. {}".format(func.__name__, message)
+            func_name = func.__name__
+            if func_name == "__init__":
+                class_name = func.__qualname__.split('.')[0]
+                msg = "{} is a deprecated class. {}".format(class_name, message)
+            else:
+                msg = "{} is a deprecated function. {}".format(func_name, message)
             if logging.Logger.root.hasHandlers():
                 log.warning(msg)
             else:

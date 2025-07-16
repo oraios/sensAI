@@ -1,7 +1,47 @@
 # Changelog
 
-
 ## Unreleased
+
+### Breaking Changes
+
+* Dropped support for Python versions below 3.10
+* Dropped support for TensorFlow (removing `sensai.tensorflow`)
+
+### Improvements/Changes
+
+* `util`:
+  * `util.cache`:
+    * `cache_mysql.MySQLPersistentKeyValueCache`:
+      * Switch from MySQLdb to pymsql
+      * Add support for additional connection arguments
+      * Use autocommit and remove option of using deferred commits as it's the only way to guarantee
+        that no stale data is read due to transactions going on too long
+      * Handle duplicate key upon insertion due to race condition by providing a more informative Exception
+  * `util.logging`:
+      * `configure`: Allow the output stream to be configured
+  * `util.git`:
+      * `git_status`: Add option `log_error` 
+
+
+## 1.4.0 (2025-01-21)
+
+### Improvements/Changes
+
+* `evaluation`: For cases where the model projects the input data to a subset of rows,
+  the evaluator now projects the ground truth data accordingly.
+* `util`:
+  * `util.deprecation`: Annotations of class init functions now report the respective class as being deprecated
+  * `util.plot`: Add method `Plot.show` for convenience
+  * `util.string`:
+    * `pretty_string_repr` (and `ToStringMixin.pprint` and `.pprints`):
+      Handle content in curly braces, i.e. dictionaries, treating them like an object with content indented if it is too long
+    * `to_string` (and `ToStringMixin`):
+      for objects of type `str`, return a quoted string (as returned by `repr`) to avoid strings with line breaks distracting the output
+  * `util.helper`: Add `flatten_dict` to flatten a dictionary into a single-level dictionary with keys as dot-separated paths
+  * `util.tensorboard`: New module with utilities for loading/comparing series data from tensorboard logs
+  * `util.git`: New module with function `git_status` for retrieving the status of a git repository (which can be useful for logging)
+
+## v1.3.0 (2024-11-29)
 
 ### Improvements/Changes
 

@@ -3,7 +3,8 @@ import io
 import logging
 import typing
 from abc import ABC, abstractmethod
-from typing import Union, Tuple, Callable, Optional, List, Sequence, Dict, Hashable
+from typing import Dict, Hashable
+from typing import Union, Tuple, Callable, Optional, List, Sequence
 
 import numpy as np
 import pandas as pd
@@ -21,9 +22,11 @@ from ..normalisation import NormalisationMode
 from ..util.dtype import to_float_array
 from ..util.pickle import setstate
 from ..util.string import ToStringMixin
+from ..util.version import Version
 from ..vector_model import VectorRegressionModel, VectorClassificationModel, TrainingContext
 
 log: logging.Logger = logging.getLogger(__name__)
+torch_version = Version(torch)
 
 
 class MCDropoutCapableNNModule(nn.Module, ABC):
@@ -139,9 +142,12 @@ class TorchModel(ABC, ToStringMixin):
     def _is_cuda_enabled(self) -> bool:
         return self.cuda
 
-    def _load_model(self, model_file) -> None:  # TODO: complete type hints: what types are allowed for modelFile?
+    def _load_model(self, model_file) -> None:
         try:
-            self.module = torch.load(model_file)
+            load_kwargs = {}
+            if torch_version.is_at_least(2, 4):
+                load_kwargs["weights_only"] = False
+            self.module = torch.load(model_file, **load_kwargs)
             self._gpu = self._get_gpu_from_model_parameter_device()
         except:
             if self._is_cuda_enabled():

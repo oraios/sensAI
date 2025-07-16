@@ -29,8 +29,8 @@ class Parent(ToStringMixin):
 
 def test_ToStringMixin_recursion():
     s = str(A("foo"))
-    assert s == "A[p1=foo, p3=A[<<], p5=[foo, A[<<]]]"
+    assert s == "A[p1='foo', p3=A[<<], p5=['foo', A[<<]]]"
     s = str(B(A("foo")))
-    assert s == "B[a=A[p1=foo, p3=A[<<], p5=[foo, A[<<]]]]"
+    assert s == "B[a=A[p1='foo', p3=A[<<], p5=['foo', A[<<]]]]"
     s = str(Parent())
     assert s == "Parent[foo=10, model=Parent.Child[parent=Parent[<<]]]"

@@ -70,18 +70,21 @@ def set_configure_callback(callback: Callable[[], None], append: bool = True) ->
 
 
 # noinspection PyShadowingBuiltins
-def configure(format=LOG_DEFAULT_FORMAT, level=lg.DEBUG):
+def configure(format=LOG_DEFAULT_FORMAT, level=lg.DEBUG, stream=sys.stdout):
     """
-    Configures logging to stdout with the given format and log level,
+    Configures logging to the given stream with the given format and log level,
     also configuring the default log levels of some overly verbose libraries as well as some pandas output options.
+
+    Note: the configuration can be extended by registering a callback via :func:`set_configure_callback`.
 
     :param format: the log format
     :param level: the minimum log level
+    :param stram: the output stream for whcih to configure a log handler
     """
     global _logFormat
     _logFormat = format
     remove_log_handlers()
-    basicConfig(level=level, format=format, stream=sys.stdout)
+    basicConfig(level=level, format=format, stream=stream)
     getLogger("matplotlib").setLevel(lg.INFO)
     getLogger("urllib3").setLevel(lg.INFO)
     getLogger("msal").setLevel(lg.INFO)
