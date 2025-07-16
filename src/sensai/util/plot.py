@@ -1,4 +1,3 @@
-import collections
 import logging
 from typing import Sequence, Callable, TypeVar, Tuple, Optional, List, Any, Union, Dict
 
@@ -440,14 +439,14 @@ class MetricComparisonBarPlot(Plot):
     MetricComparisonBarPlot(df)
     ```
     """
-    def __init__(self, df: pd.DataFrame, ax: plt.Axes | None = None, metric_label="metric", value_label="value", entity_label="model"):
+    def __init__(self, df: pd.DataFrame, ax: Optional[plt.Axes] = None, metric_label="metric", value_label="value", entity_label="model"):
         """
         :param df: a data frame with metrics values, where the index specifies the names of compared entities (e.g. model names)
             and the columns are different metrics
         :param ax: the axis to plot to; if None, create it, with the height being automatically adjusted
         """
 
-        def draw(ax: plt.Axes | None):
+        def draw(ax: Optional[plt.Axes]):
             index_name = df.index.name or "index"
             df_melted = df.reset_index().melt(id_vars=index_name, var_name=metric_label, value_name=value_label)
             df_melted.rename(columns={index_name: entity_label}, inplace=True)
