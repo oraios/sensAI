@@ -1,4 +1,4 @@
-from typing import Optional, List, Self, TYPE_CHECKING, Callable
+from typing import Optional, List, TYPE_CHECKING, Callable
 
 import pandas as pd
 
@@ -22,7 +22,7 @@ class ResultSet:
     def __init__(self, df: pd.DataFrame):
         self.df = df
 
-    def _create_result_set(self, df: pd.DataFrame) -> Self:
+    def _create_result_set(self, df: pd.DataFrame) -> "ResultSet":
         """
         Creates a new result set for the given data frame
 
@@ -31,7 +31,7 @@ class ResultSet:
         """
         return self.__class__(df)
 
-    def query(self, sql: str) -> Self:
+    def query(self, sql: str) -> "ResultSet":
         """
         Queries the result set with the given condition specified in SQL syntax.
 

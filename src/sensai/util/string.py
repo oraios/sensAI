@@ -4,8 +4,7 @@ import re
 import sys
 import types
 from abc import ABC, abstractmethod
-from io import StringIO
-from typing import Union, List, Dict, Any, Sequence, Iterable, Optional, Mapping, Callable, Self
+from typing import Union, List, Dict, Any, Sequence, Iterable, Optional, Mapping, Callable
 
 reCommaWhitespacePotentiallyBreaks = re.compile(r",\s+")
 
@@ -528,7 +527,7 @@ class TextBuilder:
     def build(self) -> str:
         return "\n".join(self._components)
 
-    def with_lines(self, lines: Sequence[str], indent=0) -> Self:
+    def with_lines(self, lines: Sequence[str], indent=0) -> "TextBuilder":
         for line in lines:
             line = line.rstrip()
             if indent > 0:
@@ -536,23 +535,23 @@ class TextBuilder:
             self._components.append(line)
         return self
 
-    def with_lines_from_text(self, text: str, indent=0) -> Self:
+    def with_lines_from_text(self, text: str, indent=0) -> "TextBuilder":
         lines = text.splitlines(keepends=False)
         return self.with_lines(lines, indent=indent)
 
-    def with_line(self, line: str, indent=0) -> Self:
+    def with_line(self, line: str, indent=0) -> "TextBuilder":
         return self.with_lines([line], indent=indent)
 
-    def with_line_conditional(self, cond: bool, line: str, indent=0) -> Self:
+    def with_line_conditional(self, cond: bool, line: str, indent=0) -> "TextBuilder":
         if cond:
             self.with_line(line, indent=indent)
         return self
 
-    def with_text(self, text: str) -> Self:
+    def with_text(self, text: str) -> "TextBuilder":
         self._components.append(text)
         return self
 
-    def with_break(self, n=1) -> Self:
+    def with_break(self, n=1) -> "TextBuilder":
         for i in range(n):
             self._components.append("")
         return self
