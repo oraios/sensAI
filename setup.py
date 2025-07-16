@@ -64,7 +64,7 @@ setup(
     name='sensai',
     package_dir={"": "src"},
     license="MIT",
-    url="https://github.com/aai-institute/sensAI",
+    url="https://github.com/oraios/sensAI",
     packages=find_namespace_packages(where="src"),
     include_package_data=True,
     version='1.4.0',
