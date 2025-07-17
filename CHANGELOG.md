@@ -9,6 +9,23 @@
 
 ### Improvements/Changes
 
+* `evaluation`:
+  * `*ModelEvaluation`: Explicitly allow `io_data` to be None (for "no fitting" case) 
+  * `RegressionMetricFromBinaryClassificationMetric`: Allow any `ClassificationMetric` to be used (limitation 
+     to `BinaryClassificationMetric` was unnecessary)
+  * `VectorModelEvaluationData`: Allow model and data to be removed
+  * `VectorClassificationModelEvaluationData`: Add method `to_data_frame`
+* `featuregen`:
+  * `FeatureGeneratorRegistry`: Add method `get_feature_generators`
+  * `FeatureCollector`: Add method `add_features` (allowing features to be appended after construction)
+  * `FeatureGeneratorFlattenColumns`, `FeatureGeneratorTakeColumns`: Add support for regular expressions for matching columns
+  * `FeatureGeneratorFlattenColumns`: Optimize performance by avoiding data frame modifications and instead precomputing the column names 
+    and arrays for the construction of a new DataFrame
+* `data_transformation`:
+  * `DataFrameTransformer`: 
+    * Add method `chain` for convenience
+    * Add method `get_column_change_tracker`
+  * `DFTFromFeatureGenerator`: Add option to extend the existing data frame
 * `util`:
   * `util.cache`:
     * `cache_mysql.MySQLPersistentKeyValueCache`:
@@ -17,11 +34,52 @@
       * Use autocommit and remove option of using deferred commits as it's the only way to guarantee
         that no stale data is read due to transactions going on too long
       * Handle duplicate key upon insertion due to race condition by providing a more informative Exception
+    * `SqlitePersistentKeyValueCache`: 
+      * Auto-create base dir if necessary
+      * Periodically commit (after a given number of inserts/updates)
+      * Add method `finalise` to ensure that all new entries are committed
   * `util.logging`:
-      * `configure`: Allow the output stream to be configured
+    * `configure`: Allow the output stream to be configured
+    * Add `SuspendedLoggersContext`
+    * Add `LogLevelsChangedContext`
+    * Add `loggers_in_hierarchy`
+    * Add `format_log_message`
   * `util.git`:
-      * `git_status`: Add option `log_error` 
+    * `git_status`: Add option `log_error` 
+  * `util.pickle`:
+    * `dump_pickle`, `load_pickle`: Add bz2 compression support
+  * `util.plot`:
+    * Add `MetricComparisonBarPlot`
+  * `util.string`:
+    * Add `TextBuilder`
+  * `util.test`:
+    * `snapshot_compatible`:
+      * Support additional types in `json_mapper` (tuples, numbers) for
+      * Make defaults configurable
+  * `util.pandas`:
+    * Add `ColumnMatcher` and `ColumnMatcherCollection` as well as specialisations `ColumnName` and `ColumnRegex`
+  * `util.sequences`:
+    * Add `all_equal`
+  * `util.io`:
+    * Add `filename_compatible`
+    * `ResultWriter`: Add method `write_data_frame_excel_file`
+* `torch`: 
+  * Loading models: Explicitly set `weights_only=False`, fixing support for torch version 2.4+
+  * Sequence models:
+    * Add `EncoderDecoderVectorClassificationModel` (adding classification support)
+    * `DecoderFactory.create_decoder`: Add output_dim to interface, removing the parameter from the constructor of `TargetSequenceDecoderFactory`
+    * `RnnEncoderModule.RnnType`: Add missing inheritance from `Enum`
+    * `RnnEncoderFactory`: 
+      * Remove redundant constructor arguments; ensure that sequence lengths are on the CPU (torch requirement)
+      * Add `num_layers` parameter (also added in `RnnEncoderModule`, accordingly)
+  * `NNLossEvaluationClassification` and `TorchVectorClassificationModel`: Add support for class weights
+* `hyperopt`:
+  * Add function `iter_subsets`
+  * Add `OptionGenerator` abstraction for flexible combinatorics when experimenting with options (and various implementation)
 
+### Fixes
+
+* `util.logging.LogTime`: Fix completion log message appearing in case of exception; log error instead
 
 ## 1.4.0 (2025-01-21)
 
