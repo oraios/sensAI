@@ -499,17 +499,19 @@ sensAI can be integrated into your project in several ways:
 
 # Contributors
 
+<br>
 <div align="center" style="text-align:center; padding:100px">
-  <br>
-  <a href="https://www.appliedai-institute.de" style="text-decoration:none"><img style="height:50px" src="resources/aai-institute-logo.svg" alt="appliedAI Institute"></a>
+  <a href="http://www.oraios-ai.de" style="text-decoration:none"><img align="top" style="height:50px;" src="resources/oraios-logo.svg" alt="Oraios AI"></a>
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="http://www.jambit.com" style="text-decoration:none"><img style="height:50px;" src="resources/jambit-logo.svg" alt="jambit"></a>
+  <a href="http://www.jambit.com" style="text-decoration:none"><img align="top" style="height:64px;" src="resources/jambit-logo.svg" alt="jambit"></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://www.appliedai-institute.de" style="text-decoration:none"><img align="top" style="height:50px;" src="resources/aai-institute-logo.svg" alt="appliedAI Institute"></a>
   <br><br>
 </div>
 
-sensAI is being developed by members of <a href="http://transferlab.ai">TransferLab</a> at 
-<a href="https://www.appliedai-institute.de">appliedAI Institute for Europe gGmbh</a>.  
-The library was originally created by the machine intelligence group at [jambit GmbH](http://www.jambit.com) and was applied in many research and pre-development projects.
+sensAI is being developed by <a href="https://www.oraios-ai.de">Oraios AI</a>.
+The library was originally created by the machine intelligence group at [jambit GmbH](http://www.jambit.com) and was then supported by <a href="https://www.appliedai-institute.de">appliedAI Institute for Europe gGmbh</a>.
+The library was extensively applied in research and development projects at all of these organizations.
 
 The main contributors are <a href="https://github.com/opcode81">Dominik Jain</a>, <a href="https://github.com/MischaPanch">Michael Panchenko</a>, and <a href="https://github.com/schroedk">Kristof Schröder</a>.
 
