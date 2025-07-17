@@ -106,6 +106,13 @@ Results will be stored in `docs/build/`.
      `bumpversion build --commit`
    * Continue with step 3.
 
+5. Merge master into develop and update the version to a new beta-version:
+
+        git checkout develop
+        git merge master
+        bumpversion patch --commit
+
+
 # Source-Level Directory Sync
 
 #### Details on the Synchonisation of a Source Directory within Your Project with the sensAI Repository
