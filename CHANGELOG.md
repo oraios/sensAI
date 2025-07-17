@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.5.0 (2025-07-17)
+## v1.5.0 (2025-07-17)
 
 ### Breaking Changes
 
@@ -75,13 +75,13 @@
   * `NNLossEvaluationClassification` and `TorchVectorClassificationModel`: Add support for class weights
 * `hyperopt`:
   * Add function `iter_subsets`
-  * Add `OptionGenerator` abstraction for flexible combinatorics when experimenting with options (and various implementation)
+  * Add `OptionGenerator` abstraction (and various implementations) for flexible combinatorics when experimenting with options 
 
 ### Fixes
 
 * `util.logging.LogTime`: Fix completion log message appearing in case of exception; log error instead
 
-## 1.4.0 (2025-01-21)
+## v1.4.0 (2025-01-21)
 
 ### Improvements/Changes
 
