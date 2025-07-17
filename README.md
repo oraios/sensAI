@@ -503,7 +503,7 @@ sensAI can be integrated into your project in several ways:
 <div align="center" style="text-align:center; padding:100px">
   <a href="http://www.oraios-ai.de" style="text-decoration:none"><img align="top" style="height:50px;" src="resources/oraios-logo.svg" alt="Oraios AI"></a>
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="http://www.jambit.com" style="text-decoration:none"><img align="top" style="height:64px;" src="resources/jambit-logo.svg" alt="jambit"></a>
+  <a href="http://www.jambit.com" style="text-decoration:none"><img align="top" style="height:62px;" src="resources/jambit-logo.svg" alt="jambit"></a>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://www.appliedai-institute.de" style="text-decoration:none"><img align="top" style="height:50px;" src="resources/aai-institute-logo.svg" alt="appliedAI Institute"></a>
   <br><br>
