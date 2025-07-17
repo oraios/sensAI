@@ -16,7 +16,7 @@ from .tensor_model import TensorToTensorRegressionModel, TensorToScalarRegressio
     TensorToTensorClassificationModel, TensorToScalarClassificationModel
 from .vector_model import VectorModelBase, VectorModel, VectorRegressionModel, VectorClassificationModel
 
-__version__ = "1.5.0"
+__version__ = "1.5.1b1"
 
 # The following submodules are not imported by default to avoid necessarily requiring their dependencies:
 # torch
