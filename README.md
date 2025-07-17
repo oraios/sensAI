@@ -505,7 +505,7 @@ sensAI can be integrated into your project in several ways:
   &nbsp;&nbsp;&nbsp;&nbsp;
   <a href="http://www.jambit.com" style="text-decoration:none"><img align="top" style="height:62px;" src="resources/jambit-logo.svg" alt="jambit"></a>
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://www.appliedai-institute.de" style="text-decoration:none"><img align="top" style="height:50px;" src="resources/aai-institute-logo.svg" alt="appliedAI Institute"></a>
+  <a href="https://www.appliedai-institute.de" style="text-decoration:none"><img align="top" style="height:52px;" src="resources/aai-institute-logo.svg" alt="appliedAI Institute"></a>
   <br><br>
 </div>
 
