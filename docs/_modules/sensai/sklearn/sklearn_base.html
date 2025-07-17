@@ -1,0 +1,917 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sensai.sklearn.sklearn_base &#8212; sensAI Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/sphinx-toolbox.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/js/vega@5.js"></script>
+    <script src="../../../_static/js/vega-lite@5.js"></script>
+    <script src="../../../_static/js/vega-embed@5.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sensai/sklearn/sklearn_base';</script>
+    <link rel="canonical" href="https://tianshou.readthedocs.io/en/master/_modules/sensai/sklearn/sklearn_base.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/sensai-logo.png" class="logo__image only-light" alt="sensAI Documentation - Home"/>
+    <script>document.write(`<img src="../../../_static/sensai-logo.png" class="logo__image only-dark" alt="sensAI Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../index.html">
+                    Welcome to sensAI!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../1-supervised-learning/1-vector-models.html">Models with Modular Data Pipelines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../2-notebooks/0_intro.html">Notebook Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../2-notebooks/1-classification.html">Introduction to sensAI: Supervised Learning with VectorModels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2-notebooks/2-neural_networks.html">Neural Networks</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../sensai/index.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/catboost.html">catboost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/columngen.html">columngen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/distance_metric.html">distance_metric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/feature_importance.html">feature_importance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/hyperopt.html">hyperopt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/lightgbm.html">lightgbm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/local_search.html">local_search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/minizinc.html">minizinc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/multi_model.html">multi_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/naive_bayes.html">naive_bayes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/nearest_neighbors.html">nearest_neighbors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/normalisation.html">normalisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/sklearn_quantile.html">sklearn_quantile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/tensor_model.html">tensor_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/vector_model.html">vector_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/vectoriser.html">vectoriser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/xgboost.html">xgboost</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/clustering/index.html">clustering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/clustering/clustering_base.html">clustering_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/clustering/greedy_clustering.html">greedy_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/clustering/sklearn_clustering.html">sklearn_clustering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/data/index.html">data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data/dataset.html">dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data/io_data.html">io_data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/data_transformation/index.html">data_transformation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data_transformation/dft.html">dft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data_transformation/sklearn_transformer.html">sklearn_transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data_transformation/value_transformation.html">value_transformation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/ensemble/index.html">ensemble</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/ensemble/ensemble_base.html">ensemble_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/ensemble/models.html">models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/evaluation/index.html">evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/crossval.html">crossval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/eval_util.html">eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/evaluator.html">evaluator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/evaluator_clustering.html">evaluator_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/metric_computation.html">metric_computation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/result_set.html">result_set</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/index.html">eval_stats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_base.html">eval_stats_base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_classification.html">eval_stats_classification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_clustering.html">eval_stats_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_regression.html">eval_stats_regression</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/feature_selection/index.html">feature_selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/feature_selection/rfe.html">rfe</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/featuregen/index.html">featuregen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/featuregen/feature_generator.html">feature_generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/featuregen/feature_generator_registry.html">feature_generator_registry</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/geoanalytics/index.html">geoanalytics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/geo_clustering.html">geo_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/geo_coords.html">geo_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/local_coords.html">local_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/map_tiles.html">map_tiles</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/index.html">geopandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/coordinate_clustering.html">coordinate_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/coordinate_clustering_ground_truth.html">coordinate_clustering_ground_truth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/coordinates.html">coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/geometry.html">geometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/graph.html">graph</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/pytorch_lightning/index.html">pytorch_lightning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/pytorch_lightning/pl_models.html">pl_models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/sklearn/index.html">sklearn</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/sklearn/sklearn_base.html">sklearn_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/sklearn/sklearn_classification.html">sklearn_classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/sklearn/sklearn_regression.html">sklearn_regression</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/torch/index.html">torch</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_base.html">torch_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_data.html">torch_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_enums.html">torch_enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_eval_util.html">torch_eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_modules.html">torch_modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_opt.html">torch_opt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torchtext.html">torchtext</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sensai/torch/torch_models/index.html">torch_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/lstnet/index.html">lstnet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/mlp/index.html">mlp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/residualffn/index.html">residualffn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/seq/index.html">seq</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/tracking/index.html">tracking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/azure_tracking.html">azure_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/clearml_tracking.html">clearml_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/mlflow_tracking.html">mlflow_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/tracking_base.html">tracking_base</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/util/index.html">util</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/aggregation.html">aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/cache.html">cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/cache_azure.html">cache_azure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/cache_mysql.html">cache_mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/datastruct.html">datastruct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/deprecation.html">deprecation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/dtype.html">dtype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/git.html">git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/hash.html">hash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/helper.html">helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/jscode.html">jscode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/logging.html">logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/math.html">math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/multiprocessing.html">multiprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/pandas.html">pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/pickle.html">pickle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/plot.html">plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/profiling.html">profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/sequences.html">sequences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/string.html">string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/tensorboard.html">tensorboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/test.html">test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/time.html">time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/typing.html">typing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/version.html">version</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for sensai.sklearn.sklearn_base</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">compose</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..feature_importance</span><span class="w"> </span><span class="kn">import</span> <span class="n">FeatureImportanceProvider</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..util.pickle</span><span class="w"> </span><span class="kn">import</span> <span class="n">setstate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..util.string</span><span class="w"> </span><span class="kn">import</span> <span class="n">dict_string</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..vector_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">VectorRegressionModel</span><span class="p">,</span> <span class="n">VectorClassificationModel</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="create_sklearn_model"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.create_sklearn_model">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">create_sklearn_model</span><span class="p">(</span><span class="n">model_constructor</span><span class="p">,</span> <span class="n">model_args</span><span class="p">,</span> <span class="n">output_transformer</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model_constructor</span><span class="p">(</span><span class="o">**</span><span class="n">model_args</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">output_transformer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">compose</span><span class="o">.</span><span class="n">TransformedTargetRegressor</span><span class="p">(</span><span class="n">regressor</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">transformer</span><span class="o">=</span><span class="n">output_transformer</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span></div>
+
+
+<div class="viewcode-block" id="str_sklearn_model"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.str_sklearn_model">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">str_sklearn_model</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a cleaned string representation of the model with line breaks and indentations removed</span>
+
+<span class="sd">    :param model: the sklearn model for which to generate the cleaned string representation</span>
+<span class="sd">    :return: the string representation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;,\s*&quot;</span><span class="p">,</span> <span class="s2">&quot;, &quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">model</span><span class="p">))</span></div>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_apply_sklearn_input_transformer</span><span class="p">(</span><span class="n">inputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">sklearn_input_transformer</span><span class="p">:</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">fit</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">sklearn_input_transformer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">inputs</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">input_values</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">shape_before</span> <span class="o">=</span> <span class="n">input_values</span><span class="o">.</span><span class="n">shape</span>
+        <span class="k">if</span> <span class="n">fit</span><span class="p">:</span>
+            <span class="n">input_values</span> <span class="o">=</span> <span class="n">sklearn_input_transformer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">input_values</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">input_values</span> <span class="o">=</span> <span class="n">sklearn_input_transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">input_values</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">input_values</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">shape_before</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;sklearnInputTransformer changed the shape of the input, which is unsupported. &quot;</span>
+                            <span class="s2">&quot;Consider using an a DFTSkLearnTransformer as a feature transformer instead.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">input_values</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">inputs</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">inputs</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ActualFitParams"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.ActualFitParams">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">ActualFitParams</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span> <span class="o">=</span> <span class="n">inputs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span> <span class="o">=</span> <span class="n">outputs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span></div>
+
+
+<div class="viewcode-block" id="AbstractSkLearnVectorRegressionModel"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.AbstractSkLearnVectorRegressionModel">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">AbstractSkLearnVectorRegressionModel</span><span class="p">(</span><span class="n">VectorRegressionModel</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for models built upon scikit-learn&#39;s model implementations</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">log</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">getChild</span><span class="p">(</span><span class="vm">__qualname__</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_constructor</span><span class="p">,</span> <span class="o">**</span><span class="n">model_args</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param model_constructor: the sklearn model constructor</span>
+<span class="sd">        :param model_args: arguments to be passed to the sklearn model constructor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sklearnInputTransformer</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sklearnOutputTransformer</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">modelConstructor</span> <span class="o">=</span> <span class="n">model_constructor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">modelArgs</span> <span class="o">=</span> <span class="n">model_args</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fitArgs</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_excludes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_tostring_excludes</span><span class="p">()</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;sklearnInputTransformer&quot;</span><span class="p">,</span> <span class="s2">&quot;sklearnOutputTransformer&quot;</span><span class="p">,</span> <span class="s2">&quot;modelConstructor&quot;</span><span class="p">,</span> <span class="s2">&quot;modelArgs&quot;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="AbstractSkLearnVectorRegressionModel.with_sklearn_input_transformer"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.AbstractSkLearnVectorRegressionModel.with_sklearn_input_transformer">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_sklearn_input_transformer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sklearn_input_transformer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="vm">__qualname__</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param sklearn_input_transformer: an optional sklearn preprocessor for normalising/scaling inputs</span>
+<span class="sd">        :return: self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sklearnInputTransformer</span> <span class="o">=</span> <span class="n">sklearn_input_transformer</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="AbstractSkLearnVectorRegressionModel.with_sklearn_output_transformer"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.AbstractSkLearnVectorRegressionModel.with_sklearn_output_transformer">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_sklearn_output_transformer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sklearn_output_transformer</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param sklearn_output_transformer: an optional sklearn preprocessor for normalising/scaling outputs</span>
+<span class="sd">        :return: self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sklearnOutputTransformer</span> <span class="o">=</span> <span class="n">sklearn_output_transformer</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_transform_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_apply_sklearn_input_transformer</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sklearnInputTransformer</span><span class="p">,</span> <span class="n">fit</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_update_model_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Designed to be overridden in order to make input data-specific changes to modelArgs</span>
+
+<span class="sd">        :param inputs: the training input data</span>
+<span class="sd">        :param outputs: the training output data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_update_fit_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Designed to be overridden in order to make input data-specific changes to fitArgs (arguments to be passed to the</span>
+<span class="sd">        underlying model&#39;s `fit` method)</span>
+
+<span class="sd">        :param inputs: the training input data</span>
+<span class="sd">        :param outputs: the training output data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_compute_actual_fit_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ActualFitParams</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes additional arguments to be passed to the model&#39;s `fit` method, which are transient and shall not be saved</span>
+<span class="sd">        along with the model as metadata, e.g. larger data structures such as validation data or sample weights.</span>
+
+<span class="sd">        :param inputs: the training input data</span>
+<span class="sd">        :param outputs: the training output data</span>
+<span class="sd">        :return: a dictionary of parameters to be passed to `fit`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fit_params</span> <span class="o">=</span> <span class="n">ActualFitParams</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fitArgs</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">weights</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_warn_sample_weights_unsupported</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_sample_weight_supported</span><span class="p">(),</span> <span class="n">weights</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_sample_weight_supported</span><span class="p">():</span>
+                <span class="n">fit_params</span><span class="o">.</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;sample_weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weights</span>
+        <span class="k">return</span> <span class="n">fit_params</span>
+
+<div class="viewcode-block" id="AbstractSkLearnVectorRegressionModel.is_sample_weight_supported"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.AbstractSkLearnVectorRegressionModel.is_sample_weight_supported">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_sample_weight_supported</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">pass</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform_input</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_model_args</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_fit_args</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
+        <span class="n">actual_fit_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_actual_fit_params</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fit_sklearn</span><span class="p">(</span><span class="n">actual_fit_params</span><span class="p">)</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fit_sklearn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">ActualFitParams</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform_input</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_predict_sklearn</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_predict_sklearn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="AbstractSkLearnMultipleOneDimVectorRegressionModel"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.AbstractSkLearnMultipleOneDimVectorRegressionModel">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">AbstractSkLearnMultipleOneDimVectorRegressionModel</span><span class="p">(</span><span class="n">AbstractSkLearnVectorRegressionModel</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for models which use several sklearn models of the same type with a single</span>
+<span class="sd">    output dimension to create a multi-dimensional model (for the case where there is more than one output dimension)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_constructor</span><span class="p">,</span> <span class="o">**</span><span class="n">model_args</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model_constructor</span><span class="p">,</span> <span class="o">**</span><span class="n">model_args</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">models</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_excludes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_tostring_excludes</span><span class="p">()</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;models&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_additional_entries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_tostring_additional_entries</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="s2">&quot;model[0]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">str_sklearn_model</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">values</span><span class="p">())))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="s2">&quot;modelConstructor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modelConstructor</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="n">dict_string</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modelArgs</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">return</span> <span class="n">d</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fit_sklearn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">ActualFitParams</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">predictedVarName</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fitting model for output variable &#39;</span><span class="si">{</span><span class="n">predictedVarName</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">create_sklearn_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modelConstructor</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">modelArgs</span><span class="p">,</span>
+                    <span class="n">output_transformer</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sklearnOutputTransformer</span><span class="p">))</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">inputs</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="n">predictedVarName</span><span class="p">],</span> <span class="o">**</span><span class="n">params</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="n">predictedVarName</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_predict_sklearn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">varName</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">:</span>
+            <span class="n">results</span><span class="p">[</span><span class="n">varName</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_predict_sklearn_single_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="n">varName</span><span class="p">],</span> <span class="n">inputs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_predict_sklearn_single_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AbstractSkLearnMultipleOneDimVectorRegressionModel.get_sklearn_model"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.AbstractSkLearnMultipleOneDimVectorRegressionModel.get_sklearn_model">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_sklearn_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predicted_var_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">predicted_var_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Must provide predicted variable name (one of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="n">predicted_var_name</span><span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="AbstractSkLearnMultiDimVectorRegressionModel"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.AbstractSkLearnMultiDimVectorRegressionModel">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">AbstractSkLearnMultiDimVectorRegressionModel</span><span class="p">(</span><span class="n">AbstractSkLearnVectorRegressionModel</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for models which use a single sklearn model with multiple output dimensions to create the multi-dimensional model</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_constructor</span><span class="p">,</span> <span class="o">**</span><span class="n">model_args</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model_constructor</span><span class="p">,</span> <span class="o">**</span><span class="n">model_args</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_excludes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_tostring_excludes</span><span class="p">()</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_additional_entries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_tostring_additional_entries</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">str_sklearn_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="s2">&quot;modelConstructor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modelConstructor</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="n">dict_string</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modelArgs</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">return</span> <span class="n">d</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fit_sklearn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">ActualFitParams</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fitting a single multi-dimensional model for all </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="si">}</span><span class="s2"> output dimensions&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">create_sklearn_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modelConstructor</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">modelArgs</span><span class="p">,</span> <span class="n">output_transformer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sklearnOutputTransformer</span><span class="p">)</span>
+        <span class="n">output_values</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">values</span>
+        <span class="k">if</span> <span class="n">output_values</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># for 1D output, shape must be (numSamples,) rather than (numSamples, 1)</span>
+            <span class="n">output_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">output_values</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">inputs</span><span class="p">,</span> <span class="n">output_values</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_predict_sklearn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_model_output_variable_names</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="AbstractSkLearnVectorClassificationModel"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.AbstractSkLearnVectorClassificationModel">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">AbstractSkLearnVectorClassificationModel</span><span class="p">(</span><span class="n">VectorClassificationModel</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_constructor</span><span class="p">,</span> <span class="n">use_balanced_class_weights</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">use_label_encoding</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">model_args</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param model_constructor: the sklearn model constructor</span>
+<span class="sd">        :param model_args: arguments to be passed to the sklearn model constructor</span>
+<span class="sd">        :param use_balanced_class_weights: whether to compute class weights from the training data and apply the corresponding weight to</span>
+<span class="sd">            each data point such that the sum of weights for all classes is equal. This is achieved by applying a weight proportional</span>
+<span class="sd">            to the reciprocal frequency of the class in the (training) data. We scale weights such that the smallest weight (of the</span>
+<span class="sd">            largest class) is 1, ensuring that weight counts still reasonably correspond to data point counts.</span>
+<span class="sd">            Note that weighted data points may not be supported for all types of models.</span>
+<span class="sd">        :param use_label_encoding: whether to replace original class labels with 0-based index in sorted list of labels (a.k.a. label</span>
+<span class="sd">            encoding), which is required by some sklearn-compatible implementations (particularly xgboost)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">modelConstructor</span> <span class="o">=</span> <span class="n">model_constructor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sklearnInputTransformer</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">modelArgs</span> <span class="o">=</span> <span class="n">model_args</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fitArgs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">useBalancedClassWeights</span> <span class="o">=</span> <span class="n">use_balanced_class_weights</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">useLabelEncoding</span> <span class="o">=</span> <span class="n">use_label_encoding</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__setstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="n">setstate</span><span class="p">(</span><span class="n">AbstractSkLearnVectorClassificationModel</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">new_optional_properties</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;labelEncoder&quot;</span><span class="p">],</span>
+            <span class="n">new_default_properties</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;useComputedClassWeights&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;useLabelEncoder&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+            <span class="n">renamed_properties</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;useComputedClassWeights&quot;</span><span class="p">:</span> <span class="s2">&quot;useBalancedClassWeights&quot;</span><span class="p">},</span>
+            <span class="n">removed_properties</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sklearnOutputTransformer&quot;</span><span class="p">])</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_excludes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_tostring_excludes</span><span class="p">()</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;modelConstructor&quot;</span><span class="p">,</span> <span class="s2">&quot;sklearnInputTransformer&quot;</span><span class="p">,</span> <span class="s2">&quot;sklearnOutputTransformer&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;modelArgs&quot;</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_additional_entries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_tostring_additional_entries</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="s2">&quot;modelConstructor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modelConstructor</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="n">dict_string</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modelArgs</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">str_sklearn_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">d</span>
+
+<div class="viewcode-block" id="AbstractSkLearnVectorClassificationModel.with_sklearn_input_transformer"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.AbstractSkLearnVectorClassificationModel.with_sklearn_input_transformer">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_sklearn_input_transformer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sklearn_input_transformer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="vm">__qualname__</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param sklearn_input_transformer: an optional sklearn preprocessor for transforming inputs</span>
+<span class="sd">        :return: self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sklearnInputTransformer</span> <span class="o">=</span> <span class="n">sklearn_input_transformer</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_update_model_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Designed to be overridden in order to make input data-specific changes to modelArgs</span>
+
+<span class="sd">        :param inputs: the training input data</span>
+<span class="sd">        :param outputs: the training output data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_update_fit_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Designed to be overridden in order to make input data-specific changes to fitArgs (arguments to be passed to the</span>
+<span class="sd">        underlying model&#39;s fit method)</span>
+
+<span class="sd">        :param inputs: the training input data</span>
+<span class="sd">        :param outputs: the training output data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+<div class="viewcode-block" id="AbstractSkLearnVectorClassificationModel.is_sample_weight_supported"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.AbstractSkLearnVectorClassificationModel.is_sample_weight_supported">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_sample_weight_supported</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">pass</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fit_classifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform_input</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_model_args</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_fit_args</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">create_sklearn_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modelConstructor</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">modelArgs</span><span class="p">)</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fitting sklearn classifier of type </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fitArgs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">useBalancedClassWeights</span> <span class="ow">and</span> <span class="n">weights</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Balanced class weights cannot be used in conjunction with user-specified weights&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">useBalancedClassWeights</span><span class="p">:</span>
+            <span class="n">class2weight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_class_weights</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span>
+            <span class="n">classes</span> <span class="o">=</span> <span class="n">outputs</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">class2weight</span><span class="p">[</span><span class="bp">cls</span><span class="p">]</span> <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">])</span>
+            <span class="n">weights</span> <span class="o">=</span> <span class="n">weights</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;sample_weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weights</span>
+
+        <span class="k">elif</span> <span class="n">weights</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_warn_sample_weights_unsupported</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_sample_weight_supported</span><span class="p">(),</span> <span class="n">weights</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_sample_weight_supported</span><span class="p">():</span>
+                <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;sample_weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weights</span>
+
+        <span class="n">output_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">outputs</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">useLabelEncoding</span><span class="p">:</span>
+            <span class="n">output_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_encode_labels</span><span class="p">(</span><span class="n">output_values</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fit_sklearn_classifier</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">output_values</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fit_sklearn_classifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">output_values</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">output_values</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_transform_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_apply_sklearn_input_transformer</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sklearnInputTransformer</span><span class="p">,</span> <span class="n">fit</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_encode_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="n">l</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_labels</span><span class="p">)}</span>
+        <span class="n">vfn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">vfn</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_decode_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_labels</span><span class="p">))</span>
+        <span class="n">vfn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">vfn</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_predict_sklearn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_values</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_values</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="n">input_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform_input</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_predict_sklearn</span><span class="p">(</span><span class="n">input_values</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">useLabelEncoding</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decode_labels</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_predictedVariableNames</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_predict_class_probabilities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="n">input_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform_input</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">input_values</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_labels</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AbstractSkLearnVectorClassificationModel.get_params"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.AbstractSkLearnVectorClassificationModel.get_params">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_params</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="n">deep</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AbstractSkLearnVectorClassificationModel.set_params"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.AbstractSkLearnVectorClassificationModel.set_params">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">set_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span></div>
+
+    <span class="c1"># noinspection PyMethodMayBeStatic</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_compute_class_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param outputs: the output data frame containing the class labels as the first column</span>
+<span class="sd">        :return: the dictionary of class weights mapping class to weight value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">classes</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span> <span class="o">=</span> <span class="n">outputs</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">counts</span> <span class="o">=</span> <span class="n">classes</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+        <span class="n">rfreqs</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">/</span> <span class="n">counts</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">weights</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">rfreqs</span>
+        <span class="k">return</span> <span class="n">weights</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span></div>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_model_feature_importance_vector</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+    <span class="n">cand_attributes</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;feature_importances_&quot;</span><span class="p">,</span> <span class="s2">&quot;coef_&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">cand_attributes</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+            <span class="n">importance_values</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">attr</span> <span class="o">==</span> <span class="s2">&quot;coef_&quot;</span><span class="p">:</span>
+                <span class="n">importance_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">importance_values</span><span class="p">)</span>  <span class="c1"># for coefficients in linear models, use the absolute values</span>
+            <span class="k">return</span> <span class="n">importance_values</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model </span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s2"> has none of the attributes </span><span class="si">{</span><span class="n">cand_attributes</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="FeatureImportanceProviderSkLearnRegressionMultipleOneDim"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.FeatureImportanceProviderSkLearnRegressionMultipleOneDim">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">FeatureImportanceProviderSkLearnRegressionMultipleOneDim</span><span class="p">(</span><span class="n">FeatureImportanceProvider</span><span class="p">):</span>
+<div class="viewcode-block" id="FeatureImportanceProviderSkLearnRegressionMultipleOneDim.get_feature_importance_dict"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.FeatureImportanceProviderSkLearnRegressionMultipleOneDim.get_feature_importance_dict">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_feature_importance_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+        <span class="bp">self</span><span class="p">:</span> <span class="n">AbstractSkLearnMultipleOneDimVectorRegressionModel</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">targetFeature</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_modelInputVariableNames</span><span class="p">,</span> <span class="n">_get_model_feature_importance_vector</span><span class="p">(</span><span class="n">model</span><span class="p">)))</span>
+                <span class="k">for</span> <span class="n">targetFeature</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span></div></div>
+
+
+<div class="viewcode-block" id="FeatureImportanceProviderSkLearnRegressionMultiDim"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.FeatureImportanceProviderSkLearnRegressionMultiDim">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">FeatureImportanceProviderSkLearnRegressionMultiDim</span><span class="p">(</span><span class="n">FeatureImportanceProvider</span><span class="p">):</span>
+<div class="viewcode-block" id="FeatureImportanceProviderSkLearnRegressionMultiDim.get_feature_importance_dict"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.FeatureImportanceProviderSkLearnRegressionMultiDim.get_feature_importance_dict">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_feature_importance_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+        <span class="bp">self</span><span class="p">:</span> <span class="n">AbstractSkLearnMultiDimVectorRegressionModel</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_modelInputVariableNames</span><span class="p">,</span> <span class="n">_get_model_feature_importance_vector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)))</span></div></div>
+
+
+<div class="viewcode-block" id="FeatureImportanceProviderSkLearnClassification"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.FeatureImportanceProviderSkLearnClassification">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">FeatureImportanceProviderSkLearnClassification</span><span class="p">(</span><span class="n">FeatureImportanceProvider</span><span class="p">):</span>
+<div class="viewcode-block" id="FeatureImportanceProviderSkLearnClassification.get_feature_importance_dict"><a class="viewcode-back" href="../../../sensai/sklearn/sklearn_base.html#sensai.sklearn.sklearn_base.FeatureImportanceProviderSkLearnClassification.get_feature_importance_dict">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_feature_importance_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+        <span class="bp">self</span><span class="p">:</span> <span class="n">AbstractSkLearnVectorClassificationModel</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_modelInputVariableNames</span><span class="p">,</span> <span class="n">_get_model_feature_importance_vector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)))</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By sensAI contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2019-2024 by sensAI contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

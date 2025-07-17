@@ -1,0 +1,979 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sensai.util.plot &#8212; sensAI Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/sphinx-toolbox.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/js/vega@5.js"></script>
+    <script src="../../../_static/js/vega-lite@5.js"></script>
+    <script src="../../../_static/js/vega-embed@5.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sensai/util/plot';</script>
+    <link rel="canonical" href="https://tianshou.readthedocs.io/en/master/_modules/sensai/util/plot.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/sensai-logo.png" class="logo__image only-light" alt="sensAI Documentation - Home"/>
+    <script>document.write(`<img src="../../../_static/sensai-logo.png" class="logo__image only-dark" alt="sensAI Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../index.html">
+                    Welcome to sensAI!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../1-supervised-learning/1-vector-models.html">Models with Modular Data Pipelines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../2-notebooks/0_intro.html">Notebook Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../2-notebooks/1-classification.html">Introduction to sensAI: Supervised Learning with VectorModels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2-notebooks/2-neural_networks.html">Neural Networks</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../sensai/index.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/catboost.html">catboost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/columngen.html">columngen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/distance_metric.html">distance_metric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/feature_importance.html">feature_importance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/hyperopt.html">hyperopt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/lightgbm.html">lightgbm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/local_search.html">local_search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/minizinc.html">minizinc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/multi_model.html">multi_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/naive_bayes.html">naive_bayes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/nearest_neighbors.html">nearest_neighbors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/normalisation.html">normalisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/sklearn_quantile.html">sklearn_quantile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/tensor_model.html">tensor_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/vector_model.html">vector_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/vectoriser.html">vectoriser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/xgboost.html">xgboost</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/clustering/index.html">clustering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/clustering/clustering_base.html">clustering_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/clustering/greedy_clustering.html">greedy_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/clustering/sklearn_clustering.html">sklearn_clustering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/data/index.html">data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data/dataset.html">dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data/io_data.html">io_data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/data_transformation/index.html">data_transformation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data_transformation/dft.html">dft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data_transformation/sklearn_transformer.html">sklearn_transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data_transformation/value_transformation.html">value_transformation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/ensemble/index.html">ensemble</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/ensemble/ensemble_base.html">ensemble_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/ensemble/models.html">models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/evaluation/index.html">evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/crossval.html">crossval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/eval_util.html">eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/evaluator.html">evaluator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/evaluator_clustering.html">evaluator_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/metric_computation.html">metric_computation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/result_set.html">result_set</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/index.html">eval_stats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_base.html">eval_stats_base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_classification.html">eval_stats_classification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_clustering.html">eval_stats_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_regression.html">eval_stats_regression</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/feature_selection/index.html">feature_selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/feature_selection/rfe.html">rfe</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/featuregen/index.html">featuregen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/featuregen/feature_generator.html">feature_generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/featuregen/feature_generator_registry.html">feature_generator_registry</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/geoanalytics/index.html">geoanalytics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/geo_clustering.html">geo_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/geo_coords.html">geo_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/local_coords.html">local_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/map_tiles.html">map_tiles</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/index.html">geopandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/coordinate_clustering.html">coordinate_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/coordinate_clustering_ground_truth.html">coordinate_clustering_ground_truth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/coordinates.html">coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/geometry.html">geometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/graph.html">graph</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/pytorch_lightning/index.html">pytorch_lightning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/pytorch_lightning/pl_models.html">pl_models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/sklearn/index.html">sklearn</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/sklearn/sklearn_base.html">sklearn_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/sklearn/sklearn_classification.html">sklearn_classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/sklearn/sklearn_regression.html">sklearn_regression</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/torch/index.html">torch</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_base.html">torch_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_data.html">torch_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_enums.html">torch_enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_eval_util.html">torch_eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_modules.html">torch_modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_opt.html">torch_opt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torchtext.html">torchtext</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sensai/torch/torch_models/index.html">torch_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/lstnet/index.html">lstnet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/mlp/index.html">mlp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/residualffn/index.html">residualffn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/seq/index.html">seq</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/tracking/index.html">tracking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/azure_tracking.html">azure_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/clearml_tracking.html">clearml_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/mlflow_tracking.html">mlflow_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/tracking_base.html">tracking_base</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/util/index.html">util</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/aggregation.html">aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/cache.html">cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/cache_azure.html">cache_azure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/cache_mysql.html">cache_mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/datastruct.html">datastruct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/deprecation.html">deprecation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/dtype.html">dtype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/git.html">git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/hash.html">hash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/helper.html">helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/jscode.html">jscode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/logging.html">logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/math.html">math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/multiprocessing.html">multiprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/pandas.html">pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/pickle.html">pickle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/plot.html">plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/profiling.html">profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/sequences.html">sequences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/string.html">string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/tensorboard.html">tensorboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/test.html">test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/time.html">time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/typing.html">typing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/version.html">version</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for sensai.util.plot</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">TypeVar</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Dict</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.figure</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.ticker</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plticker</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sensai.util.pandas</span><span class="w"> </span><span class="kn">import</span> <span class="n">SeriesInterpolation</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">MATPLOTLIB_DEFAULT_FIGURE_SIZE</span> <span class="o">=</span> <span class="p">(</span><span class="mf">6.4</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Color"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.Color">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Color</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param c: any color specification that is understood by matplotlib</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rgba</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">to_rgba</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Color.darken"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.Color.darken">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">darken</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param amount: amount to darken in [0,1], where 1 results in black and 0 leaves the color unchanged</span>
+<span class="sd">        :return: the darkened color</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">colorsys</span>
+        <span class="n">rgb</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">to_rgb</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rgba</span><span class="p">)</span>
+        <span class="n">h</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">colorsys</span><span class="o">.</span><span class="n">rgb_to_hls</span><span class="p">(</span><span class="o">*</span><span class="n">rgb</span><span class="p">)</span>
+        <span class="n">l</span> <span class="o">*=</span> <span class="n">amount</span>
+        <span class="n">rgb</span> <span class="o">=</span> <span class="n">colorsys</span><span class="o">.</span><span class="n">hls_to_rgb</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Color</span><span class="p">((</span><span class="o">*</span><span class="n">rgb</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rgba</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span></div>
+
+<div class="viewcode-block" id="Color.lighten"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.Color.lighten">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">lighten</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param amount: amount to lighten in [0,1], where 1 results in white and 0 leaves the color unchanged</span>
+<span class="sd">        :return: the lightened color</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">colorsys</span>
+        <span class="n">rgb</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">to_rgb</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rgba</span><span class="p">)</span>
+        <span class="n">h</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">colorsys</span><span class="o">.</span><span class="n">rgb_to_hls</span><span class="p">(</span><span class="o">*</span><span class="n">rgb</span><span class="p">)</span>
+        <span class="n">l</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">l</span><span class="p">)</span> <span class="o">*</span> <span class="n">amount</span>
+        <span class="n">rgb</span> <span class="o">=</span> <span class="n">colorsys</span><span class="o">.</span><span class="n">hls_to_rgb</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Color</span><span class="p">((</span><span class="o">*</span><span class="n">rgb</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rgba</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span></div>
+
+<div class="viewcode-block" id="Color.alpha"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.Color.alpha">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">alpha</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opacity</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Color&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a new color with modified alpha channel (opacity)</span>
+<span class="sd">        :param opacity: the opacity between 0 (transparent) and 1 (fully opaque)</span>
+<span class="sd">        :return: the modified color</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">opacity</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Opacity must be between 0 and 1, got </span><span class="si">{</span><span class="n">opacity</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Color</span><span class="p">((</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">rgba</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span> <span class="n">opacity</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Color.to_hex"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.Color.to_hex">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">to_hex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keep_alpha</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">to_hex</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rgba</span><span class="p">,</span> <span class="n">keep_alpha</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="LinearColorMap"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.LinearColorMap">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">LinearColorMap</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Facilitates usage of linear segmented colour maps by combining a colour map (member `cmap`), which transforms normalised values in [0,1]</span>
+<span class="sd">    into colours, with a normaliser that transforms the original values. The member `scalarMapper`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">norm_min</span><span class="p">,</span> <span class="n">norm_max</span><span class="p">,</span> <span class="n">cmap_points</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="n">cmap_points_normalised</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param norm_min: the value that shall be mapped to 0 in the normalised representation (any smaller values are also clipped to 0)</span>
+<span class="sd">        :param norm_max: the value that shall be mapped to 1 in the normalised representation (any larger values are also clipped to 1)</span>
+<span class="sd">        :param cmap_points: a list (of at least two) tuples (v, c) where v is the value and c is the colour associated with the value;</span>
+<span class="sd">            any colour specification supported by matplotlib is admissible</span>
+<span class="sd">        :param cmap_points_normalised: whether the values in `cmap_points` are already normalised</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">norm</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">norm_min</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">norm_max</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">cmap_points_normalised</span><span class="p">:</span>
+            <span class="n">cmap_points</span> <span class="o">=</span> <span class="p">[(</span><span class="bp">self</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cmap_points</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cmap</span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cmap_points</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scalarMapper</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span><span class="n">norm</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">norm</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cmap</span><span class="p">)</span>
+
+<div class="viewcode-block" id="LinearColorMap.get_color"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.LinearColorMap.get_color">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">rgba</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scalarMapper</span><span class="o">.</span><span class="n">to_rgba</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;#</span><span class="si">%02x%02x%02x%02x</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">v</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">rgba</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="plot_matrix"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.plot_matrix">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">plot_matrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">xtick_labels</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">ytick_labels</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">xlabel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">ylabel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">title_add</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">Figure</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :param matrix: matrix whose data to plot, where matrix[i, j] will be rendered at x=i, y=j</span>
+<span class="sd">    :param title: the plot&#39;s title</span>
+<span class="sd">    :param xtick_labels: the labels for the x-axis ticks</span>
+<span class="sd">    :param ytick_labels: the labels for the y-axis ticks</span>
+<span class="sd">    :param xlabel: the label for the x-axis</span>
+<span class="sd">    :param ylabel: the label for the y-axis</span>
+<span class="sd">    :param normalize: whether to normalise the matrix before plotting it (dividing each entry by the sum of all entries)</span>
+<span class="sd">    :param figsize: an optional size of the figure to be created</span>
+<span class="sd">    :param title_add: an optional second line to add to the title</span>
+<span class="sd">    :return: the figure object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">title_add</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">title</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">title_add</span><span class="si">}</span><span class="s2"> &quot;</span>
+
+    <span class="k">if</span> <span class="n">normalize</span><span class="p">:</span>
+        <span class="n">matrix</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">set_window_title</span><span class="p">(</span><span class="n">title</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">))</span>
+    <span class="c1"># We want to show all ticks...</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+        <span class="n">yticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+        <span class="c1"># ... and label them with the respective list entries</span>
+        <span class="n">xticklabels</span><span class="o">=</span><span class="n">xtick_labels</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">ytick_labels</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
+        <span class="n">xlabel</span><span class="o">=</span><span class="n">xlabel</span><span class="p">,</span>
+        <span class="n">ylabel</span><span class="o">=</span><span class="n">ylabel</span><span class="p">)</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+    <span class="c1"># Rotate the tick labels and set their alignment.</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span>
+        <span class="n">rotation_mode</span><span class="o">=</span><span class="s2">&quot;anchor&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Loop over data dimensions and create text annotations.</span>
+    <span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;.4f&#39;</span> <span class="k">if</span> <span class="n">normalize</span> <span class="k">else</span> <span class="p">(</span><span class="s1">&#39;.2f&#39;</span> <span class="k">if</span> <span class="n">matrix</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;f&#39;</span> <span class="k">else</span> <span class="s1">&#39;d&#39;</span><span class="p">)</span>
+    <span class="n">thresh</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">/</span> <span class="mf">2.</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">fmt</span><span class="p">),</span>
+                <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span> <span class="k">if</span> <span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">thresh</span> <span class="k">else</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">fig</span></div>
+
+
+<span class="n">TPlot</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;TPlot&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="s2">&quot;Plot&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Plot"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.Plot">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Plot</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">draw</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">plt</span><span class="o">.</span><span class="n">Axes</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">Axes</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param draw: function which returns a matplotlib.Axes object to show</span>
+<span class="sd">        :param name: name/number of the figure, which determines the window caption; it should be unique, as any plot</span>
+<span class="sd">            with the same name will have its contents rendered in the same window. By default, figures are number</span>
+<span class="sd">            sequentially.</span>
+<span class="sd">        :param ax: the axes to draw to</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fig</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fig</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">Figure</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">fig</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">Axes</span> <span class="o">=</span> <span class="n">ax</span>
+        <span class="k">if</span> <span class="n">draw</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">draw</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Plot.xlabel"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.Plot.xlabel">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">xlabel</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">TPlot</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TPlot</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Plot.ylabel"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.Plot.ylabel">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">ylabel</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">TPlot</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TPlot</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Plot.title"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.Plot.title">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">title</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">TPlot</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TPlot</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Plot.xlim"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.Plot.xlim">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">xlim</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">TPlot</span><span class="p">,</span> <span class="n">min_value</span><span class="p">,</span> <span class="n">max_value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TPlot</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">min_value</span><span class="p">,</span> <span class="n">max_value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Plot.ylim"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.Plot.ylim">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">ylim</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">TPlot</span><span class="p">,</span> <span class="n">min_value</span><span class="p">,</span> <span class="n">max_value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TPlot</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">min_value</span><span class="p">,</span> <span class="n">max_value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Plot.save"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.Plot.save">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saving figure in </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Plot.show"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.Plot.show">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Plot.xtick"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.Plot.xtick">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">xtick</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">TPlot</span><span class="p">,</span> <span class="n">major</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minor</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TPlot</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets a tick on every integer multiple of the given base values.</span>
+<span class="sd">        The major ticks are labelled, the minor ticks are not.</span>
+
+<span class="sd">        :param major: the major tick base value</span>
+<span class="sd">        :param minor: the minor tick base value</span>
+<span class="sd">        :return: self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">major</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">xtick_major</span><span class="p">(</span><span class="n">major</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">minor</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">xtick_minor</span><span class="p">(</span><span class="n">minor</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Plot.xtick_major"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.Plot.xtick_major">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">xtick_major</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">TPlot</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TPlot</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">plticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Plot.xtick_minor"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.Plot.xtick_minor">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">xtick_minor</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">TPlot</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TPlot</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">plticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Plot.ytick_major"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.Plot.ytick_major">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">ytick_major</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">TPlot</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TPlot</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">plticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span></div></div>
+
+
+<div class="viewcode-block" id="ScatterPlot"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.ScatterPlot">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">ScatterPlot</span><span class="p">(</span><span class="n">Plot</span><span class="p">):</span>
+    <span class="n">N_MAX_TRANSPARENCY</span> <span class="o">=</span> <span class="mi">1000</span>
+    <span class="n">N_MIN_TRANSPARENCY</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">MAX_OPACITY</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="n">MIN_OPACITY</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c_base</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">c_opacity</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x_label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">y_label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">add_diagonal</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param x: the x values; if has name (e.g. pd.Series), will be used as axis label</span>
+<span class="sd">        :param y: the y values; if has name (e.g. pd.Series), will be used as axis label</span>
+<span class="sd">        :param c: the colour specification; if None, compose from ``c_base`` and ``c_opacity``</span>
+<span class="sd">        :param c_base: the base colour as (R, G, B) floats</span>
+<span class="sd">        :param c_opacity: the opacity; if None, automatically determine from number of data points</span>
+<span class="sd">        :param x_label:</span>
+<span class="sd">        :param y_label:</span>
+<span class="sd">        :param kwargs:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">c_base</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">c_base</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">c_opacity</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">N_MAX_TRANSPARENCY</span><span class="p">:</span>
+                    <span class="n">transparency</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">elif</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">N_MIN_TRANSPARENCY</span><span class="p">:</span>
+                    <span class="n">transparency</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">transparency</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">N_MIN_TRANSPARENCY</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">N_MAX_TRANSPARENCY</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">N_MIN_TRANSPARENCY</span><span class="p">)</span>
+                <span class="n">c_opacity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">MIN_OPACITY</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">MAX_OPACITY</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">MIN_OPACITY</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">transparency</span><span class="p">)</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="p">((</span><span class="o">*</span><span class="n">c_base</span><span class="p">,</span> <span class="n">c_opacity</span><span class="p">),)</span>
+
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">x_label</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">):</span>
+            <span class="n">x_label</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">if</span> <span class="n">y_label</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">):</span>
+            <span class="n">y_label</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">name</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="n">ax</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">x_label</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">x_label</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">x_label</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">y_label</span><span class="p">)</span>
+            <span class="n">value_range</span> <span class="o">=</span> <span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">y</span><span class="p">)),</span> <span class="nb">max</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">))]</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">add_diagonal</span><span class="p">:</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">value_range</span><span class="p">,</span> <span class="n">value_range</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;_not in legend&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">draw</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="HeatMapPlot"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.HeatMapPlot">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">HeatMapPlot</span><span class="p">(</span><span class="n">Plot</span><span class="p">):</span>
+    <span class="n">DEFAULT_CMAP_FACTORY</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">num_points</span><span class="p">:</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s2">&quot;whiteToRed&quot;</span><span class="p">,</span>
+        <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">num_points</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.96</span><span class="p">,</span> <span class="mf">0.96</span><span class="p">)),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))),</span> <span class="n">num_points</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x_label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y_label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">common_range</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">diagonal</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">diagonal_color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param x: the x values</span>
+<span class="sd">        :param y: the y values</span>
+<span class="sd">        :param x_label: the x-axis label</span>
+<span class="sd">        :param y_label: the y-axis label</span>
+<span class="sd">        :param bins: the number of bins to use in each dimension</span>
+<span class="sd">        :param cmap: the colour map to use for heat values (if None, use default)</span>
+<span class="sd">        :param common_range: whether the heat map is to use a common rng for the x- and y-axes (set to False if x and y are completely</span>
+<span class="sd">            different quantities; set to True use cases such as the evaluation of regression model quality)</span>
+<span class="sd">        :param diagonal: whether to draw the diagonal line (useful for regression evaluation)</span>
+<span class="sd">        :param diagonal_color: the colour to use for the diagonal line</span>
+<span class="sd">        :param kwargs: parameters to pass on to plt.imshow</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">x_label</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">):</span>
+            <span class="n">x_label</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">if</span> <span class="n">y_label</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">):</span>
+            <span class="n">y_label</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">name</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="n">ax</span><span class="p">):</span>
+            <span class="k">nonlocal</span> <span class="n">cmap</span>
+            <span class="n">x_range</span> <span class="o">=</span> <span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span>
+            <span class="n">y_range</span> <span class="o">=</span> <span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)]</span>
+            <span class="n">rng</span> <span class="o">=</span> <span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">x_range</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x_range</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y_range</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+            <span class="k">if</span> <span class="n">common_range</span><span class="p">:</span>
+                <span class="n">x_range</span> <span class="o">=</span> <span class="n">y_range</span> <span class="o">=</span> <span class="n">rng</span>
+            <span class="k">if</span> <span class="n">diagonal</span><span class="p">:</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="n">rng</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;_not in legend&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">diagonal_color</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">heatmap</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="n">x_range</span><span class="p">,</span> <span class="n">y_range</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">extent</span> <span class="o">=</span> <span class="p">[</span><span class="n">x_range</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_range</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y_range</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+            <span class="k">if</span> <span class="n">cmap</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">cmap</span> <span class="o">=</span> <span class="n">HeatMapPlot</span><span class="o">.</span><span class="n">DEFAULT_CMAP_FACTORY</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">x_label</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">x_label</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">y_label</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">y_label</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">heatmap</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">draw</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="HistogramPlot"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.HistogramPlot">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">HistogramPlot</span><span class="p">(</span><span class="n">Plot</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cdf</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cdf_complementary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cdf_secondary_axis</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">binwidth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;probability&quot;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param values: the values to plot</span>
+<span class="sd">        :param bins: a bin specification as understood by sns.histplot</span>
+<span class="sd">        :param kde: whether to add a kernel density estimator</span>
+<span class="sd">        :param cdf: whether to add a plot of the cumulative distribution function (cdf)</span>
+<span class="sd">        :param cdf_complementary: whether to plot, if cdf is enabled, the complementary values</span>
+<span class="sd">        :param cdf_secondary_axis: whether to use, if cdf is enabled, a secondary</span>
+<span class="sd">        :param binwidth: the bin width; if None, inferred</span>
+<span class="sd">        :param stat: the statistic to plot (as understood by sns.histplot)</span>
+<span class="sd">        :param xlabel: the label for the x-axis</span>
+<span class="sd">        :param kwargs: arguments to pass on to sns.histplot</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="n">ax</span><span class="p">):</span>
+            <span class="k">nonlocal</span> <span class="n">cdf_secondary_axis</span>
+            <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="n">kde</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="n">stat</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">stat</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">cdf</span><span class="p">:</span>
+                <span class="n">ecdf_stat</span> <span class="o">=</span> <span class="n">stat</span>
+                <span class="k">if</span> <span class="n">ecdf_stat</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="s2">&quot;proportion&quot;</span><span class="p">,</span> <span class="s2">&quot;probability&quot;</span><span class="p">):</span>
+                    <span class="n">ecdf_stat</span> <span class="o">=</span> <span class="s2">&quot;proportion&quot;</span>
+                    <span class="n">cdf_secondary_axis</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">cdf_ax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">Axes</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">cdf_ax_label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ecdf_stat</span><span class="si">}</span><span class="s2"> (cdf)&quot;</span>
+                <span class="k">if</span> <span class="n">cdf_secondary_axis</span><span class="p">:</span>
+                    <span class="n">cdf_ax</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">Axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">stat</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;proportion&quot;</span><span class="p">,</span> <span class="s2">&quot;probability&quot;</span><span class="p">):</span>
+                        <span class="n">y_tick</span> <span class="o">=</span> <span class="mf">0.1</span>
+                    <span class="k">elif</span> <span class="n">stat</span> <span class="o">==</span> <span class="s2">&quot;percent&quot;</span><span class="p">:</span>
+                        <span class="n">y_tick</span> <span class="o">=</span> <span class="mi">10</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">y_tick</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="k">if</span> <span class="n">y_tick</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">cdf_ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">plticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="n">base</span><span class="o">=</span><span class="n">y_tick</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">cdf_complementary</span> <span class="ow">or</span> <span class="n">ecdf_stat</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="s2">&quot;proportion&quot;</span><span class="p">,</span> <span class="s2">&quot;probability&quot;</span><span class="p">):</span>
+                    <span class="n">ecdf_stat</span> <span class="o">=</span> <span class="s2">&quot;proportion&quot;</span> <span class="k">if</span> <span class="n">stat</span> <span class="o">==</span> <span class="s2">&quot;probability&quot;</span> <span class="k">else</span> <span class="n">stat</span>  <span class="c1"># same semantics but &quot;probability&quot; not understood by ecdfplot</span>
+                    <span class="n">sns</span><span class="o">.</span><span class="n">ecdfplot</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="n">ecdf_stat</span><span class="p">,</span> <span class="n">complementary</span><span class="o">=</span><span class="n">cdf_complementary</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">cdf_ax</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="n">stat</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="s2">&quot;poly&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cumulative</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">cdf_ax</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">cdf_ax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">cdf_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">cdf_ax_label</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">xlabel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">draw</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AverageSeriesLinePlot"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.AverageSeriesLinePlot">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">AverageSeriesLinePlot</span><span class="p">(</span><span class="n">Plot</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plots the average of a collection of series or the averages of several collections of series,</span>
+<span class="sd">    establishing a common index (the unification of all indices) for each collection via interpolation.</span>
+<span class="sd">    The standard deviation is additionally shown as a shaded area around each line.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">series_collection</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]]],</span>
+            <span class="n">interpolation</span><span class="p">:</span> <span class="n">SeriesInterpolation</span><span class="p">,</span>
+            <span class="n">collection_name</span><span class="o">=</span><span class="s2">&quot;collection&quot;</span><span class="p">,</span>
+            <span class="n">ax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">Axes</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">hue_order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param series_collection: either a list of series to average or a dictionary mapping the name of a collection</span>
+<span class="sd">            to a list of series to average</span>
+<span class="sd">        :param interpolation: the interpolation with which to obtain series values for the unified index of a collection of series</span>
+<span class="sd">        :param collection_name: a name indicating what a key in `series_collection` refers to, which will appear in the legend</span>
+<span class="sd">            for the case where more than one collection is passed</span>
+<span class="sd">        :param ax: the axis to plot to; if None, create a new figure and axis</span>
+<span class="sd">        :param hue_order: the hue order (for the case where there is more than one collection of series)</span>
+<span class="sd">        :param palette: the colour palette to use</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">series_collection</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">series_dict</span> <span class="o">=</span> <span class="n">series_collection</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">series_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;_&quot;</span><span class="p">:</span> <span class="n">series_collection</span><span class="p">}</span>
+
+        <span class="n">series_list</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">series_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+        <span class="n">x_name</span> <span class="o">=</span> <span class="n">series_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="ow">or</span> <span class="s2">&quot;x&quot;</span>
+        <span class="n">y_name</span> <span class="o">=</span> <span class="n">series_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="ow">or</span> <span class="s2">&quot;y&quot;</span>
+
+        <span class="c1"># build data frame with all series, interpolating each sub-collection</span>
+        <span class="n">dfs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">series_list</span> <span class="ow">in</span> <span class="n">series_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">interpolated_series_list</span> <span class="o">=</span> <span class="n">interpolation</span><span class="o">.</span><span class="n">interpolate_all_with_combined_index</span><span class="p">(</span><span class="n">series_list</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">series</span> <span class="ow">in</span> <span class="n">interpolated_series_list</span><span class="p">:</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">y_name</span><span class="p">:</span> <span class="n">series</span><span class="p">,</span> <span class="n">x_name</span><span class="p">:</span> <span class="n">series</span><span class="o">.</span><span class="n">index</span><span class="p">})</span>
+                <span class="n">df</span><span class="p">[</span><span class="s2">&quot;series_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">id</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
+                <span class="n">df</span><span class="p">[</span><span class="n">collection_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+                <span class="n">dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="n">full_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dfs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="n">ax</span><span class="p">):</span>
+            <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span>
+                <span class="n">data</span><span class="o">=</span><span class="n">full_df</span><span class="p">,</span>
+                <span class="n">x</span><span class="o">=</span><span class="n">x_name</span><span class="p">,</span>
+                <span class="n">y</span><span class="o">=</span><span class="n">y_name</span><span class="p">,</span>
+                <span class="n">estimator</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+                <span class="n">hue</span><span class="o">=</span><span class="n">collection_name</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">series_dict</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">hue_order</span><span class="o">=</span><span class="n">hue_order</span><span class="p">,</span>
+                <span class="n">palette</span><span class="o">=</span><span class="n">palette</span><span class="p">,</span>
+                <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">draw</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MetricComparisonBarPlot"><a class="viewcode-back" href="../../../sensai/util/plot.html#sensai.util.plot.MetricComparisonBarPlot">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">MetricComparisonBarPlot</span><span class="p">(</span><span class="n">Plot</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Shows metric bar plots for a data frame of metrics for several entities.</span>
+<span class="sd">    The bar plots are shown horizontally, grouped by metric, with a different colour for each entity.</span>
+
+<span class="sd">    Usage example::</span>
+
+<span class="sd">        import pandas as pd</span>
+<span class="sd">        import matplotlib.pyplot as plt</span>
+
+<span class="sd">        data = {</span>
+<span class="sd">            &#39;accuracy&#39;: [0.85, 0.78, 0.92],</span>
+<span class="sd">            &#39;precision&#39;: [0.80, 0.75, 0.88],</span>
+<span class="sd">            &#39;recall&#39;: [0.83, 0.77, 0.90],</span>
+<span class="sd">            &#39;f1_score&#39;: [0.81, 0.76, 0.89]</span>
+<span class="sd">        }</span>
+
+<span class="sd">        df = pd.DataFrame(data, index=[&#39;Model A&#39;, &#39;Model B&#39;, &#39;Model C&#39;])</span>
+<span class="sd">        MetricComparisonBarPlot(df)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">ax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">Axes</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">metric_label</span><span class="o">=</span><span class="s2">&quot;metric&quot;</span><span class="p">,</span> <span class="n">value_label</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">entity_label</span><span class="o">=</span><span class="s2">&quot;model&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param df: a data frame with metrics values, where the index specifies the names of compared entities (e.g. model names)</span>
+<span class="sd">            and the columns are different metrics</span>
+<span class="sd">        :param ax: the axis to plot to; if None, create it, with the height being automatically adjusted</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="n">ax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">Axes</span><span class="p">]):</span>
+            <span class="n">index_name</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="ow">or</span> <span class="s2">&quot;index&quot;</span>
+            <span class="n">df_melted</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="n">index_name</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="n">metric_label</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="n">value_label</span><span class="p">)</span>
+            <span class="n">df_melted</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">index_name</span><span class="p">:</span> <span class="n">entity_label</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">df_melted</span><span class="p">[</span><span class="s1">&#39;Metric&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">df_melted</span><span class="p">[</span><span class="n">metric_label</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_melted</span><span class="p">,</span>
+                <span class="n">y</span><span class="o">=</span><span class="n">metric_label</span><span class="p">,</span>
+                <span class="n">x</span><span class="o">=</span><span class="n">value_label</span><span class="p">,</span>
+                <span class="n">hue</span><span class="o">=</span><span class="n">entity_label</span><span class="p">,</span>
+                <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">,</span>
+                <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">metric_label</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)))</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">value_label</span><span class="p">)</span>
+
+            <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">n_metrics</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+            <span class="n">n_models</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+            <span class="n">height_per_metric</span> <span class="o">=</span> <span class="mf">0.5</span>
+            <span class="n">height_per_model</span> <span class="o">=</span> <span class="mf">0.4</span>
+            <span class="n">min_height</span> <span class="o">=</span> <span class="mi">6</span>
+            <span class="n">total_height</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">min_height</span><span class="p">,</span> <span class="n">n_metrics</span> <span class="o">*</span> <span class="p">(</span><span class="n">height_per_metric</span> <span class="o">+</span> <span class="p">(</span><span class="n">n_models</span> <span class="o">*</span> <span class="n">height_per_model</span><span class="p">)))</span>
+            <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">total_height</span><span class="p">))</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">draw</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By sensAI contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2019-2024 by sensAI contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

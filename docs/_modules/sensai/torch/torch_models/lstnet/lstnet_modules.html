@@ -1,0 +1,732 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sensai.torch.torch_models.lstnet.lstnet_modules &#8212; sensAI Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/sphinx-toolbox.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../_static/copybutton.js"></script>
+    <script src="../../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../_static/js/vega@5.js"></script>
+    <script src="../../../../../_static/js/vega-lite@5.js"></script>
+    <script src="../../../../../_static/js/vega-embed@5.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sensai/torch/torch_models/lstnet/lstnet_modules';</script>
+    <link rel="canonical" href="https://tianshou.readthedocs.io/en/master/_modules/sensai/torch/torch_models/lstnet/lstnet_modules.html" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/sensai-logo.png" class="logo__image only-light" alt="sensAI Documentation - Home"/>
+    <script>document.write(`<img src="../../../../../_static/sensai-logo.png" class="logo__image only-dark" alt="sensAI Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../../index.html">
+                    Welcome to sensAI!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../1-supervised-learning/1-vector-models.html">Models with Modular Data Pipelines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../2-notebooks/0_intro.html">Notebook Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../2-notebooks/1-classification.html">Introduction to sensAI: Supervised Learning with VectorModels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../2-notebooks/2-neural_networks.html">Neural Networks</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../sensai/index.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../sensai/catboost.html">catboost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../sensai/columngen.html">columngen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../sensai/distance_metric.html">distance_metric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../sensai/feature_importance.html">feature_importance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../sensai/hyperopt.html">hyperopt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../sensai/lightgbm.html">lightgbm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../sensai/local_search.html">local_search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../sensai/minizinc.html">minizinc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../sensai/multi_model.html">multi_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../sensai/naive_bayes.html">naive_bayes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../sensai/nearest_neighbors.html">nearest_neighbors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../sensai/normalisation.html">normalisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../sensai/sklearn_quantile.html">sklearn_quantile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../sensai/tensor_model.html">tensor_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../sensai/vector_model.html">vector_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../sensai/vectoriser.html">vectoriser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../sensai/xgboost.html">xgboost</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../sensai/clustering/index.html">clustering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/clustering/clustering_base.html">clustering_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/clustering/greedy_clustering.html">greedy_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/clustering/sklearn_clustering.html">sklearn_clustering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../sensai/data/index.html">data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/data/dataset.html">dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/data/io_data.html">io_data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../sensai/data_transformation/index.html">data_transformation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/data_transformation/dft.html">dft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/data_transformation/sklearn_transformer.html">sklearn_transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/data_transformation/value_transformation.html">value_transformation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../sensai/ensemble/index.html">ensemble</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/ensemble/ensemble_base.html">ensemble_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/ensemble/models.html">models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../sensai/evaluation/index.html">evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/evaluation/crossval.html">crossval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/evaluation/eval_util.html">eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/evaluation/evaluator.html">evaluator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/evaluation/evaluator_clustering.html">evaluator_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/evaluation/metric_computation.html">metric_computation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/evaluation/result_set.html">result_set</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../sensai/evaluation/eval_stats/index.html">eval_stats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../sensai/evaluation/eval_stats/eval_stats_base.html">eval_stats_base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../sensai/evaluation/eval_stats/eval_stats_classification.html">eval_stats_classification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../sensai/evaluation/eval_stats/eval_stats_clustering.html">eval_stats_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../sensai/evaluation/eval_stats/eval_stats_regression.html">eval_stats_regression</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../sensai/feature_selection/index.html">feature_selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/feature_selection/rfe.html">rfe</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../sensai/featuregen/index.html">featuregen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/featuregen/feature_generator.html">feature_generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/featuregen/feature_generator_registry.html">feature_generator_registry</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../sensai/geoanalytics/index.html">geoanalytics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/geoanalytics/geo_clustering.html">geo_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/geoanalytics/geo_coords.html">geo_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/geoanalytics/local_coords.html">local_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/geoanalytics/map_tiles.html">map_tiles</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../sensai/geoanalytics/geopandas/index.html">geopandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../sensai/geoanalytics/geopandas/coordinate_clustering.html">coordinate_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../sensai/geoanalytics/geopandas/coordinate_clustering_ground_truth.html">coordinate_clustering_ground_truth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../sensai/geoanalytics/geopandas/coordinates.html">coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../sensai/geoanalytics/geopandas/geometry.html">geometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../sensai/geoanalytics/geopandas/graph.html">graph</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../sensai/pytorch_lightning/index.html">pytorch_lightning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/pytorch_lightning/pl_models.html">pl_models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../sensai/sklearn/index.html">sklearn</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/sklearn/sklearn_base.html">sklearn_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/sklearn/sklearn_classification.html">sklearn_classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/sklearn/sklearn_regression.html">sklearn_regression</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../sensai/torch/index.html">torch</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/torch/torch_base.html">torch_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/torch/torch_data.html">torch_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/torch/torch_enums.html">torch_enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/torch/torch_eval_util.html">torch_eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/torch/torch_modules.html">torch_modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/torch/torch_opt.html">torch_opt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/torch/torchtext.html">torchtext</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../sensai/torch/torch_models/index.html">torch_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../sensai/torch/torch_models/lstnet/index.html">lstnet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../sensai/torch/torch_models/mlp/index.html">mlp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../sensai/torch/torch_models/residualffn/index.html">residualffn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../sensai/torch/torch_models/seq/index.html">seq</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../sensai/tracking/index.html">tracking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/tracking/azure_tracking.html">azure_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/tracking/clearml_tracking.html">clearml_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/tracking/mlflow_tracking.html">mlflow_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/tracking/tracking_base.html">tracking_base</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../sensai/util/index.html">util</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/aggregation.html">aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/cache.html">cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/cache_azure.html">cache_azure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/cache_mysql.html">cache_mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/datastruct.html">datastruct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/deprecation.html">deprecation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/dtype.html">dtype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/git.html">git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/hash.html">hash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/helper.html">helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/jscode.html">jscode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/logging.html">logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/math.html">math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/multiprocessing.html">multiprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/pandas.html">pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/pickle.html">pickle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/plot.html">plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/profiling.html">profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/sequences.html">sequences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/string.html">string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/tensorboard.html">tensorboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/test.html">test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/time.html">time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/typing.html">typing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../sensai/util/version.html">version</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for sensai.torch.torch_models.lstnet.lstnet_modules</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Callable</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="kn">import</span> <span class="n">functional</span> <span class="k">as</span> <span class="n">F</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sensai.util.pickle</span><span class="w"> </span><span class="kn">import</span> <span class="n">setstate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">...torch_base</span><span class="w"> </span><span class="kn">import</span> <span class="n">MCDropoutCapableNNModule</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">...torch_enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">ActivationFunction</span>
+
+
+<div class="viewcode-block" id="LSTNetwork"><a class="viewcode-back" href="../../../../../sensai/torch/torch_models/lstnet/lstnet_modules.html#sensai.torch.torch_models.lstnet.lstnet_modules.LSTNetwork">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">LSTNetwork</span><span class="p">(</span><span class="n">MCDropoutCapableNNModule</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Network for (auto-regressive) time-series prediction with long- and short-term dependencies as proposed by G. Lai et al.</span>
+<span class="sd">    It applies two parallel paths to a time series of size (numInputTimeSlices, inputDimPerTimeSlice):</span>
+<span class="sd">    </span>
+<span class="sd">        * Complex path with the following stages:</span>
+<span class="sd">        </span>
+<span class="sd">            * Convolutions on the time series input data (CNNs):</span>
+<span class="sd">              For a CNN with numCnnTimeSlices (= kernel size), it produces an output series of size numInputTimeSlices-numCnnTimeSlices+1.</span>
+<span class="sd">              If the number of parallel convolutions is numConvolutions, the total output size of this stage is thus</span>
+<span class="sd">              numConvolutions*(numInputTimeSlices-numCnnTimeSlices+1)</span>
+<span class="sd">            * Two RNN components which process the CNN output in parallel:</span>
+<span class="sd">            </span>
+<span class="sd">                * RNN (GRU)</span>
+<span class="sd">                  The output dimension of this stage is the hidden state of the GRU after seeing the entire</span>
+<span class="sd">                  input data from the previous stage, i.e. if has size hidRNN.</span>
+<span class="sd">                * Skip-RNN (GRU), which processes time series elements that are &#39;skip&#39; time slices apart.</span>
+<span class="sd">                  It does this by grouping the input such that &#39;skip&#39; GRUs are applied in parallel, which all use the same parameters.</span>
+<span class="sd">                  If the hidden state dimension of each GRU is hidSkip, then the output size of this stage is skip*hidSkip.</span>
+<span class="sd">                  </span>
+<span class="sd">            * Dense layer</span>
+<span class="sd">            </span>
+<span class="sd">        * Direct regression dense layer (so-called &quot;highway&quot; path) which uses the features of the last hwWindow time slices to</span>
+<span class="sd">          directly make a prediction</span>
+<span class="sd">        </span>
+<span class="sd">    The model ultimately combines the outputs of these two paths via a combination function.</span>
+<span class="sd">    Many parts of the model are optional and can be completely disabled.</span>
+<span class="sd">    The model can produce one or more (potentially multi-dimensional) outputs, where each output typically corresponds</span>
+<span class="sd">    to a time slice for which a prediction is made.</span>
+
+<span class="sd">    The model expects as input a tensor of size (batchSize, numInputTimeSlices, inputDimPerTimeSlice).</span>
+<span class="sd">    As output, the model will produce a tensor of size (batchSize, numOutputTimeSlices, outputDimPerTimeSlice)</span>
+<span class="sd">    if mode==REGRESSION and a tensor of size (batchSize, outputDimPerTimeSlice=numClasses, numOutputTimeSlices)</span>
+<span class="sd">    if mode==CLASSIFICATION; the latter shape matches what is required by the multi-dimensional case of loss function</span>
+<span class="sd">    CrossEntropyLoss, for example, and therefore is suitable for classification use cases.</span>
+<span class="sd">    For mode==ENCODER, the model will produce a tensor of size (batch_size, hidRNN + skip * hidSkip).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="LSTNetwork.Mode"><a class="viewcode-back" href="../../../../../sensai/torch/torch_models/lstnet/lstnet_modules.html#sensai.torch.torch_models.lstnet.lstnet_modules.LSTNetwork.Mode">[docs]</a>    <span class="k">class</span><span class="w"> </span><span class="nc">Mode</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+        <span class="n">REGRESSION</span> <span class="o">=</span> <span class="s2">&quot;regression&quot;</span>
+        <span class="n">CLASSIFICATION</span> <span class="o">=</span> <span class="s2">&quot;classification&quot;</span>
+        <span class="n">ENCODER</span> <span class="o">=</span> <span class="s2">&quot;encoder&quot;</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">num_input_time_slices</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">input_dim_per_time_slice</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">num_output_time_slices</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">output_dim_per_time_slice</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">num_convolutions</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+            <span class="n">num_cnn_time_slices</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
+            <span class="n">hid_rnn</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+            <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">hid_skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+            <span class="n">hw_window</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">hw_combine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;plus&quot;</span><span class="p">,</span>
+            <span class="n">dropout</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+            <span class="n">output_activation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ActivationFunction</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;sigmoid&quot;</span><span class="p">,</span>
+            <span class="n">mode</span><span class="p">:</span> <span class="n">Mode</span> <span class="o">=</span> <span class="n">Mode</span><span class="o">.</span><span class="n">REGRESSION</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param num_input_time_slices: the number of input time slices</span>
+<span class="sd">        :param input_dim_per_time_slice: the dimension of the input data per time slice</span>
+<span class="sd">        :param num_output_time_slices: the number of time slices predicted by the model</span>
+<span class="sd">        :param output_dim_per_time_slice: the number of dimensions per output time slice. While this is the number of</span>
+<span class="sd">            target variables per time slice for regression problems, this must be the number of classes for classification problems.</span>
+<span class="sd">        :param num_cnn_time_slices: the number of time slices considered by each convolution (i.e. it is one of the dimensions of the matrix used for</span>
+<span class="sd">            convolutions, the other dimension being inputDimPerTimeSlice), a.k.a. &quot;Ck&quot;</span>
+<span class="sd">        :param num_convolutions: the number of separate convolutions to apply, i.e. the number of independent convolution matrices, a.k.a &quot;hidC&quot;;</span>
+<span class="sd">            if it is 0, then the entire complex processing path is not applied.</span>
+<span class="sd">        :param hid_rnn: the number of hidden output dimensions for the RNN stage</span>
+<span class="sd">        :param skip: the number of time slices to skip for the skip-RNN. If it is 0, then the skip-RNN is not used.</span>
+<span class="sd">        :param hid_skip: the number of output dimensions of each of the skip parallel RNNs</span>
+<span class="sd">        :param hw_window: the number of time slices from the end of the input time series to consider as input for the highway component.</span>
+<span class="sd">            If it is 0, the highway component is not used.</span>
+<span class="sd">        :param hw_combine: {&quot;plus&quot;, &quot;product&quot;, &quot;bilinear&quot;} the function with which the highway component&#39;s output is combined with the complex path&#39;s output</span>
+<span class="sd">        :param dropout: the dropout probability to use during training (dropouts are applied after every major step in the evaluation path)</span>
+<span class="sd">        :param output_activation: the output activation function</span>
+<span class="sd">        :param mode: the prediction mode. For `CLASSIFICATION`, the output tensor dimension ordering is adapted to suit loss functions such</span>
+<span class="sd">            as CrossEntropyLoss. When set to `ENCODER`, will output the latent representation prior to the dense layer in the complex path</span>
+<span class="sd">            of the network (see class docstring).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">num_convolutions</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">hw_window</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No processing paths remain&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">num_input_time_slices</span> <span class="o">&lt;</span> <span class="n">num_cnn_time_slices</span> <span class="ow">or</span> <span class="p">(</span><span class="n">hw_window</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">hw_window</span> <span class="o">&lt;</span> <span class="n">num_input_time_slices</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Inconsistent numbers of times slices provided&quot;</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inputDimPerTimeSlice</span> <span class="o">=</span> <span class="n">input_dim_per_time_slice</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timeSeriesDimPerTimeSlice</span> <span class="o">=</span> <span class="n">output_dim_per_time_slice</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalOutputDim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeSeriesDimPerTimeSlice</span> <span class="o">*</span> <span class="n">num_output_time_slices</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numOutputTimeSlices</span> <span class="o">=</span> <span class="n">num_output_time_slices</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">num_input_time_slices</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hidRNN</span> <span class="o">=</span> <span class="n">hid_rnn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numConv</span> <span class="o">=</span> <span class="n">num_convolutions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hidSkip</span> <span class="o">=</span> <span class="n">hid_skip</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Ck</span> <span class="o">=</span> <span class="n">num_cnn_time_slices</span>  <span class="c1"># the &quot;height&quot; of the CNN filter/kernel; the &quot;width&quot; being inputDimPerTimeSlice</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">convSeqLength</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">Ck</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># the length of the output sequence produced by the CNN for each kernel matrix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">skip</span> <span class="o">=</span> <span class="n">skip</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hw</span> <span class="o">=</span> <span class="n">hw_window</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pDropout</span> <span class="o">=</span> <span class="n">dropout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span>
+
+        <span class="c1"># configure CNN-RNN path</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">numConv</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">numConv</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Ck</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputDimPerTimeSlice</span><span class="p">))</span>  <span class="c1"># produce numConv sequences using numConv kernel matrices of size (height=Ck, width=inputDimPerTimeSlice)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">GRU1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GRU</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numConv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidRNN</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">skipRnnSeqLength</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convSeqLength</span> <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip</span>  <span class="c1"># we divide by skip to obtain the sequence length, because, in order to support skipping via a regrouping of the tensor, the Skip-RNN processes skip entries of the series in parallel to produce skip hidden output vectors</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">skipRnnSeqLength</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Window size </span><span class="si">%d</span><span class="s2"> is not large enough for skip length </span><span class="si">%d</span><span class="s2">; would result in Skip-RNN sequence length of 0!&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">GRUskip</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GRU</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numConv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidSkip</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">linear1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidRNN</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidSkip</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">totalOutputDim</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">linear1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidRNN</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">totalOutputDim</span><span class="p">)</span>
+
+        <span class="c1"># configure highway component</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hw</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># direct mapping from all inputs to all outputs</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">highway</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hw</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputDimPerTimeSlice</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">totalOutputDim</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">hw_combine</span> <span class="o">==</span> <span class="s1">&#39;plus&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">highwayCombine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plus</span>
+            <span class="k">elif</span> <span class="n">hw_combine</span> <span class="o">==</span> <span class="s1">&#39;product&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">highwayCombine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_product</span>
+            <span class="k">elif</span> <span class="n">hw_combine</span> <span class="o">==</span> <span class="s1">&#39;bilinear&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">highwayCombine</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Bilinear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">totalOutputDim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">totalOutputDim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">totalOutputDim</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown highway combination function &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="n">hw_combine</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">ActivationFunction</span><span class="o">.</span><span class="n">torch_function_from_any</span><span class="p">(</span><span class="n">output_activation</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__setstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s2">&quot;isClassification&quot;</span> <span class="ow">in</span> <span class="n">state</span><span class="p">:</span>
+            <span class="n">state</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">CLASSIFICATION</span> <span class="k">if</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;isClassification&quot;</span><span class="p">]</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">REGRESSION</span>
+        <span class="n">setstate</span><span class="p">(</span><span class="n">LSTNetwork</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">removed_properties</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;isClassification&quot;</span><span class="p">])</span>
+
+<div class="viewcode-block" id="LSTNetwork.compute_encoder_dim"><a class="viewcode-back" href="../../../../../sensai/torch/torch_models/lstnet/lstnet_modules.html#sensai.torch.torch_models.lstnet.lstnet_modules.LSTNetwork.compute_encoder_dim">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_encoder_dim</span><span class="p">(</span><span class="n">hid_rnn</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">hid_skip</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">hid_rnn</span> <span class="o">+</span> <span class="n">skip</span> <span class="o">*</span> <span class="n">hid_skip</span></div>
+
+<div class="viewcode-block" id="LSTNetwork.get_encoder_dim"><a class="viewcode-back" href="../../../../../sensai/torch/torch_models/lstnet/lstnet_modules.html#sensai.torch.torch_models.lstnet.lstnet_modules.LSTNetwork.get_encoder_dim">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_encoder_dim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the vector dimension that is output for the case where mode=ENCODER</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_encoder_dim</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidRNN</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidSkip</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LSTNetwork.forward"><a class="viewcode-back" href="../../../../../sensai/torch/torch_models/lstnet/lstnet_modules.html#sensai.torch.torch_models.lstnet.lstnet_modules.LSTNetwork.forward">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">batch_size</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># x has size (batch_size, window=numInputTimeSlices, inputDimPerTimeSlice)</span>
+
+        <span class="n">dropout</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dropout</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p_training</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pDropout</span><span class="p">,</span> <span class="n">p_inference</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pDropout</span><span class="p">)</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">numConv</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># CNN</span>
+            <span class="c1"># convSeqLength = self.window - self.Ck + 1</span>
+            <span class="c1"># convolution produces, via numConv kernel matrices of dimension (height=Ck, width=inputDimPerTimeSlice), from an original input sequence of length window, numConv output sequences of length convSeqLength</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputDimPerTimeSlice</span><span class="p">)</span>  <span class="c1"># insert one dim of size 1 (one channel): (batch_size, 1, height=window, width=inputDimPerTimeSlice)</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>  <span class="c1"># (batch_size, channels=numConv, convSeqLength, 1)</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">dropout</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># drops last dimension, i.e. new size (batch_size, numConv, convSeqLength)</span>
+
+            <span class="c1"># RNN</span>
+            <span class="c1"># It processes the numConv sequences of length convSeqLength obtained through convolution and keep the hidden state at the end, which is comprised of hidR entries</span>
+            <span class="c1"># Specifically, it squashes the numConv sequences of length convSeqLength to a vector of size hidS (by iterating through the sequences and applying the same model in each step, processing all batches in parallel)</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span>  <span class="c1"># (convSeqLength, batch_size, numConv)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">GRU1</span><span class="o">.</span><span class="n">flatten_parameters</span><span class="p">()</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GRU1</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>  <span class="c1"># maps (seq_len=convSeqLength, batch=batch_size, input_size=numConv) -&gt; hidden state (num_layers=1, batch=batch_size, hidden_size=hidR)</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># (batch_size, hidR)</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">dropout</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+            <span class="c1"># Skip-RNN</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">c</span><span class="p">[:,</span> <span class="p">:,</span> <span class="o">-</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">skipRnnSeqLength</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip</span><span class="p">):]</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span>  <span class="c1"># (batch_size, numConv, convSeqLength) -&gt; (batch_size, numConv, skipRnnSeqLength * skip)</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">numConv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">skipRnnSeqLength</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip</span><span class="p">)</span>  <span class="c1"># (batch_size, numConv, skipRnnSeqLength, skip)</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span>  <span class="c1"># (skipRnnSeqLength, batch_size, skip, numConv)</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">skipRnnSeqLength</span><span class="p">,</span> <span class="n">batch_size</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">numConv</span><span class="p">)</span>  <span class="c1"># (skipRnnSeqLength, batch_size * skip, numConv)</span>
+                <span class="c1"># Why the above view makes sense:</span>
+                <span class="c1"># skipRnnSeqLength is the sequence length considered for the RNN, i.e. the number of steps that is taken for each sequence.</span>
+                <span class="c1"># The batch_size*skip elements of the second dimension are all processed in parallel, i.e. there are batch_size*skip RNNs being applied in parallel.</span>
+                <span class="c1"># By scaling the actual batch size with &#39;skip&#39;, we process &#39;skip&#39; RNNs of each batch in parallel, such that each RNN consecutively processes entries that are &#39;skip&#39; steps apart</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">GRUskip</span><span class="o">.</span><span class="n">flatten_parameters</span><span class="p">()</span>
+                <span class="n">_</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GRUskip</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c1"># maps (seq_len=skipRnnSeqLength, batch=batch_size * skip, input_size=numConv) -&gt; hidden state (num_layers=1, batch=batch_size * skip, hidden_size=hidS)</span>
+                <span class="c1"># Because of the way the data is grouped, we obtain not one vector of size hidS but skip vectors of size hidS</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidSkip</span><span class="p">)</span>  <span class="c1"># regroup by batch -&gt; (batch_size, skip * hidS)</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">dropout</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># (batch_size, hidR + skip * hidS)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">ENCODER</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">r</span>
+
+            <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear1</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>  <span class="c1"># (batch_size, totalOutputDim)</span>
+
+        <span class="c1"># auto-regressive highway model</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hw</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">resHW</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">hw</span><span class="p">:,</span> <span class="p">:]</span>  <span class="c1"># keep only the last hw entries for each input: (batch_size, hw, inputDimPerTimeSlice)</span>
+            <span class="n">resHW</span> <span class="o">=</span> <span class="n">resHW</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hw</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputDimPerTimeSlice</span><span class="p">)</span>  <span class="c1"># (batch_size, hw * inputDimPerTimeSlice)</span>
+            <span class="n">resHW</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">highway</span><span class="p">(</span><span class="n">resHW</span><span class="p">)</span>  <span class="c1"># (batch_size, totalOutputDim)</span>
+            <span class="k">if</span> <span class="n">res</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="n">resHW</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">highwayCombine</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">resHW</span><span class="p">)</span>  <span class="c1"># (batch_size, totalOutputDim)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">numOutputTimeSlices</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeSeriesDimPerTimeSlice</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">CLASSIFICATION</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_plus</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_product</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By sensAI contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2019-2024 by sensAI contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

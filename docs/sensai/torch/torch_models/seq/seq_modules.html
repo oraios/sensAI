@@ -1,0 +1,1141 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>seq_modules &#8212; sensAI Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/sphinx-toolbox.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/js/vega@5.js"></script>
+    <script src="../../../../_static/js/vega-lite@5.js"></script>
+    <script src="../../../../_static/js/vega-embed@5.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sensai/torch/torch_models/seq/seq_modules';</script>
+    <link rel="canonical" href="https://tianshou.readthedocs.io/en/master/sensai/torch/torch_models/seq/seq_modules.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="tracking" href="../../../tracking/index.html" />
+    <link rel="prev" title="seq_models" href="seq_models.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/sensai-logo.png" class="logo__image only-light" alt="sensAI Documentation - Home"/>
+    <script>document.write(`<img src="../../../../_static/sensai-logo.png" class="logo__image only-dark" alt="sensAI Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../index.html">
+                    Welcome to sensAI!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../1-supervised-learning/1-vector-models.html">Models with Modular Data Pipelines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../2-notebooks/0_intro.html">Notebook Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../2-notebooks/1-classification.html">Introduction to sensAI: Supervised Learning with VectorModels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../2-notebooks/2-neural_networks.html">Neural Networks</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../index.html">API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../catboost.html">catboost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../columngen.html">columngen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../distance_metric.html">distance_metric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../feature_importance.html">feature_importance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hyperopt.html">hyperopt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lightgbm.html">lightgbm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../local_search.html">local_search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../minizinc.html">minizinc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../multi_model.html">multi_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../naive_bayes.html">naive_bayes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nearest_neighbors.html">nearest_neighbors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../normalisation.html">normalisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sklearn_quantile.html">sklearn_quantile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tensor_model.html">tensor_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../vector_model.html">vector_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../vectoriser.html">vectoriser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../xgboost.html">xgboost</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../clustering/index.html">clustering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../clustering/clustering_base.html">clustering_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../clustering/greedy_clustering.html">greedy_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../clustering/sklearn_clustering.html">sklearn_clustering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../data/index.html">data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/dataset.html">dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/io_data.html">io_data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../data_transformation/index.html">data_transformation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../data_transformation/dft.html">dft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data_transformation/sklearn_transformer.html">sklearn_transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data_transformation/value_transformation.html">value_transformation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../ensemble/index.html">ensemble</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../ensemble/ensemble_base.html">ensemble_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ensemble/models.html">models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../evaluation/index.html">evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../evaluation/crossval.html">crossval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../evaluation/eval_util.html">eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../evaluation/evaluator.html">evaluator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../evaluation/evaluator_clustering.html">evaluator_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../evaluation/metric_computation.html">metric_computation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../evaluation/result_set.html">result_set</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../evaluation/eval_stats/index.html">eval_stats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../evaluation/eval_stats/eval_stats_base.html">eval_stats_base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../evaluation/eval_stats/eval_stats_classification.html">eval_stats_classification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../evaluation/eval_stats/eval_stats_clustering.html">eval_stats_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../evaluation/eval_stats/eval_stats_regression.html">eval_stats_regression</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../feature_selection/index.html">feature_selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../feature_selection/rfe.html">rfe</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../featuregen/index.html">featuregen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../featuregen/feature_generator.html">feature_generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../featuregen/feature_generator_registry.html">feature_generator_registry</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../geoanalytics/index.html">geoanalytics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../geoanalytics/geo_clustering.html">geo_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../geoanalytics/geo_coords.html">geo_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../geoanalytics/local_coords.html">local_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../geoanalytics/map_tiles.html">map_tiles</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../geoanalytics/geopandas/index.html">geopandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../geoanalytics/geopandas/coordinate_clustering.html">coordinate_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../geoanalytics/geopandas/coordinate_clustering_ground_truth.html">coordinate_clustering_ground_truth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../geoanalytics/geopandas/coordinates.html">coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../geoanalytics/geopandas/geometry.html">geometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../geoanalytics/geopandas/graph.html">graph</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../pytorch_lightning/index.html">pytorch_lightning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../pytorch_lightning/pl_models.html">pl_models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sklearn/index.html">sklearn</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sklearn/sklearn_base.html">sklearn_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sklearn/sklearn_classification.html">sklearn_classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sklearn/sklearn_regression.html">sklearn_regression</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../../index.html">torch</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../torch_base.html">torch_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torch_data.html">torch_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torch_enums.html">torch_enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torch_eval_util.html">torch_eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torch_modules.html">torch_modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torch_opt.html">torch_opt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torchtext.html">torchtext</a></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="../index.html">torch_models</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../lstnet/index.html">lstnet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mlp/index.html">mlp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../residualffn/index.html">residualffn</a></li>
+<li class="toctree-l4 current active"><a class="reference internal" href="index.html">seq</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../tracking/index.html">tracking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tracking/azure_tracking.html">azure_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tracking/clearml_tracking.html">clearml_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tracking/mlflow_tracking.html">mlflow_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tracking/tracking_base.html">tracking_base</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../util/index.html">util</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/aggregation.html">aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/cache.html">cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/cache_azure.html">cache_azure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/cache_mysql.html">cache_mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/datastruct.html">datastruct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/deprecation.html">deprecation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/dtype.html">dtype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/git.html">git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/hash.html">hash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/helper.html">helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/jscode.html">jscode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/logging.html">logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/math.html">math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/multiprocessing.html">multiprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/pandas.html">pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/pickle.html">pickle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/plot.html">plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/profiling.html">profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/sequences.html">sequences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/string.html">string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/tensorboard.html">tensorboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/test.html">test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/time.html">time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/typing.html">typing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../util/version.html">version</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/sensai/torch/torch_models/seq/seq_modules.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>seq_modules</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-sensai.torch.torch_models.seq.seq_modules">
+<span id="seq-modules"></span><h1>seq_modules<a class="headerlink" href="#module-sensai.torch.torch_models.seq.seq_modules" title="Permalink to this heading">#</a></h1>
+<p class="source-link"><strong>Source code:</strong> <a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#sensai/torch/torch_models/seq/seq_modules.py"><span>sensai/torch/torch_models/seq/seq_modules.py</span></a></p>
+<hr class="docutils" />
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.EncoderProtocol">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EncoderProtocol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#EncoderProtocol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.EncoderProtocol" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.EncoderProtocol.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lengths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">torch.Tensor</span></span></span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#EncoderProtocol.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.EncoderProtocol.forward" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – a tensor of shape (batch_size, seq_length=max(lengths), history_features) containing the sequence of
+history features to encode</p></li>
+<li><p><strong>lengths</strong> – an optional tensor of shape (batch_size) containing the lengths of the sequences in <cite>x</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a tensor of shape (batch_size, latent_dim) containing the encodings</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.DecoderProtocol">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DecoderProtocol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#DecoderProtocol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.DecoderProtocol" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.DecoderProtocol.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_lengths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">torch.Tensor</span></span></span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#DecoderProtocol.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.DecoderProtocol.forward" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>latent</strong> – a tensor of shape (batch_size, latent_dim) containing the latent representations</p></li>
+<li><p><strong>target_features</strong> – a tensor of shape (batch_size, target_seq_length=max(target_lengths), target_feature_dim)</p></li>
+<li><p><strong>target_lengths</strong> – a tensor of shape (batch_size) containing the lengths of sequences in <cite>target_features</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a tensor of shape (batch_size, output_dim) or (batch_size, target_seq_length, output_dim) containing the predictions,
+where the shape depends on the use case and can vary depending on the needs</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.PredictorProtocol">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PredictorProtocol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#PredictorProtocol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.PredictorProtocol" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.PredictorProtocol.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch.Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">torch.Tensor</span></span></span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#PredictorProtocol.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.PredictorProtocol.forward" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – a tensor of shape (batch_size, input_dim) an intermediate representation</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a tensor of shape (batch_size, output_dim)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.EncoderFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EncoderFactory</span></span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#EncoderFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.EncoderFactory" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../../util/string.html#sensai.util.string.ToStringMixin" title="sensai.util.string.ToStringMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ToStringMixin</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Represents a factory for an encoder modules that map a sequence of items to a latent vector</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.EncoderFactory.create_encoder">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_encoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latent_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.EncoderProtocol" title="sensai.torch.torch_models.seq.seq_modules.EncoderProtocol"><span class="pre">EncoderProtocol</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">torch.nn.Module</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#EncoderFactory.create_encoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.EncoderFactory.create_encoder" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_dim</strong> – the input dimension per sequence item</p></li>
+<li><p><strong>latent_dim</strong> – the latent vector dimension that is to be generated by the encoder</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a torch module satisfying <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.EncoderProtocol" title="sensai.torch.torch_models.seq.seq_modules.EncoderProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">EncoderProtocol</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.DecoderFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DecoderFactory</span></span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#DecoderFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.DecoderFactory" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../../util/string.html#sensai.util.string.ToStringMixin" title="sensai.util.string.ToStringMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ToStringMixin</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.DecoderFactory.create_decoder">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_decoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latent_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_feature_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.DecoderProtocol" title="sensai.torch.torch_models.seq.seq_modules.DecoderProtocol"><span class="pre">DecoderProtocol</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">torch.nn.Module</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#DecoderFactory.create_decoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.DecoderFactory.create_decoder" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>latent_dim</strong> – the latent vector size which is used for the representation of the history</p></li>
+<li><p><strong>target_feature_dim</strong> – the number of dimensions/features that are given for each prediction to be made
+(each future sequence item)</p></li>
+<li><p><strong>output_dim</strong> – the number of outputs/targets to predict (per output time slice)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a torch module satisfying <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.DecoderProtocol" title="sensai.torch.torch_models.seq.seq_modules.DecoderProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">DecoderProtocol</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.PredictorFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PredictorFactory</span></span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#PredictorFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.PredictorFactory" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../../util/string.html#sensai.util.string.ToStringMixin" title="sensai.util.string.ToStringMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ToStringMixin</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Represents a factory for predictor components which sample map from an intermediate representation to the
+desired output dimension.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.PredictorFactory.create_predictor">
+<span class="sig-name descname"><span class="pre">create_predictor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.PredictorProtocol" title="sensai.torch.torch_models.seq.seq_modules.PredictorProtocol"><span class="pre">PredictorProtocol</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">torch.nn.Module</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#PredictorFactory.create_predictor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.PredictorFactory.create_predictor" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_dim</strong> – the input dimension</p></li>
+<li><p><strong>output_dim</strong> – the output dimension</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a module which maps an input with dimension <cite>input_dim</cite> to the desired prediction dimension (<cite>output_dim</cite>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.LinearPredictorFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LinearPredictorFactory</span></span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#LinearPredictorFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.LinearPredictorFactory" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.PredictorFactory" title="sensai.torch.torch_models.seq.seq_modules.PredictorFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">PredictorFactory</span></code></a></p>
+<p>A factory for predictors consisting only of a linear layer (without subsequent activation)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.LinearPredictorFactory.create_predictor">
+<span class="sig-name descname"><span class="pre">create_predictor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">torch.nn.Module</span></span></span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#LinearPredictorFactory.create_predictor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.LinearPredictorFactory.create_predictor" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_dim</strong> – the input dimension</p></li>
+<li><p><strong>output_dim</strong> – the output dimension</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a module which maps an input with dimension <cite>input_dim</cite> to the desired prediction dimension (<cite>output_dim</cite>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.MLPPredictorFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MLPPredictorFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hidden_dims</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hid_activation_fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../torch_enums.html#sensai.torch.torch_enums.ActivationFunction" title="sensai.torch.torch_enums.ActivationFunction"><span class="pre">ActivationFunction</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ActivationFunction.RELU</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_activation_fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../torch_enums.html#sensai.torch.torch_enums.ActivationFunction" title="sensai.torch.torch_enums.ActivationFunction"><span class="pre">ActivationFunction</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ActivationFunction.NONE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_dropout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#MLPPredictorFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.MLPPredictorFactory" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.PredictorFactory" title="sensai.torch.torch_models.seq.seq_modules.PredictorFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">PredictorFactory</span></code></a></p>
+<p>A factor for predictors that are multi-layer perceptrons</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.MLPPredictorFactory.create_predictor">
+<span class="sig-name descname"><span class="pre">create_predictor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.PredictorProtocol" title="sensai.torch.torch_models.seq.seq_modules.PredictorProtocol"><span class="pre">PredictorProtocol</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">torch.nn.Module</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#MLPPredictorFactory.create_predictor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.MLPPredictorFactory.create_predictor" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_dim</strong> – the input dimension</p></li>
+<li><p><strong>output_dim</strong> – the output dimension</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a module which maps an input with dimension <cite>input_dim</cite> to the desired prediction dimension (<cite>output_dim</cite>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.RnnEncoderModule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RnnEncoderModule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#RnnEncoderModule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.RnnEncoderModule" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Encodes a sequence of feature vectors, outputting a latent vector.
+The input sequence may either be fixed-length or variable-length.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_dim</strong> – the input dimension per time slice</p></li>
+<li><p><strong>latent_dim</strong> – the dimension of the latent output vector</p></li>
+<li><p><strong>rnn_type</strong> – the type of recurrent network to use</p></li>
+<li><p><strong>num_layers</strong> – the number of recurrent layers (e.g. num_layers=2 would mean stacking two
+models, with the second model receiving the outputs of the first and computing the final result)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.RnnEncoderModule.RnnType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RnnType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#RnnEncoderModule.RnnType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.RnnEncoderModule.RnnType" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.RnnEncoderModule.RnnType.GRU">
+<span class="sig-name descname"><span class="pre">GRU</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'gru'</span></em><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.RnnEncoderModule.RnnType.GRU" title="Permalink to this definition">#</a></dt>
+<dd><p>gated recurrent unit</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.RnnEncoderModule.RnnType.LSTM">
+<span class="sig-name descname"><span class="pre">LSTM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'lstm'</span></em><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.RnnEncoderModule.RnnType.LSTM" title="Permalink to this definition">#</a></dt>
+<dd><p>long short-term memory</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.RnnEncoderModule.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lengths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#RnnEncoderModule.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.RnnEncoderModule.forward" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – a tensor of size (batch_size, seq_length, dim_per_item)</p></li>
+<li><p><strong>lengths</strong> – an optional tensor containing the lengths of the sequences; if None,
+all sequences are assumed to have the same full length</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a tensor of size (batch_size, latent_dim)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.RnnEncoderFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RnnEncoderFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rnn_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.RnnEncoderModule.RnnType" title="sensai.torch.torch_models.seq.seq_modules.RnnEncoderModule.RnnType"><span class="pre">RnnType</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">RnnType.GRU</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_layers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#RnnEncoderFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.RnnEncoderFactory" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.EncoderFactory" title="sensai.torch.torch_models.seq.seq_modules.EncoderFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">EncoderFactory</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.RnnEncoderFactory.create_encoder">
+<span class="sig-name descname"><span class="pre">create_encoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latent_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#RnnEncoderFactory.create_encoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.RnnEncoderFactory.create_encoder" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_dim</strong> – the input dimension per sequence item</p></li>
+<li><p><strong>latent_dim</strong> – the latent vector dimension that is to be generated by the encoder</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a torch module satisfying <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.EncoderProtocol" title="sensai.torch.torch_models.seq.seq_modules.EncoderProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">EncoderProtocol</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.LSTNetworkEncoder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LSTNetworkEncoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#LSTNetworkEncoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.LSTNetworkEncoder" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Adapts an LSTNetwork instance to the encoder interface</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.LSTNetworkEncoder.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lengths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#LSTNetworkEncoder.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.LSTNetworkEncoder.forward" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – a tensor of size (batch_size, seq_length, dim_per_item)</p></li>
+<li><p><strong>lengths</strong> – an optional tensor containing the lengths of the sequences; if None,
+all sequences are assumed to have the same full length</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a tensor of size (batch_size, latent_dim)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.LSTNetworkEncoderFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LSTNetworkEncoderFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_input_time_slices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_convolutions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_cnn_time_slices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hid_rnn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hid_skip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#LSTNetworkEncoderFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.LSTNetworkEncoderFactory" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.EncoderFactory" title="sensai.torch.torch_models.seq.seq_modules.EncoderFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">EncoderFactory</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.LSTNetworkEncoderFactory.create_encoder">
+<span class="sig-name descname"><span class="pre">create_encoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latent_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">torch.nn.Module</span></span></span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#LSTNetworkEncoderFactory.create_encoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.LSTNetworkEncoderFactory.create_encoder" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_dim</strong> – the input dimension per sequence item</p></li>
+<li><p><strong>latent_dim</strong> – the latent vector dimension that is to be generated by the encoder</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a torch module satisfying <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.EncoderProtocol" title="sensai.torch.torch_models.seq.seq_modules.EncoderProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">EncoderProtocol</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.LSTNetworkEncoderFactory.get_latent_dim">
+<span class="sig-name descname"><span class="pre">get_latent_dim</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#LSTNetworkEncoderFactory.get_latent_dim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.LSTNetworkEncoderFactory.get_latent_dim" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.SingleTargetDecoderModule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SingleTargetDecoderModule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#SingleTargetDecoderModule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.SingleTargetDecoderModule" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code>, <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.DecoderProtocol" title="sensai.torch.torch_models.seq.seq_modules.DecoderProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">DecoderProtocol</span></code></a></p>
+<p>Represents a decoder that output a single value for a single target item, taking as input the concatenation of the
+latent tensor (generated by the encoder) and the target item’s feature vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_feature_dim</strong> – the number of target item features</p></li>
+<li><p><strong>latent_dim</strong> – the dimension of the latent vector generated by the encoder, which we receive as input</p></li>
+<li><p><strong>predictor_factory</strong> – a factory for the creation of the predictor that will map the combined
+latent vector and target feature vector to the prediction of size <cite>output_dim</cite></p></li>
+<li><p><strong>output_dim</strong> – the output (prediction) dimension</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.SingleTargetDecoderModule.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_lengths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#SingleTargetDecoderModule.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.SingleTargetDecoderModule.forward" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>latent</strong> – a tensor of shape (batch_size, latent_dim) containing the latent representations</p></li>
+<li><p><strong>target_features</strong> – a tensor of shape (batch_size, target_seq_length=max(target_lengths), target_feature_dim)</p></li>
+<li><p><strong>target_lengths</strong> – a tensor of shape (batch_size) containing the lengths of sequences in <cite>target_features</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a tensor of shape (batch_size, output_dim) or (batch_size, target_seq_length, output_dim) containing the predictions,
+where the shape depends on the use case and can vary depending on the needs</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TargetSequenceDecoderModule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#TargetSequenceDecoderModule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code>, <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.DecoderProtocol" title="sensai.torch.torch_models.seq.seq_modules.DecoderProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">DecoderProtocol</span></code></a>, <a class="reference internal" href="../../../util/string.html#sensai.util.string.ToStringMixin" title="sensai.util.string.ToStringMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ToStringMixin</span></code></a></p>
+<p>Wrapper for decoders that take as input a latent representation (generated by an encoder)
+and a sequence of target features.
+It can generate either a single prediction for the entire sequence of target features or
+a sequence of predictions (one for each target sequence item), depending on the prediction/output mode.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.PredictionMode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PredictionMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#TargetSequenceDecoderModule.PredictionMode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.PredictionMode" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Defines how the prediction works</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.PredictionMode.SINGLE_LATENT">
+<span class="sig-name descname"><span class="pre">SINGLE_LATENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'single_latent'</span></em><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.PredictionMode.SINGLE_LATENT" title="Permalink to this definition">#</a></dt>
+<dd><p>Use an LSTM to process the target feature sequence and use only the final hidden state for prediction, 
+outputting a single average prediction only (for OutputMode.SINGLE_OUTPUT only)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.PredictionMode.MULTI_LATENT">
+<span class="sig-name descname"><span class="pre">MULTI_LATENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'multi_latent'</span></em><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.PredictionMode.MULTI_LATENT" title="Permalink to this definition">#</a></dt>
+<dd><p>Use an LSTM to process the target feature sequence and use all hidden states (full output) for prediction</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.PredictionMode.DIRECT">
+<span class="sig-name descname"><span class="pre">DIRECT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'direct'</span></em><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.PredictionMode.DIRECT" title="Permalink to this definition">#</a></dt>
+<dd><p>Directly use the latent vector and target features to make predictions for each target sequence
+item (use with LatentPassOnMode.CONCAT_INPUT &amp; NO_LATENT only)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.LatentPassOnMode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LatentPassOnMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#TargetSequenceDecoderModule.LatentPassOnMode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.LatentPassOnMode" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Defines how the latent state from the encoder stage is passed on to the decoder</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.LatentPassOnMode.INIT_HIDDEN">
+<span class="sig-name descname"><span class="pre">INIT_HIDDEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'init_hidden'</span></em><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.LatentPassOnMode.INIT_HIDDEN" title="Permalink to this definition">#</a></dt>
+<dd><p>Pass on the encoder output as the initial hidden state of the LSTM 
+(only possible for OutputMode in {SINGLE_LATENT, MULTI_LATENT})</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.LatentPassOnMode.CONCAT_INPUT">
+<span class="sig-name descname"><span class="pre">CONCAT_INPUT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'concat_input'</span></em><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.LatentPassOnMode.CONCAT_INPUT" title="Permalink to this definition">#</a></dt>
+<dd><p>Pass on the encoder output by concatenating it with each target feature input vector</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.LatentPassOnMode.NO_LATENT">
+<span class="sig-name descname"><span class="pre">NO_LATENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'no_latent'</span></em><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.LatentPassOnMode.NO_LATENT" title="Permalink to this definition">#</a></dt>
+<dd><p>Do not pass on the latent vector at all (ignored by subsequent decoder component). 
+This is mostly useful for ablation testing.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.OutputMode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OutputMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#TargetSequenceDecoderModule.OutputMode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.OutputMode" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Defines how to treat multiple predictions (for PredictionMode != SINGLE_LATENT)</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.OutputMode.SINGLE_OUTPUT">
+<span class="sig-name descname"><span class="pre">SINGLE_OUTPUT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'single'</span></em><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.OutputMode.SINGLE_OUTPUT" title="Permalink to this definition">#</a></dt>
+<dd><p>Output a single result from a single input (for PredictionMode.SINGLE_LATENT only)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.OutputMode.SINGLE_OUTPUT_MEAN">
+<span class="sig-name descname"><span class="pre">SINGLE_OUTPUT_MEAN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mean'</span></em><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.OutputMode.SINGLE_OUTPUT_MEAN" title="Permalink to this definition">#</a></dt>
+<dd><p>Output the mean of multiple (intermediate) predictions</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.OutputMode.MULTI_OUTPUT">
+<span class="sig-name descname"><span class="pre">MULTI_OUTPUT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'multi'</span></em><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.OutputMode.MULTI_OUTPUT" title="Permalink to this definition">#</a></dt>
+<dd><p>Output multiple predictions directly</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_lengths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#TargetSequenceDecoderModule.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.forward" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>latent</strong> – a tensor of shape (batch_size, latent_dim)</p></li>
+<li><p><strong>target_features</strong> – a tensor of shape (batch_size, max_seq_length, target_feature_dim)</p></li>
+<li><p><strong>target_lengths</strong> – a tensor indicating the lengths of the sequences in target_features</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TargetSequenceDecoderFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.PredictionMode" title="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.PredictionMode"><span class="pre">PredictionMode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PredictionMode.MULTI_LATENT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.OutputMode" title="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.OutputMode"><span class="pre">OutputMode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">OutputMode.MULTI_OUTPUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latent_pass_on_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.LatentPassOnMode" title="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule.LatentPassOnMode"><span class="pre">LatentPassOnMode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">LatentPassOnMode.CONCAT_INPUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictor_factory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.PredictorFactory" title="sensai.torch.torch_models.seq.seq_modules.PredictorFactory"><span class="pre">PredictorFactory</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_recurrent_dropout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#TargetSequenceDecoderFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderFactory" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.DecoderFactory" title="sensai.torch.torch_models.seq.seq_modules.DecoderFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">DecoderFactory</span></code></a></p>
+<p>A factory for <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule" title="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderModule"><code class="xref py py-class docutils literal notranslate"><span class="pre">TargetSequenceDecoderModule</span></code></a> which takes the latent encoding and a sequence of target
+items as input</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderFactory.create_decoder">
+<span class="sig-name descname"><span class="pre">create_decoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latent_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_feature_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">torch.nn.Module</span></span></span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#TargetSequenceDecoderFactory.create_decoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.TargetSequenceDecoderFactory.create_decoder" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>latent_dim</strong> – the latent vector size which is used for the representation of the history</p></li>
+<li><p><strong>target_feature_dim</strong> – the number of dimensions/features that are given for each prediction to be made
+(each future sequence item)</p></li>
+<li><p><strong>output_dim</strong> – the number of outputs/targets to predict (per output time slice)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a torch module satisfying <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.DecoderProtocol" title="sensai.torch.torch_models.seq.seq_modules.DecoderProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">DecoderProtocol</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.SingleTargetDecoderFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SingleTargetDecoderFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictor_factory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.PredictorFactory" title="sensai.torch.torch_models.seq.seq_modules.PredictorFactory"><span class="pre">PredictorFactory</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#SingleTargetDecoderFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.SingleTargetDecoderFactory" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.DecoderFactory" title="sensai.torch.torch_models.seq.seq_modules.DecoderFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">DecoderFactory</span></code></a></p>
+<p>A factory for <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.SingleTargetDecoderModule" title="sensai.torch.torch_models.seq.seq_modules.SingleTargetDecoderModule"><code class="xref py py-class docutils literal notranslate"><span class="pre">SingleTargetDecoderModule</span></code></a> which takes the latent encoding and a single-element sequence of target
+items as input, producing a single prediction</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.SingleTargetDecoderFactory.create_decoder">
+<span class="sig-name descname"><span class="pre">create_decoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latent_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_feature_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">torch.nn.Module</span></span></span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#SingleTargetDecoderFactory.create_decoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.SingleTargetDecoderFactory.create_decoder" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>latent_dim</strong> – the latent vector size which is used for the representation of the history</p></li>
+<li><p><strong>target_feature_dim</strong> – the number of dimensions/features that are given for each prediction to be made
+(each future sequence item)</p></li>
+<li><p><strong>output_dim</strong> – the number of outputs/targets to predict (per output time slice)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a torch module satisfying <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.DecoderProtocol" title="sensai.torch.torch_models.seq.seq_modules.DecoderProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">DecoderProtocol</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.EncoderDecoderModule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EncoderDecoderModule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#EncoderDecoderModule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.EncoderDecoderModule" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Represents and encoder-decoder (where both components can be injected). It takes a history sequence and a sequence of
+target feature vectors as input. Both sequences are potentially of variable length, and for the target sequence,
+the common special case where there is but one target and thus one prediction to be made is specifically catered for
+using dedicated decoders (see <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.SingleTargetDecoderModule" title="sensai.torch.torch_models.seq.seq_modules.SingleTargetDecoderModule"><code class="xref py py-class docutils literal notranslate"><span class="pre">SingleTargetDecoderModule</span></code></a>).</p>
+<p>The module first encodes the history sequence to a latent vector and then uses the decoder to map this latent vector
+along with the target features to a prediction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>encoder</strong> – a torch module satisfying <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.EncoderProtocol" title="sensai.torch.torch_models.seq.seq_modules.EncoderProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">EncoderProtocol</span></code></a></p></li>
+<li><p><strong>decoder</strong> – a torch module satisfying <a class="reference internal" href="#sensai.torch.torch_models.seq.seq_modules.DecoderProtocol" title="sensai.torch.torch_models.seq.seq_modules.DecoderProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">DecoderProtocol</span></code></a></p></li>
+<li><p><strong>variable_history_length</strong> – whether the history sequence is variable-length.
+If it is not, then the model will not pass on the lengths tensor to the encoder, allowing it to simplify
+its handling of this case (even if the original input provides the lengths).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_models.seq.seq_modules.EncoderDecoderModule.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_lengths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_lengths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/sensai/torch/torch_models/seq/seq_modules.html#EncoderDecoderModule.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_models.seq.seq_modules.EncoderDecoderModule.forward" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window_features</strong> – a tensor of size (batch_size, max(window_lengths), dim_per_window_item) containing the window features</p></li>
+<li><p><strong>window_lengths</strong> – a tensor containing the lengths of windows in <cite>w</cite></p></li>
+<li><p><strong>target_features</strong> – an optional tensor containing target features with shape
+(batch_size, max_target_seq_length, target_feature_dim).
+For the case where there is only one target item (no actual sequence), <cite>max_target_seq_length</cite>
+should be 1.</p></li>
+<li><p><strong>target_lengths</strong> – an optional tensor containing the lengths target the target sequences, allowing
+the actual sequence lengths to differ</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./sensai/torch/torch_models/seq"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="seq_models.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">seq_models</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../../tracking/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">tracking</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By sensAI contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2019-2024 by sensAI contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

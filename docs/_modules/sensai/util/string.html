@@ -1,0 +1,1060 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sensai.util.string &#8212; sensAI Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/sphinx-toolbox.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/js/vega@5.js"></script>
+    <script src="../../../_static/js/vega-lite@5.js"></script>
+    <script src="../../../_static/js/vega-embed@5.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sensai/util/string';</script>
+    <link rel="canonical" href="https://tianshou.readthedocs.io/en/master/_modules/sensai/util/string.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/sensai-logo.png" class="logo__image only-light" alt="sensAI Documentation - Home"/>
+    <script>document.write(`<img src="../../../_static/sensai-logo.png" class="logo__image only-dark" alt="sensAI Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../index.html">
+                    Welcome to sensAI!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../1-supervised-learning/1-vector-models.html">Models with Modular Data Pipelines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../2-notebooks/0_intro.html">Notebook Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../2-notebooks/1-classification.html">Introduction to sensAI: Supervised Learning with VectorModels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2-notebooks/2-neural_networks.html">Neural Networks</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../sensai/index.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/catboost.html">catboost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/columngen.html">columngen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/distance_metric.html">distance_metric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/feature_importance.html">feature_importance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/hyperopt.html">hyperopt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/lightgbm.html">lightgbm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/local_search.html">local_search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/minizinc.html">minizinc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/multi_model.html">multi_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/naive_bayes.html">naive_bayes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/nearest_neighbors.html">nearest_neighbors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/normalisation.html">normalisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/sklearn_quantile.html">sklearn_quantile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/tensor_model.html">tensor_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/vector_model.html">vector_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/vectoriser.html">vectoriser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/xgboost.html">xgboost</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/clustering/index.html">clustering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/clustering/clustering_base.html">clustering_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/clustering/greedy_clustering.html">greedy_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/clustering/sklearn_clustering.html">sklearn_clustering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/data/index.html">data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data/dataset.html">dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data/io_data.html">io_data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/data_transformation/index.html">data_transformation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data_transformation/dft.html">dft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data_transformation/sklearn_transformer.html">sklearn_transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data_transformation/value_transformation.html">value_transformation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/ensemble/index.html">ensemble</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/ensemble/ensemble_base.html">ensemble_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/ensemble/models.html">models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/evaluation/index.html">evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/crossval.html">crossval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/eval_util.html">eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/evaluator.html">evaluator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/evaluator_clustering.html">evaluator_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/metric_computation.html">metric_computation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/result_set.html">result_set</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/index.html">eval_stats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_base.html">eval_stats_base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_classification.html">eval_stats_classification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_clustering.html">eval_stats_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_regression.html">eval_stats_regression</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/feature_selection/index.html">feature_selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/feature_selection/rfe.html">rfe</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/featuregen/index.html">featuregen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/featuregen/feature_generator.html">feature_generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/featuregen/feature_generator_registry.html">feature_generator_registry</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/geoanalytics/index.html">geoanalytics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/geo_clustering.html">geo_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/geo_coords.html">geo_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/local_coords.html">local_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/map_tiles.html">map_tiles</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/index.html">geopandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/coordinate_clustering.html">coordinate_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/coordinate_clustering_ground_truth.html">coordinate_clustering_ground_truth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/coordinates.html">coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/geometry.html">geometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/graph.html">graph</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/pytorch_lightning/index.html">pytorch_lightning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/pytorch_lightning/pl_models.html">pl_models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/sklearn/index.html">sklearn</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/sklearn/sklearn_base.html">sklearn_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/sklearn/sklearn_classification.html">sklearn_classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/sklearn/sklearn_regression.html">sklearn_regression</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/torch/index.html">torch</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_base.html">torch_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_data.html">torch_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_enums.html">torch_enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_eval_util.html">torch_eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_modules.html">torch_modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_opt.html">torch_opt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torchtext.html">torchtext</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sensai/torch/torch_models/index.html">torch_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/lstnet/index.html">lstnet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/mlp/index.html">mlp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/residualffn/index.html">residualffn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/seq/index.html">seq</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/tracking/index.html">tracking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/azure_tracking.html">azure_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/clearml_tracking.html">clearml_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/mlflow_tracking.html">mlflow_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/tracking_base.html">tracking_base</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/util/index.html">util</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/aggregation.html">aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/cache.html">cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/cache_azure.html">cache_azure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/cache_mysql.html">cache_mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/datastruct.html">datastruct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/deprecation.html">deprecation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/dtype.html">dtype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/git.html">git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/hash.html">hash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/helper.html">helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/jscode.html">jscode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/logging.html">logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/math.html">math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/multiprocessing.html">multiprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/pandas.html">pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/pickle.html">pickle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/plot.html">plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/profiling.html">profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/sequences.html">sequences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/string.html">string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/tensorboard.html">tensorboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/test.html">test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/time.html">time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/typing.html">typing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/version.html">version</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for sensai.util.string</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">types</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">,</span> <span class="n">Callable</span>
+
+<span class="n">reCommaWhitespacePotentiallyBreaks</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;,\s+&quot;</span><span class="p">)</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="StringConverter"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.StringConverter">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">StringConverter</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Abstraction for a string conversion mechanism</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="StringConverter.to_string"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.StringConverter.to_string">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="dict_string"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.dict_string">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">dict_string</span><span class="p">(</span><span class="n">d</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">,</span> <span class="n">brackets</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">converter</span><span class="p">:</span> <span class="n">StringConverter</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts a dictionary to a string of the form &quot;&lt;key&gt;=&lt;value&gt;, &lt;key&gt;=&lt;value&gt;, ...&quot;, optionally enclosed</span>
+<span class="sd">    by brackets</span>
+
+<span class="sd">    :param d: the dictionary</span>
+<span class="sd">    :param brackets: a two-character string containing the opening and closing bracket to use, e.g. ``&quot;{}&quot;``;</span>
+<span class="sd">        if None, do not use enclosing brackets</span>
+<span class="sd">    :param converter: the string converter to use for values</span>
+<span class="sd">    :return: the string representation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1">=</span><span class="si">{</span><span class="n">to_string</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">converter</span><span class="o">=</span><span class="n">converter</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="o">=</span><span class="n">k</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+    <span class="k">if</span> <span class="n">brackets</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">brackets</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">s</span> <span class="o">+</span> <span class="n">brackets</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">s</span></div>
+
+
+<div class="viewcode-block" id="list_string"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.list_string">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">list_string</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">brackets</span><span class="o">=</span><span class="s2">&quot;[]&quot;</span><span class="p">,</span> <span class="n">quote</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">converter</span><span class="p">:</span> <span class="n">StringConverter</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts a list or any other iterable to a string of the form &quot;[&lt;value&gt;, &lt;value&gt;, ...]&quot;, optionally enclosed</span>
+<span class="sd">    by different brackets or with the values quoted.</span>
+
+<span class="sd">    :param l: the list</span>
+<span class="sd">    :param brackets: a two-character string containing the opening and closing bracket to use, e.g. ``&quot;[]&quot;``;</span>
+<span class="sd">        if None, do not use enclosing brackets</span>
+<span class="sd">    :param quote: a 1-character string defining the quote to use around each value, e.g. ``&quot;&#39;&quot;``.</span>
+<span class="sd">    :param converter: the string converter to use for values</span>
+<span class="sd">    :return: the string representation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">item</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">to_string</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">converter</span><span class="o">=</span><span class="n">converter</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s2">&quot;list&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">quote</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">quote</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="n">quote</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">x</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">item</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">brackets</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">brackets</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">s</span> <span class="o">+</span> <span class="n">brackets</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">s</span></div>
+
+
+<div class="viewcode-block" id="to_string"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.to_string">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">converter</span><span class="p">:</span> <span class="n">StringConverter</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">apply_converter_to_non_complex_objects</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts the given object to a string, with proper handling of lists, tuples and dictionaries, optionally using a converter.</span>
+<span class="sd">    The conversion also removes unwanted line breaks (as present, in particular, in sklearn&#39;s string representations).</span>
+
+<span class="sd">    :param x: the object to convert</span>
+<span class="sd">    :param converter: the converter with which to convert objects to strings</span>
+<span class="sd">    :param apply_converter_to_non_complex_objects: whether to apply/pass on the converter (if any) not only when converting complex objects</span>
+<span class="sd">        but also non-complex, primitive objects; use of this flag enables converters to implement their conversion functionality using this</span>
+<span class="sd">        function for complex objects without causing an infinite recursion.</span>
+<span class="sd">    :param context: context in which the object is being converted (e.g. dictionary key for case where x is the corresponding</span>
+<span class="sd">        dictionary value), only for debugging purposes (will be reported in log messages upon recursion exception)</span>
+<span class="sd">    :return: the string representation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">list_string</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">converter</span><span class="o">=</span><span class="n">converter</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">tuple</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">list_string</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">brackets</span><span class="o">=</span><span class="s2">&quot;()&quot;</span><span class="p">,</span> <span class="n">converter</span><span class="o">=</span><span class="n">converter</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">dict</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">dict_string</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">brackets</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">converter</span><span class="o">=</span><span class="n">converter</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">repr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="n">types</span><span class="o">.</span><span class="n">MethodType</span><span class="p">:</span>
+            <span class="c1"># could be bound method of a ToStringMixin instance (which would print the repr of the instance, which can potentially cause</span>
+            <span class="c1"># an infinite recursion)</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Method[</span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">]&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">converter</span> <span class="ow">and</span> <span class="n">apply_converter_to_non_complex_objects</span><span class="p">:</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">converter</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+            <span class="c1"># remove any unwanted line breaks and indentation after commas (as generated, for example, by sklearn objects)</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">reCommaWhitespacePotentiallyBreaks</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">s</span>
+    <span class="k">except</span> <span class="ne">RecursionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Recursion in string conversion detected; context=</span><span class="si">{</span><span class="n">context</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="object_repr"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.object_repr">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">object_repr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">member_names_or_dict</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]):</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">member_names_or_dict</span><span class="p">)</span> <span class="o">==</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="n">members_dict</span> <span class="o">=</span> <span class="n">member_names_or_dict</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">members_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">m</span><span class="p">:</span> <span class="n">to_string</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">m</span><span class="p">))</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">member_names_or_dict</span><span class="p">}</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">obj</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">[</span><span class="si">{</span><span class="n">dict_string</span><span class="p">(</span><span class="n">members_dict</span><span class="p">)</span><span class="si">}</span><span class="s2">]&quot;</span></div>
+
+
+<div class="viewcode-block" id="or_regex_group"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.or_regex_group">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">or_regex_group</span><span class="p">(</span><span class="n">allowed_names</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    :param allowed_names: strings to include as literals in the regex</span>
+<span class="sd">    :return: a regular expression string of the form (&lt;name1&gt;| ...|&lt;nameN&gt;), which any of the given names</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">allowed_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">allowed_names</span><span class="p">]</span>
+    <span class="k">return</span> <span class="sa">r</span><span class="s2">&quot;(</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="s2">&quot;|&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">allowed_names</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="function_name"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.function_name">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">function_name</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;__name__&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ToStringMixin"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.ToStringMixin">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">ToStringMixin</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Provides implementations for ``__str__`` and ``__repr__`` which are based on the format ``&quot;&lt;class name&gt;[&lt;object info&gt;]&quot;`` and</span>
+<span class="sd">    ``&quot;&lt;class name&gt;[id=&lt;object id&gt;, &lt;object info&gt;]&quot;`` respectively, where ``&lt;object info&gt;`` is usually a list of entries of the</span>
+<span class="sd">    form ``&quot;&lt;name&gt;=&lt;value&gt;, ...&quot;``.</span>
+
+<span class="sd">    By default, ``&lt;class name&gt;`` will be the qualified name of the class, and ``&lt;object info&gt;`` will include all properties</span>
+<span class="sd">    of the class, including private ones starting with an underscore (though the underscore will be dropped in the string</span>
+<span class="sd">    representation).</span>
+
+<span class="sd">        * To exclude private properties, override :meth:`_tostring_exclude_private` to return True. If there are exceptions</span>
+<span class="sd">          (and some private properties shall be retained), additionally override :meth:`_tostring_exclude_exceptions`.</span>
+<span class="sd">        * To exclude a particular set of properties, override :meth:`_tostring_excludes`.</span>
+<span class="sd">        * To include only select properties (introducing inclusion semantics), override :meth:`_tostring_includes`.</span>
+<span class="sd">        * To add values to the properties list that aren&#39;t actually properties of the object (i.e. derived properties),</span>
+<span class="sd">          override :meth:`_tostring_additional_entries`.</span>
+<span class="sd">        * To define a fully custom representation for ``&lt;object info&gt;`` which is not based on the above principles, override</span>
+<span class="sd">          :meth:`_tostring_object_info`.</span>
+
+<span class="sd">    For well-defined string conversions within a class hierarchy, it can be a good practice to define additional</span>
+<span class="sd">    inclusions/exclusions by overriding the respective method once more and basing the return value on an extended</span>
+<span class="sd">    version of the value returned by superclass.</span>
+<span class="sd">    In some cases, the requirements of a subclass can be at odds with the definitions in the superclass: The superclass</span>
+<span class="sd">    may make use of exclusion semantics, but the subclass may want to use inclusion semantics (and include</span>
+<span class="sd">    only some of the many properties it adds). In this case, if the subclass used :meth:`_tostring_includes`, the exclusion semantics</span>
+<span class="sd">    of the superclass would be void and none of its properties would actually be included.</span>
+<span class="sd">    In such cases, override :meth:`_tostring_includes_forced` to add inclusions regardless of the semantics otherwise used along</span>
+<span class="sd">    the class hierarchy.</span>
+
+<span class="sd">    .. document private functions</span>
+<span class="sd">    .. automethod:: _tostring_class_name</span>
+<span class="sd">    .. automethod:: _tostring_object_info</span>
+<span class="sd">    .. automethod:: _tostring_excludes</span>
+<span class="sd">    .. automethod:: _tostring_exclude_exceptions</span>
+<span class="sd">    .. automethod:: _tostring_includes</span>
+<span class="sd">    .. automethod:: _tostring_includes_forced</span>
+<span class="sd">    .. automethod:: _tostring_additional_entries</span>
+<span class="sd">    .. automethod:: _tostring_exclude_private</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_TOSTRING_INCLUDE_ALL</span> <span class="o">=</span> <span class="s2">&quot;__all__&quot;</span>
+
+<div class="viewcode-block" id="ToStringMixin._tostring_class_name"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.ToStringMixin._tostring_class_name">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_class_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the string use for &lt;class name&gt; in the string representation ``&quot;&lt;class name&gt;[&lt;object info]&quot;``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__qualname__</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">exclude</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">include</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">exclude_exceptions</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">include_forced</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">additional_entries</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">converter</span><span class="p">:</span> <span class="n">StringConverter</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a string of the class attributes, with optional exclusions/inclusions/additions.</span>
+<span class="sd">        Exclusions take precedence over inclusions.</span>
+
+<span class="sd">        :param exclude: attributes to be excluded</span>
+<span class="sd">        :param include: attributes to be included; if non-empty, only the specified attributes will be printed (bar the ones</span>
+<span class="sd">            excluded by ``exclude``)</span>
+<span class="sd">        :param include_forced: additional attributes to be included</span>
+<span class="sd">        :param additional_entries: additional key-value entries to be added</span>
+<span class="sd">        :param converter: the string converter to use; if None, use default (which avoids infinite recursions)</span>
+<span class="sd">        :return: a string containing entry/property names and values</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">mklist</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[]</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">x</span>
+
+        <span class="n">exclude</span> <span class="o">=</span> <span class="n">mklist</span><span class="p">(</span><span class="n">exclude</span><span class="p">)</span>
+        <span class="n">include</span> <span class="o">=</span> <span class="n">mklist</span><span class="p">(</span><span class="n">include</span><span class="p">)</span>
+        <span class="n">include_forced</span> <span class="o">=</span> <span class="n">mklist</span><span class="p">(</span><span class="n">include_forced</span><span class="p">)</span>
+        <span class="n">exclude_exceptions</span> <span class="o">=</span> <span class="n">mklist</span><span class="p">(</span><span class="n">exclude_exceptions</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">is_excluded</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">include_forced</span> <span class="ow">or</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">exclude_exceptions</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">exclude</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tostring_exclude_private</span><span class="p">():</span>
+                <span class="n">is_private</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">is_private</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="c1"># determine relevant attribute dictionary</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">include</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">include</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TOSTRING_INCLUDE_ALL</span><span class="p">:</span>  <span class="c1"># exclude semantics (include everything by default)</span>
+            <span class="n">attribute_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># include semantics (include only inclusions)</span>
+            <span class="n">attribute_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">include</span> <span class="o">+</span> <span class="n">include_forced</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TOSTRING_INCLUDE_ALL</span><span class="p">}</span>
+
+        <span class="c1"># apply exclusions and remove underscores from attribute names</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">):</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">attribute_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">is_excluded</span><span class="p">(</span><span class="n">k</span><span class="p">)}</span>
+
+        <span class="k">if</span> <span class="n">additional_entries</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">additional_entries</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">converter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">converter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_StringConverterAvoidToStringMixinRecursion</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dict_string</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">converter</span><span class="o">=</span><span class="n">converter</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ToStringMixin._tostring_object_info"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.ToStringMixin._tostring_object_info">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_object_info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Override this method to use a fully custom definition of the ``&lt;object info&gt;`` part in the full string</span>
+<span class="sd">        representation ``&quot;&lt;class name&gt;[&lt;object info&gt;]&quot;`` to be generated.</span>
+<span class="sd">        As soon as this method is overridden, any property-based exclusions, inclusions, etc. will have no effect</span>
+<span class="sd">        (unless the implementation is specifically designed to make use of them - as is the default</span>
+<span class="sd">        implementation).</span>
+<span class="sd">        NOTE: Overrides must not internally use super() because of a technical limitation in the proxy</span>
+<span class="sd">        object that is used for nested object structures.</span>
+
+<span class="sd">        :return: a string containing the string to use for ``&lt;object info&gt;``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tostring_properties</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_tostring_excludes</span><span class="p">(),</span> <span class="n">include</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_tostring_includes</span><span class="p">(),</span>
+            <span class="n">exclude_exceptions</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_tostring_exclude_exceptions</span><span class="p">(),</span> <span class="n">include_forced</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_tostring_includes_forced</span><span class="p">(),</span>
+            <span class="n">additional_entries</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_tostring_additional_entries</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="ToStringMixin._tostring_excludes"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.ToStringMixin._tostring_excludes">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_excludes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Makes the string representation exclude the returned attributes.</span>
+<span class="sd">        This method can be conveniently overridden by subclasses which can call super and extend the list returned.</span>
+
+<span class="sd">        This method will only have no effect if :meth:`_tostring_object_info` is overridden to not use its result.</span>
+
+<span class="sd">        :return: a list of attribute names</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[]</span></div>
+
+<div class="viewcode-block" id="ToStringMixin._tostring_includes"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.ToStringMixin._tostring_includes">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_includes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Makes the string representation include only the returned attributes (i.e. introduces inclusion semantics);</span>
+<span class="sd">        By default, the list contains only a marker element, which is interpreted as &quot;all attributes included&quot;.</span>
+
+<span class="sd">        This method can be conveniently overridden by sub-classes which can call super and extend the list returned.</span>
+<span class="sd">        Note that it is not a problem for a list containing the aforementioned marker element (which stands for all attributes)</span>
+<span class="sd">        to be extended; the marker element will be ignored and only the user-added elements will be considered as included.</span>
+
+<span class="sd">        Note: To add an included attribute in a sub-class, regardless of any super-classes using exclusion or inclusion semantics,</span>
+<span class="sd">        use :meth:`_tostring_includes_forced` instead.</span>
+
+<span class="sd">        This method will have no effect if :meth:`_tostring_object_info` is overridden to not use its result.</span>
+
+<span class="sd">        :return: a list of attribute names to be included in the string representation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_TOSTRING_INCLUDE_ALL</span><span class="p">]</span></div>
+
+    <span class="c1"># noinspection PyMethodMayBeStatic</span>
+<div class="viewcode-block" id="ToStringMixin._tostring_includes_forced"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.ToStringMixin._tostring_includes_forced">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_includes_forced</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Defines a list of attribute names that are required to be present in the string representation, regardless of the</span>
+<span class="sd">        instance using include semantics or exclude semantics, thus facilitating added inclusions in sub-classes.</span>
+
+<span class="sd">        This method will have no effect if :meth:`_tostring_object_info` is overridden to not use its result.</span>
+
+<span class="sd">        :return: a list of attribute names</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[]</span></div>
+
+<div class="viewcode-block" id="ToStringMixin._tostring_additional_entries"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.ToStringMixin._tostring_additional_entries">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_additional_entries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: a dictionary of entries to be included in the ``&lt;object info&gt;`` part of the string representation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{}</span></div>
+
+<div class="viewcode-block" id="ToStringMixin._tostring_exclude_private"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.ToStringMixin._tostring_exclude_private">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_exclude_private</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: whether to exclude properties that are private (start with an underscore); explicitly included attributes</span>
+<span class="sd">            will still be considered - as will properties exempt from the rule via :meth:`_tostring_exclude_exceptions`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="ToStringMixin._tostring_exclude_exceptions"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.ToStringMixin._tostring_exclude_exceptions">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_exclude_exceptions</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Defines attribute names which should not be excluded even though other rules (particularly the exclusion of private members</span>
+<span class="sd">        via :meth:`_tostring_exclude_private`) would otherwise exclude them.</span>
+
+<span class="sd">        :return: a list of attribute names</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[]</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_tostring_class_name</span><span class="p">()</span><span class="si">}</span><span class="s2">[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_tostring_object_info</span><span class="p">()</span><span class="si">}</span><span class="s2">]&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;id=</span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">property_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tostring_object_info</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">property_info</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">+=</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span> <span class="n">property_info</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_tostring_class_name</span><span class="p">()</span><span class="si">}</span><span class="s2">[</span><span class="si">{</span><span class="n">info</span><span class="si">}</span><span class="s2">]&quot;</span>
+
+<div class="viewcode-block" id="ToStringMixin.pprint"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.ToStringMixin.pprint">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">pprint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Prints a prettily formatted string representation of the object (with line breaks and indentations)</span>
+<span class="sd">        to ``stdout`` or the given file.</span>
+
+<span class="sd">        :param file: the file to print to</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pprints</span><span class="p">(),</span> <span class="n">file</span><span class="o">=</span><span class="n">file</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ToStringMixin.pprints"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.ToStringMixin.pprints">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">pprints</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: a prettily formatted string representation with line breaks and indentations</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">pretty_string_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">_StringConverterAvoidToStringMixinRecursion</span><span class="p">(</span><span class="n">StringConverter</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Avoids recursions when converting objects implementing :class:`ToStringMixin` which may contain themselves to strings.</span>
+<span class="sd">        Use of this object prevents infinite recursions caused by a :class:`ToStringMixin` instance recursively containing itself in</span>
+<span class="sd">        either a property of another :class:`ToStringMixin`, a list or a tuple.</span>
+<span class="sd">        It handles all :class:`ToStringMixin` instances recursively encountered.</span>
+
+<span class="sd">        A previously handled instance is converted to a string of the form &quot;&lt;class name&gt;[&lt;&lt;]&quot;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">handled_objects</span><span class="p">:</span> <span class="s2">&quot;ToStringMixin&quot;</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            :param handled_objects: objects which are initially assumed to have been handled already</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handled_to_string_mixin_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="nb">id</span><span class="p">(</span><span class="n">o</span><span class="p">)</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">handled_objects</span><span class="p">])</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ToStringMixin</span><span class="p">):</span>
+                <span class="n">oid</span> <span class="o">=</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">oid</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handled_to_string_mixin_ids</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">_tostring_class_name</span><span class="p">()</span><span class="si">}</span><span class="s2">[&lt;&lt;]&quot;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_handled_to_string_mixin_ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">oid</span><span class="p">)</span>
+                <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ToStringMixinProxy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">to_string</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">converter</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">apply_converter_to_non_complex_objects</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+
+        <span class="k">class</span><span class="w"> </span><span class="nc">_ToStringMixinProxy</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            A proxy object which wraps a ToStringMixin to ensure that the converter is applied when creating the properties string.</span>
+<span class="sd">            The proxy is to achieve that all ToStringMixin methods that aren&#39;t explicitly overwritten are bound to this proxy</span>
+<span class="sd">            (rather than the original object), such that the transitive call to `_tostring_properties` will call the new</span>
+<span class="sd">            implementation.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+            <span class="c1"># methods where we assume that they could transitively call `_tostring_properties` (others are assumed not to)</span>
+            <span class="n">TOSTRING_METHODS_TRANSITIVELY_CALLING_TOSTRINGPROPERTIES</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;_tostring_object_info&quot;</span><span class="p">}</span>
+
+            <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;ToStringMixin&quot;</span><span class="p">,</span> <span class="n">converter</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">converter</span> <span class="o">=</span> <span class="n">converter</span>
+
+            <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">_tostring_properties</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">converter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">converter</span><span class="p">)</span>
+
+            <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_class_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">_tostring_class_name</span><span class="p">()</span>
+
+            <span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">attr</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_tostring&quot;</span><span class="p">):</span>  <span class="c1"># ToStringMixin method which we may bind to use this proxy to ensure correct transitive call</span>
+                    <span class="n">method</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span>
+                    <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="n">attr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">TOSTRING_METHODS_TRANSITIVELY_CALLING_TOSTRINGPROPERTIES</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span>
+                    <span class="k">return</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span>
+
+            <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="s2">&quot;ToStringMixin&quot;</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">ToStringMixin</span><span class="o">.</span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="pretty_string_repr"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.pretty_string_repr">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">pretty_string_repr</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">initial_indentation_level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">indentation_string</span><span class="o">=</span><span class="s2">&quot;    &quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a pretty string representation (using indentations) from the given object/string representation (as generated, for example, via</span>
+<span class="sd">    ToStringMixin). An indentation level is added for every opening bracket.</span>
+
+<span class="sd">    :param s: an object or object string representation</span>
+<span class="sd">    :param initial_indentation_level: the initial indentation level</span>
+<span class="sd">    :param indentation_string: the string which corresponds to a single indentation level</span>
+<span class="sd">    :return: a reformatted version of the input string with added indentations and line breaks</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">indent</span> <span class="o">=</span> <span class="n">initial_indentation_level</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">indentation_string</span> <span class="o">*</span> <span class="n">indent</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">nl</span><span class="p">():</span>
+        <span class="k">nonlocal</span> <span class="n">result</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="n">indentation_string</span> <span class="o">*</span> <span class="n">indent</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">take</span><span class="p">(</span><span class="n">cnt</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">nonlocal</span> <span class="n">result</span><span class="p">,</span> <span class="n">i</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">cnt</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="n">cnt</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">find_matching</span><span class="p">(</span><span class="n">j</span><span class="p">):</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">j</span>
+        <span class="n">op</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">cl</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;[&quot;</span><span class="p">:</span> <span class="s2">&quot;]&quot;</span><span class="p">,</span> <span class="s2">&quot;(&quot;</span><span class="p">:</span> <span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">:</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;{&quot;</span><span class="p">:</span> <span class="s2">&quot;}&quot;</span><span class="p">}[</span><span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span>
+        <span class="n">is_bracket</span> <span class="o">=</span> <span class="n">cl</span> <span class="o">!=</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">stack</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">op</span> <span class="ow">and</span> <span class="p">(</span><span class="n">is_bracket</span> <span class="ow">or</span> <span class="n">j</span> <span class="o">==</span> <span class="n">start</span><span class="p">):</span>
+                <span class="n">stack</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">cl</span><span class="p">:</span>
+                <span class="n">stack</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">stack</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">j</span>
+            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">brackets</span> <span class="o">=</span> <span class="s2">&quot;[({&quot;</span>
+    <span class="n">quotes</span> <span class="o">=</span> <span class="s2">&quot;&#39;&quot;</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+        <span class="n">is_bracket</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">brackets</span>
+        <span class="n">is_quote</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">quotes</span>
+        <span class="k">if</span> <span class="n">is_bracket</span> <span class="ow">or</span> <span class="n">is_quote</span><span class="p">:</span>
+            <span class="n">i_match</span> <span class="o">=</span> <span class="n">find_matching</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">take_full_match_without_break</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">if</span> <span class="n">i_match</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">k</span> <span class="o">=</span> <span class="n">i_match</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">full_match</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">k</span><span class="p">]</span>
+                <span class="n">take_full_match_without_break</span> <span class="o">=</span> <span class="n">is_quote</span> <span class="ow">or</span> <span class="ow">not</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="ow">in</span> <span class="n">full_match</span> <span class="ow">and</span> <span class="s2">&quot;,&quot;</span> <span class="ow">in</span> <span class="n">full_match</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">take_full_match_without_break</span><span class="p">:</span>
+                    <span class="n">take</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">take_full_match_without_break</span><span class="p">:</span>
+                <span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">indent</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">nl</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="s2">&quot;])}&quot;</span><span class="p">:</span>
+            <span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">indent</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;, &quot;</span><span class="p">:</span>
+            <span class="n">take</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">nl</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="TagBuilder"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.TagBuilder">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TagBuilder</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Assists in building strings made up of components that are joined via a glue string</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">initial_components</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">glue</span><span class="o">=</span><span class="s2">&quot;_&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param initial_components: initial components to always include at the beginning</span>
+<span class="sd">        :param glue: the glue string which joins components</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">glue</span> <span class="o">=</span> <span class="n">glue</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">components</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">initial_components</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TagBuilder.with_component"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.TagBuilder.with_component">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_component</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">component</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="TagBuilder.with_conditional"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.TagBuilder.with_conditional">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_conditional</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cond</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Conditionally adds the given component</span>
+
+<span class="sd">        :param cond: the condition</span>
+<span class="sd">        :param component: the component to add if the condition holds</span>
+<span class="sd">        :return: the builder</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">cond</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">component</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="TagBuilder.with_alternative"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.TagBuilder.with_alternative">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_alternative</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cond</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">true_component</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">false_component</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds a component depending on a condition</span>
+
+<span class="sd">        :param cond: the condition</span>
+<span class="sd">        :param true_component: the component to add if the condition holds</span>
+<span class="sd">        :param false_component: the component to add if the condition does not hold</span>
+<span class="sd">        :return: the builder</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">true_component</span> <span class="k">if</span> <span class="n">cond</span> <span class="k">else</span> <span class="n">false_component</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="TagBuilder.build"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.TagBuilder.build">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the string (with all components joined)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">glue</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TextBuilder"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.TextBuilder">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TextBuilder</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">initial_text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_components</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">initial_text</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_components</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">initial_text</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TextBuilder.build"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.TextBuilder.build">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_components</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TextBuilder.with_lines"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.TextBuilder.with_lines">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_lines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lines</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TextBuilder&quot;</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">indent</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="n">indent</span> <span class="o">+</span> <span class="n">line</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_components</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="TextBuilder.with_lines_from_text"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.TextBuilder.with_lines_from_text">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_lines_from_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TextBuilder&quot;</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(</span><span class="n">keepends</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_lines</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="n">indent</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TextBuilder.with_line"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.TextBuilder.with_line">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">line</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TextBuilder&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_lines</span><span class="p">([</span><span class="n">line</span><span class="p">],</span> <span class="n">indent</span><span class="o">=</span><span class="n">indent</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TextBuilder.with_line_conditional"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.TextBuilder.with_line_conditional">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_line_conditional</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cond</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">line</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TextBuilder&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">cond</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">with_line</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="n">indent</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="TextBuilder.with_text"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.TextBuilder.with_text">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TextBuilder&quot;</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_components</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="TextBuilder.with_break"><a class="viewcode-back" href="../../../sensai/util/string.html#sensai.util.string.TextBuilder.with_break">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_break</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TextBuilder&quot;</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_components</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By sensAI contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2019-2024 by sensAI contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

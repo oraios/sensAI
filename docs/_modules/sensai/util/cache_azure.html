@@ -1,0 +1,1209 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sensai.util.cache_azure &#8212; sensAI Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/sphinx-toolbox.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/js/vega@5.js"></script>
+    <script src="../../../_static/js/vega-lite@5.js"></script>
+    <script src="../../../_static/js/vega-embed@5.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sensai/util/cache_azure';</script>
+    <link rel="canonical" href="https://tianshou.readthedocs.io/en/master/_modules/sensai/util/cache_azure.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/sensai-logo.png" class="logo__image only-light" alt="sensAI Documentation - Home"/>
+    <script>document.write(`<img src="../../../_static/sensai-logo.png" class="logo__image only-dark" alt="sensAI Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../index.html">
+                    Welcome to sensAI!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../1-supervised-learning/1-vector-models.html">Models with Modular Data Pipelines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../2-notebooks/0_intro.html">Notebook Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../2-notebooks/1-classification.html">Introduction to sensAI: Supervised Learning with VectorModels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2-notebooks/2-neural_networks.html">Neural Networks</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../sensai/index.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/catboost.html">catboost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/columngen.html">columngen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/distance_metric.html">distance_metric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/feature_importance.html">feature_importance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/hyperopt.html">hyperopt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/lightgbm.html">lightgbm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/local_search.html">local_search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/minizinc.html">minizinc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/multi_model.html">multi_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/naive_bayes.html">naive_bayes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/nearest_neighbors.html">nearest_neighbors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/normalisation.html">normalisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/sklearn_quantile.html">sklearn_quantile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/tensor_model.html">tensor_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/vector_model.html">vector_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/vectoriser.html">vectoriser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/xgboost.html">xgboost</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/clustering/index.html">clustering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/clustering/clustering_base.html">clustering_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/clustering/greedy_clustering.html">greedy_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/clustering/sklearn_clustering.html">sklearn_clustering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/data/index.html">data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data/dataset.html">dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data/io_data.html">io_data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/data_transformation/index.html">data_transformation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data_transformation/dft.html">dft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data_transformation/sklearn_transformer.html">sklearn_transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data_transformation/value_transformation.html">value_transformation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/ensemble/index.html">ensemble</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/ensemble/ensemble_base.html">ensemble_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/ensemble/models.html">models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/evaluation/index.html">evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/crossval.html">crossval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/eval_util.html">eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/evaluator.html">evaluator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/evaluator_clustering.html">evaluator_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/metric_computation.html">metric_computation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/result_set.html">result_set</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/index.html">eval_stats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_base.html">eval_stats_base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_classification.html">eval_stats_classification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_clustering.html">eval_stats_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_regression.html">eval_stats_regression</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/feature_selection/index.html">feature_selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/feature_selection/rfe.html">rfe</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/featuregen/index.html">featuregen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/featuregen/feature_generator.html">feature_generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/featuregen/feature_generator_registry.html">feature_generator_registry</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/geoanalytics/index.html">geoanalytics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/geo_clustering.html">geo_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/geo_coords.html">geo_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/local_coords.html">local_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/map_tiles.html">map_tiles</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/index.html">geopandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/coordinate_clustering.html">coordinate_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/coordinate_clustering_ground_truth.html">coordinate_clustering_ground_truth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/coordinates.html">coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/geometry.html">geometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/graph.html">graph</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/pytorch_lightning/index.html">pytorch_lightning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/pytorch_lightning/pl_models.html">pl_models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/sklearn/index.html">sklearn</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/sklearn/sklearn_base.html">sklearn_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/sklearn/sklearn_classification.html">sklearn_classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/sklearn/sklearn_regression.html">sklearn_regression</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/torch/index.html">torch</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_base.html">torch_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_data.html">torch_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_enums.html">torch_enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_eval_util.html">torch_eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_modules.html">torch_modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_opt.html">torch_opt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torchtext.html">torchtext</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sensai/torch/torch_models/index.html">torch_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/lstnet/index.html">lstnet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/mlp/index.html">mlp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/residualffn/index.html">residualffn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/seq/index.html">seq</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/tracking/index.html">tracking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/azure_tracking.html">azure_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/clearml_tracking.html">clearml_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/mlflow_tracking.html">mlflow_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/tracking_base.html">tracking_base</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/util/index.html">util</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/aggregation.html">aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/cache.html">cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/cache_azure.html">cache_azure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/cache_mysql.html">cache_mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/datastruct.html">datastruct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/deprecation.html">deprecation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/dtype.html">dtype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/git.html">git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/hash.html">hash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/helper.html">helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/jscode.html">jscode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/logging.html">logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/math.html">math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/multiprocessing.html">multiprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/pandas.html">pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/pickle.html">pickle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/plot.html">plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/profiling.html">profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/sequences.html">sequences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/string.html">string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/tensorboard.html">tensorboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/test.html">test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/time.html">time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/typing.html">typing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/version.html">version</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for sensai.util.cache_azure</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">concurrent.futures.thread</span><span class="w"> </span><span class="kn">import</span> <span class="n">ThreadPoolExecutor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">azure.storage.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">TableService</span><span class="p">,</span> <span class="n">TableBatch</span><span class="p">,</span> <span class="n">Entity</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">azure.storage.blob</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlockBlobService</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.cache</span><span class="w"> </span><span class="kn">import</span> <span class="n">PersistentKeyValueCache</span><span class="p">,</span> <span class="n">PeriodicUpdateHook</span>
+
+<span class="n">_log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Serialiser"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.Serialiser">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Serialiser</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Abstraction for mechanisms to serialise values, which do not fit table storage data model,</span>
+<span class="sd">    see https://docs.microsoft.com/en-us/rest/api/storageservices/understanding-the-table-service-data-model</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Serialiser.serialise"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.Serialiser.serialise">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">serialise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Serialiser.deserialise"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.Serialiser.deserialise">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">deserialise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="NumpyArrayJsonSerialiser"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.NumpyArrayJsonSerialiser">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">NumpyArrayJsonSerialiser</span><span class="p">(</span><span class="n">Serialiser</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serialises a numpy array as json string of list representation of array</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="NumpyArrayJsonSerialiser.serialise"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.NumpyArrayJsonSerialiser.serialise">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">serialise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="NumpyArrayJsonSerialiser.deserialise"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.NumpyArrayJsonSerialiser.deserialise">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">deserialise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">value</span><span class="p">))</span></div></div>
+
+
+<div class="viewcode-block" id="PropertyLoader"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.PropertyLoader">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">PropertyLoader</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Abstraction of a customised loader for an entity property</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="PropertyLoader.load_property_value"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.PropertyLoader.load_property_value">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_property_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">Entity</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="PropertyLoader.write_property_value"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.PropertyLoader.write_property_value">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">write_property_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">Entity</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="PropertyLoader.load_property_value_to_data_frame_column"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.PropertyLoader.load_property_value_to_data_frame_column">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_property_value_to_data_frame_column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="SerialisedPropertyLoader"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.SerialisedPropertyLoader">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SerialisedPropertyLoader</span><span class="p">(</span><span class="n">PropertyLoader</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    PropertyLoader to serialise and de-serialise values. Useful, if type of values is not aligned with table storage data model,</span>
+<span class="sd">    see https://docs.microsoft.com/en-us/rest/api/storageservices/understanding-the-table-service-data-model</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">serialiser</span><span class="p">:</span> <span class="n">Serialiser</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">serialiser</span> <span class="o">=</span> <span class="n">serialiser</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">property_name</span> <span class="o">=</span> <span class="n">property_name</span>
+
+<div class="viewcode-block" id="SerialisedPropertyLoader.load_property_value"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.SerialisedPropertyLoader.load_property_value">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">load_property_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">Entity</span><span class="p">):</span>
+        <span class="n">entity</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">property_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">serialiser</span><span class="o">.</span><span class="n">deserialise</span><span class="p">(</span><span class="n">entity</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">property_name</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="SerialisedPropertyLoader.write_property_value"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.SerialisedPropertyLoader.write_property_value">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">write_property_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">Entity</span><span class="p">):</span>
+        <span class="n">entity</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">property_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">serialiser</span><span class="o">.</span><span class="n">serialise</span><span class="p">(</span><span class="n">entity</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">property_name</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="SerialisedPropertyLoader.load_property_value_to_data_frame_column"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.SerialisedPropertyLoader.load_property_value_to_data_frame_column">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">load_property_value_to_data_frame_column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_name</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">serialiser</span><span class="o">.</span><span class="n">deserialise</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">property_name</span><span class="p">]]</span></div></div>
+
+
+<div class="viewcode-block" id="AzureTableBlobBackend"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureTableBlobBackend">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">AzureTableBlobBackend</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Abstraction of a blob backend, which allows for convenient setting and getting of values stored in blob storage via a</span>
+<span class="sd">    reference to the value</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="AzureTableBlobBackend.get_value_from_reference"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureTableBlobBackend.get_value_from_reference">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_value_from_reference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value_identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="AzureTableBlobBackend.get_value_reference"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureTableBlobBackend.get_value_reference">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_value_reference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">partition_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">row_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">blob_name_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="AzureTableBlobBackend.set_value_for_reference"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureTableBlobBackend.set_value_for_reference">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_value_for_reference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value_identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="BlobPerKeyAzureTableBlobBackend"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.BlobPerKeyAzureTableBlobBackend">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">BlobPerKeyAzureTableBlobBackend</span><span class="p">(</span><span class="n">AzureTableBlobBackend</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Backend stores serialised values as /tableName/partitionKey/rowKey/valueName.&lt;fileExtension&gt;</span>
+<span class="sd">    or /tableName/rowKey/valueName.&lt;fileExtension&gt;, if partitionKey equals tableName</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_blob_service</span><span class="p">:</span> <span class="n">BlockBlobService</span><span class="p">,</span> <span class="n">container_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :param block_blob_service: https://docs.microsoft.com/en-us/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python-previous</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">block_blob_service</span> <span class="o">=</span> <span class="n">block_blob_service</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span> <span class="o">=</span> <span class="n">container_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">container_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">container</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">container</span> <span class="ow">in</span> <span class="n">block_blob_service</span><span class="o">.</span><span class="n">list_containers</span><span class="p">()]</span>
+        <span class="k">if</span> <span class="n">container_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">container_list</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">block_blob_service</span><span class="o">.</span><span class="n">create_container</span><span class="p">(</span><span class="n">container_name</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">container_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">container_name</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">file_extension</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_blob_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">container_name</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_write_value_to_blob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">container_name</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<div class="viewcode-block" id="BlobPerKeyAzureTableBlobBackend.get_value_from_reference"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.BlobPerKeyAzureTableBlobBackend.get_value_from_reference">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_value_from_reference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value_identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">container_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_container_name_from_identifier</span><span class="p">(</span><span class="n">value_identifier</span><span class="p">)</span>
+        <span class="n">blob_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_blob_name_from_identifier</span><span class="p">(</span><span class="n">value_identifier</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_blob_value</span><span class="p">(</span><span class="n">container_name</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BlobPerKeyAzureTableBlobBackend.get_value_reference"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.BlobPerKeyAzureTableBlobBackend.get_value_reference">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_value_reference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">partition_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">row_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">blob_name_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">blob_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_blob_name_from_keys</span><span class="p">(</span><span class="n">partition_key</span><span class="p">,</span> <span class="n">row_key</span><span class="p">,</span> <span class="n">value_name</span><span class="p">,</span> <span class="n">blob_prefix</span><span class="o">=</span><span class="n">blob_name_prefix</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_blob_service</span><span class="o">.</span><span class="n">make_blob_url</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BlobPerKeyAzureTableBlobBackend.set_value_for_reference"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.BlobPerKeyAzureTableBlobBackend.set_value_for_reference">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">set_value_for_reference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value_identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">container_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_container_name_from_identifier</span><span class="p">(</span><span class="n">value_identifier</span><span class="p">)</span>
+        <span class="n">blob_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_blob_name_from_identifier</span><span class="p">(</span><span class="n">value_identifier</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write_value_to_blob</span><span class="p">(</span><span class="n">container_name</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_blob_name_from_identifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value_identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">value_identifier</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">block_blob_service</span><span class="o">.</span><span class="n">primary_endpoint</span><span class="si">}</span><span class="s2">/&quot;</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_container_name_from_identifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value_identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">value_identifier</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">block_blob_service</span><span class="o">.</span><span class="n">primary_endpoint</span><span class="si">}</span><span class="s2">/&quot;</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_blob_name_from_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">partition_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">row_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">blob_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">identifier_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">blob_prefix</span><span class="p">,</span> <span class="n">partition_key</span><span class="p">]</span> <span class="k">if</span> <span class="n">blob_prefix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">blob_prefix</span> <span class="o">!=</span> <span class="n">partition_key</span> <span class="k">else</span> <span class="p">[</span><span class="n">partition_key</span><span class="p">]</span>
+        <span class="n">identifier_list</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">row_key</span><span class="p">,</span> <span class="n">value_name</span><span class="p">])</span>
+        <span class="k">return</span> <span class="s2">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">identifier_list</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_extension</span></div>
+
+
+<div class="viewcode-block" id="TextDumpAzureTableBlobBackend"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.TextDumpAzureTableBlobBackend">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TextDumpAzureTableBlobBackend</span><span class="p">(</span><span class="n">BlobPerKeyAzureTableBlobBackend</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Backend stores values as txt files in the structure /tableName/partitionKey/rowKey/valueName</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">file_extension</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_blob_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">container_name</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_blob_service</span><span class="o">.</span><span class="n">get_blob_to_text</span><span class="p">(</span><span class="n">container_name</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_write_value_to_blob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">container_name</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">block_blob_service</span><span class="o">.</span><span class="n">create_blob_from_text</span><span class="p">(</span><span class="n">container_name</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="JsonAzureTableBlobBackend"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.JsonAzureTableBlobBackend">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">JsonAzureTableBlobBackend</span><span class="p">(</span><span class="n">BlobPerKeyAzureTableBlobBackend</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Backend stores values as json files in the structure /tableName/partitionKey/rowKey/valueName.json</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">file_extension</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;.json&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_blob_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">container_name</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">):</span>
+        <span class="n">encoded_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_blob_service</span><span class="o">.</span><span class="n">get_blob_to_bytes</span><span class="p">(</span><span class="n">container_name</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decode_bytes_to_value</span><span class="p">(</span><span class="n">encoded_value</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_write_value_to_blob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">container_name</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">encoded_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_encode_value_to_bytes</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">block_blob_service</span><span class="o">.</span><span class="n">create_blob_from_bytes</span><span class="p">(</span><span class="n">container_name</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">,</span> <span class="n">encoded_value</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_encode_value_to_bytes</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_decode_bytes_to_value</span><span class="p">(</span><span class="n">_bytes</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">_bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="PickleAzureTableBlobBackend"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.PickleAzureTableBlobBackend">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">PickleAzureTableBlobBackend</span><span class="p">(</span><span class="n">JsonAzureTableBlobBackend</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Backend stores values as pickle files in the structure /tableName/partitionKey/rowKey/valueName.pickle</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">file_extension</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;.pickle&quot;</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_encode_value_to_bytes</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_decode_bytes_to_value</span><span class="p">(</span><span class="n">_bytes</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">_bytes</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BlobBackedPropertyLoader"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.BlobBackedPropertyLoader">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">BlobBackedPropertyLoader</span><span class="p">(</span><span class="n">PropertyLoader</span><span class="p">):</span>
+    <span class="n">AZURE_ALLOWED_SIZE_PER_PROPERTY_BYTES</span> <span class="o">=</span> <span class="mi">64000</span>
+    <span class="n">AZURE_ALLOWED_STRING_LENGTH_PER_PROPERTY</span> <span class="o">=</span> <span class="mi">32000</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    PropertyLoader to write and read values from blob backend via a reference to the value. Useful, if values cannot</span>
+<span class="sd">    be stored in table storage itself, due to not being aligned with table storage data model, </span>
+<span class="sd">    see https://docs.microsoft.com/en-us/rest/api/storageservices/understanding-the-table-service-data-model</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">blob_backend</span><span class="p">:</span> <span class="n">AzureTableBlobBackend</span><span class="p">,</span> <span class="n">blob_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">property_boolean_blob_status_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_workers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param property_name: name of property in table</span>
+<span class="sd">        :param property_boolean_blob_status_name: name of property representing a boolean flag within a table, which indicates, if value is</span>
+<span class="sd">            blob backed. If None, each value is assumed to be blob backed.</span>
+<span class="sd">        :param blob_backend: actual backend to use for storage</span>
+<span class="sd">        :param blob_prefix: prefix to use for blob in storage, e.g. a table name</span>
+<span class="sd">        :param max_workers: maximal number of workers to load data from blob storage</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blob_prefix</span> <span class="o">=</span> <span class="n">blob_prefix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">property_blob_status_name</span> <span class="o">=</span> <span class="n">property_boolean_blob_status_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blob_backend</span> <span class="o">=</span> <span class="n">blob_backend</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_workers</span> <span class="o">=</span> <span class="n">max_workers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">propertyName</span> <span class="o">=</span> <span class="n">property_name</span>
+
+<div class="viewcode-block" id="BlobBackedPropertyLoader.load_property_value"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.BlobBackedPropertyLoader.load_property_value">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">load_property_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">Entity</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_entity_value_blob_backed</span><span class="p">(</span><span class="n">entity</span><span class="p">):</span>
+            <span class="n">entity</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">propertyName</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">blob_backend</span><span class="o">.</span><span class="n">get_value_from_reference</span><span class="p">(</span><span class="n">entity</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">propertyName</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="BlobBackedPropertyLoader.write_property_value"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.BlobBackedPropertyLoader.write_property_value">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">write_property_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">Entity</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">propertyName</span> <span class="ow">in</span> <span class="n">entity</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_need_to_write_to_blob</span><span class="p">(</span><span class="n">entity</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">propertyName</span><span class="p">]):</span>
+                <span class="n">value_identifier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">blob_backend</span><span class="o">.</span><span class="n">get_value_reference</span><span class="p">(</span><span class="n">entity</span><span class="p">[</span><span class="s2">&quot;PartitionKey&quot;</span><span class="p">],</span> <span class="n">entity</span><span class="p">[</span><span class="s2">&quot;RowKey&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">propertyName</span><span class="p">,</span>
+                    <span class="n">blob_name_prefix</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">blob_prefix</span><span class="p">)</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">entity</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">propertyName</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">blob_backend</span><span class="o">.</span><span class="n">set_value_for_reference</span><span class="p">(</span><span class="n">value_identifier</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                <span class="n">entity</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">propertyName</span><span class="p">]</span> <span class="o">=</span> <span class="n">value_identifier</span>
+                <span class="n">property_blob_status</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_blob_status_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">property_blob_status</span> <span class="o">=</span> <span class="kc">False</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_blob_status_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+
+            <span class="k">if</span> <span class="n">property_blob_status</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">entity</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">property_blob_status_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">property_blob_status</span></div>
+
+<div class="viewcode-block" id="BlobBackedPropertyLoader.load_property_value_to_data_frame_column"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.BlobBackedPropertyLoader.load_property_value_to_data_frame_column">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">load_property_value_to_data_frame_column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">propertyName</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_blob_status_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">propertyName</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_values_in_series</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">propertyName</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">property_blob_status_name</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">propertyName</span><span class="p">]</span> <span class="o">=</span> \
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_load_values_in_series</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">property_blob_status_name</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">propertyName</span><span class="p">])</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_need_to_write_to_blob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_blob_status_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">AZURE_ALLOWED_SIZE_PER_PROPERTY_BYTES</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">AZURE_ALLOWED_STRING_LENGTH_PER_PROPERTY</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_is_entity_value_blob_backed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">Entity</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">propertyName</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">entity</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_blob_status_name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_blob_status_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">entity</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="n">entity</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">property_blob_status_name</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_values_in_series</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_series</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_workers</span><span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+            <span class="n">_series</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">executor</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blob_backend</span><span class="o">.</span><span class="n">get_value_from_reference</span><span class="p">,</span> <span class="n">_series</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">_series</span></div>
+
+
+<div class="viewcode-block" id="BlobBackedSerialisedPropertyLoader"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.BlobBackedSerialisedPropertyLoader">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">BlobBackedSerialisedPropertyLoader</span><span class="p">(</span><span class="n">BlobBackedPropertyLoader</span><span class="p">,</span> <span class="n">SerialisedPropertyLoader</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Property loader, which combines serialisation and blob backing.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">property_name</span><span class="p">,</span> <span class="n">serialiser</span><span class="p">:</span> <span class="n">Serialiser</span><span class="p">,</span> <span class="n">blob_backend</span><span class="p">:</span> <span class="n">AzureTableBlobBackend</span><span class="p">,</span> <span class="n">blob_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">property_boolean_blob_status_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_workers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="sd">        :param property_name: name of property in table</span>
+<span class="sd">        :param serialiser:</span>
+<span class="sd">        :param property_boolean_blob_status_name: name of property representing a boolean flag within a table, which indicates, if value is</span>
+<span class="sd">            blob backed. If None, each value is assumed to be blob backed.</span>
+<span class="sd">        :param blob_backend: actual backend to use for storage</span>
+<span class="sd">        :param blob_prefix: prefix to use for blob in storage, e.g. a table name</span>
+<span class="sd">        :param max_workers: maximal number of workers to load data from blob storage</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">SerialisedPropertyLoader</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">property_name</span><span class="p">,</span> <span class="n">serialiser</span><span class="p">)</span>
+        <span class="n">BlobBackedPropertyLoader</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">property_name</span><span class="p">,</span> <span class="n">blob_backend</span><span class="p">,</span> <span class="n">blob_prefix</span><span class="p">,</span> <span class="n">property_boolean_blob_status_name</span><span class="p">,</span> <span class="n">max_workers</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BlobBackedSerialisedPropertyLoader.load_property_value"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.BlobBackedSerialisedPropertyLoader.load_property_value">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">load_property_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">Entity</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BlobBackedPropertyLoader</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">load_property_value</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SerialisedPropertyLoader</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">load_property_value</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BlobBackedSerialisedPropertyLoader.write_property_value"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.BlobBackedSerialisedPropertyLoader.write_property_value">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">write_property_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">Entity</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SerialisedPropertyLoader</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">write_property_value</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BlobBackedPropertyLoader</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">write_property_value</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BlobBackedSerialisedPropertyLoader.load_property_value_to_data_frame_column"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.BlobBackedSerialisedPropertyLoader.load_property_value_to_data_frame_column">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">load_property_value_to_data_frame_column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BlobBackedPropertyLoader</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">load_property_value_to_data_frame_column</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SerialisedPropertyLoader</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">load_property_value_to_data_frame_column</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">AzureLazyBatchCommitTable</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wrapper for an Azure table, which allow for convenient insertion via lazy batch execution per partition.</span>
+<span class="sd">    Uses a priority queue to manage order of partitions to be committed.</span>
+<span class="sd">    To execute insertions, call :func:`LazyBatchCommitTable.commit`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">AZURE_ALLOWED_TABLE_NAME_PATTERN</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;^[A-Za-z][A-Za-z0-9]{2,62}$&quot;</span><span class="p">)</span>
+    <span class="n">AZURE_ALLOWED_TABLE_BATCH_SIZE</span> <span class="o">=</span> <span class="mi">100</span>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.PartitionCommandsPriorityQueue"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.PartitionCommandsPriorityQueue">[docs]</a>    <span class="k">class</span><span class="w"> </span><span class="nc">PartitionCommandsPriorityQueue</span><span class="p">:</span>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.PartitionCommandsPriorityQueue.PartitionCommands"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.PartitionCommandsPriorityQueue.PartitionCommands">[docs]</a>        <span class="k">class</span><span class="w"> </span><span class="nc">PartitionCommands</span><span class="p">:</span>
+            <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">partition_key</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">partition_key</span> <span class="o">=</span> <span class="n">partition_key</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_command_list</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">deque</span><span class="p">()</span>
+
+            <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_command_list</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.PartitionCommandsPriorityQueue.PartitionCommands.append"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.PartitionCommandsPriorityQueue.PartitionCommands.append">[docs]</a>            <span class="k">def</span><span class="w"> </span><span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_command_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.PartitionCommandsPriorityQueue.PartitionCommands.execute"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.PartitionCommandsPriorityQueue.PartitionCommands.execute">[docs]</a>            <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context_manager</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[],</span> <span class="n">TableBatch</span><span class="p">],</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+                <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_command_list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">_slice</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_command_list</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_command_list</span><span class="p">)))]</span>
+                    <span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Committing </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">_slice</span><span class="p">)</span><span class="si">}</span><span class="s2"> cache entries to the database&quot;</span><span class="p">)</span>
+                    <span class="k">with</span> <span class="n">context_manager</span><span class="p">()</span> <span class="k">as</span> <span class="n">batch</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="n">command</span> <span class="ow">in</span> <span class="n">_slice</span><span class="p">:</span>
+                            <span class="n">command</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span></div></div>
+
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">partition_commands_queue</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">partition_key2_commands</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_thread_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.PartitionCommandsPriorityQueue.add_command"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.PartitionCommandsPriorityQueue.add_command">[docs]</a>        <span class="k">def</span><span class="w"> </span><span class="nf">add_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">partition_key</span><span class="p">,</span> <span class="n">command</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">TableBatch</span><span class="p">],</span> <span class="n">Any</span><span class="p">],</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">[</span><span class="n">TableBatch</span><span class="p">]]):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Add a command to queue of corresponding partitionKey</span>
+<span class="sd">            :param partition_key:</span>
+<span class="sd">            :param command: a callable on a TableBatch</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_thread_lock</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">partition_key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">partition_key2_commands</span><span class="p">:</span>
+                    <span class="n">commands</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">PartitionCommands</span><span class="p">(</span><span class="n">partition_key</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">partition_commands_queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">commands</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">partition_key2_commands</span><span class="p">[</span><span class="n">partition_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">commands</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">partition_key2_commands</span><span class="p">[</span><span class="n">partition_key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.PartitionCommandsPriorityQueue.pop"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.PartitionCommandsPriorityQueue.pop">[docs]</a>        <span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AzureLazyBatchCommitTable</span><span class="o">.</span><span class="n">PartitionCommandsPriorityQueue</span><span class="o">.</span><span class="n">PartitionCommands</span><span class="p">]:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            :param min_length: minimal length of largest PartitionCommands for the pop to take place.</span>
+<span class="sd">            :return: largest PartitionCommands or None if minimal length is not reached</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_thread_lock</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pop</span><span class="p">(</span><span class="n">min_length</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.PartitionCommandsPriorityQueue.pop_all"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.PartitionCommandsPriorityQueue.pop_all">[docs]</a>        <span class="k">def</span><span class="w"> </span><span class="nf">pop_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_thread_lock</span><span class="p">:</span>
+                <span class="n">commands_list</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_empty</span><span class="p">():</span>
+                    <span class="n">commands_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pop</span><span class="p">())</span>
+                <span class="k">return</span> <span class="n">commands_list</span></div>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.PartitionCommandsPriorityQueue.is_empty"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.PartitionCommandsPriorityQueue.is_empty">[docs]</a>        <span class="k">def</span><span class="w"> </span><span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_thread_lock</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_empty</span><span class="p">()</span></div>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">_pop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="n">length</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_max_priority_info</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span><span class="n">min_length</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">length</span> <span class="o">&gt;=</span> <span class="n">min_length</span><span class="p">):</span>
+                <span class="n">q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">partition_commands_queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">partition_key2_commands</span><span class="p">[</span><span class="n">q</span><span class="o">.</span><span class="n">partition_key</span><span class="p">]</span>
+                <span class="k">return</span> <span class="n">q</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">_is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">partition_commands_queue</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">_get_max_priority_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">lengths_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">partition_commands_queue</span><span class="p">))</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lengths_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span>
+            <span class="n">max_length</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">lengths_list</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">max_length</span><span class="p">,</span> <span class="n">lengths_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">max_length</span><span class="p">)</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">table_service</span><span class="p">:</span> <span class="n">TableService</span><span class="p">,</span> <span class="n">property_loaders</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">PropertyLoader</span><span class="p">]</span> <span class="o">=</span> <span class="p">()):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param table_name: name of table</span>
+<span class="sd">        :param table_service: instance of :class:`azure.storage.table.TableService` to connect to Azure table storage</span>
+<span class="sd">        :param property_loaders:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">AZURE_ALLOWED_TABLE_NAME_PATTERN</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">table_name</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid table name </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">, see: &quot;</span>
+                             <span class="sa">f</span><span class="s2">&quot;https://docs.microsoft.com/en-us/rest/api/storageservices/Understanding-the-Table-Service-Data-Model&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">table_service</span> <span class="o">=</span> <span class="n">table_service</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">table_name</span> <span class="o">=</span> <span class="n">table_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">property_loaders</span> <span class="o">=</span> <span class="n">property_loaders</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_partition_queues</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">PartitionCommandsPriorityQueue</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_context_manager</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">table_service</span><span class="o">.</span><span class="n">batch</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">table_name</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">table_service</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">table_name</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.insert_or_replace_entity"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.insert_or_replace_entity">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">insert_or_replace_entity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">,</span> <span class="n">Entity</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lazy wrapper method for :func:`azure.storage.table.TableService.insert_or_replace_entity`</span>
+<span class="sd">        :param entity:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">partition_key</span> <span class="o">=</span> <span class="n">entity</span><span class="p">[</span><span class="s2">&quot;PartitionKey&quot;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">property_loader</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_loaders</span><span class="p">:</span>
+            <span class="n">property_loader</span><span class="o">.</span><span class="n">write_property_value</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span>
+        <span class="n">execution_command</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_insert_or_replace_entity_via_batch</span><span class="p">,</span> <span class="n">entity</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_partition_queues</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">partition_key</span><span class="p">,</span> <span class="n">execution_command</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.insert_entity"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.insert_entity">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">insert_entity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">,</span> <span class="n">Entity</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lazy wrapper method for :func:`azure.storage.table.TableService.insert_entity`</span>
+<span class="sd">        :param entity:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">partition_key</span> <span class="o">=</span> <span class="n">entity</span><span class="p">[</span><span class="s2">&quot;PartitionKey&quot;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">property_loader</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_loaders</span><span class="p">:</span>
+            <span class="n">property_loader</span><span class="o">.</span><span class="n">write_property_value</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span>
+        <span class="n">execution_command</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_insert_entity_via_batch</span><span class="p">,</span> <span class="n">entity</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_partition_queues</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">partition_key</span><span class="p">,</span> <span class="n">execution_command</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.get_entity"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.get_entity">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_entity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">partition_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">row_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Entity</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Wraps :func:`azure.storage.table.TableService.get_entity`</span>
+<span class="sd">        :param partition_key:</span>
+<span class="sd">        :param row_key:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">entity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">table_service</span><span class="o">.</span><span class="n">get_entity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">table_name</span><span class="p">,</span> <span class="n">partition_key</span><span class="p">,</span> <span class="n">row_key</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">property_loader</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_loaders</span><span class="p">:</span>
+                <span class="n">property_loader</span><span class="o">.</span><span class="n">load_property_value</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">entity</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">_log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unable to load value for partitionKey </span><span class="si">{</span><span class="n">partition_key</span><span class="si">}</span><span class="s2"> and rowKey </span><span class="si">{</span><span class="n">row_key</span><span class="si">}</span><span class="s2"> from table </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">table_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.commit_blocking_until_empty"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.commit_blocking_until_empty">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">commit_blocking_until_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_batch_size</span><span class="o">=</span><span class="n">AZURE_ALLOWED_TABLE_BATCH_SIZE</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Commit insertion commands. Commands are executed batch-wise per partition until partition queue is empty in a</span>
+<span class="sd">        blocking manner.</span>
+<span class="sd">        :param max_batch_size: maximal batch size to use for batch insertion, must be less or equal to batch size allowed by Azure</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">max_batch_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_max_batch_size</span><span class="p">(</span><span class="n">max_batch_size</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_partition_queues</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+            <span class="n">commands</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_partition_queues</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="n">commands</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_context_manager</span><span class="p">,</span> <span class="n">max_batch_size</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.commit_non_blocking_current_queue_state"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.commit_non_blocking_current_queue_state">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">commit_non_blocking_current_queue_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_batch_size</span><span class="o">=</span><span class="n">AZURE_ALLOWED_TABLE_BATCH_SIZE</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Commit insertion commands. Empties the current PartitionCommandsQueue in a non blocking way.</span>
+<span class="sd">        Commands are executed batch-wise per partition.</span>
+<span class="sd">        :param max_batch_size: maximal batch size to use for batch insertion, must be less or equal to batch size allowed by Azure</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">max_batch_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_max_batch_size</span><span class="p">(</span><span class="n">max_batch_size</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">commit</span><span class="p">():</span>
+            <span class="n">commands_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_partition_queues</span><span class="o">.</span><span class="n">pop_all</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">commands</span> <span class="ow">in</span> <span class="n">commands_list</span><span class="p">:</span>
+                <span class="n">commands</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_context_manager</span><span class="p">,</span> <span class="n">max_batch_size</span><span class="p">)</span>
+
+        <span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">commit</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.commit_blocking_largest_partition_from_queue"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.commit_blocking_largest_partition_from_queue">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">commit_blocking_largest_partition_from_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_batch_size</span><span class="o">=</span><span class="n">AZURE_ALLOWED_TABLE_BATCH_SIZE</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Commits in a blocking way the largest partition from PartitionCommandsQueue</span>
+<span class="sd">        :param max_batch_size: maximal batch size to use for batch insertion, must be less or equal to batch size allowed by Azure</span>
+<span class="sd">        :param min_length: minimal size of largest partition. If not None, pop and commit only if minLength is reached.</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">max_batch_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_max_batch_size</span><span class="p">(</span><span class="n">max_batch_size</span><span class="p">)</span>
+        <span class="n">commands</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_partition_queues</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">min_length</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">commands</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">commands</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_context_manager</span><span class="p">,</span> <span class="n">max_batch_size</span><span class="p">)</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_max_batch_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_batch_size</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">max_batch_size</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">AZURE_ALLOWED_TABLE_BATCH_SIZE</span><span class="p">:</span>
+            <span class="n">_log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Provided maxBatchSize is larger than allowed size </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">AZURE_ALLOWED_TABLE_BATCH_SIZE</span><span class="si">}</span><span class="s2">. &quot;</span>
+                         <span class="sa">f</span><span class="s2">&quot;Will use maxBatchSize </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">AZURE_ALLOWED_TABLE_BATCH_SIZE</span><span class="si">}</span><span class="s2"> instead.&quot;</span><span class="p">)</span>
+            <span class="n">max_batch_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">AZURE_ALLOWED_TABLE_BATCH_SIZE</span>
+        <span class="k">return</span> <span class="n">max_batch_size</span>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.load_table_to_data_frame"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.load_table_to_data_frame">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">load_table_to_data_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">columns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">row_filter_query</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">num_records</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load all rows of table to :class:`~pandas.DataFrame`</span>
+<span class="sd">        :param row_filter_query:</span>
+<span class="sd">        :param num_records:</span>
+<span class="sd">        :param columns: restrict loading to provided columns</span>
+<span class="sd">        :return: :class:`~pandas.DataFrame`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">num_records</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">records</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_iter_records</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">row_filter_query</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iter_records</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">row_filter_query</span><span class="p">):</span>
+                <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">num_records</span><span class="p">:</span>
+                    <span class="k">break</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">records</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">property_loader</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_loaders</span><span class="p">:</span>
+            <span class="n">property_loader</span><span class="o">.</span><span class="n">load_property_value_to_data_frame_column</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">df</span></div>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.iter_data_frame_chunks"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.iter_data_frame_chunks">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">iter_data_frame_chunks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chunk_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">columns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">row_filter_query</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get a generator of dataframe chunks</span>
+<span class="sd">        :param row_filter_query:</span>
+<span class="sd">        :param chunk_size:</span>
+<span class="sd">        :param columns:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iter_records</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">row_filter_query</span><span class="p">):</span>
+            <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">chunk_size</span><span class="p">:</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">records</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">propertyLoader</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_loaders</span><span class="p">:</span>
+                    <span class="n">propertyLoader</span><span class="o">.</span><span class="n">load_property_value_to_data_frame_column</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+                <span class="k">yield</span> <span class="n">df</span>
+                <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.iter_records"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.iter_records">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">iter_records</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">columns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">row_filter_query</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Get a generator of table entities</span>
+<span class="sd">        :param row_filter_query:</span>
+<span class="sd">        :param columns:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iter_records</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">row_filter_query</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">propertyLoader</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_loaders</span><span class="p">:</span>
+                <span class="n">propertyLoader</span><span class="o">.</span><span class="n">load_property_value</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">entity</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_iter_records</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">columns</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span> <span class="n">row_filter_query</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+        <span class="n">column_names_as_comma_separated_string</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">columns</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">column_names_as_comma_separated_string</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">table_service</span><span class="o">.</span><span class="n">query_entities</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">table_name</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="n">column_names_as_comma_separated_string</span><span class="p">,</span>
+                <span class="nb">filter</span><span class="o">=</span><span class="n">row_filter_query</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.insert_data_frame_to_table"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.insert_data_frame_to_table">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">insert_data_frame_to_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">partition_key_generator</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">num_records</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Inserts or replace entities of the table corresponding to rows of the DataFrame, where the index of the dataFrame acts as rowKey.</span>
+<span class="sd">        Values of object type columns in the dataFrame may have to be serialised via json beforehand.</span>
+<span class="sd">        :param df: DataFrame to be inserted</span>
+<span class="sd">        :param partition_key_generator: if None, partitionKeys default to tableName</span>
+<span class="sd">        :param num_records: restrict insertion to first numRecords rows, merely for testing</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">row</span><span class="p">))</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()):</span>
+            <span class="k">if</span> <span class="n">num_records</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;=</span> <span class="n">num_records</span><span class="p">:</span>
+                    <span class="k">break</span>
+            <span class="n">entity</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+            <span class="n">entity</span><span class="p">[</span><span class="s2">&quot;RowKey&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">idx</span>
+            <span class="n">entity</span><span class="p">[</span><span class="s2">&quot;PartitionKey&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">table_name</span> <span class="k">if</span> <span class="n">partition_key_generator</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">partition_key_generator</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">insert_or_replace_entity</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span></div>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_insert_or_replace_entity_via_batch</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">TableBatch</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">batch</span><span class="o">.</span><span class="n">insert_or_replace_entity</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_insert_entity_via_batch</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">TableBatch</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">batch</span><span class="o">.</span><span class="n">insert_entity</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AzureLazyBatchCommitTable.exists"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureLazyBatchCommitTable.exists">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">exists</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">table_service</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">table_name</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="AzureTablePersistentKeyValueCache"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureTablePersistentKeyValueCache">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">AzureTablePersistentKeyValueCache</span><span class="p">(</span><span class="n">PersistentKeyValueCache</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    PersistentKeyValueCache using Azure Table Storage, see https://docs.microsoft.com/en-gb/azure/storage/tables/</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">CACHE_VALUE_IDENTIFIER</span> <span class="o">=</span> <span class="s2">&quot;cache_value&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table_service</span><span class="p">:</span> <span class="n">TableService</span><span class="p">,</span> <span class="n">table_name</span><span class="o">=</span><span class="s2">&quot;cache&quot;</span><span class="p">,</span> <span class="n">partition_key_generator</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">max_batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">min_size_for_periodic_commit</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">deferred_commit_delay_secs</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">in_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">blob_backend</span><span class="p">:</span> <span class="n">AzureTableBlobBackend</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">serialiser</span><span class="p">:</span> <span class="n">Serialiser</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_workers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param table_service: https://docs.microsoft.com/en-us/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python</span>
+<span class="sd">        :param table_name: name of table, needs to match restrictions for Azure storage resources, see https://docs.microsoft.com/en-gb/azure/azure-resource-manager/management/resource-name-rules</span>
+<span class="sd">        :param partition_key_generator: callable to generate a partitionKey from provided string, if None partitionKey in requests defaults</span>
+<span class="sd">            to tableName</span>
+<span class="sd">        :param max_batch_size: maximal batch size for each commit.</span>
+<span class="sd">        :param deferred_commit_delay_secs: the time frame during which no new data must be added for a pending transaction to be committed</span>
+<span class="sd">        :param min_size_for_periodic_commit: minimal size of a batch to be committed in a periodic thread.</span>
+<span class="sd">            If None, commits are only executed in a deferred manner, i.e. commit only if there is no update for `deferred_commit_delay_secs`</span>
+<span class="sd">        :param in_memory: boolean flag, to indicate, if table should be loaded in memory at construction</span>
+<span class="sd">        :param blob_backend: if not None, blob storage will be used to store actual value and cache_value in table only contains a reference</span>
+<span class="sd">        :param max_workers: maximal number of workers to load data from blob backend</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_deferredCommitDelaySecs</span> <span class="o">=</span> <span class="n">deferred_commit_delay_secs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_partitionKeyGenerator</span> <span class="o">=</span> <span class="n">partition_key_generator</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">create_property_loaders</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">blob_backend</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">serialiser</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">_property_loaders</span> <span class="o">=</span> <span class="p">()</span>
+            <span class="k">elif</span> <span class="n">blob_backend</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">serialiser</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">_property_loaders</span> <span class="o">=</span> <span class="p">(</span><span class="n">SerialisedPropertyLoader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CACHE_VALUE_IDENTIFIER</span><span class="p">,</span> <span class="n">serialiser</span><span class="p">),)</span>
+            <span class="k">elif</span> <span class="n">blob_backend</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">serialiser</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">property_blob_status_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CACHE_VALUE_IDENTIFIER</span> <span class="o">+</span> <span class="s2">&quot;_blob_backed&quot;</span>
+                <span class="n">_property_loaders</span> <span class="o">=</span> <span class="p">(</span><span class="n">BlobBackedPropertyLoader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CACHE_VALUE_IDENTIFIER</span><span class="p">,</span> <span class="n">blob_backend</span><span class="p">,</span> <span class="n">table_name</span><span class="p">,</span>
+                    <span class="n">property_blob_status_name</span><span class="p">,</span> <span class="n">max_workers</span><span class="p">),)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">property_blob_status_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CACHE_VALUE_IDENTIFIER</span> <span class="o">+</span> <span class="s2">&quot;_blob_backed&quot;</span>
+                <span class="n">_property_loaders</span> <span class="o">=</span> <span class="p">(</span><span class="n">BlobBackedSerialisedPropertyLoader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CACHE_VALUE_IDENTIFIER</span><span class="p">,</span> <span class="n">serialiser</span><span class="p">,</span> <span class="n">blob_backend</span><span class="p">,</span>
+                <span class="n">table_name</span><span class="p">,</span> <span class="n">property_blob_status_name</span><span class="p">,</span> <span class="n">max_workers</span><span class="p">),)</span>
+            <span class="k">return</span> <span class="n">_property_loaders</span>
+
+        <span class="n">property_loaders</span> <span class="o">=</span> <span class="n">create_property_loaders</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_batch_commit_table</span> <span class="o">=</span> <span class="n">AzureLazyBatchCommitTable</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">table_service</span><span class="p">,</span> <span class="n">property_loaders</span><span class="o">=</span><span class="n">property_loaders</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_minSizeForPeriodicCommit</span> <span class="o">=</span> <span class="n">min_size_for_periodic_commit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maxBatchSize</span> <span class="o">=</span> <span class="n">max_batch_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_updateHook</span> <span class="o">=</span> <span class="n">PeriodicUpdateHook</span><span class="p">(</span><span class="n">deferred_commit_delay_secs</span><span class="p">,</span> <span class="n">no_update_fn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_commit</span><span class="p">,</span> <span class="n">periodic_fn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_periodically_commit</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_in_memory_cache</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="n">in_memory</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_batch_commit_table</span><span class="o">.</span><span class="n">load_table_to_data_frame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;RowKey&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">CACHE_VALUE_IDENTIFIER</span><span class="p">])</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;RowKey&quot;</span><span class="p">)</span>
+            <span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2"> entries of table </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> in memory&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_in_memory_cache</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">CACHE_VALUE_IDENTIFIER</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+
+<div class="viewcode-block" id="AzureTablePersistentKeyValueCache.set"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureTablePersistentKeyValueCache.set">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">key_as_string</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="n">partition_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_partition_key_for_row_key</span><span class="p">(</span><span class="n">key_as_string</span><span class="p">)</span>
+        <span class="n">entity</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;PartitionKey&#39;</span><span class="p">:</span> <span class="n">partition_key</span><span class="p">,</span> <span class="s1">&#39;RowKey&#39;</span><span class="p">:</span> <span class="n">key_as_string</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">CACHE_VALUE_IDENTIFIER</span><span class="p">:</span> <span class="n">value</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_batch_commit_table</span><span class="o">.</span><span class="n">insert_or_replace_entity</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_updateHook</span><span class="o">.</span><span class="n">handle_update</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_in_memory_cache</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_in_memory_cache</span><span class="p">[</span><span class="n">key_as_string</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span></div>
+
+<div class="viewcode-block" id="AzureTablePersistentKeyValueCache.get"><a class="viewcode-back" href="../../../sensai/util/cache_azure.html#sensai.util.cache_azure.AzureTablePersistentKeyValueCache.get">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="n">key_as_string</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_from_in_memory_cache</span><span class="p">(</span><span class="n">key_as_string</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_from_table</span><span class="p">(</span><span class="n">key_as_string</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_from_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">partition_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_partition_key_for_row_key</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="n">entity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_batch_commit_table</span><span class="o">.</span><span class="n">get_entity</span><span class="p">(</span><span class="n">partition_key</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">entity</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">entity</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">CACHE_VALUE_IDENTIFIER</span><span class="p">]</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_from_in_memory_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_in_memory_cache</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_in_memory_cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_partition_key_for_row_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_batch_commit_table</span><span class="o">.</span><span class="n">table_name</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_partitionKeyGenerator</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_partitionKeyGenerator</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_commit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_batch_commit_table</span><span class="o">.</span><span class="n">commit_non_blocking_current_queue_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_maxBatchSize</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_periodically_commit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_batch_commit_table</span><span class="o">.</span><span class="n">commit_blocking_largest_partition_from_queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_maxBatchSize</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_minSizeForPeriodicCommit</span><span class="p">)</span></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By sensAI contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2019-2024 by sensAI contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

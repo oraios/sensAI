@@ -1,0 +1,1277 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sensai.vector_model &#8212; sensAI Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/sphinx-toolbox.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/js/vega@5.js"></script>
+    <script src="../../_static/js/vega-lite@5.js"></script>
+    <script src="../../_static/js/vega-embed@5.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sensai/vector_model';</script>
+    <link rel="canonical" href="https://tianshou.readthedocs.io/en/master/_modules/sensai/vector_model.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/sensai-logo.png" class="logo__image only-light" alt="sensAI Documentation - Home"/>
+    <script>document.write(`<img src="../../_static/sensai-logo.png" class="logo__image only-dark" alt="sensAI Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Welcome to sensAI!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../1-supervised-learning/1-vector-models.html">Models with Modular Data Pipelines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../2-notebooks/0_intro.html">Notebook Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../2-notebooks/1-classification.html">Introduction to sensAI: Supervised Learning with VectorModels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2-notebooks/2-neural_networks.html">Neural Networks</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../sensai/index.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/catboost.html">catboost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/columngen.html">columngen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/distance_metric.html">distance_metric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/feature_importance.html">feature_importance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/hyperopt.html">hyperopt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/lightgbm.html">lightgbm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/local_search.html">local_search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/minizinc.html">minizinc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/multi_model.html">multi_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/naive_bayes.html">naive_bayes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/nearest_neighbors.html">nearest_neighbors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/normalisation.html">normalisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/sklearn_quantile.html">sklearn_quantile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/tensor_model.html">tensor_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/vector_model.html">vector_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/vectoriser.html">vectoriser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/xgboost.html">xgboost</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/clustering/index.html">clustering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/clustering/clustering_base.html">clustering_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/clustering/greedy_clustering.html">greedy_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/clustering/sklearn_clustering.html">sklearn_clustering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/data/index.html">data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/data/dataset.html">dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/data/io_data.html">io_data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/data_transformation/index.html">data_transformation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/data_transformation/dft.html">dft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/data_transformation/sklearn_transformer.html">sklearn_transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/data_transformation/value_transformation.html">value_transformation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/ensemble/index.html">ensemble</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/ensemble/ensemble_base.html">ensemble_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/ensemble/models.html">models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/evaluation/index.html">evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/evaluation/crossval.html">crossval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/evaluation/eval_util.html">eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/evaluation/evaluator.html">evaluator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/evaluation/evaluator_clustering.html">evaluator_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/evaluation/metric_computation.html">metric_computation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/evaluation/result_set.html">result_set</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sensai/evaluation/eval_stats/index.html">eval_stats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/evaluation/eval_stats/eval_stats_base.html">eval_stats_base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/evaluation/eval_stats/eval_stats_classification.html">eval_stats_classification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/evaluation/eval_stats/eval_stats_clustering.html">eval_stats_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/evaluation/eval_stats/eval_stats_regression.html">eval_stats_regression</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/feature_selection/index.html">feature_selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/feature_selection/rfe.html">rfe</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/featuregen/index.html">featuregen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/featuregen/feature_generator.html">feature_generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/featuregen/feature_generator_registry.html">feature_generator_registry</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/geoanalytics/index.html">geoanalytics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/geoanalytics/geo_clustering.html">geo_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/geoanalytics/geo_coords.html">geo_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/geoanalytics/local_coords.html">local_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/geoanalytics/map_tiles.html">map_tiles</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sensai/geoanalytics/geopandas/index.html">geopandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/geoanalytics/geopandas/coordinate_clustering.html">coordinate_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/geoanalytics/geopandas/coordinate_clustering_ground_truth.html">coordinate_clustering_ground_truth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/geoanalytics/geopandas/coordinates.html">coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/geoanalytics/geopandas/geometry.html">geometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/geoanalytics/geopandas/graph.html">graph</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/pytorch_lightning/index.html">pytorch_lightning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/pytorch_lightning/pl_models.html">pl_models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/sklearn/index.html">sklearn</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/sklearn/sklearn_base.html">sklearn_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/sklearn/sklearn_classification.html">sklearn_classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/sklearn/sklearn_regression.html">sklearn_regression</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/torch/index.html">torch</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torch_base.html">torch_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torch_data.html">torch_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torch_enums.html">torch_enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torch_eval_util.html">torch_eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torch_modules.html">torch_modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torch_opt.html">torch_opt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torchtext.html">torchtext</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sensai/torch/torch_models/index.html">torch_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/torch/torch_models/lstnet/index.html">lstnet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/torch/torch_models/mlp/index.html">mlp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/torch/torch_models/residualffn/index.html">residualffn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/torch/torch_models/seq/index.html">seq</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/tracking/index.html">tracking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/tracking/azure_tracking.html">azure_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/tracking/clearml_tracking.html">clearml_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/tracking/mlflow_tracking.html">mlflow_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/tracking/tracking_base.html">tracking_base</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/util/index.html">util</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/aggregation.html">aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/cache.html">cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/cache_azure.html">cache_azure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/cache_mysql.html">cache_mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/datastruct.html">datastruct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/deprecation.html">deprecation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/dtype.html">dtype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/git.html">git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/hash.html">hash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/helper.html">helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/jscode.html">jscode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/logging.html">logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/math.html">math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/multiprocessing.html">multiprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/pandas.html">pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/pickle.html">pickle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/plot.html">plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/profiling.html">profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/sequences.html">sequences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/string.html">string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/tensorboard.html">tensorboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/test.html">test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/time.html">time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/typing.html">typing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/version.html">version</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for sensai.vector_model</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module defines base classes for models that use pandas.DataFrames for inputs and outputs, where each data frame row represents</span>
+<span class="sd">a single model input or output. Since every row contains a vector of data (one-dimensional array), we refer to them as vector-based</span>
+<span class="sd">models. Hence the name of the module and of the central base class :class:`VectorModel`.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">typing</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">Dict</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.util.deprecation</span><span class="w"> </span><span class="kn">import</span> <span class="n">deprecated</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">InputOutputData</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.data_transformation</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataFrameTransformer</span><span class="p">,</span> <span class="n">DataFrameTransformerChain</span><span class="p">,</span> <span class="n">InvertibleDataFrameTransformer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.featuregen</span><span class="w"> </span><span class="kn">import</span> <span class="n">FeatureGenerator</span><span class="p">,</span> <span class="n">FeatureCollector</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">mark_used</span><span class="p">,</span> <span class="n">kwarg_if_not_none</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.util.cache</span><span class="w"> </span><span class="kn">import</span> <span class="n">PickleLoadSaveMixin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.util.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">StopWatch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.util.pickle</span><span class="w"> </span><span class="kn">import</span> <span class="n">setstate</span><span class="p">,</span> <span class="n">getstate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.util.sequences</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_first_duplicate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.util.string</span><span class="w"> </span><span class="kn">import</span> <span class="n">ToStringMixin</span>
+
+<span class="n">mark_used</span><span class="p">(</span><span class="n">InputOutputData</span><span class="p">)</span>  <span class="c1"># for backward compatibility</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">TVectorModelBase</span> <span class="o">=</span> <span class="n">typing</span><span class="o">.</span><span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;TVectorModelBase&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="s2">&quot;VectorModelBase&quot;</span><span class="p">)</span>
+<span class="n">TVectorModel</span> <span class="o">=</span> <span class="n">typing</span><span class="o">.</span><span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;TVectorModel&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="s2">&quot;VectorModel&quot;</span><span class="p">)</span>
+<span class="n">TVectorRegressionModel</span> <span class="o">=</span> <span class="n">typing</span><span class="o">.</span><span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;TVectorRegressionModel&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="s2">&quot;VectorRegressionModel&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="VectorModelBase"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModelBase">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">VectorModelBase</span><span class="p">(</span><span class="n">ABC</span><span class="p">,</span> <span class="n">ToStringMixin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for vector models, which defines the fundamental prediction interface.</span>
+<span class="sd">    A vector model takes data frames as input, where each row represents a vector of information.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="VectorModelBase.predict"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModelBase.predict">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="VectorModelBase.is_regression_model"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModelBase.is_regression_model">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_regression_model</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="VectorModelBase.get_predicted_variable_names"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModelBase.get_predicted_variable_names">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_predicted_variable_names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="VectorModelBase.with_name"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModelBase.with_name">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_name</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">TVectorModelBase</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TVectorModelBase</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets the model&#39;s name.</span>
+
+<span class="sd">        :param name: the name</span>
+<span class="sd">        :return: self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="VectorModelBase.set_name"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModelBase.set_name">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">set_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span></div>
+
+<div class="viewcode-block" id="VectorModelBase.get_name"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModelBase.get_name">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;unnamed-</span><span class="si">%s</span><span class="s2">-</span><span class="si">%x</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span></div></div>
+
+
+<div class="viewcode-block" id="TrainingContext"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.TrainingContext">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TrainingContext</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Contains context information for an ongoing training process</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">original_input</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">original_output</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">original_input</span> <span class="o">=</span> <span class="n">original_input</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">original_output</span> <span class="o">=</span> <span class="n">original_output</span></div>
+
+
+<div class="viewcode-block" id="VectorModel"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">VectorModel</span><span class="p">(</span><span class="n">VectorModelBase</span><span class="p">,</span> <span class="n">PickleLoadSaveMixin</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a model which uses data frames as inputs and outputs whose rows define individual data points.</span>
+<span class="sd">    Every data frame row represents a vector of information (one-dimensional array), hence the name of the model.</span>
+<span class="sd">    Note that the vectors in question are not necessarily vectors in the mathematical sense, as the information in each cell is not</span>
+<span class="sd">    required to be numeric or uniform but can be arbitrarily complex.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">TOSTRING_INCLUDE_PREPROCESSORS</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">_TRANSIENT_MEMBERS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;_trainingContext&quot;</span><span class="p">]</span>
+    <span class="n">_RENAMED_MEMBERS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;checkInputColumns&quot;</span><span class="p">:</span> <span class="s2">&quot;_checkInputColumns&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_inputTransformerChain&quot;</span><span class="p">:</span> <span class="s2">&quot;_featureTransformerChain&quot;</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">check_input_columns</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param check_input_columns: whether to check if the input column list (that is fed to the underlying model, i.e. after feature</span>
+<span class="sd">            generation) during inference coincides with the input column list that was observed during training.</span>
+<span class="sd">            This should be disabled if feature generation is not performed by the model itself, e.g. in meta-models</span>
+<span class="sd">            such as ensemble models.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_featureGenerator</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">FeatureGenerator</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rawInputTransformerChain</span> <span class="o">=</span> <span class="n">DataFrameTransformerChain</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_featureTransformerChain</span> <span class="o">=</span> <span class="n">DataFrameTransformerChain</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_isFitted</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># Note: this keeps track only of the actual model being fitted, not the pre/postprocessors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_predictedVariableNames</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_modelInputVariableNames</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_checkInputColumns</span> <span class="o">=</span> <span class="n">check_input_columns</span>
+
+        <span class="c1"># transient members</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_trainingContext</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TrainingContext</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__getstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">getstate</span><span class="p">(</span><span class="n">VectorModel</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">transient_properties</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_TRANSIENT_MEMBERS</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__setstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">VectorModel</span><span class="o">.</span><span class="n">_TRANSIENT_MEMBERS</span><span class="p">:</span>
+            <span class="n">state</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">setstate</span><span class="p">(</span><span class="n">VectorModel</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">renamed_properties</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_RENAMED_MEMBERS</span><span class="p">,</span>
+            <span class="n">new_default_properties</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;_rawInputTransformerChain&quot;</span><span class="p">:</span> <span class="n">DataFrameTransformerChain</span><span class="p">()})</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_exclude_private</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_exclude_exceptions</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_tostring_exclude_exceptions</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">TOSTRING_INCLUDE_PREPROCESSORS</span><span class="p">:</span>
+            <span class="n">e</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;_rawInputTransformerChain&quot;</span><span class="p">,</span> <span class="s2">&quot;_featureGenerator&quot;</span><span class="p">,</span> <span class="s2">&quot;_featureTransformerChain&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">e</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_additional_entries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_tostring_additional_entries</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_featureGenerator</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="s2">&quot;featureGeneratorNames&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_featureGenerator</span><span class="o">.</span><span class="n">get_names</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+        <span class="k">return</span> <span class="n">d</span>
+
+<div class="viewcode-block" id="VectorModel.with_raw_input_transformers"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.with_raw_input_transformers">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_raw_input_transformers</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">TVectorModel</span><span class="p">,</span>
+            <span class="o">*</span><span class="n">transformers</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">DataFrameTransformer</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">DataFrameTransformer</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">TVectorModel</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Makes the model use the given transformers (removing previously set raw input transformers, if any), which</span>
+<span class="sd">        are to be applied to the raw input data frame (prior to feature generation).</span>
+
+<span class="sd">        :param transformers: :class:`DataFrameTransformer` instances to use (in sequence) for the transformation of inputs</span>
+<span class="sd">        :return: self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rawInputTransformerChain</span> <span class="o">=</span> <span class="n">DataFrameTransformerChain</span><span class="p">(</span><span class="o">*</span><span class="n">transformers</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="VectorModel.with_feature_transformers"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.with_feature_transformers">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_feature_transformers</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">TVectorModel</span><span class="p">,</span> <span class="o">*</span><span class="n">transformers</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">DataFrameTransformer</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">DataFrameTransformer</span><span class="p">]],</span>
+            <span class="n">add</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TVectorModel</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Makes the model use the given transformers</span>
+<span class="sd">        which are to be applied to the data frames generated by feature generators.</span>
+<span class="sd">        (If the model does not use feature generators, the transformers will be applied to</span>
+<span class="sd">        whatever is produced by the raw input transformers or, if there are none, the original raw</span>
+<span class="sd">        input data frame).</span>
+
+<span class="sd">        :param transformers: :class:`DataFrameTransformer` instances to use (in sequence) for the transformation of features</span>
+<span class="sd">        :param add: whether to add the transformers to the existing transformers rather than replacing them</span>
+<span class="sd">        :return: self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">add</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_featureTransformerChain</span> <span class="o">=</span> <span class="n">DataFrameTransformerChain</span><span class="p">(</span><span class="o">*</span><span class="n">transformers</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transformers</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_featureTransformerChain</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="VectorModel.with_input_transformers"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.with_input_transformers">[docs]</a>    <span class="nd">@deprecated</span><span class="p">(</span><span class="s2">&quot;Use with_feature_transformers instead; this method will be removed in a future sensAI release.&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">with_input_transformers</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">TVectorModel</span><span class="p">,</span>
+            <span class="o">*</span><span class="n">input_transformers</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">DataFrameTransformer</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">DataFrameTransformer</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">TVectorModel</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Makes the model use the given feature transformers (removing previously set transformers, if any),</span>
+<span class="sd">        i.e. it transforms the data frame that is generated by the feature generators (if any).</span>
+
+<span class="sd">        :param input_transformers: :class:`DataFrameTransformer` instances to use (in sequence) for the transformation of inputs</span>
+<span class="sd">        :return: self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_feature_transformers</span><span class="p">(</span><span class="o">*</span><span class="n">input_transformers</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="VectorModel.with_feature_generator"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.with_feature_generator">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_feature_generator</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">TVectorModel</span><span class="p">,</span> <span class="n">feature_generator</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">FeatureGenerator</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">TVectorModel</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Makes the model use the given feature generator in order to obtain the model inputs.</span>
+<span class="sd">        If the model shall use more than one feature generator, pass a :class:`MultiFeatureGenerator` which combines them or</span>
+<span class="sd">        use the perhaps more convenient :class:`FeatureCollector` in conjunction with :meth:`withFeatureCollector`.</span>
+
+<span class="sd">        Note: Feature computation takes place before input transformation.</span>
+
+<span class="sd">        :param feature_generator: the feature generator to use for input computation</span>
+<span class="sd">        :return: self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_featureGenerator</span> <span class="o">=</span> <span class="n">feature_generator</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="VectorModel.with_feature_collector"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.with_feature_collector">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_feature_collector</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">TVectorModel</span><span class="p">,</span> <span class="n">feature_collector</span><span class="p">:</span> <span class="n">FeatureCollector</span><span class="p">,</span>
+            <span class="n">shared</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TVectorModel</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Makes the model use a multi-feature generator obtained from the given collector</span>
+<span class="sd">        in order compute the underlying model&#39;s input from the data frame that is given.</span>
+<span class="sd">        Overrides any feature generator previously passed to :meth:`withFeatureGenerator` (if any).</span>
+
+<span class="sd">        Note: Feature generation takes place before feature transformation.</span>
+
+<span class="sd">        :param feature_collector: the feature collector from which to obtain the multi-feature generator</span>
+<span class="sd">        :param shared: whether the given feature collector is shared between models (i.e. whether</span>
+<span class="sd">            the same instance is passed to multiple models).</span>
+<span class="sd">            Passing `shared=True` ensures that models using the same collector do not end up</span>
+<span class="sd">            using the same multi-feature collector instance and instead receive an independent instance.</span>
+<span class="sd">        :return: self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">shared</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_featureGenerator</span> <span class="o">=</span> <span class="n">feature_collector</span><span class="o">.</span><span class="n">create_multi_feature_generator</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_featureGenerator</span> <span class="o">=</span> <span class="n">feature_collector</span><span class="o">.</span><span class="n">get_multi_feature_generator</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_pre_processors_are_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rawInputTransformerChain</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_featureTransformerChain</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_feature_generator</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_feature_generator</span><span class="p">()</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+<div class="viewcode-block" id="VectorModel.is_fitted"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.is_fitted">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: True if the model has been fitted, False otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_underlying_model_fitted</span><span class="p">():</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pre_processors_are_fitted</span><span class="p">():</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_is_underlying_model_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">underlying_model_is_fitted</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_underlying_model_requires_fitting</span><span class="p">()</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_isFitted</span>
+        <span class="k">return</span> <span class="n">underlying_model_is_fitted</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_model_input_columns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_input</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_checkInputColumns</span> <span class="ow">and</span> <span class="nb">list</span><span class="p">(</span><span class="n">model_input</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modelInputVariableNames</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inadmissible input data frame: &quot;</span>
+                            <span class="sa">f</span><span class="s2">&quot;expected columns </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_modelInputVariableNames</span><span class="si">}</span><span class="s2">, got </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">model_input</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="VectorModel.compute_model_inputs"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.compute_model_inputs">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">compute_model_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Applies feature generators and input transformers (if any) to generate from an input data frame the input for the</span>
+<span class="sd">        underlying model</span>
+
+<span class="sd">        :param x: the input data frame, to which input preprocessing is to be applied</span>
+<span class="sd">        :return: the input data frame that serves as input for the underlying model</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_model_inputs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_compute_model_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param x: the input data frame</span>
+<span class="sd">        :param y: the output data frame (when training); only has to be provided if ``fit=True`` and preprocessors require outputs</span>
+<span class="sd">            for fitting</span>
+<span class="sd">        :param fit: if True, preprocessors will be fitted before being applied to ``X``</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">fit</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rawInputTransformerChain</span><span class="o">.</span><span class="n">fit_apply</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_featureGenerator</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_featureGenerator</span><span class="o">.</span><span class="n">fit_generate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_featureTransformerChain</span><span class="o">.</span><span class="n">fit_apply</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rawInputTransformerChain</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_featureGenerator</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_featureGenerator</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_featureTransformerChain</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_compute_model_outputs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">y</span>
+
+<div class="viewcode-block" id="VectorModel.compute_model_outputs"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.compute_model_outputs">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">compute_model_outputs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_model_outputs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="VectorModel.predict"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.predict">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Applies the model to the given input data frame</span>
+
+<span class="sd">        :param x: the input data frame</span>
+<span class="sd">        :return: the model outputs in the form of a data frame whose index corresponds to the index of ``x``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calling predict with unfitted model </span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2"> &quot;</span>
+                            <span class="sa">f</span><span class="s2">&quot;(isUnderlyingModelFitted=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_is_underlying_model_fitted</span><span class="p">()</span><span class="si">}</span><span class="s2">, &quot;</span>
+                            <span class="sa">f</span><span class="s2">&quot;preProcessorsAreFitted=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_pre_processors_are_fitted</span><span class="p">()</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_model_inputs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_model_input_columns</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_output_data_frame</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">index</span><span class="p">)</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_create_output_data_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">list</span><span class="p">],</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="c1"># make sure the data frame has the right index</span>
+            <span class="n">y</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index</span>
+            <span class="k">return</span> <span class="n">y</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">predicted_columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_predicted_variable_names</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">predicted_columns</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_predict must return a DataFrame as there are multiple predicted columns; got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">predicted_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">))</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">list</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param x: the input data frame</span>
+<span class="sd">        :return: the output data frame, or, for the case where a single column is to be predicted, the list of values for that column</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_underlying_model_requires_fitting</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Designed to be overridden for rule-based models.</span>
+
+<span class="sd">        :return: True iff the underlying model requires fitting</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fit_preprocessors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rawInputTransformerChain</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="c1"># no need for fitGenerate if chain is empty</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_featureGenerator</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_featureTransformerChain</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_featureGenerator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_featureGenerator</span><span class="o">.</span><span class="n">fit_generate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_featureTransformerChain</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<div class="viewcode-block" id="VectorModel.fit_input_output_data"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.fit_input_output_data">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">fit_input_output_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">io_data</span><span class="p">:</span> <span class="n">InputOutputData</span><span class="p">,</span> <span class="n">fit_preprocessors</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fit_model</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fits the model using the given data</span>
+
+<span class="sd">        :param io_data: the input/output data</span>
+<span class="sd">        :param fit_preprocessors: whether the model&#39;s preprocessors (feature generators and data frame transformers) shall be fitted</span>
+<span class="sd">        :param fit_model: whether the model itself shall be fitted</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">io_data</span><span class="o">.</span><span class="n">inputs</span><span class="p">,</span> <span class="n">io_data</span><span class="o">.</span><span class="n">outputs</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">io_data</span><span class="o">.</span><span class="n">weights</span><span class="p">,</span> <span class="n">fit_preprocessors</span><span class="o">=</span><span class="n">fit_preprocessors</span><span class="p">,</span> <span class="n">fit_model</span><span class="o">=</span><span class="n">fit_model</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="VectorModel.fit"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.fit">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">fit_preprocessors</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fit_model</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fits the model using the given data</span>
+
+<span class="sd">        :param x: a data frame containing input data</span>
+<span class="sd">        :param y: a data frame containing output data; may be None if the underlying model does not actually require</span>
+<span class="sd">            fitting, e.g. in the case of a rule-based models, but fitting is still necessary for preprocessors</span>
+<span class="sd">        :param weights: an optional series (with the same index as `x` and `y`) containing data point weights.</span>
+<span class="sd">            Added in v1.2.0.</span>
+<span class="sd">        :param fit_preprocessors: whether the model&#39;s preprocessors (feature generators and data frame transformers) shall be fitted</span>
+<span class="sd">        :param fit_model: whether the model itself shall be fitted</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_trainingContext</span> <span class="o">=</span> <span class="n">TrainingContext</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fitting </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> instance&quot;</span><span class="p">)</span>
+            <span class="n">sw</span> <span class="o">=</span> <span class="n">StopWatch</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_predictedVariableNames</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_underlying_model_requires_fitting</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">fit_preprocessors</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_fit_preprocessors</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_modelInputVariableNames</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># not known for rule-based models because the fitting process is optimised</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The underlying model requires a data frame for fitting but Y=None was passed&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Length of input (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">) does not match length of output (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_model_outputs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_model_inputs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="n">fit_preprocessors</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input computation changed number of data points (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_trainingContext</span><span class="o">.</span><span class="n">original_input</span><span class="p">)</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+                    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Could not recover matching outputs for changed inputs. Only input filtering is admissible, &quot;</span>
+                            <span class="s2">&quot;indices of input &amp; ouput data frames must match.&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_modelInputVariableNames</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">fit_model</span><span class="p">:</span>
+                    <span class="n">inputs_with_types</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">n</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modelInputVariableNames</span><span class="p">])</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fitting with outputs[</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="si">}</span><span class="s2">]=</span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="si">}</span><span class="s2">, &quot;</span>
+                             <span class="sa">f</span><span class="s2">&quot;inputs[</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_modelInputVariableNames</span><span class="p">)</span><span class="si">}</span><span class="s2">]=[</span><span class="si">{</span><span class="n">inputs_with_types</span><span class="si">}</span><span class="s2">]; N=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2"> data points&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">kwarg_if_not_none</span><span class="p">(</span><span class="s2">&quot;weights&quot;</span><span class="p">,</span> <span class="n">weights</span><span class="p">))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_isFitted</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Fitting of underlying model skipped&quot;</span><span class="p">)</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fitting completed in </span><span class="si">{</span><span class="n">sw</span><span class="o">.</span><span class="n">get_elapsed_time_secs</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> seconds: </span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_trainingContext</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="VectorModel.is_being_fitted"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.is_being_fitted">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">is_being_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: True if the model is currently in the process of being fitted, False otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trainingContext</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></div>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_warn_sample_weights_unsupported</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_weighting_supported</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="n">weights</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_weighting_supported</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data point weighting not supported by </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">; ignoring weights&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="VectorModel.get_predicted_variable_names"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.get_predicted_variable_names">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_predicted_variable_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the list of variable names that are ultimately output by this model (i.e. the columns of the data frame output</span>
+<span class="sd">            by :meth:`predict`)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_predictedVariableNames</span></div>
+
+<div class="viewcode-block" id="VectorModel.get_model_input_variable_names"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.get_model_input_variable_names">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_model_input_variable_names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the list of variable names required by the underlying model as input (after feature generation and data frame</span>
+<span class="sd">            transformation) or None if the model has not been fitted (or is a rule-based model which does not determine the variable names).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modelInputVariableNames</span></div>
+
+<div class="viewcode-block" id="VectorModel.get_input_transformer"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.get_input_transformer">[docs]</a>    <span class="nd">@deprecated</span><span class="p">(</span><span class="s2">&quot;Use getFeatureTransformer instead, this method will be removed in a future release&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_input_transformer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">cls</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">DataFrameTransformer</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the (first) feature transformer of the given type (if any) within this models feature transformer chain</span>
+
+<span class="sd">        :param cls: the type of transformer to look for</span>
+<span class="sd">        :return: the first matching feature transformer or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_featureTransformerChain</span><span class="o">.</span><span class="n">dataFrameTransformers</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">it</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">it</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="VectorModel.get_feature_transformer"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.get_feature_transformer">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_feature_transformer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">cls</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">DataFrameTransformer</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the (first) feature transformer of the given type (if any) within this models feature transformer chain</span>
+
+<span class="sd">        :param cls: the type of transformer to look for</span>
+<span class="sd">        :return: the first matching feature transformer or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_featureTransformerChain</span><span class="o">.</span><span class="n">dataFrameTransformers</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">it</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">it</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="VectorModel.get_raw_input_transformer"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.get_raw_input_transformer">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_raw_input_transformer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">cls</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">DataFrameTransformer</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the (first) raw input transformer of the given type (if any) within this models raw input transformer chain</span>
+
+<span class="sd">        :param cls: the type of transformer to look for</span>
+<span class="sd">        :return: the first matching raw input transformer or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rawInputTransformerChain</span><span class="o">.</span><span class="n">dataFrameTransformers</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">it</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">it</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="VectorModel.get_input_transformer_chain"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.get_input_transformer_chain">[docs]</a>    <span class="nd">@deprecated</span><span class="p">(</span><span class="s2">&quot;Use getFeatureTransformerChain instead, this method will be removed in a future release&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_input_transformer_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrameTransformerChain</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the model&#39;s feature transformer chain (which may be empty and contain no actual transformers),</span>
+<span class="sd">            i.e. the transformers that are applied after feature generation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_featureTransformerChain</span></div>
+
+<div class="viewcode-block" id="VectorModel.get_raw_input_transformer_chain"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.get_raw_input_transformer_chain">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_raw_input_transformer_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrameTransformerChain</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the model&#39;s raw input transformer chain (which may be empty and contain no actual transformers),</span>
+<span class="sd">            i.e. the transformers that are applied before feature generation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rawInputTransformerChain</span></div>
+
+<div class="viewcode-block" id="VectorModel.get_feature_transformer_chain"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.get_feature_transformer_chain">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_feature_transformer_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrameTransformerChain</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the model&#39;s feature transformer chain (which may be empty and contain no actual transformers),</span>
+<span class="sd">            i.e. the transformers that are applied after feature generation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_featureTransformerChain</span></div>
+
+<div class="viewcode-block" id="VectorModel.set_feature_generator"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.set_feature_generator">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">set_feature_generator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature_generator</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">FeatureGenerator</span><span class="p">]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">with_feature_generator</span><span class="p">(</span><span class="n">feature_generator</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="VectorModel.get_feature_generator"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.get_feature_generator">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_feature_generator</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">FeatureGenerator</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the model&#39;s feature generator (if any)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_featureGenerator</span></div>
+
+<div class="viewcode-block" id="VectorModel.remove_input_preprocessors"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorModel.remove_input_preprocessors">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">remove_input_preprocessors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Removes all input preprocessors (i.e. raw input transformers, feature generators and feature transformers) from the model</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">with_raw_input_transformers</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">with_feature_generator</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">with_feature_transformers</span><span class="p">()</span></div></div>
+
+
+<div class="viewcode-block" id="VectorRegressionModel"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorRegressionModel">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">VectorRegressionModel</span><span class="p">(</span><span class="n">VectorModel</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">check_input_columns</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param check_input_columns: Whether to check if the input column list (after feature generation)</span>
+<span class="sd">            during inference coincides with the input column list during fit.</span>
+<span class="sd">            This should be disabled if feature generation is not performed by the model itself,</span>
+<span class="sd">            e.g. in ensemble models.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">check_input_columns</span><span class="o">=</span><span class="n">check_input_columns</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_outputTransformerChain</span> <span class="o">=</span> <span class="n">DataFrameTransformerChain</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_modelOutputVariableNames</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_targetTransformer</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">InvertibleDataFrameTransformer</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tostring_exclude_exceptions</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_tostring_exclude_exceptions</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">TOSTRING_INCLUDE_PREPROCESSORS</span><span class="p">:</span>
+            <span class="n">e</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;_targetTransformer&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">e</span>
+
+<div class="viewcode-block" id="VectorRegressionModel.is_regression_model"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorRegressionModel.is_regression_model">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">is_regression_model</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="VectorRegressionModel.with_output_transformers"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorRegressionModel.with_output_transformers">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_output_transformers</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">TVectorRegressionModel</span><span class="p">,</span>
+            <span class="o">*</span><span class="n">output_transformers</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">DataFrameTransformer</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">DataFrameTransformer</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">TVectorRegressionModel</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Makes the model use the given output transformers. Call with empty input to remove existing output transformers.</span>
+<span class="sd">        The transformers are ignored during the fit phase. Not supported for rule-based models.</span>
+
+<span class="sd">        **Important**: The output columns names of the last output transformer should be the same</span>
+<span class="sd">        as the first one&#39;s input column names. If this fails to hold, an exception will be raised when :meth:`predict` is called.</span>
+
+<span class="sd">        **Note**: Output transformers perform post-processing after the actual predictions have been made. Contrary</span>
+<span class="sd">        to invertible target transformers, they are not invoked during the fit phase. Therefore, any losses computed there,</span>
+<span class="sd">        including the losses on validation sets (e.g. for early stopping), will be computed on the non-post-processed data.</span>
+<span class="sd">        A possible use case for such post-processing is if you know how improve the predictions of your fittable model</span>
+<span class="sd">        by some heuristics or by hand-crafted rules.</span>
+
+<span class="sd">        **How not to use**: Output transformers are not meant to transform the predictions into something with a</span>
+<span class="sd">        different semantic meaning (e.g. normalized into non-normalized or something like that) - you should consider</span>
+<span class="sd">        using a targetTransformer for this purpose. Instead, they give the possibility to improve predictions through</span>
+<span class="sd">        post processing, when this is desired.</span>
+
+<span class="sd">        :param output_transformers: DataFrameTransformers for the transformation of outputs</span>
+<span class="sd">            (after the model has been applied)</span>
+<span class="sd">        :return: self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># There is no reason for post-processing in rule-based models</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_underlying_model_requires_fitting</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Output transformers are not supported for model of type </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_outputTransformerChain</span> <span class="o">=</span> <span class="n">DataFrameTransformerChain</span><span class="p">(</span><span class="o">*</span><span class="n">output_transformers</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="VectorRegressionModel.with_target_transformer"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorRegressionModel.with_target_transformer">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">with_target_transformer</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">TVectorRegressionModel</span><span class="p">,</span>
+            <span class="n">target_transformer</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">InvertibleDataFrameTransformer</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">TVectorRegressionModel</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Makes the model use the given target transformers such that the underlying low-level model is trained on the transformed</span>
+<span class="sd">        targets, but this high-level model still outputs the original (untransformed) values, i.e. the transformation is applied</span>
+<span class="sd">        to targets during training and the inverse transformation is applied to the underlying model&#39;s predictions during inference.</span>
+<span class="sd">        Hence the requirement of  the transformer being invertible.</span>
+
+<span class="sd">        This method is not supported for rule-based models, because they are not trained and therefore the transformation</span>
+<span class="sd">        would serve no purpose.</span>
+
+<span class="sd">        NOTE: All feature generators and data frame transformers - should they make use of outputs - will be fit on the untransformed</span>
+<span class="sd">        target. The targetTransformer only affects the fitting of the underlying model.</span>
+
+<span class="sd">        :param target_transformer: a transformer which transforms the targets (training data outputs) prior to learning the model, such</span>
+<span class="sd">            that the model learns to predict the transformed outputs</span>
+<span class="sd">        :return: self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Disabled for rule-based models which do not apply fitting and therefore cannot make use of transformed targets</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_underlying_model_requires_fitting</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Target transformers are not supported for model of type </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_targetTransformer</span> <span class="o">=</span> <span class="n">target_transformer</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="VectorRegressionModel.get_target_transformer"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorRegressionModel.get_target_transformer">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_target_transformer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_targetTransformer</span></div>
+
+<div class="viewcode-block" id="VectorRegressionModel.get_output_transformer_chain"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorRegressionModel.get_output_transformer_chain">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_output_transformer_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_outputTransformerChain</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_apply_post_processing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_targetTransformer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_targetTransformer</span><span class="o">.</span><span class="n">apply_inverse</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_outputTransformerChain</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">list</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_predicted_variable_names</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The model&#39;s predicted variable names are not correct. Got &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="si">}</span><span class="s2"> but expected </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">get_predicted_variable_names</span><span class="p">()</span><span class="si">}</span><span class="s2">. &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;This kind of error can happen if the model&#39;s outputTransformerChain changes a data frame&#39;s &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;columns (e.g. renames them or changes order). Only output transformer chains that do not change &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;columns are permitted in VectorModel. You can fix this by modifying this instance&#39;s outputTransformerChain, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;e.g. by calling .withOutputTransformers() with the correct input &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;(which can be empty to remove existing output transformers)&quot;</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">y</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_compute_model_outputs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_targetTransformer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_targetTransformer</span><span class="o">.</span><span class="n">fit_apply</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_being_fitted</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_modelOutputVariableNames</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">y</span>
+
+<div class="viewcode-block" id="VectorRegressionModel.predict"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorRegressionModel.predict">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply_post_processing</span><span class="p">(</span><span class="n">y</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="VectorRegressionModel.is_fitted"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorRegressionModel.is_fitted">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">():</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_targetTransformer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_targetTransformer</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">():</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_outputTransformerChain</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">():</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="VectorRegressionModel.get_model_output_variable_names"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorRegressionModel.get_model_output_variable_names">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_model_output_variable_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the list of variable names predicted by the underlying model.</span>
+<span class="sd">        For the case where at training time the ground truth is transformed by a target transformer</span>
+<span class="sd">        which changes column names, the names of the variables prior to the transformation will be returned.</span>
+<span class="sd">        Thus this method always returns the variable names that are actually predicted by the underlying model alone.</span>
+<span class="sd">        For the variable names that are ultimately output by the entire VectorModel instance when calling predict,</span>
+<span class="sd">        use getPredictedVariableNames.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modelOutputVariableNames</span></div></div>
+
+
+<div class="viewcode-block" id="get_predicted_var_name"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.get_predicted_var_name">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">get_predicted_var_name</span><span class="p">(</span><span class="n">specified_var_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">predicted_var_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="n">specified_var_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">specified_var_name</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">predicted_var_names</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must explicitly specify the predicted variable name for a model with multiple output variables &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">predicted_var_names</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">predicted_var_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="VectorClassificationModel"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorClassificationModel">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">VectorClassificationModel</span><span class="p">(</span><span class="n">VectorModel</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">check_input_columns</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param check_input_columns: Whether to check if the input column list (after feature generation)</span>
+<span class="sd">            during inference coincides with the input column list during fit.</span>
+<span class="sd">            This should be disabled if feature generation is not performed by the model itself,</span>
+<span class="sd">            e.g. in ensemble models.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">check_input_columns</span><span class="o">=</span><span class="n">check_input_columns</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_labels</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="VectorClassificationModel.is_regression_model"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorClassificationModel.is_regression_model">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">is_regression_model</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Classification requires exactly one output column with class labels&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_labels</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">label</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fit_classifier</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">kwarg_if_not_none</span><span class="p">(</span><span class="s2">&quot;weights&quot;</span><span class="p">,</span> <span class="n">weights</span><span class="p">))</span>
+
+<div class="viewcode-block" id="VectorClassificationModel.get_class_labels"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorClassificationModel.get_class_labels">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_class_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_labels</span></div>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fit_classifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<div class="viewcode-block" id="VectorClassificationModel.convert_class_probabilities_to_predictions"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorClassificationModel.convert_class_probabilities_to_predictions">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">convert_class_probabilities_to_predictions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Converts from a data frame as returned by predictClassProbabilities to a result as return by predict.</span>
+
+<span class="sd">        :param df: the output data frame from predictClassProbabilities</span>
+<span class="sd">        :return: an output data frame as it would be returned by predict</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_class_labels</span><span class="p">()</span>
+        <span class="n">df_cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">df_cols</span><span class="p">)</span> <span class="o">!=</span> <span class="n">labels</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected data frame with columns </span><span class="si">{</span><span class="n">labels</span><span class="si">}</span><span class="s2">, got </span><span class="si">{</span><span class="n">df_cols</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">y_array</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">max_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_array</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">df_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">max_indices</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_predicted_variable_names</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="VectorClassificationModel.predict_class_probabilities"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.VectorClassificationModel.predict_class_probabilities">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">predict_class_probabilities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param x: the input data</span>
+<span class="sd">        :return: a data frame where the list of columns is the list of class labels and the values are probabilities, with the same</span>
+<span class="sd">            index as the input data frame.</span>
+<span class="sd">            Raises an exception if the classifier cannot predict probabilities.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calling predict with unfitted model. &quot;</span>
+                            <span class="sa">f</span><span class="s2">&quot;This might lead to errors down the line, especially if input/output checks are enabled&quot;</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_model_inputs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_predict_class_probabilities</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_prediction</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_prediction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prediction_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">max_rows_to_check</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks whether the column names are correctly set, sorted and whether the entries correspond to probabilities</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_class_labels</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">list</span><span class="p">(</span><span class="n">prediction_df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">!=</span> <span class="n">labels</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2"> _predictClassProbabilities returned DataFrame with incorrect columns: &quot;</span>
+                            <span class="sa">f</span><span class="s2">&quot;expected </span><span class="si">{</span><span class="n">labels</span><span class="si">}</span><span class="s2">, got </span><span class="si">{</span><span class="n">prediction_df</span><span class="o">.</span><span class="n">columns</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">df_to_check</span> <span class="o">=</span> <span class="n">prediction_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="n">max_rows_to_check</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">valueSeries</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_to_check</span><span class="o">.</span><span class="n">iterrows</span><span class="p">(),</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">valueSeries</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">valueSeries</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilities data frame may not be correctly normalised, &quot;</span>
+                            <span class="sa">f</span><span class="s2">&quot;got probabilities outside the range [0, 1]: checked row </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">max_rows_to_check</span><span class="si">}</span><span class="s2"> contains </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">valueSeries</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="n">s</span> <span class="o">=</span> <span class="n">valueSeries</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">):</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilities data frame may not be correctly normalised: &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;checked row </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">max_rows_to_check</span><span class="si">}</span><span class="s2"> contains </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">valueSeries</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_predict_class_probabilities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If you are implementing a probabilistic classifier, this method has to return a data frame with probabilities</span>
+<span class="sd">        (one column per label). The default implementation of _predict will then use the output of</span>
+<span class="sd">        this method and convert it to predicted labels (via argmax).</span>
+
+<span class="sd">        In case you want to predict labels only or have a more efficient implementation of predicting labels than</span>
+<span class="sd">        using argmax, you may override _predict instead of implementing this method. In the case of a</span>
+<span class="sd">        non-probabilistic classifier, the implementation of this method should raise an exception.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> does not implement _predictClassProbabilities.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">predicted_probabilities_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_predict_class_probabilities</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_class_probabilities_to_predictions</span><span class="p">(</span><span class="n">predicted_probabilities_df</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RuleBasedVectorRegressionModel"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.RuleBasedVectorRegressionModel">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">RuleBasedVectorRegressionModel</span><span class="p">(</span><span class="n">VectorRegressionModel</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predicted_variable_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param predicted_variable_names: These are typically known at init time for rule-based models</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">check_input_columns</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_predictedVariableNames</span> <span class="o">=</span> <span class="n">predicted_variable_names</span>
+        <span class="c1"># guaranteed to be the same as predictedVariableNames since target transformers and output transformers are disallowed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_modelOutputVariableNames</span> <span class="o">=</span> <span class="n">predicted_variable_names</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_underlying_model_requires_fitting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="RuleBasedVectorClassificationModel"><a class="viewcode-back" href="../../sensai/vector_model.html#sensai.vector_model.RuleBasedVectorClassificationModel">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">RuleBasedVectorClassificationModel</span><span class="p">(</span><span class="n">VectorClassificationModel</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">predicted_variable_name</span><span class="o">=</span><span class="s2">&quot;predictedLabel&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param labels:</span>
+<span class="sd">        :param predicted_variable_name:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">check_input_columns</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="n">duplicate</span> <span class="o">=</span> <span class="n">get_first_duplicate</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">duplicate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found duplicate label: </span><span class="si">{</span><span class="n">duplicate</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_labels</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_predictedVariableNames</span> <span class="o">=</span> <span class="p">[</span><span class="n">predicted_variable_name</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_underlying_model_requires_fitting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fit_classifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By sensAI contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2019-2024 by sensAI contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

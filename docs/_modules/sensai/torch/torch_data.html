@@ -1,0 +1,1147 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sensai.torch.torch_data &#8212; sensAI Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/sphinx-toolbox.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/js/vega@5.js"></script>
+    <script src="../../../_static/js/vega-lite@5.js"></script>
+    <script src="../../../_static/js/vega-embed@5.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sensai/torch/torch_data';</script>
+    <link rel="canonical" href="https://tianshou.readthedocs.io/en/master/_modules/sensai/torch/torch_data.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/sensai-logo.png" class="logo__image only-light" alt="sensAI Documentation - Home"/>
+    <script>document.write(`<img src="../../../_static/sensai-logo.png" class="logo__image only-dark" alt="sensAI Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../index.html">
+                    Welcome to sensAI!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../1-supervised-learning/1-vector-models.html">Models with Modular Data Pipelines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../2-notebooks/0_intro.html">Notebook Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../2-notebooks/1-classification.html">Introduction to sensAI: Supervised Learning with VectorModels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2-notebooks/2-neural_networks.html">Neural Networks</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../sensai/index.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/catboost.html">catboost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/columngen.html">columngen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/distance_metric.html">distance_metric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/feature_importance.html">feature_importance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/hyperopt.html">hyperopt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/lightgbm.html">lightgbm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/local_search.html">local_search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/minizinc.html">minizinc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/multi_model.html">multi_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/naive_bayes.html">naive_bayes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/nearest_neighbors.html">nearest_neighbors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/normalisation.html">normalisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/sklearn_quantile.html">sklearn_quantile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/tensor_model.html">tensor_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/vector_model.html">vector_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/vectoriser.html">vectoriser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sensai/xgboost.html">xgboost</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/clustering/index.html">clustering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/clustering/clustering_base.html">clustering_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/clustering/greedy_clustering.html">greedy_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/clustering/sklearn_clustering.html">sklearn_clustering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/data/index.html">data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data/dataset.html">dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data/io_data.html">io_data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/data_transformation/index.html">data_transformation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data_transformation/dft.html">dft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data_transformation/sklearn_transformer.html">sklearn_transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/data_transformation/value_transformation.html">value_transformation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/ensemble/index.html">ensemble</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/ensemble/ensemble_base.html">ensemble_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/ensemble/models.html">models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/evaluation/index.html">evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/crossval.html">crossval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/eval_util.html">eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/evaluator.html">evaluator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/evaluator_clustering.html">evaluator_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/metric_computation.html">metric_computation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/evaluation/result_set.html">result_set</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/index.html">eval_stats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_base.html">eval_stats_base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_classification.html">eval_stats_classification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_clustering.html">eval_stats_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/evaluation/eval_stats/eval_stats_regression.html">eval_stats_regression</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/feature_selection/index.html">feature_selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/feature_selection/rfe.html">rfe</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/featuregen/index.html">featuregen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/featuregen/feature_generator.html">feature_generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/featuregen/feature_generator_registry.html">feature_generator_registry</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/geoanalytics/index.html">geoanalytics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/geo_clustering.html">geo_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/geo_coords.html">geo_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/local_coords.html">local_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/geoanalytics/map_tiles.html">map_tiles</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/index.html">geopandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/coordinate_clustering.html">coordinate_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/coordinate_clustering_ground_truth.html">coordinate_clustering_ground_truth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/coordinates.html">coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/geometry.html">geometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/geoanalytics/geopandas/graph.html">graph</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/pytorch_lightning/index.html">pytorch_lightning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/pytorch_lightning/pl_models.html">pl_models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/sklearn/index.html">sklearn</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/sklearn/sklearn_base.html">sklearn_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/sklearn/sklearn_classification.html">sklearn_classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/sklearn/sklearn_regression.html">sklearn_regression</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/torch/index.html">torch</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_base.html">torch_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_data.html">torch_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_enums.html">torch_enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_eval_util.html">torch_eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_modules.html">torch_modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torch_opt.html">torch_opt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/torch/torchtext.html">torchtext</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sensai/torch/torch_models/index.html">torch_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/lstnet/index.html">lstnet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/mlp/index.html">mlp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/residualffn/index.html">residualffn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sensai/torch/torch_models/seq/index.html">seq</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/tracking/index.html">tracking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/azure_tracking.html">azure_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/clearml_tracking.html">clearml_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/mlflow_tracking.html">mlflow_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/tracking/tracking_base.html">tracking_base</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sensai/util/index.html">util</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/aggregation.html">aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/cache.html">cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/cache_azure.html">cache_azure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/cache_mysql.html">cache_mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/datastruct.html">datastruct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/deprecation.html">deprecation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/dtype.html">dtype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/git.html">git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/hash.html">hash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/helper.html">helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/jscode.html">jscode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/logging.html">logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/math.html">math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/multiprocessing.html">multiprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/pandas.html">pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/pickle.html">pickle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/plot.html">plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/profiling.html">profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/sequences.html">sequences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/string.html">string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/tensorboard.html">tensorboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/test.html">test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/time.html">time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/typing.html">typing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensai/util/version.html">version</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for sensai.torch.torch_data</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Iterator</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.autograd</span><span class="w"> </span><span class="kn">import</span> <span class="n">Variable</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..</span><span class="w"> </span><span class="kn">import</span> <span class="n">normalisation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..data</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataFrameSplitter</span><span class="p">,</span> <span class="n">DataFrameSplitterFractional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..data_transformation</span><span class="w"> </span><span class="kn">import</span> <span class="n">DFTSkLearnTransformer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..util.dtype</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_float_array</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..util.pickle</span><span class="w"> </span><span class="kn">import</span> <span class="n">setstate</span>
+
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="to_tensor"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.to_tensor">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">to_tensor</span><span class="p">(</span><span class="n">d</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">list</span><span class="p">],</span> <span class="n">cuda</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">cuda</span><span class="p">:</span>
+        <span class="n">d</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">d</span></div>
+
+
+<div class="viewcode-block" id="TensorScaler"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorScaler">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TensorScaler</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorScaler.cuda"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorScaler.cuda">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cuda</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Makes this scaler&#39;s components use CUDA</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="TensorScaler.normalise"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorScaler.normalise">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">normalise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Applies scaling/normalisation to the given tensor</span>
+<span class="sd">        :param tensor: the tensor to scale/normalise</span>
+<span class="sd">        :return: the scaled/normalised tensor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="TensorScaler.denormalise"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorScaler.denormalise">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">denormalise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Applies the inverse of method normalise to the given tensor</span>
+<span class="sd">        :param tensor: the tensor to denormalise</span>
+<span class="sd">        :return: the denormalised tensor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="TensorScalerCentreAndScale"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorScalerCentreAndScale">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TensorScalerCentreAndScale</span><span class="p">(</span><span class="n">TensorScaler</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">centre</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">centre</span> <span class="o">=</span> <span class="n">centre</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="n">scale</span>
+
+<div class="viewcode-block" id="TensorScalerCentreAndScale.cuda"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorScalerCentreAndScale.cuda">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">cuda</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">centre</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">centre</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">centre</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TensorScalerCentreAndScale.normalise"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorScalerCentreAndScale.normalise">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">normalise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">centre</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">tensor</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">centre</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">tensor</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span>
+        <span class="k">return</span> <span class="n">tensor</span></div>
+
+<div class="viewcode-block" id="TensorScalerCentreAndScale.denormalise"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorScalerCentreAndScale.denormalise">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">denormalise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">tensor</span> <span class="o">/=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">centre</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">tensor</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">centre</span>
+        <span class="k">return</span> <span class="n">tensor</span></div></div>
+
+
+<div class="viewcode-block" id="TensorScalerFromVectorDataScaler"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorScalerFromVectorDataScaler">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TensorScalerFromVectorDataScaler</span><span class="p">(</span><span class="n">TensorScalerCentreAndScale</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vector_data_scaler</span><span class="p">:</span> <span class="n">normalisation</span><span class="o">.</span><span class="n">VectorDataScaler</span><span class="p">,</span> <span class="n">cuda</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">vector_data_scaler</span><span class="o">.</span><span class="n">scale</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">inv_scale</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">vector_data_scaler</span><span class="o">.</span><span class="n">scale</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+            <span class="n">scale</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">inv_scale</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">scale</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">centre</span> <span class="o">=</span> <span class="n">vector_data_scaler</span><span class="o">.</span><span class="n">translate</span>
+        <span class="k">if</span> <span class="n">centre</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">centre</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">vector_data_scaler</span><span class="o">.</span><span class="n">translate</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">centre</span><span class="o">=</span><span class="n">centre</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cuda</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__setstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s2">&quot;translate&quot;</span> <span class="ow">in</span> <span class="n">state</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;scale&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># old representation where scale is actually inverse scale</span>
+                <span class="n">state</span><span class="p">[</span><span class="s2">&quot;scale&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;scale&quot;</span><span class="p">]</span>
+        <span class="n">setstate</span><span class="p">(</span><span class="n">TensorScalerFromVectorDataScaler</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">renamed_properties</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;translate&quot;</span><span class="p">:</span> <span class="s2">&quot;centre&quot;</span><span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="TensorScalerIdentity"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorScalerIdentity">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TensorScalerIdentity</span><span class="p">(</span><span class="n">TensorScaler</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorScalerIdentity.cuda"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorScalerIdentity.cuda">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">cuda</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="TensorScalerIdentity.normalise"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorScalerIdentity.normalise">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">normalise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tensor</span></div>
+
+<div class="viewcode-block" id="TensorScalerIdentity.denormalise"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorScalerIdentity.denormalise">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">denormalise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tensor</span></div></div>
+
+
+<div class="viewcode-block" id="TensorScalerFromDFTSkLearnTransformer"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorScalerFromDFTSkLearnTransformer">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TensorScalerFromDFTSkLearnTransformer</span><span class="p">(</span><span class="n">TensorScalerCentreAndScale</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dft</span><span class="p">:</span> <span class="n">DFTSkLearnTransformer</span><span class="p">):</span>
+        <span class="n">trans</span> <span class="o">=</span> <span class="n">dft</span><span class="o">.</span><span class="n">sklearnTransformer</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">trans</span><span class="p">,</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">RobustScaler</span><span class="p">):</span>
+            <span class="n">centre</span> <span class="o">=</span> <span class="n">trans</span><span class="o">.</span><span class="n">center_</span>
+            <span class="n">scale</span> <span class="o">=</span> <span class="n">trans</span><span class="o">.</span><span class="n">scale_</span>
+            <span class="n">is_reciprocal_scale</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sklearn transformer of type &#39;</span><span class="si">{</span><span class="n">trans</span><span class="o">.</span><span class="vm">__class__</span><span class="si">}</span><span class="s2">&#39; is unhandled&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">centre</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">centre</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">centre</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">scale</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">scale</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">scale</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">is_reciprocal_scale</span><span class="p">:</span>
+                <span class="n">scale</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">scale</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">centre</span><span class="o">=</span><span class="n">centre</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Tensoriser"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.Tensoriser">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Tensoriser</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a method for transforming a data frame into one or more tensors to be processed by a neural network model</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Tensoriser.tensorise"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.Tensoriser.tensorise">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">tensorise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tensorise</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="n">lengths</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">result</span><span class="p">))</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lengths</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Lengths of tensors inconsistent&quot;</span><span class="p">)</span>
+            <span class="n">length</span> <span class="o">=</span> <span class="n">lengths</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">length</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2"> produced result of length </span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2"> for DataFrame of shape </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tensorise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
+        <span class="k">pass</span>
+
+<div class="viewcode-block" id="Tensoriser.fit"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.Tensoriser.fit">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param df: the data frame with which to fit this tensoriser</span>
+<span class="sd">        :param model: the model in the context of which the fitting takes place (if any).</span>
+<span class="sd">            The fitting process may set parameters within the model that can only be determined from the (pre-tensorised) data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="RuleBasedTensoriser"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.RuleBasedTensoriser">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">RuleBasedTensoriser</span><span class="p">(</span><span class="n">Tensoriser</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for tensorisers which transform data frames into tensors based on a predefined set of rules and do not require fitting</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="RuleBasedTensoriser.fit"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.RuleBasedTensoriser.fit">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="TensoriserDataFrameFloatValuesMatrix"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensoriserDataFrameFloatValuesMatrix">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TensoriserDataFrameFloatValuesMatrix</span><span class="p">(</span><span class="n">RuleBasedTensoriser</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tensorise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">to_float_array</span><span class="p">(</span><span class="n">df</span><span class="p">))</span><span class="o">.</span><span class="n">float</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="TensoriserClassLabelIndices"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensoriserClassLabelIndices">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TensoriserClassLabelIndices</span><span class="p">(</span><span class="n">RuleBasedTensoriser</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tensorise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Expected a single column containing the class label indices&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">.</span><span class="n">long</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="DataUtil"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.DataUtil">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">DataUtil</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Interface for DataUtil classes, which are used to process data for neural networks&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="DataUtil.split_into_tensors"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.DataUtil.split_into_tensors">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">split_into_tensors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fractional_size_of_first_set</span><span class="p">)</span> \
+            <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Splits the data set</span>
+
+<span class="sd">        :param fractional_size_of_first_set: the desired fractional size in</span>
+<span class="sd">        :return: a tuple (A, B) where A and B are tuples (in, out) with input and output data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="DataUtil.get_output_tensor_scaler"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.DataUtil.get_output_tensor_scaler">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_output_tensor_scaler</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TensorScaler</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the scaler with which to scale model outputs</span>
+
+<span class="sd">        :return: the scaler</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="DataUtil.get_input_tensor_scaler"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.DataUtil.get_input_tensor_scaler">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_input_tensor_scaler</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TensorScaler</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the scaler with which to scale model inputs</span>
+
+<span class="sd">        :return: the scaler</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="DataUtil.model_output_dim"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.DataUtil.model_output_dim">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">model_output_dim</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the dimensionality that is to be output by the model to be trained</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="DataUtil.input_dim"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.DataUtil.input_dim">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">input_dim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the dimensionality of the input or None if it is variable</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="VectorDataUtil"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.VectorDataUtil">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">VectorDataUtil</span><span class="p">(</span><span class="n">DataUtil</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">inputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+            <span class="n">outputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+            <span class="n">cuda</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+            <span class="n">normalisation_mode</span><span class="o">=</span><span class="n">normalisation</span><span class="o">.</span><span class="n">NormalisationMode</span><span class="o">.</span><span class="n">NONE</span><span class="p">,</span>
+            <span class="n">differing_output_normalisation_mode</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">input_tensoriser</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensoriser</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">output_tensoriser</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensoriser</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">data_frame_splitter</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">DataFrameSplitter</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param inputs: the data frame of inputs</span>
+<span class="sd">        :param outputs: the data frame of outputs</span>
+<span class="sd">        :param cuda: whether to apply CUDA</span>
+<span class="sd">        :param normalisation_mode: the normalisation mode to use for inputs and (unless differingOutputNormalisationMode is specified)</span>
+<span class="sd">            outputs</span>
+<span class="sd">        :param differing_output_normalisation_mode: the normalisation mode to apply to outputs, overriding normalisationMode;</span>
+<span class="sd">            if None, use normalisationMode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">inputs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">outputs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Output length must be equal to input length&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span> <span class="o">=</span> <span class="n">inputs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span> <span class="o">=</span> <span class="n">outputs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inputTensoriser</span> <span class="o">=</span> <span class="n">input_tensoriser</span> <span class="k">if</span> <span class="n">input_tensoriser</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">TensoriserDataFrameFloatValuesMatrix</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outputTensoriser</span> <span class="o">=</span> <span class="n">output_tensoriser</span> <span class="k">if</span> <span class="n">output_tensoriser</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">TensoriserDataFrameFloatValuesMatrix</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inputVectorDataScaler</span> <span class="o">=</span> <span class="n">normalisation</span><span class="o">.</span><span class="n">VectorDataScaler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">,</span> <span class="n">normalisation_mode</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inputTensorScaler</span> <span class="o">=</span> <span class="n">TensorScalerFromVectorDataScaler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputVectorDataScaler</span><span class="p">,</span> <span class="n">cuda</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outputVectorDataScaler</span> <span class="o">=</span> <span class="n">normalisation</span><span class="o">.</span><span class="n">VectorDataScaler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">,</span>
+            <span class="n">normalisation_mode</span> <span class="k">if</span> <span class="n">differing_output_normalisation_mode</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">differing_output_normalisation_mode</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outputTensorScaler</span> <span class="o">=</span> <span class="n">TensorScalerFromVectorDataScaler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outputVectorDataScaler</span><span class="p">,</span> <span class="n">cuda</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataFrameSplitter</span> <span class="o">=</span> <span class="n">data_frame_splitter</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="VectorDataUtil.get_output_tensor_scaler"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.VectorDataUtil.get_output_tensor_scaler">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_output_tensor_scaler</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputTensorScaler</span></div>
+
+<div class="viewcode-block" id="VectorDataUtil.get_input_tensor_scaler"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.VectorDataUtil.get_input_tensor_scaler">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_input_tensor_scaler</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputTensorScaler</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_compute_split_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fractional_size_of_first_set</span><span class="p">):</span>
+        <span class="n">splitter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataFrameSplitter</span>
+        <span class="k">if</span> <span class="n">splitter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># By default, we use a simple fractional split without shuffling.</span>
+            <span class="c1"># Shuffling is usually unnecessary, because in evaluation contexts, the data may have already been shuffled by the evaluator</span>
+            <span class="c1"># (unless explicitly disabled by the user). Furthermore, not shuffling gives the user the possibility to manually</span>
+            <span class="c1"># order the data in ways that result in desirable fractional splits (though the user may, of course, simply override</span>
+            <span class="c1"># the splitter to achieve any desired split).</span>
+            <span class="n">splitter</span> <span class="o">=</span> <span class="n">DataFrameSplitterFractional</span><span class="p">(</span><span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">indices_a</span><span class="p">,</span> <span class="n">indices_b</span> <span class="o">=</span> <span class="n">splitter</span><span class="o">.</span><span class="n">compute_split_indices</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">,</span> <span class="n">fractional_size_of_first_set</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">indices_a</span><span class="p">,</span> <span class="n">indices_b</span>
+
+<div class="viewcode-block" id="VectorDataUtil.split_into_tensors"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.VectorDataUtil.split_into_tensors">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">split_into_tensors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fractional_size_of_first_set</span><span class="p">):</span>
+        <span class="n">indices_a</span><span class="p">,</span> <span class="n">indices_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_split_indices</span><span class="p">(</span><span class="n">fractional_size_of_first_set</span><span class="p">)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tensors_for_indices</span><span class="p">(</span><span class="n">indices_a</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tensors_for_indices</span><span class="p">(</span><span class="n">indices_b</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_data_frames_for_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
+        <span class="n">input_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+        <span class="n">output_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">input_df</span><span class="p">,</span> <span class="n">output_df</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tensors_for_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
+        <span class="n">input_df</span><span class="p">,</span> <span class="n">output_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_frames_for_indices</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tensors_for_data_frames</span><span class="p">(</span><span class="n">input_df</span><span class="p">,</span> <span class="n">output_df</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tensors_for_data_frames</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_df</span><span class="p">,</span> <span class="n">output_df</span><span class="p">):</span>
+        <span class="c1"># apply normalisation (if any)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputVectorDataScaler</span><span class="o">.</span><span class="n">normalisation_mode</span> <span class="o">!=</span> <span class="n">normalisation</span><span class="o">.</span><span class="n">NormalisationMode</span><span class="o">.</span><span class="n">NONE</span><span class="p">:</span>
+            <span class="n">input_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputVectorDataScaler</span><span class="o">.</span><span class="n">get_normalised_array</span><span class="p">(</span><span class="n">input_df</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">input_df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+                <span class="n">index</span><span class="o">=</span><span class="n">input_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputVectorDataScaler</span><span class="o">.</span><span class="n">normalisation_mode</span> <span class="o">!=</span> <span class="n">normalisation</span><span class="o">.</span><span class="n">NormalisationMode</span><span class="o">.</span><span class="n">NONE</span><span class="p">:</span>
+            <span class="n">output_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outputVectorDataScaler</span><span class="o">.</span><span class="n">get_normalised_array</span><span class="p">(</span><span class="n">output_df</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">output_df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+                <span class="n">index</span><span class="o">=</span><span class="n">output_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputTensoriser</span><span class="o">.</span><span class="n">tensorise</span><span class="p">(</span><span class="n">input_df</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputTensoriser</span><span class="o">.</span><span class="n">tensorise</span><span class="p">(</span><span class="n">output_df</span><span class="p">)</span>
+
+<div class="viewcode-block" id="VectorDataUtil.split_into_data_sets"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.VectorDataUtil.split_into_data_sets">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">split_into_data_sets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fractional_size_of_first_set</span><span class="p">,</span> <span class="n">cuda</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">tensorise_dynamically</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> \
+            <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="s2">&quot;TorchDataSet&quot;</span><span class="p">,</span> <span class="s2">&quot;TorchDataSet&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tensorise_dynamically</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">yA</span><span class="p">),</span> <span class="p">(</span><span class="n">xB</span><span class="p">,</span> <span class="n">yB</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_into_tensors</span><span class="p">(</span><span class="n">fractional_size_of_first_set</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">TorchDataSetFromTensors</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">yA</span><span class="p">,</span> <span class="n">cuda</span><span class="p">),</span> <span class="n">TorchDataSetFromTensors</span><span class="p">(</span><span class="n">xB</span><span class="p">,</span> <span class="n">yB</span><span class="p">,</span> <span class="n">cuda</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputVectorDataScaler</span><span class="o">.</span><span class="n">normalisation_mode</span> <span class="o">!=</span> <span class="n">normalisation</span><span class="o">.</span><span class="n">NormalisationMode</span><span class="o">.</span><span class="n">NONE</span> <span class="ow">or</span> \
+                    <span class="bp">self</span><span class="o">.</span><span class="n">outputVectorDataScaler</span><span class="o">.</span><span class="n">normalisation_mode</span> <span class="o">!=</span> <span class="n">normalisation</span><span class="o">.</span><span class="n">NormalisationMode</span><span class="o">.</span><span class="n">NONE</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Dynamic tensorisation is not supported when using data scaling&quot;</span><span class="p">)</span>
+            <span class="n">indices_a</span><span class="p">,</span> <span class="n">indices_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_split_indices</span><span class="p">(</span><span class="n">fractional_size_of_first_set</span><span class="p">)</span>
+            <span class="n">input_a</span><span class="p">,</span> <span class="n">output_a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_frames_for_indices</span><span class="p">(</span><span class="n">indices_a</span><span class="p">)</span>
+            <span class="n">input_b</span><span class="p">,</span> <span class="n">output_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_frames_for_indices</span><span class="p">(</span><span class="n">indices_b</span><span class="p">)</span>
+            <span class="n">ds_a</span> <span class="o">=</span> <span class="n">TorchDataSetFromDataFramesDynamicallyTensorised</span><span class="p">(</span><span class="n">input_a</span><span class="p">,</span> <span class="n">output_a</span><span class="p">,</span> <span class="n">cuda</span><span class="p">,</span> <span class="n">input_tensoriser</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">inputTensoriser</span><span class="p">,</span>
+                <span class="n">output_tensoriser</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">outputTensoriser</span><span class="p">)</span>
+            <span class="n">ds_b</span> <span class="o">=</span> <span class="n">TorchDataSetFromDataFramesDynamicallyTensorised</span><span class="p">(</span><span class="n">input_b</span><span class="p">,</span> <span class="n">output_b</span><span class="p">,</span> <span class="n">cuda</span><span class="p">,</span> <span class="n">input_tensoriser</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">inputTensoriser</span><span class="p">,</span>
+                <span class="n">output_tensoriser</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">outputTensoriser</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">ds_a</span><span class="p">,</span> <span class="n">ds_b</span></div>
+
+<div class="viewcode-block" id="VectorDataUtil.input_dim"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.VectorDataUtil.input_dim">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">input_dim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="VectorDataUtil.output_dim"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.VectorDataUtil.output_dim">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">output_dim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the dimensionality of the outputs (ground truth values)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="VectorDataUtil.model_output_dim"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.VectorDataUtil.model_output_dim">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">model_output_dim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_dim</span><span class="p">()</span></div></div>
+
+
+<div class="viewcode-block" id="ClassificationVectorDataUtil"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.ClassificationVectorDataUtil">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">ClassificationVectorDataUtil</span><span class="p">(</span><span class="n">VectorDataUtil</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">inputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+            <span class="n">outputs</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+            <span class="n">cuda</span><span class="p">,</span>
+            <span class="n">num_classes</span><span class="p">,</span>
+            <span class="n">normalisation_mode</span><span class="o">=</span><span class="n">normalisation</span><span class="o">.</span><span class="n">NormalisationMode</span><span class="o">.</span><span class="n">NONE</span><span class="p">,</span>
+            <span class="n">input_tensoriser</span><span class="p">:</span> <span class="n">Tensoriser</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">output_tensoriser</span><span class="p">:</span> <span class="n">Tensoriser</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">data_frame_splitter</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">DataFrameSplitter</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">outputs</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exactly one output dimension (the class index) is required, got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">outputs</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">cuda</span><span class="p">,</span> <span class="n">normalisation_mode</span><span class="o">=</span><span class="n">normalisation_mode</span><span class="p">,</span>
+            <span class="n">differing_output_normalisation_mode</span><span class="o">=</span><span class="n">normalisation</span><span class="o">.</span><span class="n">NormalisationMode</span><span class="o">.</span><span class="n">NONE</span><span class="p">,</span> <span class="n">input_tensoriser</span><span class="o">=</span><span class="n">input_tensoriser</span><span class="p">,</span>
+            <span class="n">output_tensoriser</span><span class="o">=</span><span class="n">TensoriserClassLabelIndices</span><span class="p">()</span> <span class="k">if</span> <span class="n">output_tensoriser</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">output_tensoriser</span><span class="p">,</span>
+            <span class="n">data_frame_splitter</span><span class="o">=</span><span class="n">data_frame_splitter</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numClasses</span> <span class="o">=</span> <span class="n">num_classes</span>
+
+<div class="viewcode-block" id="ClassificationVectorDataUtil.model_output_dim"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.ClassificationVectorDataUtil.model_output_dim">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">model_output_dim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">numClasses</span></div></div>
+
+
+<div class="viewcode-block" id="TorchDataSet"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSet">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TorchDataSet</span><span class="p">:</span>
+<div class="viewcode-block" id="TorchDataSet.iter_batches"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSet.iter_batches">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">iter_batches</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">shuffle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">input_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+            <span class="n">Tuple</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides an iterator over batches from the data set.</span>
+
+<span class="sd">        :param batch_size: the maximum size of each batch</span>
+<span class="sd">        :param shuffle: whether to shuffle the data set</span>
+<span class="sd">        :param input_only: whether to provide only inputs (rather than inputs and corresponding outputs).</span>
+<span class="sd">            If true, provide only inputs, where inputs can either be a tensor or a tuple of tensors.</span>
+<span class="sd">            If false, provide a pair (i, o) with inputs and corresponding outputs (o is always a tensor).</span>
+<span class="sd">            Some data sets may only be able to provide inputs, in which case inputOnly=False should lead to an</span>
+<span class="sd">            exception.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="TorchDataSet.size"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSet.size">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the total size of the data set (number of data points) if it is known.</span>
+
+<span class="sd">        :return: the number of data points or None of the size is not known.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="TorchDataSetProvider"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetProvider">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TorchDataSetProvider</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_tensor_scaler</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TensorScaler</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">output_tensor_scaler</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TensorScaler</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">input_dim</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">model_output_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">input_tensor_scaler</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">input_tensor_scaler</span> <span class="o">=</span> <span class="n">TensorScalerIdentity</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">output_tensor_scaler</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">output_tensor_scaler</span> <span class="o">=</span> <span class="n">TensorScalerIdentity</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">model_output_dim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The model output dimension must be provided&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inputTensorScaler</span> <span class="o">=</span> <span class="n">input_tensor_scaler</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outputTensorScaler</span> <span class="o">=</span> <span class="n">output_tensor_scaler</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inputDim</span> <span class="o">=</span> <span class="n">input_dim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">modelOutputDim</span> <span class="o">=</span> <span class="n">model_output_dim</span>
+
+<div class="viewcode-block" id="TorchDataSetProvider.provide_split"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetProvider.provide_split">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">provide_split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fractional_size_of_first_set</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">TorchDataSet</span><span class="p">,</span> <span class="n">TorchDataSet</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides two data sets, which could, for example, serve as training and validation sets.</span>
+
+<span class="sd">        :param fractional_size_of_first_set: the fractional size of the first data set</span>
+<span class="sd">        :return: a tuple of data sets (A, B) where A has (approximately) the given fractional size and B encompasses</span>
+<span class="sd">            the remainder of the data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="TorchDataSetProvider.get_output_tensor_scaler"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetProvider.get_output_tensor_scaler">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_output_tensor_scaler</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TensorScaler</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputTensorScaler</span></div>
+
+<div class="viewcode-block" id="TorchDataSetProvider.get_input_tensor_scaler"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetProvider.get_input_tensor_scaler">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_input_tensor_scaler</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TensorScaler</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputTensorScaler</span></div>
+
+<div class="viewcode-block" id="TorchDataSetProvider.get_model_output_dim"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetProvider.get_model_output_dim">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_model_output_dim</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the number of output dimensions that would be required to be generated by the model to match this dataset.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">modelOutputDim</span></div>
+
+<div class="viewcode-block" id="TorchDataSetProvider.get_input_dim"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetProvider.get_input_dim">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_input_dim</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the number of output dimensions that would be required to be generated by the model to match this dataset.</span>
+<span class="sd">            For models that accept variable input sizes (such as RNNs), this may be None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputDim</span></div></div>
+
+
+<div class="viewcode-block" id="TensorTuple"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorTuple">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TensorTuple</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a tuple of tensors (or a single tensor) and can be used to manipulate the contained tensors simultaneously</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensors</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensors</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+            <span class="n">tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensors</span><span class="p">]</span>
+        <span class="n">lengths</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">tensors</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lengths</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Not all tensors are of the same length&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="n">lengths</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tensors</span> <span class="o">=</span> <span class="n">tensors</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TensorTuple&quot;</span><span class="p">:</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">((</span><span class="n">t</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tensors</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">TensorTuple</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TensorTuple.cuda"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorTuple.cuda">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">cuda</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TensorTuple&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">TensorTuple</span><span class="p">([</span><span class="n">t</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tensors</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="TensorTuple.tuple"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorTuple.tuple">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">tuple</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tensors</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TensorTuple.item"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorTuple.item">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">item</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tensors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tuple</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TensorTuple.concat"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorTuple.concat">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">concat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;TensorTuple&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TensorTuple&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tensors</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">tensors</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Tensor tuples are incompatible&quot;</span><span class="p">)</span>
+        <span class="n">tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tensors</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">tensors</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="n">TensorTuple</span><span class="p">(</span><span class="n">tensors</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TorchDataSetFromTensors"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetFromTensors">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TorchDataSetFromTensors</span><span class="p">(</span><span class="n">TorchDataSet</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]],</span> <span class="n">y</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">cuda</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param x: the input tensor(s); if more than one, they must be of the same length (and a slice of each shall be provided to the</span>
+<span class="sd">            model as an input in each batch)</span>
+<span class="sd">        :param y: the output tensor</span>
+<span class="sd">        :param cuda: whether any generated tensors shall be moved to the selected CUDA device</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">TensorTuple</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">TensorTuple</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Tensors are not of the same length&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span> <span class="o">=</span> <span class="n">cuda</span>
+
+<div class="viewcode-block" id="TorchDataSetFromTensors.iter_batches"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetFromTensors.iter_batches">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">iter_batches</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">shuffle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">input_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+            <span class="n">Tuple</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]]:</span>
+        <span class="n">tensor_tuples</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">input_only</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,)</span>
+        <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_batches</span><span class="p">(</span><span class="n">tensor_tuples</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="p">)</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_batches</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor_tuples</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">TensorTuple</span><span class="p">],</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="p">):</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tensor_tuples</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">shuffle</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randperm</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">))</span>
+        <span class="n">start_idx</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">start_idx</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">:</span>
+            <span class="n">remaining_items</span> <span class="o">=</span> <span class="n">length</span> <span class="o">-</span> <span class="n">start_idx</span>
+            <span class="n">is_second_last_batch</span> <span class="o">=</span> <span class="n">remaining_items</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="o">*</span><span class="n">batch_size</span> <span class="ow">and</span> <span class="n">remaining_items</span> <span class="o">&gt;</span> <span class="n">batch_size</span>
+            <span class="k">if</span> <span class="n">is_second_last_batch</span><span class="p">:</span>
+                <span class="c1"># to avoid cases where the last batch is excessively small (1 item in the worst case, where e.g. batch</span>
+                <span class="c1"># normalisation would not be applicable), we evenly distribute the items across the last two batches</span>
+                <span class="n">adjusted_batch_size</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">remaining_items</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+                <span class="n">end_idx</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">start_idx</span> <span class="o">+</span> <span class="n">adjusted_batch_size</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">end_idx</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">start_idx</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">)</span>
+            <span class="n">excerpt</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="n">start_idx</span><span class="p">:</span><span class="n">end_idx</span><span class="p">]</span>
+            <span class="n">batch</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">tensorTuple</span> <span class="ow">in</span> <span class="n">tensor_tuples</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tensorTuple</span><span class="p">)</span> <span class="o">!=</span> <span class="n">length</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Passed tensors of differing lengths&quot;</span><span class="p">)</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">tensorTuple</span><span class="p">[</span><span class="n">excerpt</span><span class="p">]</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span><span class="p">:</span>
+                    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+                <span class="n">item</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="o">==</span> <span class="nb">tuple</span><span class="p">:</span>
+                    <span class="n">item</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">item</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">item</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+                <span class="n">batch</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+            <span class="n">start_idx</span> <span class="o">=</span> <span class="n">end_idx</span>
+
+<div class="viewcode-block" id="TorchDataSetFromTensors.size"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetFromTensors.size">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TorchDataSetFromDataFramesPreTensorised"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetFromDataFramesPreTensorised">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TorchDataSetFromDataFramesPreTensorised</span><span class="p">(</span><span class="n">TorchDataSetFromTensors</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">output_df</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> <span class="n">cuda</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+            <span class="n">input_tensoriser</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensoriser</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">output_tensoriser</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensoriser</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">input_tensoriser</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">input_tensoriser</span> <span class="o">=</span> <span class="n">TensoriserDataFrameFloatValuesMatrix</span><span class="p">()</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Applying </span><span class="si">{</span><span class="n">input_tensoriser</span><span class="si">}</span><span class="s2"> to data frame of length </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">input_df</span><span class="p">)</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
+        <span class="n">input_tensors</span> <span class="o">=</span> <span class="n">input_tensoriser</span><span class="o">.</span><span class="n">tensorise</span><span class="p">(</span><span class="n">input_df</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">output_df</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">output_tensoriser</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">output_tensoriser</span> <span class="o">=</span> <span class="n">TensoriserDataFrameFloatValuesMatrix</span><span class="p">()</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Applying </span><span class="si">{</span><span class="n">output_tensoriser</span><span class="si">}</span><span class="s2"> to data frame of length </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">output_df</span><span class="p">)</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
+            <span class="n">output_tensors</span> <span class="o">=</span> <span class="n">output_tensoriser</span><span class="o">.</span><span class="n">tensorise</span><span class="p">(</span><span class="n">output_df</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">output_tensors</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">input_tensors</span><span class="p">,</span> <span class="n">output_tensors</span><span class="p">,</span> <span class="n">cuda</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TorchDataSetFromDataFramesDynamicallyTensorised"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetFromDataFramesDynamicallyTensorised">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TorchDataSetFromDataFramesDynamicallyTensorised</span><span class="p">(</span><span class="n">TorchDataSet</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">output_df</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> <span class="n">cuda</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+            <span class="n">input_tensoriser</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensoriser</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">output_tensoriser</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensoriser</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inputDF</span> <span class="o">=</span> <span class="n">input_df</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outputDF</span> <span class="o">=</span> <span class="n">output_df</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span> <span class="o">=</span> <span class="n">cuda</span>
+        <span class="k">if</span> <span class="n">input_tensoriser</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">input_tensoriser</span> <span class="o">=</span> <span class="n">TensoriserDataFrameFloatValuesMatrix</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inputTensoriser</span> <span class="o">=</span> <span class="n">input_tensoriser</span>
+        <span class="k">if</span> <span class="n">output_df</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_df</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">output_df</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Lengths of input and output data frames must be equal&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">output_tensoriser</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">output_tensoriser</span> <span class="o">=</span> <span class="n">TensoriserDataFrameFloatValuesMatrix</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outputTensoriser</span> <span class="o">=</span> <span class="n">output_tensoriser</span>
+
+<div class="viewcode-block" id="TorchDataSetFromDataFramesDynamicallyTensorised.size"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetFromDataFramesDynamicallyTensorised.size">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputDF</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TorchDataSetFromDataFramesDynamicallyTensorised.iter_batches"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetFromDataFramesDynamicallyTensorised.iter_batches">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">iter_batches</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">shuffle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">input_only</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputDF</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">shuffle</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randperm</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">))</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">:</span>
+            <span class="n">batch_indices</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">]</span>
+            <span class="n">input_tensors</span> <span class="o">=</span> <span class="n">TensorTuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputTensoriser</span><span class="o">.</span><span class="n">tensorise</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputDF</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">batch_indices</span><span class="p">]))</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span><span class="p">:</span>
+                <span class="n">input_tensors</span> <span class="o">=</span> <span class="n">input_tensors</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">input_only</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">input_tensors</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">output_tensors</span> <span class="o">=</span> <span class="n">TensorTuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outputTensoriser</span><span class="o">.</span><span class="n">tensorise</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outputDF</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">batch_indices</span><span class="p">]))</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span><span class="p">:</span>
+                    <span class="n">output_tensors</span> <span class="o">=</span> <span class="n">output_tensors</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+                <span class="k">yield</span> <span class="n">input_tensors</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">output_tensors</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="n">batch_size</span></div></div>
+
+
+<div class="viewcode-block" id="TorchDataSetFromDataFrames"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetFromDataFrames">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TorchDataSetFromDataFrames</span><span class="p">(</span><span class="n">TorchDataSet</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">output_df</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> <span class="n">cuda</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+            <span class="n">input_tensoriser</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensoriser</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">output_tensoriser</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensoriser</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">tensorise_dynamically</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">tensorise_dynamically</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_torchDataSet</span><span class="p">:</span> <span class="n">TorchDataSet</span> <span class="o">=</span> <span class="n">TorchDataSetFromDataFramesDynamicallyTensorised</span><span class="p">(</span><span class="n">input_df</span><span class="p">,</span> <span class="n">output_df</span><span class="p">,</span> <span class="n">cuda</span><span class="p">,</span>
+                <span class="n">input_tensoriser</span><span class="o">=</span><span class="n">input_tensoriser</span><span class="p">,</span> <span class="n">output_tensoriser</span><span class="o">=</span><span class="n">output_tensoriser</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_torchDataSet</span><span class="p">:</span> <span class="n">TorchDataSet</span> <span class="o">=</span> <span class="n">TorchDataSetFromDataFramesPreTensorised</span><span class="p">(</span><span class="n">input_df</span><span class="p">,</span> <span class="n">output_df</span><span class="p">,</span> <span class="n">cuda</span><span class="p">,</span>
+                <span class="n">input_tensoriser</span><span class="o">=</span><span class="n">input_tensoriser</span><span class="p">,</span> <span class="n">output_tensoriser</span><span class="o">=</span><span class="n">output_tensoriser</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TorchDataSetFromDataFrames.iter_batches"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetFromDataFrames.iter_batches">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">iter_batches</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">shuffle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">input_only</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">_torchDataSet</span><span class="o">.</span><span class="n">iter_batches</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="n">shuffle</span><span class="p">,</span> <span class="n">input_only</span><span class="o">=</span><span class="n">input_only</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TorchDataSetFromDataFrames.size"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetFromDataFrames.size">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_torchDataSet</span><span class="o">.</span><span class="n">size</span><span class="p">()</span></div></div>
+
+
+<div class="viewcode-block" id="TorchDataSetProviderFromDataUtil"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetProviderFromDataUtil">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TorchDataSetProviderFromDataUtil</span><span class="p">(</span><span class="n">TorchDataSetProvider</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_util</span><span class="p">:</span> <span class="n">DataUtil</span><span class="p">,</span> <span class="n">cuda</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">input_tensor_scaler</span><span class="o">=</span><span class="n">data_util</span><span class="o">.</span><span class="n">get_input_tensor_scaler</span><span class="p">(),</span> <span class="n">output_tensor_scaler</span><span class="o">=</span><span class="n">data_util</span><span class="o">.</span><span class="n">get_output_tensor_scaler</span><span class="p">(),</span>
+            <span class="n">input_dim</span><span class="o">=</span><span class="n">data_util</span><span class="o">.</span><span class="n">input_dim</span><span class="p">(),</span> <span class="n">model_output_dim</span><span class="o">=</span><span class="n">data_util</span><span class="o">.</span><span class="n">model_output_dim</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataUtil</span> <span class="o">=</span> <span class="n">data_util</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span> <span class="o">=</span> <span class="n">cuda</span>
+
+<div class="viewcode-block" id="TorchDataSetProviderFromDataUtil.provide_split"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetProviderFromDataUtil.provide_split">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">provide_split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fractional_size_of_first_set</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">TorchDataSet</span><span class="p">,</span> <span class="n">TorchDataSet</span><span class="p">]:</span>
+        <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataUtil</span><span class="o">.</span><span class="n">split_into_tensors</span><span class="p">(</span><span class="n">fractional_size_of_first_set</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">TorchDataSetFromTensors</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span><span class="p">),</span> <span class="n">TorchDataSetFromTensors</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TorchDataSetProviderFromVectorDataUtil"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetProviderFromVectorDataUtil">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TorchDataSetProviderFromVectorDataUtil</span><span class="p">(</span><span class="n">TorchDataSetProvider</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_util</span><span class="p">:</span> <span class="n">VectorDataUtil</span><span class="p">,</span> <span class="n">cuda</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">tensorise_dynamically</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">input_tensor_scaler</span><span class="o">=</span><span class="n">data_util</span><span class="o">.</span><span class="n">get_input_tensor_scaler</span><span class="p">(),</span> <span class="n">output_tensor_scaler</span><span class="o">=</span><span class="n">data_util</span><span class="o">.</span><span class="n">get_output_tensor_scaler</span><span class="p">(),</span>
+            <span class="n">input_dim</span><span class="o">=</span><span class="n">data_util</span><span class="o">.</span><span class="n">input_dim</span><span class="p">(),</span> <span class="n">model_output_dim</span><span class="o">=</span><span class="n">data_util</span><span class="o">.</span><span class="n">model_output_dim</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataUtil</span> <span class="o">=</span> <span class="n">data_util</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span> <span class="o">=</span> <span class="n">cuda</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tensoriseDynamically</span> <span class="o">=</span> <span class="n">tensorise_dynamically</span>
+
+<div class="viewcode-block" id="TorchDataSetProviderFromVectorDataUtil.provide_split"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TorchDataSetProviderFromVectorDataUtil.provide_split">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">provide_split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fractional_size_of_first_set</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">TorchDataSet</span><span class="p">,</span> <span class="n">TorchDataSet</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataUtil</span><span class="o">.</span><span class="n">split_into_data_sets</span><span class="p">(</span><span class="n">fractional_size_of_first_set</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span><span class="p">,</span> <span class="n">tensorise_dynamically</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tensoriseDynamically</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TensorTransformer"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorTransformer">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TensorTransformer</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorTransformer.transform"><a class="viewcode-back" href="../../../sensai/torch/torch_data.html#sensai.torch.torch_data.TensorTransformer.transform">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="k">pass</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By sensAI contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2019-2024 by sensAI contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1234 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sensai.local_search &#8212; sensAI Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/sphinx-toolbox.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/js/vega@5.js"></script>
+    <script src="../../_static/js/vega-lite@5.js"></script>
+    <script src="../../_static/js/vega-embed@5.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sensai/local_search';</script>
+    <link rel="canonical" href="https://tianshou.readthedocs.io/en/master/_modules/sensai/local_search.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/sensai-logo.png" class="logo__image only-light" alt="sensAI Documentation - Home"/>
+    <script>document.write(`<img src="../../_static/sensai-logo.png" class="logo__image only-dark" alt="sensAI Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Welcome to sensAI!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../1-supervised-learning/1-vector-models.html">Models with Modular Data Pipelines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../2-notebooks/0_intro.html">Notebook Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../2-notebooks/1-classification.html">Introduction to sensAI: Supervised Learning with VectorModels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2-notebooks/2-neural_networks.html">Neural Networks</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../sensai/index.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/catboost.html">catboost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/columngen.html">columngen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/distance_metric.html">distance_metric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/feature_importance.html">feature_importance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/hyperopt.html">hyperopt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/lightgbm.html">lightgbm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/local_search.html">local_search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/minizinc.html">minizinc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/multi_model.html">multi_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/naive_bayes.html">naive_bayes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/nearest_neighbors.html">nearest_neighbors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/normalisation.html">normalisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/sklearn_quantile.html">sklearn_quantile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/tensor_model.html">tensor_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/vector_model.html">vector_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/vectoriser.html">vectoriser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/xgboost.html">xgboost</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/clustering/index.html">clustering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/clustering/clustering_base.html">clustering_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/clustering/greedy_clustering.html">greedy_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/clustering/sklearn_clustering.html">sklearn_clustering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/data/index.html">data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/data/dataset.html">dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/data/io_data.html">io_data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/data_transformation/index.html">data_transformation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/data_transformation/dft.html">dft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/data_transformation/sklearn_transformer.html">sklearn_transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/data_transformation/value_transformation.html">value_transformation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/ensemble/index.html">ensemble</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/ensemble/ensemble_base.html">ensemble_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/ensemble/models.html">models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/evaluation/index.html">evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/evaluation/crossval.html">crossval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/evaluation/eval_util.html">eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/evaluation/evaluator.html">evaluator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/evaluation/evaluator_clustering.html">evaluator_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/evaluation/metric_computation.html">metric_computation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/evaluation/result_set.html">result_set</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sensai/evaluation/eval_stats/index.html">eval_stats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/evaluation/eval_stats/eval_stats_base.html">eval_stats_base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/evaluation/eval_stats/eval_stats_classification.html">eval_stats_classification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/evaluation/eval_stats/eval_stats_clustering.html">eval_stats_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/evaluation/eval_stats/eval_stats_regression.html">eval_stats_regression</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/feature_selection/index.html">feature_selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/feature_selection/rfe.html">rfe</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/featuregen/index.html">featuregen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/featuregen/feature_generator.html">feature_generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/featuregen/feature_generator_registry.html">feature_generator_registry</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/geoanalytics/index.html">geoanalytics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/geoanalytics/geo_clustering.html">geo_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/geoanalytics/geo_coords.html">geo_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/geoanalytics/local_coords.html">local_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/geoanalytics/map_tiles.html">map_tiles</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sensai/geoanalytics/geopandas/index.html">geopandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/geoanalytics/geopandas/coordinate_clustering.html">coordinate_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/geoanalytics/geopandas/coordinate_clustering_ground_truth.html">coordinate_clustering_ground_truth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/geoanalytics/geopandas/coordinates.html">coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/geoanalytics/geopandas/geometry.html">geometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/geoanalytics/geopandas/graph.html">graph</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/pytorch_lightning/index.html">pytorch_lightning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/pytorch_lightning/pl_models.html">pl_models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/sklearn/index.html">sklearn</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/sklearn/sklearn_base.html">sklearn_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/sklearn/sklearn_classification.html">sklearn_classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/sklearn/sklearn_regression.html">sklearn_regression</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/torch/index.html">torch</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torch_base.html">torch_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torch_data.html">torch_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torch_enums.html">torch_enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torch_eval_util.html">torch_eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torch_modules.html">torch_modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torch_opt.html">torch_opt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torchtext.html">torchtext</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sensai/torch/torch_models/index.html">torch_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/torch/torch_models/lstnet/index.html">lstnet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/torch/torch_models/mlp/index.html">mlp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/torch/torch_models/residualffn/index.html">residualffn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/torch/torch_models/seq/index.html">seq</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/tracking/index.html">tracking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/tracking/azure_tracking.html">azure_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/tracking/clearml_tracking.html">clearml_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/tracking/mlflow_tracking.html">mlflow_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/tracking/tracking_base.html">tracking_base</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/util/index.html">util</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/aggregation.html">aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/cache.html">cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/cache_azure.html">cache_azure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/cache_mysql.html">cache_mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/datastruct.html">datastruct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/deprecation.html">deprecation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/dtype.html">dtype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/git.html">git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/hash.html">hash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/helper.html">helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/jscode.html">jscode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/logging.html">logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/math.html">math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/multiprocessing.html">multiprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/pandas.html">pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/pickle.html">pickle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/plot.html">plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/profiling.html">profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/sequences.html">sequences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/string.html">string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/tensorboard.html">tensorboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/test.html">test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/time.html">time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/typing.html">typing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/version.html">version</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for sensai.local_search</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">TypeVar</span><span class="p">,</span> <span class="n">Generic</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.util.aggregation</span><span class="w"> </span><span class="kn">import</span> <span class="n">RelativeFrequencyCounter</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="SATemperatureSchedule"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SATemperatureSchedule">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SATemperatureSchedule</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Describes how temperature changes as the annealing process goes on.</span>
+<span class="sd">    The function maps a degree of completion (in the interval from 0 to 1) to a temperature value.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SATemperatureSchedule.temperature"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SATemperatureSchedule.temperature">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degree_of_completion</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes the temperature for a degree of completion in [0, 1]</span>
+<span class="sd">        :param degree_of_completion: the degree to which the simulated annealing process has completed in [0, 1]</span>
+<span class="sd">        :return: the temperature</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="SATemperatureSchedule.probability"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SATemperatureSchedule.probability">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">probability</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degree_of_completion</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">cost_delta</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span><span class="p">(</span><span class="n">degree_of_completion</span><span class="p">)</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">cost_delta</span> <span class="o">/</span> <span class="n">T</span><span class="p">)</span> <span class="k">if</span> <span class="n">T</span> <span class="o">&gt;</span> <span class="mf">0.0</span> <span class="k">else</span> <span class="mf">0.0</span>
+        <span class="k">return</span> <span class="n">p</span><span class="p">,</span> <span class="n">T</span></div>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_params</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_params</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+
+<div class="viewcode-block" id="SATemperatureScheduleFixed"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SATemperatureScheduleFixed">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SATemperatureScheduleFixed</span><span class="p">(</span><span class="n">SATemperatureSchedule</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A schedule with a constant temperature&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span>
+
+<div class="viewcode-block" id="SATemperatureScheduleFixed.temperature"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SATemperatureScheduleFixed.temperature">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degree_of_completion</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_params</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;fixedTemp&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="SATemperatureScheduleExponential"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SATemperatureScheduleExponential">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SATemperatureScheduleExponential</span><span class="p">(</span><span class="n">SATemperatureSchedule</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; A temperature schedule for simulated annealing where the temperature drops exponentially. &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">exponent_factor</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param t0: temperature at the beginning (degree of completion 0)</span>
+<span class="sd">        :param t1: temperature at the end (degree of completion 1), which must be smaller than t0 and larger than 0</span>
+<span class="sd">        :param exponent_factor: factor with which to multiply the exponent (the larger the factor, the faster the temperature drops)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">t1</span> <span class="o">&gt;</span> <span class="n">t0</span> <span class="ow">or</span> <span class="n">t0</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Inadmissible temperatures given.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">exponent_factor</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The exponent factor cannot be less than 1.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">t0</span> <span class="o">=</span> <span class="n">t0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t1</span> <span class="o">=</span> <span class="n">t1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t_drop</span> <span class="o">=</span> <span class="n">t0</span> <span class="o">-</span> <span class="n">t1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exponent_factor</span> <span class="o">=</span> <span class="n">exponent_factor</span>
+
+<div class="viewcode-block" id="SATemperatureScheduleExponential.temperature"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SATemperatureScheduleExponential.temperature">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degree_of_completion</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">t0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_drop</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">exponent_factor</span> <span class="o">*</span> <span class="n">degree_of_completion</span><span class="p">))</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_params</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;t0&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">t0</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">,</span> <span class="s2">&quot;exp_factor&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">exponent_factor</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="reverse_sigmoid"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.reverse_sigmoid">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">reverse_sigmoid</span><span class="p">(</span><span class="n">degree_of_completion</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">steepness</span><span class="p">,</span> <span class="n">mid_degree</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">v0</span> <span class="o">-</span> <span class="p">(</span><span class="n">v0</span><span class="o">-</span><span class="n">v1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">steepness</span> <span class="o">*</span> <span class="p">(</span><span class="n">degree_of_completion</span> <span class="o">-</span> <span class="n">mid_degree</span><span class="p">)))</span></div>
+
+
+<div class="viewcode-block" id="SATemperatureScheduleReverseSigmoid"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SATemperatureScheduleReverseSigmoid">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SATemperatureScheduleReverseSigmoid</span><span class="p">(</span><span class="n">SATemperatureSchedule</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A temperature schedule for simulated annealing where the temperature drops in a reverse sigmoid curve (based on the logistic function)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">steepness</span><span class="p">,</span> <span class="n">mid_degree</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param t0: temperature at the beginning (degree of completion 0)</span>
+<span class="sd">        :param t1: temperature at the end (degree of completion 1), which must be smaller than t0 and larger than 0</span>
+<span class="sd">        :param steepness: Factor which roughly corresponds to the (negative) slope at the inflection point 0.5.</span>
+<span class="sd">            For the sigmoid shape to be sufficiently pronounced, a value of at least 5 is recommended (the closer the value is to 1,</span>
+<span class="sd">            the more the curve approaches a linear decay).</span>
+<span class="sd">        :param mid_degree: the degree of completion at which the function shall return the temperature (t0+t1)/2</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">t1</span> <span class="o">&gt;</span> <span class="n">t0</span> <span class="ow">or</span> <span class="n">t0</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Inadmissible temperatures given.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">mid_degree</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">mid_degree</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Mid-degree must be between 0 and 1&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">t0</span> <span class="o">=</span> <span class="n">t0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t1</span> <span class="o">=</span> <span class="n">t1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">steepness</span> <span class="o">=</span> <span class="n">steepness</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mid_degree</span> <span class="o">=</span> <span class="n">mid_degree</span>
+
+<div class="viewcode-block" id="SATemperatureScheduleReverseSigmoid.temperature"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SATemperatureScheduleReverseSigmoid.temperature">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degree_of_completion</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">reverse_sigmoid</span><span class="p">(</span><span class="n">degree_of_completion</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">t0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">steepness</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mid_degree</span><span class="p">)</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_params</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;t0&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">t0</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">,</span> <span class="s2">&quot;steepness&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">steepness</span><span class="p">,</span> <span class="s2">&quot;mid_degree&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mid_degree</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="SATemperatureScheduleReverseSigmoidSymmetric"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SATemperatureScheduleReverseSigmoidSymmetric">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SATemperatureScheduleReverseSigmoidSymmetric</span><span class="p">(</span><span class="n">SATemperatureScheduleReverseSigmoid</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A variant of the logistic schedule with a reverse sigmoid shape, where the probability of acceptance for a given assumed positive</span>
+<span class="sd">    cost delta is symmetric. &quot;Symmetric&quot; here means that half the schedule is to be above 0.5 and half of it below 0.5.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">steepness</span><span class="p">,</span> <span class="n">cost_delta_for_symmetry</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param t0: temperature at the beginning (degree of completion 0)</span>
+<span class="sd">        :param t1: temperature at the end (degree of completion 1), which must be smaller than t0 and larger than 0</span>
+<span class="sd">        :param steepness: Factor which roughly corresponds to the (negative) slope at the inflection point 0.5.</span>
+<span class="sd">            For the sigmoid shape to be sufficiently pronounced, a value of at least 8 is recommended (the closer the value is to 1,</span>
+<span class="sd">            the more the curve approaches a linear decay).</span>
+<span class="sd">        :param cost_delta_for_symmetry: the (positive) cost delta value which the curve shall be &quot;symmetric&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">steepness</span>
+        <span class="n">cdelta</span> <span class="o">=</span> <span class="n">cost_delta_for_symmetry</span>
+        <span class="n">mid_degree</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="mi">13614799</span><span class="o">*</span><span class="n">t0</span><span class="o">-</span><span class="mi">19642003</span><span class="o">*</span><span class="n">cdelta</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">13614799</span><span class="o">*</span><span class="n">t1</span><span class="o">-</span><span class="mi">19642003</span><span class="o">*</span><span class="n">cdelta</span><span class="p">))</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">k</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">steepness</span><span class="p">,</span> <span class="n">mid_degree</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SATemperatureSchedulePower"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SATemperatureSchedulePower">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SATemperatureSchedulePower</span><span class="p">(</span><span class="n">SATemperatureSchedule</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A temperature schedule for simulated annealing where the temperature drops with powers of the degree of completion d,</span>
+<span class="sd">    i.e. the temperature drop is proportional to d to the power of e for a given exponent e.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">exponent</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param t0: temperature at the beginning (degree of completion 0)</span>
+<span class="sd">        :param t1: temperature at the end (degree of completion 1), which must be smaller than t0 and larger than 0</span>
+<span class="sd">        :param exponent: the exponent of the power function</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">t1</span> <span class="o">&gt;</span> <span class="n">t0</span> <span class="ow">or</span> <span class="n">t0</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Inadmissible temperatures given.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">t0</span> <span class="o">=</span> <span class="n">t0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t1</span> <span class="o">=</span> <span class="n">t1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tDrop</span> <span class="o">=</span> <span class="n">t0</span> <span class="o">-</span> <span class="n">t1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exponent</span> <span class="o">=</span> <span class="n">exponent</span>
+
+<div class="viewcode-block" id="SATemperatureSchedulePower.temperature"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SATemperatureSchedulePower.temperature">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degree_of_completion</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">t0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">tDrop</span> <span class="o">*</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">degree_of_completion</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">exponent</span><span class="p">))</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_params</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;t0&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">t0</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">,</span> <span class="s2">&quot;exponent&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">exponent</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="SAProbabilityFunction"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAProbabilityFunction">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SAProbabilityFunction</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params_dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params_dict</span> <span class="o">=</span> <span class="n">params_dict</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">params_dict</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degree_of_completion</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="SAProbabilityFunctionLinear"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAProbabilityFunctionLinear">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SAProbabilityFunctionLinear</span><span class="p">(</span><span class="n">SAProbabilityFunction</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A probability function where probabilities decay linearly&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">p1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">p0</span><span class="o">=</span><span class="n">p0</span><span class="p">,</span> <span class="n">p1</span><span class="o">=</span><span class="n">p1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p0</span> <span class="o">=</span> <span class="n">p0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p1</span> <span class="o">=</span> <span class="n">p1</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degree_of_completion</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p0</span> <span class="o">-</span> <span class="n">degree_of_completion</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">p1</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SAProbabilityFunctionReverseSigmoid"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAProbabilityFunctionReverseSigmoid">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SAProbabilityFunctionReverseSigmoid</span><span class="p">(</span><span class="n">SAProbabilityFunction</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A probability function where probabilities decay in a reverse sigmoid shape&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">p1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">steepness</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param p0: the probability at the beginning (degree of completion 0)</span>
+<span class="sd">        :param p1: the probability at the end (degree of completion 1)</span>
+<span class="sd">        :param steepness: the steepness of the sigmoid curve</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">p0</span><span class="o">=</span><span class="n">p0</span><span class="p">,</span> <span class="n">p1</span><span class="o">=</span><span class="n">p1</span><span class="p">,</span> <span class="n">steepness</span><span class="o">=</span><span class="n">steepness</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p0</span> <span class="o">=</span> <span class="n">p0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p1</span> <span class="o">=</span> <span class="n">p1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">steepness</span> <span class="o">=</span> <span class="n">steepness</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degree_of_completion</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">reverse_sigmoid</span><span class="p">(</span><span class="n">degree_of_completion</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">steepness</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SAProbabilityFunctionConstant"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAProbabilityFunctionConstant">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SAProbabilityFunctionConstant</span><span class="p">(</span><span class="n">SAProbabilityFunction</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A constant probability function (which returns the same probability for all degrees of completion)&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">p</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degree_of_completion</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span></div>
+
+
+<div class="viewcode-block" id="SAProbabilitySchedule"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAProbabilitySchedule">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SAProbabilitySchedule</span><span class="p">(</span><span class="n">SATemperatureSchedule</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A temperature schedule where temperatures are derived from a probability schedule that is to apply to a reference cost delta, which</span>
+<span class="sd">    is either given or is computed from observed values (the latter resulting in an adaptive schedule).</span>
+<span class="sd">    It converts a function that returns probabilities for degrees of completion into a corresponding temperature schedule.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reference_cost_delta</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">probability_function</span><span class="p">:</span> <span class="n">SAProbabilityFunction</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a temperature schedule for a reference cost delta (which can also be computed automatically from observed data)</span>
+<span class="sd">        and probability function:</span>
+<span class="sd">        The schedule will return temperatures such that for referenceCostDelta, the probability of acceptance of a move at</span>
+<span class="sd">        degree of completion d in [0,1] will be probabilityFunction(d).</span>
+
+<span class="sd">        :param reference_cost_delta: the (positive) cost delta for which the probability function is to apply;</span>
+<span class="sd">            if None, adaptively determine it from the empirical mean</span>
+<span class="sd">        :param probability_function: a function which maps degrees of completion in [0,1] to probabilities in [0,1]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">adaptive</span> <span class="o">=</span> <span class="n">reference_cost_delta</span> <span class="ow">is</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">referenceCostDelta</span> <span class="o">=</span> <span class="n">reference_cost_delta</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">probabilityFunction</span> <span class="o">=</span> <span class="n">probability_function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">paramsDict</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;refCostDelta&quot;</span><span class="p">:</span> <span class="n">reference_cost_delta</span> <span class="k">if</span> <span class="n">reference_cost_delta</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">&quot;adaptive&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;probabilityFunction&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">probability_function</span><span class="p">)}</span>
+
+        <span class="c1"># helper variables for adaptive mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_costDeltaSum</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_costDeltaCount</span> <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="SAProbabilitySchedule.temperature"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAProbabilitySchedule.temperature">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degree_of_completion</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">adaptive</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_costDeltaCount</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Cannot generate a temperature from an adaptive schedule without any previous cost-delta samples&quot;</span><span class="p">)</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">probabilityFunction</span><span class="p">(</span><span class="n">degree_of_completion</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">referenceCostDelta</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SAProbabilitySchedule.probability"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAProbabilitySchedule.probability">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">probability</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degree_of_completion</span><span class="p">,</span> <span class="n">cost_delta</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">adaptive</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_costDeltaSum</span> <span class="o">+=</span> <span class="n">cost_delta</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_costDeltaCount</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">referenceCostDelta</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_costDeltaSum</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_costDeltaCount</span><span class="p">,</span> <span class="mf">1e-10</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">degree_of_completion</span><span class="p">,</span> <span class="n">cost_delta</span><span class="p">)</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_params</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">paramsDict</span></div>
+
+
+<div class="viewcode-block" id="SACostValue"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SACostValue">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SACostValue</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Representation of an immutable cost value&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SACostValue.value"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SACostValue.value">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the numeric cost value&quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="SACostValue.add"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SACostValue.add">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;SACostValue&#39;</span><span class="p">:</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="SACostValueNumeric"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SACostValueNumeric">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SACostValueNumeric</span><span class="p">(</span><span class="n">SACostValue</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scalar</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="n">scalar</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
+
+<div class="viewcode-block" id="SACostValueNumeric.value"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SACostValueNumeric.value">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span></div>
+
+<div class="viewcode-block" id="SACostValueNumeric.add"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SACostValueNumeric.add">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s1">&#39;SACostValueNumeric&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;SACostValueNumeric&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">SACostValueNumeric</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">_value</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SAState"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAState">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SAState</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Represents the state/variable assignment during a simulated annealing process&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">Random</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">r</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_cost_value</span><span class="p">()</span>
+
+<div class="viewcode-block" id="SAState.compute_cost_value"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAState.compute_cost_value">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_cost_value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SACostValue</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Computes the costs of this state (from scratch)&quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="SAState.get_state_representation"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAState.get_state_representation">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_state_representation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a compact state representation (for the purpose of archiving a hitherto best result), which can later be</span>
+<span class="sd">        applied via applyStateRepresentation.</span>
+
+<span class="sd">        :return: a compact state representation of some sort</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="SAState.apply_state_representation"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAState.apply_state_representation">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply_state_representation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">representation</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Applies the given state representation (as returned via `getStateRepresentation`) in order for the optimisation result to</span>
+<span class="sd">        be obtained by the user.</span>
+<span class="sd">        Note that the function does not necessarily need to change this state to reflect the representation, as its sole</span>
+<span class="sd">        purpose is for the optimsation result to be obtainable thereafter (it is not used during the optimisation process as such).</span>
+
+<span class="sd">        :param representation: a representation as returned by `getStateRepresentation`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div></div>
+
+
+<span class="n">TSAState</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;TSAState&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">SAState</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="SAOperator"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAOperator">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SAOperator</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">TSAState</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An operator which, when applied with appropriately chosen parameters, can transform a state into another</span>
+<span class="sd">    state during simulated annealing</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">TSAState</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param state: the state to which the operator is applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span>
+
+<div class="viewcode-block" id="SAOperator.apply_cost_change"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAOperator.apply_cost_change">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">apply_cost_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cost_delta</span><span class="p">:</span> <span class="n">SACostValue</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Applies the cost change to the state given at construction</span>
+
+<span class="sd">        :param cost_delta: the cost change to apply</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">cost</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">cost_delta</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SAOperator.apply_state_change"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAOperator.apply_state_change">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply_state_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Applies the operator to the state, i.e. it makes the changes to the state only</span>
+<span class="sd">        (and does not update the associated costs)</span>
+
+<span class="sd">        :param params: the parameters with which the operator is to be applied</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="SAOperator.apply"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAOperator.apply">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">cost_delta</span><span class="p">:</span> <span class="n">SACostValue</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Applies the operator to the state given at construction, changing the state and updating the costs appropriately</span>
+
+<span class="sd">        :param params: the parameters with which the operator is to be applied</span>
+<span class="sd">        :param cost_delta: the cost change that results from the application</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">apply_cost_change</span><span class="p">(</span><span class="n">cost_delta</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">apply_state_change</span><span class="p">(</span><span class="o">*</span><span class="n">params</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SAOperator.cost_delta"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAOperator.cost_delta">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cost_delta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SACostValue</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes the cost change that would apply when applying this operator with the given parameters</span>
+
+<span class="sd">        :param params: an arbitrary list of parameters (specific to the concrete operator)</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="SAOperator.choose_params"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAOperator.choose_params">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">choose_params</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Tuple</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SACostValue</span><span class="p">]]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Chooses parameters for the application of the operator (e.g. randomly or greedily).</span>
+
+<span class="sd">        :return: a tuple (params, costValue) or None if no suitable parameters are found, where params is the list of chosen</span>
+<span class="sd">            parameters and costValue is either an instance of CostValue or None if the costs have not been computed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="SAChain"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAChain">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SAChain</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">TSAState</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Manages the progression of one state during simulated annealing&quot;&quot;&quot;</span>
+
+    <span class="n">log</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">getChild</span><span class="p">(</span><span class="vm">__qualname__</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">state_factory</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">random</span><span class="o">.</span><span class="n">Random</span><span class="p">],</span> <span class="n">TSAState</span><span class="p">],</span>
+            <span class="n">schedule</span><span class="p">:</span> <span class="n">SATemperatureSchedule</span><span class="p">,</span>
+            <span class="n">ops_and_weights</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">TSAState</span><span class="p">],</span> <span class="n">SAOperator</span><span class="p">[</span><span class="n">TSAState</span><span class="p">]],</span> <span class="nb">float</span><span class="p">]],</span>
+            <span class="n">random_seed</span><span class="p">,</span>
+            <span class="n">collect_stats</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">schedule</span> <span class="o">=</span> <span class="n">schedule</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">Random</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">state_factory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">collect_stats</span> <span class="o">=</span> <span class="n">collect_stats</span>
+        <span class="n">operators</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">ops_and_weights</span><span class="p">)</span>
+        <span class="n">cum_weights</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="p">[],</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">weights</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="n">weight</span>
+            <span class="n">cum_weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ops</span> <span class="o">=</span> <span class="p">[</span><span class="n">cons</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">)</span> <span class="k">for</span> <span class="n">cons</span> <span class="ow">in</span> <span class="n">operators</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">op_cum_weights</span> <span class="o">=</span> <span class="n">cum_weights</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">steps_taken</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">count_none_params</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">count_best_updates</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">best_cost</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">best_state_repr</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logged_series</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="p">[])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_best_state</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">collect_stats</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">operator_inapplicability_counters</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ops</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">operator_inapplicability_counters</span><span class="p">[</span><span class="n">op</span><span class="p">]</span> <span class="o">=</span> <span class="n">RelativeFrequencyCounter</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_update_best_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">cost</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">cost</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">best_cost</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">cost</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">best_cost</span><span class="o">.</span><span class="n">value</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">best_cost</span> <span class="o">=</span> <span class="n">cost</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">best_state_repr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">get_state_representation</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">count_best_updates</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<div class="viewcode-block" id="SAChain.step"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAChain.step">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degree_of_completion</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span>
+
+        <span class="c1"># make move</span>
+        <span class="n">op</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ops</span><span class="p">,</span> <span class="n">cum_weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">op_cum_weights</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">param_choice</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">choose_params</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">param_choice</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">count_none_params</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">params</span><span class="p">,</span> <span class="n">cost_change</span> <span class="o">=</span> <span class="n">param_choice</span>
+            <span class="k">if</span> <span class="n">cost_change</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">cost_change</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">cost_delta</span><span class="p">(</span><span class="o">*</span><span class="n">params</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">cost_change</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">make_move</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">cost_change_value</span> <span class="o">=</span> <span class="n">cost_change</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+                <span class="n">p</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">schedule</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">degree_of_completion</span><span class="p">,</span> <span class="n">cost_change_value</span><span class="p">)</span>
+                <span class="n">make_move</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">p</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;p: </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1">, T: </span><span class="si">{</span><span class="n">T</span><span class="si">}</span><span class="s1">, costDelta: </span><span class="si">{</span><span class="n">cost_change_value</span><span class="si">}</span><span class="s1">, move: </span><span class="si">{</span><span class="n">make_move</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">collect_stats</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">logged_series</span><span class="p">[</span><span class="s2">&quot;temperatures&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">logged_series</span><span class="p">[</span><span class="s2">&quot;probabilities&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">make_move</span><span class="p">:</span>
+                <span class="n">op</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">cost_change</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_update_best_state</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">collect_stats</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logged_series</span><span class="p">[</span><span class="s2">&quot;costDeltas&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cost_change</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">collect_stats</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logged_series</span><span class="p">[</span><span class="s2">&quot;bestCostValues&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">best_cost</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logged_series</span><span class="p">[</span><span class="s2">&quot;costValues&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">cost</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">operator_inapplicability_counters</span><span class="p">[</span><span class="n">op</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">param_choice</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">steps_taken</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">isEnabledFor</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Step </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">steps_taken</span><span class="si">}</span><span class="s2">: cost=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">cost</span><span class="si">}</span><span class="s2">; best cost=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">best_cost</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SAChain.log_stats"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAChain.log_stats">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">log_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">collect_stats</span><span class="p">:</span>
+            <span class="n">stats</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;useless moves total (None params)&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">count_none_params</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">steps_taken</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+            <span class="k">for</span> <span class="n">op</span><span class="p">,</span> <span class="n">counter</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">operator_inapplicability_counters</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">stats</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;useless moves of </span><span class="si">{</span><span class="n">op</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
+            <span class="n">logged_cost_deltas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logged_series</span><span class="p">[</span><span class="s2">&quot;costDeltas&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">logged_cost_deltas</span><span class="p">:</span>
+                <span class="n">stats</span><span class="p">[</span><span class="s2">&quot;mean cost delta&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">logged_cost_deltas</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> +- </span><span class="si">{</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">logged_cost_deltas</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="n">abs_cost_deltas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">logged_cost_deltas</span><span class="p">)</span>
+                <span class="n">stats</span><span class="p">[</span><span class="s2">&quot;mean absolute cost delta&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">abs_cost_deltas</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> +- </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">abs_cost_deltas</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="n">positive_cost_deltas</span> <span class="o">=</span> <span class="p">[</span><span class="n">cd</span> <span class="k">for</span> <span class="n">cd</span> <span class="ow">in</span> <span class="n">logged_cost_deltas</span> <span class="k">if</span> <span class="n">cd</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">positive_cost_deltas</span><span class="p">:</span>
+                    <span class="n">stats</span><span class="p">[</span><span class="s2">&quot;positive cost delta&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;mean=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">positive_cost_deltas</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> +- </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">positive_cost_deltas</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">,&quot;</span> \
+                                                   <span class="sa">f</span><span class="s2">&quot; max=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">positive_cost_deltas</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">stats_join</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    &quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stats: </span><span class="si">{</span><span class="n">stats_join</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">key</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">stats</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Best solution has </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">best_cost</span><span class="si">}</span><span class="s2"> after </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">count_best_updates</span><span class="si">}</span><span class="s2"> updates of best state&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SAChain.apply_best_state"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAChain.apply_best_state">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">apply_best_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Applies the best state representation found in this chain to the chain&#39;s state&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">apply_state_representation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">best_state_repr</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">best_cost</span></div>
+
+<div class="viewcode-block" id="SAChain.plot_series"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAChain.plot_series">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">plot_series</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">series_name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Plots one of the logged series</span>
+
+<span class="sd">        :param series_name: the name of the series (see getSeries)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">series</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_series</span><span class="p">(</span><span class="n">series_name</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">series</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">series_name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SAChain.get_series"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SAChain.get_series">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_series</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">series_name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets one of the logged series (for collectStats==True)</span>
+
+<span class="sd">        :param series_name: name of the series: one of &quot;temperatures&quot;, &quot;probabilities&quot;, &quot;costDeltas&quot;, &quot;bestCostValues&quot;, &quot;costValues</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">collect_stats</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;No stats were collected&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">series_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">logged_series</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Unknown series&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logged_series</span><span class="p">[</span><span class="n">series_name</span><span class="p">])</span></div></div>
+
+
+<div class="viewcode-block" id="SimulatedAnnealing"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SimulatedAnnealing">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SimulatedAnnealing</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">TSAState</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The simulated annealing algorithm for discrete optimisation (cost minimisation)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">log</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">getChild</span><span class="p">(</span><span class="vm">__qualname__</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">schedule_factory</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[],</span> <span class="n">SATemperatureSchedule</span><span class="p">],</span>
+            <span class="n">ops_and_weights</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">TSAState</span><span class="p">],</span> <span class="n">SAOperator</span><span class="p">[</span><span class="n">TSAState</span><span class="p">]],</span> <span class="nb">float</span><span class="p">]],</span>
+            <span class="n">max_steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">duration</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">random_seed</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+            <span class="n">collect_stats</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param schedule_factory: a factory for the creation of the temperature schedule for the annealing process</span>
+<span class="sd">        :param ops_and_weights: a list of operator factories with associated weights, where weights are to indicate the (non-normalised)</span>
+<span class="sd">            probability of choosing the associated operator</span>
+<span class="sd">        :param max_steps: the number of steps for which to run the optimisation; may be None (if not given, duration must be provided)</span>
+<span class="sd">        :param duration: the duration, in seconds, for which to run the optimisation; may be None (if not given, maxSteps must be provided)</span>
+<span class="sd">        :param random_seed: the random seed to use for all random choices</span>
+<span class="sd">        :param collect_stats: flag indicating whether to collect additional statics which will be logged</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">max_steps</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">max_steps</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The number of iterations should be greater than 0.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">max_steps</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">duration</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="p">(</span><span class="n">max_steps</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">duration</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Exactly one of {maxSteps, duration} must be specified.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">duration</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">duration</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Duration must be greater than 0 if provided&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scheduleFactory</span> <span class="o">=</span> <span class="n">schedule_factory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_steps</span> <span class="o">=</span> <span class="n">max_steps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">duration</span> <span class="o">=</span> <span class="n">duration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">randomSeed</span> <span class="o">=</span> <span class="n">random_seed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opsAndWeights</span> <span class="o">=</span> <span class="n">ops_and_weights</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">collect_stats</span> <span class="o">=</span> <span class="n">collect_stats</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_chain</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="SimulatedAnnealing.optimise"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SimulatedAnnealing.optimise">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">optimise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state_factory</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">random</span><span class="o">.</span><span class="n">Random</span><span class="p">],</span> <span class="n">TSAState</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">TSAState</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Applies the annealing process, starting with a state created via the given factory.</span>
+
+<span class="sd">        :param state_factory: the factory with which to create the (initial) state</span>
+<span class="sd">        :return: the state with the least-cost representation found during the optimisation applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">chain</span> <span class="o">=</span> <span class="n">SAChain</span><span class="p">(</span><span class="n">state_factory</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scheduleFactory</span><span class="p">(),</span> <span class="n">ops_and_weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">opsAndWeights</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">randomSeed</span><span class="p">,</span>
+            <span class="n">collect_stats</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">collect_stats</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Running simulated annealing with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">opsAndWeights</span><span class="p">)</span><span class="si">}</span><span class="s2"> operators for &quot;</span>
+                      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> steps&#39;</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">max_steps</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">max_steps</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kc">None</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> seconds&#39;</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">duration</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">time_elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+            <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_steps</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">chain</span><span class="o">.</span><span class="n">steps_taken</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_steps</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">duration</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">time_elapsed</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">duration</span><span class="p">):</span>
+                <span class="k">break</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_steps</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">degree_of_completion</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">steps_taken</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_steps</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">degree_of_completion</span> <span class="o">=</span> <span class="n">time_elapsed</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">duration</span>
+            <span class="n">chain</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">degree_of_completion</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Simulated annealing completed after </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">start_time</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> seconds, </span><span class="si">{</span><span class="n">chain</span><span class="o">.</span><span class="n">steps_taken</span><span class="si">}</span><span class="s2"> steps&quot;</span><span class="p">)</span>
+        <span class="n">chain</span><span class="o">.</span><span class="n">log_stats</span><span class="p">()</span>
+        <span class="n">chain</span><span class="o">.</span><span class="n">apply_best_state</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">collect_stats</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_chain</span> <span class="o">=</span> <span class="n">chain</span>
+        <span class="k">return</span> <span class="n">chain</span><span class="o">.</span><span class="n">state</span></div>
+
+<div class="viewcode-block" id="SimulatedAnnealing.get_chain"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.SimulatedAnnealing.get_chain">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SAChain</span><span class="p">[</span><span class="n">TSAState</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the chain used by the most recently completed application (optimise call) of this object</span>
+<span class="sd">        for the case where stats collection was enabled; the chain then contains relevant series and may be used</span>
+<span class="sd">        to generate plots. If stats collection was not enabled, returns None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chain</span></div></div>
+
+
+<div class="viewcode-block" id="ParallelTempering"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.ParallelTempering">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">ParallelTempering</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">TSAState</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The parallel tempering algorithm for discrete optimisation (cost minimisation)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">log</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">getChild</span><span class="p">(</span><span class="vm">__qualname__</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">num_chains</span><span class="p">,</span>
+            <span class="n">ops_and_weights</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">TSAState</span><span class="p">],</span> <span class="n">SAOperator</span><span class="p">[</span><span class="n">TSAState</span><span class="p">]],</span> <span class="nb">float</span><span class="p">]],</span>
+            <span class="n">schedule</span><span class="p">:</span> <span class="n">SATemperatureSchedule</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">probability_function</span><span class="p">:</span> <span class="n">SAProbabilityFunction</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">max_steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">duration</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">random_seed</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+            <span class="n">log_cost_progression</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a parallel tempering optimiser with the given number of chains and operators for each chain.</span>
+<span class="sd">        To determine the schedule to use for each chain, either schedule or probabilityFunction must be provided.</span>
+<span class="sd">        It is usually more robust to use adaptive schedules and therefore to provide probabilityFunction.</span>
+
+<span class="sd">        :param num_chains: the number of parallel chains</span>
+<span class="sd">        :param ops_and_weights: a list of operators with associated weights (which are to indicate the non-normalised probability of</span>
+<span class="sd">            choosing the associated operator)</span>
+<span class="sd">        :param schedule: the temperature schedule from which numChains temperatures of chains are drawn (using equidistant degrees of</span>
+<span class="sd">            completion); if None, must provide probabilityFunction</span>
+<span class="sd">        :param probability_function: the probability function from which numChains probabilities for adaptive probability schedules, each</span>
+<span class="sd">            using a constant probability, are to be drawn; if None, must provide schedule</span>
+<span class="sd">        :param max_steps: the number of steps for which to run the optimisation; may be None (if not given, duration must be provided)</span>
+<span class="sd">        :param duration: the duration, in seconds, for which to run the optimisation; may be None (if not given, maxSteps must be provided)</span>
+<span class="sd">        :param random_seed: the random seed to use for all random choices</span>
+<span class="sd">        :param log_cost_progression: whether to log cost progression of all chains (such that it can be plotted after the fact via</span>
+<span class="sd">            plotCostProgression)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">max_steps</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">max_steps</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The number of iterations should be greater than 0.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">max_steps</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">duration</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">max_steps</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">duration</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Exactly one of {maxSteps, duration} must be specified.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">duration</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">duration</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;duration should be greater than 0 if provided.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">num_chains</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Number of chains must be at least 2.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">schedule</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">probability_function</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">schedule</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">probability_function</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Exactly one of {schedule, probabilityFunction} must be given&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_steps</span> <span class="o">=</span> <span class="n">max_steps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">duration</span> <span class="o">=</span> <span class="n">duration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_seed</span> <span class="o">=</span> <span class="n">random_seed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_chains</span> <span class="o">=</span> <span class="n">num_chains</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_schedule</span> <span class="o">=</span> <span class="n">schedule</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_probability_function</span> <span class="o">=</span> <span class="n">probability_function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ops_and_weights</span> <span class="o">=</span> <span class="n">ops_and_weights</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_cost_progression</span> <span class="o">=</span> <span class="n">log_cost_progression</span>
+
+        <span class="c1"># transient members</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cost_progressions</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_schedule_param_strings</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_create_schedules</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">degree_step</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_chains</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">degrees_of_completion</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="n">degree_step</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_chains</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_schedule</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># create schedules with fixed temperatures taken from base schedule</span>
+            <span class="n">temperatures</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">base_schedule</span><span class="o">.</span><span class="n">temperature</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">degrees_of_completion</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_schedule_param_strings</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;T=</span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">temperatures</span><span class="p">]</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">SATemperatureScheduleFixed</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">temperatures</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># create adaptive probability schedules based on probabilities taken from base probability function</span>
+            <span class="n">probabilities</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">base_probability_function</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">degrees_of_completion</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_schedule_param_strings</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;p=</span><span class="si">%.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">probabilities</span><span class="p">]</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">SAProbabilitySchedule</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">SAProbabilityFunctionConstant</span><span class="p">(</span><span class="n">p</span><span class="p">))</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">probabilities</span><span class="p">]</span>
+
+<div class="viewcode-block" id="ParallelTempering.optimise"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.ParallelTempering.optimise">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">optimise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state_factory</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">random</span><span class="o">.</span><span class="n">Random</span><span class="p">],</span> <span class="n">SAState</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">SAState</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Applies the optimisation process, starting, in each chain, with a state created via the given factory.</span>
+
+<span class="sd">        :param state_factory: the factory with which to create the states for all chains</span>
+<span class="sd">        :return: the state with the least-cost representation found during the optimisation (among all parallel chains) applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Running parallel tempering with </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">num_chains</span><span class="si">}</span><span class="s2"> chains, </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ops_and_weights</span><span class="p">)</span><span class="si">}</span><span class="s2"> operators for &quot;</span>
+                      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> steps&#39;</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">max_steps</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">max_steps</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kc">None</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> seconds&#39;</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">duration</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
+
+        <span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">Random</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_seed</span><span class="p">)</span>
+        <span class="n">chains</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cost_progressions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">schedule</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_create_schedules</span><span class="p">(),</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chain </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> uses </span><span class="si">{</span><span class="n">schedule</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">chains</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">SAChain</span><span class="p">(</span><span class="n">state_factory</span><span class="p">,</span> <span class="n">schedule</span><span class="p">,</span> <span class="n">ops_and_weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ops_and_weights</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)))</span>
+            <span class="n">cost_progressions</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">step</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">num_chain_swaps</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">time_elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+            <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_steps</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">step</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_steps</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">duration</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">time_elapsed</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">duration</span><span class="p">):</span>
+                <span class="k">break</span>
+
+            <span class="c1"># take one step in each chain</span>
+            <span class="n">degree_of_completion</span> <span class="o">=</span> <span class="n">step</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_steps</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_steps</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">time_elapsed</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">duration</span>
+            <span class="k">for</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">chains</span><span class="p">:</span>
+                <span class="n">chain</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">degree_of_completion</span><span class="p">)</span>
+
+            <span class="c1"># check if neighbouring chains can be &quot;swapped&quot;: if a high-temperature chain has a better state</span>
+            <span class="c1"># than a low-temperature chain, swap them (by exchanging their schedules and swapping them</span>
+            <span class="c1"># in the chains array, which shall always be in descending order of temperature)</span>
+            <span class="k">for</span> <span class="n">idx_high_temp_chain</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_chains</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">idx_low_temp_chain</span> <span class="o">=</span> <span class="n">idx_high_temp_chain</span><span class="o">+</span><span class="mi">1</span>
+                <span class="n">high_temp_chain</span> <span class="o">=</span> <span class="n">chains</span><span class="p">[</span><span class="n">idx_high_temp_chain</span><span class="p">]</span>
+                <span class="n">low_temp_chain</span> <span class="o">=</span> <span class="n">chains</span><span class="p">[</span><span class="n">idx_low_temp_chain</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">high_temp_chain</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">cost</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">low_temp_chain</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">cost</span><span class="o">.</span><span class="n">value</span><span class="p">():</span>
+                    <span class="n">high_temp_chain</span><span class="o">.</span><span class="n">schedule</span><span class="p">,</span> <span class="n">low_temp_chain</span><span class="o">.</span><span class="n">schedule</span> <span class="o">=</span> <span class="n">low_temp_chain</span><span class="o">.</span><span class="n">schedule</span><span class="p">,</span> <span class="n">high_temp_chain</span><span class="o">.</span><span class="n">schedule</span>
+                    <span class="n">chains</span><span class="p">[</span><span class="n">idx_low_temp_chain</span><span class="p">]</span> <span class="o">=</span> <span class="n">high_temp_chain</span>
+                    <span class="n">chains</span><span class="p">[</span><span class="n">idx_high_temp_chain</span><span class="p">]</span> <span class="o">=</span> <span class="n">low_temp_chain</span>
+                    <span class="n">num_chain_swaps</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_cost_progression</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">idx_chain</span><span class="p">,</span> <span class="n">chain</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chains</span><span class="p">):</span>
+                    <span class="n">cost_progressions</span><span class="p">[</span><span class="n">idx_chain</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">cost</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
+
+            <span class="n">step</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of chain swaps: </span><span class="si">{</span><span class="n">num_chain_swaps</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_cost_progression</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cost_progressions</span> <span class="o">=</span> <span class="n">cost_progressions</span>
+
+        <span class="c1"># apply best solution</span>
+        <span class="n">best_chain_idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">([</span><span class="n">chain</span><span class="o">.</span><span class="n">best_cost</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="k">for</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">chains</span><span class="p">]))</span>
+        <span class="n">chains</span><span class="p">[</span><span class="n">best_chain_idx</span><span class="p">]</span><span class="o">.</span><span class="n">apply_best_state</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">chains</span><span class="p">[</span><span class="n">best_chain_idx</span><span class="p">]</span><span class="o">.</span><span class="n">state</span></div>
+
+<div class="viewcode-block" id="ParallelTempering.plot_cost_progression"><a class="viewcode-back" href="../../sensai/local_search.html#sensai.local_search.ParallelTempering.plot_cost_progression">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">plot_cost_progression</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_cost_progression</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cost_progressions</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;No cost progression was logged&quot;</span><span class="p">)</span>
+        <span class="n">series</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">scheduleParamStr</span><span class="p">,</span> <span class="n">costProgression</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_schedule_param_strings</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cost_progressions</span><span class="p">):</span>
+            <span class="n">series</span><span class="p">[</span><span class="n">scheduleParamStr</span><span class="p">]</span> <span class="o">=</span> <span class="n">costProgression</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">series</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By sensAI contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2019-2024 by sensAI contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

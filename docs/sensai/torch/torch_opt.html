@@ -1,0 +1,1332 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>torch_opt &#8212; sensAI Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/sphinx-toolbox.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/js/vega@5.js"></script>
+    <script src="../../_static/js/vega-lite@5.js"></script>
+    <script src="../../_static/js/vega-embed@5.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sensai/torch/torch_opt';</script>
+    <link rel="canonical" href="https://tianshou.readthedocs.io/en/master/sensai/torch/torch_opt.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="torchtext" href="torchtext.html" />
+    <link rel="prev" title="torch_modules" href="torch_modules.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/sensai-logo.png" class="logo__image only-light" alt="sensAI Documentation - Home"/>
+    <script>document.write(`<img src="../../_static/sensai-logo.png" class="logo__image only-dark" alt="sensAI Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Welcome to sensAI!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../1-supervised-learning/1-vector-models.html">Models with Modular Data Pipelines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../2-notebooks/0_intro.html">Notebook Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../2-notebooks/1-classification.html">Introduction to sensAI: Supervised Learning with VectorModels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2-notebooks/2-neural_networks.html">Neural Networks</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../catboost.html">catboost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../columngen.html">columngen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distance_metric.html">distance_metric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../feature_importance.html">feature_importance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hyperopt.html">hyperopt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lightgbm.html">lightgbm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../local_search.html">local_search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../minizinc.html">minizinc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multi_model.html">multi_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../naive_bayes.html">naive_bayes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nearest_neighbors.html">nearest_neighbors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../normalisation.html">normalisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sklearn_quantile.html">sklearn_quantile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor_model.html">tensor_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_model.html">vector_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vectoriser.html">vectoriser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xgboost.html">xgboost</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../clustering/index.html">clustering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../clustering/clustering_base.html">clustering_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clustering/greedy_clustering.html">greedy_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clustering/sklearn_clustering.html">sklearn_clustering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../data/index.html">data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../data/dataset.html">dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data/io_data.html">io_data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../data_transformation/index.html">data_transformation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../data_transformation/dft.html">dft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data_transformation/sklearn_transformer.html">sklearn_transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data_transformation/value_transformation.html">value_transformation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ensemble/index.html">ensemble</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ensemble/ensemble_base.html">ensemble_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ensemble/models.html">models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../evaluation/index.html">evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../evaluation/crossval.html">crossval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../evaluation/eval_util.html">eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../evaluation/evaluator.html">evaluator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../evaluation/evaluator_clustering.html">evaluator_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../evaluation/metric_computation.html">metric_computation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../evaluation/result_set.html">result_set</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../evaluation/eval_stats/index.html">eval_stats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../evaluation/eval_stats/eval_stats_base.html">eval_stats_base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../evaluation/eval_stats/eval_stats_classification.html">eval_stats_classification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../evaluation/eval_stats/eval_stats_clustering.html">eval_stats_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../evaluation/eval_stats/eval_stats_regression.html">eval_stats_regression</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../feature_selection/index.html">feature_selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../feature_selection/rfe.html">rfe</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../featuregen/index.html">featuregen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../featuregen/feature_generator.html">feature_generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../featuregen/feature_generator_registry.html">feature_generator_registry</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../geoanalytics/index.html">geoanalytics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../geoanalytics/geo_clustering.html">geo_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../geoanalytics/geo_coords.html">geo_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../geoanalytics/local_coords.html">local_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../geoanalytics/map_tiles.html">map_tiles</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../geoanalytics/geopandas/index.html">geopandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../geoanalytics/geopandas/coordinate_clustering.html">coordinate_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../geoanalytics/geopandas/coordinate_clustering_ground_truth.html">coordinate_clustering_ground_truth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../geoanalytics/geopandas/coordinates.html">coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../geoanalytics/geopandas/geometry.html">geometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../geoanalytics/geopandas/graph.html">graph</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pytorch_lightning/index.html">pytorch_lightning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pytorch_lightning/pl_models.html">pl_models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../sklearn/index.html">sklearn</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sklearn/sklearn_base.html">sklearn_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sklearn/sklearn_classification.html">sklearn_classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sklearn/sklearn_regression.html">sklearn_regression</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">torch</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="torch_base.html">torch_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torch_data.html">torch_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torch_enums.html">torch_enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torch_eval_util.html">torch_eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torch_modules.html">torch_modules</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">torch_opt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchtext.html">torchtext</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="torch_models/index.html">torch_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="torch_models/lstnet/index.html">lstnet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="torch_models/mlp/index.html">mlp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="torch_models/residualffn/index.html">residualffn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="torch_models/seq/index.html">seq</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../tracking/index.html">tracking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tracking/azure_tracking.html">azure_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tracking/clearml_tracking.html">clearml_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tracking/mlflow_tracking.html">mlflow_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tracking/tracking_base.html">tracking_base</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../util/index.html">util</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../util/aggregation.html">aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/cache.html">cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/cache_azure.html">cache_azure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/cache_mysql.html">cache_mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/datastruct.html">datastruct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/deprecation.html">deprecation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/dtype.html">dtype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/git.html">git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/hash.html">hash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/helper.html">helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/jscode.html">jscode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/logging.html">logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/math.html">math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/multiprocessing.html">multiprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/pandas.html">pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/pickle.html">pickle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/plot.html">plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/profiling.html">profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/sequences.html">sequences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/string.html">string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/tensorboard.html">tensorboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/test.html">test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/time.html">time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/typing.html">typing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/version.html">version</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/sensai/torch/torch_opt.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>torch_opt</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-sensai.torch.torch_opt">
+<span id="torch-opt"></span><h1>torch_opt<a class="headerlink" href="#module-sensai.torch.torch_opt" title="Permalink to this heading">#</a></h1>
+<p class="source-link"><strong>Source code:</strong> <a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#sensai/torch/torch_opt.py"><span>sensai/torch/torch_opt.py</span></a></p>
+<hr class="docutils" />
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.Optimiser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Optimiser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#Optimiser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.Optimiser" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.Optimiser.SGD">
+<span class="sig-name descname"><span class="pre">SGD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('sgd',</span> <span class="pre">torch.optim.SGD)</span></em><a class="headerlink" href="#sensai.torch.torch_opt.Optimiser.SGD" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.Optimiser.ASGD">
+<span class="sig-name descname"><span class="pre">ASGD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('asgd',</span> <span class="pre">torch.optim.ASGD)</span></em><a class="headerlink" href="#sensai.torch.torch_opt.Optimiser.ASGD" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.Optimiser.ADAGRAD">
+<span class="sig-name descname"><span class="pre">ADAGRAD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('adagrad',</span> <span class="pre">torch.optim.Adagrad)</span></em><a class="headerlink" href="#sensai.torch.torch_opt.Optimiser.ADAGRAD" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.Optimiser.ADADELTA">
+<span class="sig-name descname"><span class="pre">ADADELTA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('adadelta',</span> <span class="pre">torch.optim.Adadelta)</span></em><a class="headerlink" href="#sensai.torch.torch_opt.Optimiser.ADADELTA" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.Optimiser.ADAM">
+<span class="sig-name descname"><span class="pre">ADAM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('adam',</span> <span class="pre">torch.optim.Adam)</span></em><a class="headerlink" href="#sensai.torch.torch_opt.Optimiser.ADAM" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.Optimiser.ADAMW">
+<span class="sig-name descname"><span class="pre">ADAMW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('adamw',</span> <span class="pre">torch.optim.AdamW)</span></em><a class="headerlink" href="#sensai.torch.torch_opt.Optimiser.ADAMW" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.Optimiser.ADAMAX">
+<span class="sig-name descname"><span class="pre">ADAMAX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('adamax',</span> <span class="pre">torch.optim.Adamax)</span></em><a class="headerlink" href="#sensai.torch.torch_opt.Optimiser.ADAMAX" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.Optimiser.RMSPROP">
+<span class="sig-name descname"><span class="pre">RMSPROP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('rmsprop',</span> <span class="pre">torch.optim.RMSprop)</span></em><a class="headerlink" href="#sensai.torch.torch_opt.Optimiser.RMSPROP" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.Optimiser.RPROP">
+<span class="sig-name descname"><span class="pre">RPROP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('rprop',</span> <span class="pre">torch.optim.Rprop)</span></em><a class="headerlink" href="#sensai.torch.torch_opt.Optimiser.RPROP" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.Optimiser.LBFGS">
+<span class="sig-name descname"><span class="pre">LBFGS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('lbfgs',</span> <span class="pre">torch.optim.LBFGS)</span></em><a class="headerlink" href="#sensai.torch.torch_opt.Optimiser.LBFGS" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.Optimiser.from_name">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#sensai.torch.torch_opt.Optimiser" title="sensai.torch.torch_opt.Optimiser"><span class="pre">Optimiser</span></a></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#Optimiser.from_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.Optimiser.from_name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.Optimiser.from_name_or_instance">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_name_or_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_or_instance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#sensai.torch.torch_opt.Optimiser" title="sensai.torch.torch_opt.Optimiser"><span class="pre">Optimiser</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#sensai.torch.torch_opt.Optimiser" title="sensai.torch.torch_opt.Optimiser"><span class="pre">Optimiser</span></a></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#Optimiser.from_name_or_instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.Optimiser.from_name_or_instance" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NNLossEvaluator</span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluator" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Base class defining the interface for training and validation loss evaluation.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluator.Evaluation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Evaluation</span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluator.Evaluation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluator.Evaluation" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluator.Evaluation.start_epoch">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start_epoch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluator.Evaluation.start_epoch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluator.Evaluation.start_epoch" title="Permalink to this definition">#</a></dt>
+<dd><p>Starts a new epoch, resetting any aggregated values required to ultimately return the
+epoch’s overall training loss (via getEpochTrainLoss) and validation metrics (via getValidationMetrics)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluator.Evaluation.compute_train_batch_loss">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compute_train_batch_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_output</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">torch.Tensor</span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluator.Evaluation.compute_train_batch_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluator.Evaluation.compute_train_batch_loss" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes the loss for the given model outputs and ground truth values for a batch
+and aggregates the computed loss values such that :meth:<code class="docutils literal notranslate"><span class="pre">getEpochTrainLoss</span></code> can return an appropriate
+result for the entire epoch.
+The original batch tensors X and Y are provided as meta-information only.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_output</strong> – the model output</p></li>
+<li><p><strong>ground_truth</strong> – the ground truth values</p></li>
+<li><p><strong>x</strong> – the original batch input tensor</p></li>
+<li><p><strong>y</strong> – the original batch output (ground truth) tensor</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the loss (scalar tensor)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluator.Evaluation.get_epoch_train_loss">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_epoch_train_loss</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluator.Evaluation.get_epoch_train_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluator.Evaluation.get_epoch_train_loss" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the epoch’s overall training loss (as obtained by collecting data from individual training
+batch data passed to computeTrainBatchLoss)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluator.Evaluation.process_validation_batch">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_validation_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_output</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluator.Evaluation.process_validation_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluator.Evaluation.process_validation_batch" title="Permalink to this definition">#</a></dt>
+<dd><p>Processes the given model outputs and ground truth values in order to compute sufficient statistics for
+velidation metrics, which at the end of the epoch, shall be retrievable via method getValidationMetrics</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_output</strong> – the model output</p></li>
+<li><p><strong>ground_truth</strong> – the ground truth values</p></li>
+<li><p><strong>x</strong> – the original batch input tensor</p></li>
+<li><p><strong>y</strong> – the original batch output (ground truth) tensor</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the loss (scalar tensor)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluator.Evaluation.get_validation_metrics">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_validation_metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluator.Evaluation.get_validation_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluator.Evaluation.get_validation_metrics" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluator.start_evaluation">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cuda</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#sensai.torch.torch_opt.NNLossEvaluator.Evaluation" title="sensai.torch.torch_opt.NNLossEvaluator.Evaluation"><span class="pre">Evaluation</span></a></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluator.start_evaluation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluator.start_evaluation" title="Permalink to this definition">#</a></dt>
+<dd><p>Begins the evaluation of a model, returning a (stateful) object which is to perform the necessary computations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cuda</strong> – whether CUDA is being applied (all tensors/models on the GPU)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the evaluation object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluator.get_validation_metric_name">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_validation_metric_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluator.get_validation_metric_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluator.get_validation_metric_name" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the name of the validation metric which is to be used to determine the best model (key for the ordered
+dictionary returned by method Evaluation.getValidationMetrics)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorFixedDim">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NNLossEvaluatorFixedDim</span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorFixedDim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sensai.torch.torch_opt.NNLossEvaluator" title="sensai.torch.torch_opt.NNLossEvaluator"><code class="xref py py-class docutils literal notranslate"><span class="pre">NNLossEvaluator</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Base class defining the interface for training and validation loss evaluation, which uses fixed-dimension
+outputs and aggregates individual training batch losses that are summed losses per batch
+(averaging appropriately internally).</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.Evaluation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_loss_evaluator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.ValidationLossEvaluator" title="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.ValidationLossEvaluator"><span class="pre">ValidationLossEvaluator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim_weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorFixedDim.Evaluation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.Evaluation" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sensai.torch.torch_opt.NNLossEvaluator.Evaluation" title="sensai.torch.torch_opt.NNLossEvaluator.Evaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evaluation</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.Evaluation.start_epoch">
+<span class="sig-name descname"><span class="pre">start_epoch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorFixedDim.Evaluation.start_epoch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.Evaluation.start_epoch" title="Permalink to this definition">#</a></dt>
+<dd><p>Starts a new epoch, resetting any aggregated values required to ultimately return the
+epoch’s overall training loss (via getEpochTrainLoss) and validation metrics (via getValidationMetrics)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.Evaluation.compute_train_batch_loss">
+<span class="sig-name descname"><span class="pre">compute_train_batch_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_output</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">torch.Tensor</span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorFixedDim.Evaluation.compute_train_batch_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.Evaluation.compute_train_batch_loss" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes the loss for the given model outputs and ground truth values for a batch
+and aggregates the computed loss values such that :meth:<code class="docutils literal notranslate"><span class="pre">getEpochTrainLoss</span></code> can return an appropriate
+result for the entire epoch.
+The original batch tensors X and Y are provided as meta-information only.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_output</strong> – the model output</p></li>
+<li><p><strong>ground_truth</strong> – the ground truth values</p></li>
+<li><p><strong>x</strong> – the original batch input tensor</p></li>
+<li><p><strong>y</strong> – the original batch output (ground truth) tensor</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the loss (scalar tensor)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.Evaluation.get_epoch_train_loss">
+<span class="sig-name descname"><span class="pre">get_epoch_train_loss</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorFixedDim.Evaluation.get_epoch_train_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.Evaluation.get_epoch_train_loss" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the epoch’s overall training loss (as obtained by collecting data from individual training
+batch data passed to computeTrainBatchLoss)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.Evaluation.process_validation_batch">
+<span class="sig-name descname"><span class="pre">process_validation_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_output</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorFixedDim.Evaluation.process_validation_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.Evaluation.process_validation_batch" title="Permalink to this definition">#</a></dt>
+<dd><p>Processes the given model outputs and ground truth values in order to compute sufficient statistics for
+velidation metrics, which at the end of the epoch, shall be retrievable via method getValidationMetrics</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_output</strong> – the model output</p></li>
+<li><p><strong>ground_truth</strong> – the ground truth values</p></li>
+<li><p><strong>x</strong> – the original batch input tensor</p></li>
+<li><p><strong>y</strong> – the original batch output (ground truth) tensor</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the loss (scalar tensor)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.Evaluation.get_validation_metrics">
+<span class="sig-name descname"><span class="pre">get_validation_metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorFixedDim.Evaluation.get_validation_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.Evaluation.get_validation_metrics" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.start_evaluation">
+<span class="sig-name descname"><span class="pre">start_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cuda</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.Evaluation" title="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.Evaluation"><span class="pre">Evaluation</span></a></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorFixedDim.start_evaluation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.start_evaluation" title="Permalink to this definition">#</a></dt>
+<dd><p>Begins the evaluation of a model, returning a (stateful) object which is to perform the necessary computations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cuda</strong> – whether CUDA is being applied (all tensors/models on the GPU)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the evaluation object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.get_training_criterion">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_training_criterion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">torch.nn.Module</span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorFixedDim.get_training_criterion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.get_training_criterion" title="Permalink to this definition">#</a></dt>
+<dd><p>Gets the optimisation criterion (loss function) for training.
+Standard implementations are available in torch.nn (torch.nn.MSELoss, torch.nn.CrossEntropyLoss, etc.).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.get_output_dim_weights">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_output_dim_weights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorFixedDim.get_output_dim_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.get_output_dim_weights" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.create_validation_loss_evaluator">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_validation_loss_evaluator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cuda</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.ValidationLossEvaluator" title="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.ValidationLossEvaluator"><span class="pre">ValidationLossEvaluator</span></a></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorFixedDim.create_validation_loss_evaluator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.create_validation_loss_evaluator" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cuda</strong> – whether to use CUDA-based tensors</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the evaluator instance which is to be used to evaluate the model on validation data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.get_validation_metric_name">
+<span class="sig-name descname"><span class="pre">get_validation_metric_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorFixedDim.get_validation_metric_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.get_validation_metric_name" title="Permalink to this definition">#</a></dt>
+<dd><p>Gets the name of the metric (key of dictionary as returned by the validation loss evaluator’s
+endValidationCollection method), which is defining for the quality of the model and thus determines which
+epoch’s model is considered the best.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the name of the metric</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.ValidationLossEvaluator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ValidationLossEvaluator</span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorFixedDim.ValidationLossEvaluator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.ValidationLossEvaluator" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.ValidationLossEvaluator.start_validation_collection">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start_validation_collection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ground_truth_shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorFixedDim.ValidationLossEvaluator.start_validation_collection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.ValidationLossEvaluator.start_validation_collection" title="Permalink to this definition">#</a></dt>
+<dd><p>Initiates validation data collection for a new epoch, appropriately resetting this object’s internal state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ground_truth_shape</strong> – the tensor shape of a single ground truth data point (not including the batch
+entry dimension)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.ValidationLossEvaluator.process_validation_result_batch">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_validation_result_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorFixedDim.ValidationLossEvaluator.process_validation_result_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.ValidationLossEvaluator.process_validation_result_batch" title="Permalink to this definition">#</a></dt>
+<dd><p>Collects, for validation, the given output and ground truth data (tensors holding data on one batch,
+where the first dimension is the batch entry)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output</strong> – the model’s output</p></li>
+<li><p><strong>ground_truth</strong> – the corresponding ground truth</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.ValidationLossEvaluator.end_validation_collection">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">end_validation_collection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">OrderedDict</span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorFixedDim.ValidationLossEvaluator.end_validation_collection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.ValidationLossEvaluator.end_validation_collection" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes validation metrics based on the data previously processed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>an ordered dictionary with validation metrics</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorRegression">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NNLossEvaluatorRegression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sensai.torch.torch_opt.NNLossEvaluatorRegression.LossFunction" title="sensai.torch.torch_opt.NNLossEvaluatorRegression.LossFunction"><span class="pre">LossFunction</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">LossFunction.L2LOSS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_tensor_transformer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="torch_data.html#sensai.torch.torch_data.TensorTransformer" title="sensai.torch.torch_data.TensorTransformer"><span class="pre">TensorTransformer</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim_weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_output_dim_weights_in_validation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_metric_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorRegression"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorRegression" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim" title="sensai.torch.torch_opt.NNLossEvaluatorFixedDim"><code class="xref py py-class docutils literal notranslate"><span class="pre">NNLossEvaluatorFixedDim</span></code></a>, <a class="reference internal" href="../util/string.html#sensai.util.string.ToStringMixin" title="sensai.util.string.ToStringMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ToStringMixin</span></code></a></p>
+<p>A loss evaluator for (multi-variate) regression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loss_fn</strong> – the loss function to use</p></li>
+<li><p><strong>validation_tensor_transformer</strong> – a transformer which is to be applied to validation tensors (both model outputs and ground
+truth) prior to computing the validation metrics</p></li>
+<li><p><strong>output_dim_weights</strong> – vector of weights to apply to then mean loss per output dimension, i.e. for the case where for each data
+point, the model produces n output dimensions, the mean loss for the i-th dimension is to be computed separately and be scaled
+with the weight, and the overall loss returned is the weighted average. The weights need not sum to 1 (normalisation is
+applied).</p></li>
+<li><p><strong>apply_output_dim_weights_in_validation</strong> – whether output dimension weights are also to be applied to to the metrics computed
+for validation. Note that this may not be possible if a validationTensorTransformer which changes the output dimensions is
+used.</p></li>
+<li><p><strong>validation_metric_name</strong> – the metric to use for model selection during validation; if None, use default depending on lossFn</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorRegression.LossFunction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LossFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorRegression.LossFunction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorRegression.LossFunction" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorRegression.LossFunction.L1LOSS">
+<span class="sig-name descname"><span class="pre">L1LOSS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'L1Loss'</span></em><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorRegression.LossFunction.L1LOSS" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorRegression.LossFunction.L2LOSS">
+<span class="sig-name descname"><span class="pre">L2LOSS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'L2Loss'</span></em><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorRegression.LossFunction.L2LOSS" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorRegression.LossFunction.MSELOSS">
+<span class="sig-name descname"><span class="pre">MSELOSS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'MSELoss'</span></em><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorRegression.LossFunction.MSELOSS" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorRegression.LossFunction.SMOOTHL1LOSS">
+<span class="sig-name descname"><span class="pre">SMOOTHL1LOSS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SmoothL1Loss'</span></em><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorRegression.LossFunction.SMOOTHL1LOSS" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorRegression.create_validation_loss_evaluator">
+<span class="sig-name descname"><span class="pre">create_validation_loss_evaluator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cuda</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorRegression.create_validation_loss_evaluator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorRegression.create_validation_loss_evaluator" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cuda</strong> – whether to use CUDA-based tensors</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the evaluator instance which is to be used to evaluate the model on validation data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorRegression.get_training_criterion">
+<span class="sig-name descname"><span class="pre">get_training_criterion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorRegression.get_training_criterion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorRegression.get_training_criterion" title="Permalink to this definition">#</a></dt>
+<dd><p>Gets the optimisation criterion (loss function) for training.
+Standard implementations are available in torch.nn (torch.nn.MSELoss, torch.nn.CrossEntropyLoss, etc.).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorRegression.get_output_dim_weights">
+<span class="sig-name descname"><span class="pre">get_output_dim_weights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorRegression.get_output_dim_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorRegression.get_output_dim_weights" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorRegression.ValidationLossEvaluator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ValidationLossEvaluator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cuda</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_tensor_transformer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="torch_data.html#sensai.torch.torch_data.TensorTransformer" title="sensai.torch.torch_data.TensorTransformer"><span class="pre">TensorTransformer</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim_weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_output_dim_weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorRegression.ValidationLossEvaluator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorRegression.ValidationLossEvaluator" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.ValidationLossEvaluator" title="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.ValidationLossEvaluator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValidationLossEvaluator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorRegression.ValidationLossEvaluator.start_validation_collection">
+<span class="sig-name descname"><span class="pre">start_validation_collection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ground_truth_shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorRegression.ValidationLossEvaluator.start_validation_collection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorRegression.ValidationLossEvaluator.start_validation_collection" title="Permalink to this definition">#</a></dt>
+<dd><p>Initiates validation data collection for a new epoch, appropriately resetting this object’s internal state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ground_truth_shape</strong> – the tensor shape of a single ground truth data point (not including the batch
+entry dimension)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorRegression.ValidationLossEvaluator.process_validation_result_batch">
+<span class="sig-name descname"><span class="pre">process_validation_result_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorRegression.ValidationLossEvaluator.process_validation_result_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorRegression.ValidationLossEvaluator.process_validation_result_batch" title="Permalink to this definition">#</a></dt>
+<dd><p>Collects, for validation, the given output and ground truth data (tensors holding data on one batch,
+where the first dimension is the batch entry)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output</strong> – the model’s output</p></li>
+<li><p><strong>ground_truth</strong> – the corresponding ground truth</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorRegression.ValidationLossEvaluator.end_validation_collection">
+<span class="sig-name descname"><span class="pre">end_validation_collection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorRegression.ValidationLossEvaluator.end_validation_collection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorRegression.ValidationLossEvaluator.end_validation_collection" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes validation metrics based on the data previously processed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>an ordered dictionary with validation metrics</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorRegression.get_validation_metric_name">
+<span class="sig-name descname"><span class="pre">get_validation_metric_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorRegression.get_validation_metric_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorRegression.get_validation_metric_name" title="Permalink to this definition">#</a></dt>
+<dd><p>Gets the name of the metric (key of dictionary as returned by the validation loss evaluator’s
+endValidationCollection method), which is defining for the quality of the model and thus determines which
+epoch’s model is considered the best.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the name of the metric</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorClassification">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NNLossEvaluatorClassification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sensai.torch.torch_opt.NNLossEvaluatorClassification.LossFunction" title="sensai.torch.torch_opt.NNLossEvaluatorClassification.LossFunction"><span class="pre">LossFunction</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="torch_base.html#sensai.torch.torch_base.TorchVectorClassificationModel" title="sensai.torch.torch_base.TorchVectorClassificationModel"><span class="pre">TorchVectorClassificationModel</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorClassification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorClassification" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim" title="sensai.torch.torch_opt.NNLossEvaluatorFixedDim"><code class="xref py py-class docutils literal notranslate"><span class="pre">NNLossEvaluatorFixedDim</span></code></a></p>
+<p>A loss evaluator for classification</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loss_fn</strong> – the loss function to use</p></li>
+<li><p><strong>class_weights</strong> – a mapping from class labels to weights; if None, all classes are treated equally</p></li>
+<li><p><strong>parent</strong> – the parent model from which the order of the label is to be obtained (required if
+<cite>class_weights</cite> is specified)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorClassification.LossFunction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LossFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorClassification.LossFunction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorClassification.LossFunction" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorClassification.LossFunction.CROSSENTROPY">
+<span class="sig-name descname"><span class="pre">CROSSENTROPY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CrossEntropy'</span></em><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorClassification.LossFunction.CROSSENTROPY" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorClassification.LossFunction.NLL">
+<span class="sig-name descname"><span class="pre">NLL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NegativeLogLikelihood'</span></em><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorClassification.LossFunction.NLL" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorClassification.LossFunction.create_criterion">
+<span class="sig-name descname"><span class="pre">create_criterion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.tensor</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorClassification.LossFunction.create_criterion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorClassification.LossFunction.create_criterion" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorClassification.LossFunction.get_validation_metric_key">
+<span class="sig-name descname"><span class="pre">get_validation_metric_key</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorClassification.LossFunction.get_validation_metric_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorClassification.LossFunction.get_validation_metric_key" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorClassification.LossFunction.default_for_output_mode">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_for_output_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="torch_enums.html#sensai.torch.torch_enums.ClassificationOutputMode" title="sensai.torch.torch_enums.ClassificationOutputMode"><span class="pre">ClassificationOutputMode</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorClassification.LossFunction.default_for_output_mode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorClassification.LossFunction.default_for_output_mode" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorClassification.create_validation_loss_evaluator">
+<span class="sig-name descname"><span class="pre">create_validation_loss_evaluator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cuda</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorClassification.create_validation_loss_evaluator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorClassification.create_validation_loss_evaluator" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cuda</strong> – whether to use CUDA-based tensors</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the evaluator instance which is to be used to evaluate the model on validation data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorClassification.get_training_criterion">
+<span class="sig-name descname"><span class="pre">get_training_criterion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorClassification.get_training_criterion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorClassification.get_training_criterion" title="Permalink to this definition">#</a></dt>
+<dd><p>Gets the optimisation criterion (loss function) for training.
+Standard implementations are available in torch.nn (torch.nn.MSELoss, torch.nn.CrossEntropyLoss, etc.).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorClassification.get_output_dim_weights">
+<span class="sig-name descname"><span class="pre">get_output_dim_weights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorClassification.get_output_dim_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorClassification.get_output_dim_weights" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorClassification.get_class_weights_tensor">
+<span class="sig-name descname"><span class="pre">get_class_weights_tensor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorClassification.get_class_weights_tensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorClassification.get_class_weights_tensor" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the class weights tensor, if any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorClassification.ValidationLossEvaluator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ValidationLossEvaluator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cuda</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch.nn.Module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorClassification.ValidationLossEvaluator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorClassification.ValidationLossEvaluator" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sensai.torch.torch_opt.NNLossEvaluatorFixedDim.ValidationLossEvaluator" title="sensai.torch.torch_opt.NNLossEvaluatorFixedDim.ValidationLossEvaluator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValidationLossEvaluator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorClassification.ValidationLossEvaluator.start_validation_collection">
+<span class="sig-name descname"><span class="pre">start_validation_collection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ground_truth_shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorClassification.ValidationLossEvaluator.start_validation_collection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorClassification.ValidationLossEvaluator.start_validation_collection" title="Permalink to this definition">#</a></dt>
+<dd><p>Initiates validation data collection for a new epoch, appropriately resetting this object’s internal state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ground_truth_shape</strong> – the tensor shape of a single ground truth data point (not including the batch
+entry dimension)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorClassification.ValidationLossEvaluator.process_validation_result_batch">
+<span class="sig-name descname"><span class="pre">process_validation_result_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorClassification.ValidationLossEvaluator.process_validation_result_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorClassification.ValidationLossEvaluator.process_validation_result_batch" title="Permalink to this definition">#</a></dt>
+<dd><p>Collects, for validation, the given output and ground truth data (tensors holding data on one batch,
+where the first dimension is the batch entry)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output</strong> – the model’s output</p></li>
+<li><p><strong>ground_truth</strong> – the corresponding ground truth</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorClassification.ValidationLossEvaluator.end_validation_collection">
+<span class="sig-name descname"><span class="pre">end_validation_collection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorClassification.ValidationLossEvaluator.end_validation_collection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorClassification.ValidationLossEvaluator.end_validation_collection" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes validation metrics based on the data previously processed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>an ordered dictionary with validation metrics</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNLossEvaluatorClassification.get_validation_metric_name">
+<span class="sig-name descname"><span class="pre">get_validation_metric_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNLossEvaluatorClassification.get_validation_metric_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNLossEvaluatorClassification.get_validation_metric_name" title="Permalink to this definition">#</a></dt>
+<dd><p>Gets the name of the metric (key of dictionary as returned by the validation loss evaluator’s
+endValidationCollection method), which is defining for the quality of the model and thus determines which
+epoch’s model is considered the best.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the name of the metric</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNOptimiserParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NNOptimiserParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss_evaluator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sensai.torch.torch_opt.NNLossEvaluator" title="sensai.torch.torch_opt.NNLossEvaluator"><span class="pre">NNLossEvaluator</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimiser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#sensai.torch.torch_opt.Optimiser" title="sensai.torch.torch_opt.Optimiser"><span class="pre">Optimiser</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimiser_lr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stopping_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaled_outputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_shrinkage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shrinkage_clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shuffle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimiser_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNOptimiserParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNOptimiserParams" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../util/string.html#sensai.util.string.ToStringMixin" title="sensai.util.string.ToStringMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ToStringMixin</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loss_evaluator</strong> – the loss evaluator to use</p></li>
+<li><p><strong>gpu</strong> – the index of the GPU to be used (if CUDA is enabled for the model to be trained); if None, default to first GPU</p></li>
+<li><p><strong>optimiser</strong> – the optimiser to use</p></li>
+<li><p><strong>optimiser_lr</strong> – the optimiser’s learning rate</p></li>
+<li><p><strong>early_stopping_epochs</strong> – the number of epochs without validation score improvement after which to abort training and
+use the best epoch’s model (early stopping); if None, never abort training before all epochs are completed</p></li>
+<li><p><strong>batch_size</strong> – the batch size to use; for algorithms L-BFGS (optimiser=’lbfgs’), which do not use batches, leave this at None.
+If the algorithm uses batches and None is specified, batch size 64 will be used by default.</p></li>
+<li><p><strong>train_fraction</strong> – the fraction of the data used for training (with the remainder being used for validation).
+If no validation is to be performed, pass 1.0.</p></li>
+<li><p><strong>scaled_outputs</strong> – whether to scale all outputs, resulting in computations of the loss function based on scaled values rather
+than normalised values.
+Enabling scaling may not be appropriate in cases where there are multiple outputs on different scales/with completely different
+units.</p></li>
+<li><p><strong>use_shrinkage</strong> – whether to apply shrinkage to gradients whose norm exceeds <code class="docutils literal notranslate"><span class="pre">shrinkageClip</span></code>, scaling the gradient down to
+<code class="docutils literal notranslate"><span class="pre">shrinkageClip</span></code></p></li>
+<li><p><strong>shrinkage_clip</strong> – the maximum gradient norm beyond which to apply shrinkage (if <code class="docutils literal notranslate"><span class="pre">useShrinkage</span></code> is True)</p></li>
+<li><p><strong>shuffle</strong> – whether to shuffle the training data</p></li>
+<li><p><strong>optimiser_args</strong> – keyword arguments to be passed on to the actual torch optimiser</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNOptimiserParams.REMOVED_PARAMS">
+<span class="sig-name descname"><span class="pre">REMOVED_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'cuda'}</span></em><a class="headerlink" href="#sensai.torch.torch_opt.NNOptimiserParams.REMOVED_PARAMS" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNOptimiserParams.RENAMED_PARAMS">
+<span class="sig-name descname"><span class="pre">RENAMED_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'batchSize':</span> <span class="pre">'batch_size',</span> <span class="pre">'earlyStoppingEpochs':</span> <span class="pre">'early_stopping_epochs',</span> <span class="pre">'lossEvaluator':</span> <span class="pre">'loss_evaluator',</span> <span class="pre">'optimiserClip':</span> <span class="pre">'optimiser_clip',</span> <span class="pre">'optimiserLR':</span> <span class="pre">'optimiser_lr',</span> <span class="pre">'scaledOutputs':</span> <span class="pre">'scaled_outputs',</span> <span class="pre">'shrinkageClip':</span> <span class="pre">'shrinkage_clip',</span> <span class="pre">'trainFraction':</span> <span class="pre">'train_fraction',</span> <span class="pre">'useShrinkage':</span> <span class="pre">'use_shrinkage'}</span></em><a class="headerlink" href="#sensai.torch.torch_opt.NNOptimiserParams.RENAMED_PARAMS" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNOptimiserParams.from_dict_or_instance">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict_or_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nn_optimiser_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#sensai.torch.torch_opt.NNOptimiserParams" title="sensai.torch.torch_opt.NNOptimiserParams"><span class="pre">NNOptimiserParams</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#sensai.torch.torch_opt.NNOptimiserParams" title="sensai.torch.torch_opt.NNOptimiserParams"><span class="pre">NNOptimiserParams</span></a></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNOptimiserParams.from_dict_or_instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNOptimiserParams.from_dict_or_instance" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNOptimiserParams.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#sensai.torch.torch_opt.NNOptimiserParams" title="sensai.torch.torch_opt.NNOptimiserParams"><span class="pre">NNOptimiserParams</span></a></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNOptimiserParams.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNOptimiserParams.from_dict" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNOptimiserParams.from_either_dict_or_instance">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_either_dict_or_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nn_optimiser_dict_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nn_optimiser_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sensai.torch.torch_opt.NNOptimiserParams" title="sensai.torch.torch_opt.NNOptimiserParams"><span class="pre">NNOptimiserParams</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNOptimiserParams.from_either_dict_or_instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNOptimiserParams.from_either_dict_or_instance" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNOptimiser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NNOptimiser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sensai.torch.torch_opt.NNOptimiserParams" title="sensai.torch.torch_opt.NNOptimiserParams"><span class="pre">NNOptimiserParams</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNOptimiser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNOptimiser" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>params</strong> – parameters</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNOptimiser.log">
+<span class="sig-name descname"><span class="pre">log</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Logger</span> <span class="pre">sensai.torch.torch_opt.NNOptimiser</span> <span class="pre">(WARNING)&gt;</span></em><a class="headerlink" href="#sensai.torch.torch_opt.NNOptimiser.log" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.NNOptimiser.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="torch_base.html#sensai.torch.torch_base.TorchModel" title="sensai.torch.torch_base.TorchModel"><span class="pre">TorchModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="torch_data.html#sensai.torch.torch_data.DataUtil" title="sensai.torch.torch_data.DataUtil"><span class="pre">DataUtil</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="torch_data.html#sensai.torch.torch_data.DataUtil" title="sensai.torch.torch_data.DataUtil"><span class="pre">DataUtil</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="torch_data.html#sensai.torch.torch_data.TorchDataSetProvider" title="sensai.torch.torch_data.TorchDataSetProvider"><span class="pre">TorchDataSetProvider</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="torch_data.html#sensai.torch.torch_data.TorchDataSetProvider" title="sensai.torch.torch_data.TorchDataSetProvider"><span class="pre">TorchDataSetProvider</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="torch_data.html#sensai.torch.torch_data.TorchDataSet" title="sensai.torch.torch_data.TorchDataSet"><span class="pre">TorchDataSet</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="torch_data.html#sensai.torch.torch_data.TorchDataSet" title="sensai.torch.torch_data.TorchDataSet"><span class="pre">TorchDataSet</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="torch_data.html#sensai.torch.torch_data.TorchDataSet" title="sensai.torch.torch_data.TorchDataSet"><span class="pre">TorchDataSet</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="torch_data.html#sensai.torch.torch_data.TorchDataSet" title="sensai.torch.torch_data.TorchDataSet"><span class="pre">TorchDataSet</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="torch_data.html#sensai.torch.torch_data.TorchDataSet" title="sensai.torch.torch_data.TorchDataSet"><span class="pre">TorchDataSet</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="torch_data.html#sensai.torch.torch_data.TorchDataSet" title="sensai.torch.torch_data.TorchDataSet"><span class="pre">TorchDataSet</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_torch_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#sensai.torch.torch_opt.TrainingInfo" title="sensai.torch.torch_opt.TrainingInfo"><span class="pre">TrainingInfo</span></a></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#NNOptimiser.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.NNOptimiser.fit" title="Permalink to this definition">#</a></dt>
+<dd><p>Fits the parameters of the given model to the given data, which can be a list of or single instance of one of the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>a <cite>DataUtil</cite> or <cite>TorchDataSetProvider</cite> (from which a training set and validation set will be obtained according to
+the <cite>trainFraction</cite> parameter of this object)</p></li>
+<li><p>a <cite>TorchDataSet</cite> which shall be used as the training set (for the case where no validation set shall be used)</p></li>
+<li><p>a tuple with two <cite>TorchDataSet</cite> instances, where the first shall be used as the training set and the second as
+the validation set</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – the model to be fitted</p></li>
+<li><p><strong>data</strong> – the data to use (see variants above)</p></li>
+<li><p><strong>create_torch_module</strong> – whether to newly create the torch module that is to be trained from the model’s factory.
+If False, (re-)train the existing module.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.TrainingInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TrainingInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">best_epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_loss_sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_metric_sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#TrainingInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.TrainingInfo" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.TrainingInfo.get_training_loss_series">
+<span class="sig-name descname"><span class="pre">get_training_loss_series</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.Series</span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#TrainingInfo.get_training_loss_series"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.TrainingInfo.get_training_loss_series" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.TrainingInfo.get_validation_metric_series">
+<span class="sig-name descname"><span class="pre">get_validation_metric_series</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.Series</span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#TrainingInfo.get_validation_metric_series"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.TrainingInfo.get_validation_metric_series" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.torch.torch_opt.TrainingInfo.plot_all">
+<span class="sig-name descname"><span class="pre">plot_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">matplotlib.figure.Figure</span></span></span><a class="reference internal" href="../../_modules/sensai/torch/torch_opt.html#TrainingInfo.plot_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.torch.torch_opt.TrainingInfo.plot_all" title="Permalink to this definition">#</a></dt>
+<dd><p>Plots both the sequence of training loss values and the sequence of validation metric values</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./sensai/torch"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="torch_modules.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">torch_modules</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="torchtext.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">torchtext</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By sensAI contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2019-2024 by sensAI contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

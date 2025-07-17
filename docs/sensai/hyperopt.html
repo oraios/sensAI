@@ -1,0 +1,1170 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>hyperopt &#8212; sensAI Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/sphinx-toolbox.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/js/vega@5.js"></script>
+    <script src="../_static/js/vega-lite@5.js"></script>
+    <script src="../_static/js/vega-embed@5.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sensai/hyperopt';</script>
+    <link rel="canonical" href="https://tianshou.readthedocs.io/en/master/sensai/hyperopt.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="lightgbm" href="lightgbm.html" />
+    <link rel="prev" title="feature_importance" href="feature_importance.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/sensai-logo.png" class="logo__image only-light" alt="sensAI Documentation - Home"/>
+    <script>document.write(`<img src="../_static/sensai-logo.png" class="logo__image only-dark" alt="sensAI Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to sensAI!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../1-supervised-learning/1-vector-models.html">Models with Modular Data Pipelines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../2-notebooks/0_intro.html">Notebook Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2-notebooks/1-classification.html">Introduction to sensAI: Supervised Learning with VectorModels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2-notebooks/2-neural_networks.html">Neural Networks</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="catboost.html">catboost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="columngen.html">columngen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distance_metric.html">distance_metric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feature_importance.html">feature_importance</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">hyperopt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lightgbm.html">lightgbm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="local_search.html">local_search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minizinc.html">minizinc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi_model.html">multi_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="naive_bayes.html">naive_bayes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nearest_neighbors.html">nearest_neighbors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalisation.html">normalisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sklearn_quantile.html">sklearn_quantile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tensor_model.html">tensor_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_model.html">vector_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vectoriser.html">vectoriser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xgboost.html">xgboost</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="clustering/index.html">clustering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="clustering/clustering_base.html">clustering_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering/greedy_clustering.html">greedy_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering/sklearn_clustering.html">sklearn_clustering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="data/index.html">data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="data/dataset.html">dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data/io_data.html">io_data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="data_transformation/index.html">data_transformation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="data_transformation/dft.html">dft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_transformation/sklearn_transformer.html">sklearn_transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_transformation/value_transformation.html">value_transformation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ensemble/index.html">ensemble</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ensemble/ensemble_base.html">ensemble_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ensemble/models.html">models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="evaluation/index.html">evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="evaluation/crossval.html">crossval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation/eval_util.html">eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation/evaluator.html">evaluator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation/evaluator_clustering.html">evaluator_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation/metric_computation.html">metric_computation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation/result_set.html">result_set</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="evaluation/eval_stats/index.html">eval_stats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="evaluation/eval_stats/eval_stats_base.html">eval_stats_base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="evaluation/eval_stats/eval_stats_classification.html">eval_stats_classification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="evaluation/eval_stats/eval_stats_clustering.html">eval_stats_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="evaluation/eval_stats/eval_stats_regression.html">eval_stats_regression</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="feature_selection/index.html">feature_selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="feature_selection/rfe.html">rfe</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="featuregen/index.html">featuregen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="featuregen/feature_generator.html">feature_generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="featuregen/feature_generator_registry.html">feature_generator_registry</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geoanalytics/index.html">geoanalytics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="geoanalytics/geo_clustering.html">geo_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geoanalytics/geo_coords.html">geo_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geoanalytics/local_coords.html">local_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geoanalytics/map_tiles.html">map_tiles</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="geoanalytics/geopandas/index.html">geopandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="geoanalytics/geopandas/coordinate_clustering.html">coordinate_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geoanalytics/geopandas/coordinate_clustering_ground_truth.html">coordinate_clustering_ground_truth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geoanalytics/geopandas/coordinates.html">coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geoanalytics/geopandas/geometry.html">geometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geoanalytics/geopandas/graph.html">graph</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="pytorch_lightning/index.html">pytorch_lightning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="pytorch_lightning/pl_models.html">pl_models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sklearn/index.html">sklearn</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sklearn/sklearn_base.html">sklearn_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sklearn/sklearn_classification.html">sklearn_classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sklearn/sklearn_regression.html">sklearn_regression</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="torch/index.html">torch</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="torch/torch_base.html">torch_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torch/torch_data.html">torch_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torch/torch_enums.html">torch_enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torch/torch_eval_util.html">torch_eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torch/torch_modules.html">torch_modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torch/torch_opt.html">torch_opt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torch/torchtext.html">torchtext</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="torch/torch_models/index.html">torch_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="torch/torch_models/lstnet/index.html">lstnet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="torch/torch_models/mlp/index.html">mlp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="torch/torch_models/residualffn/index.html">residualffn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="torch/torch_models/seq/index.html">seq</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tracking/index.html">tracking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="tracking/azure_tracking.html">azure_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tracking/clearml_tracking.html">clearml_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tracking/mlflow_tracking.html">mlflow_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tracking/tracking_base.html">tracking_base</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="util/index.html">util</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="util/aggregation.html">aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/cache.html">cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/cache_azure.html">cache_azure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/cache_mysql.html">cache_mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/datastruct.html">datastruct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/deprecation.html">deprecation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/dtype.html">dtype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/git.html">git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/hash.html">hash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/helper.html">helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/jscode.html">jscode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/logging.html">logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/math.html">math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/multiprocessing.html">multiprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/pandas.html">pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/pickle.html">pickle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/plot.html">plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/profiling.html">profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/sequences.html">sequences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/string.html">string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/tensorboard.html">tensorboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/test.html">test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/time.html">time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/typing.html">typing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/version.html">version</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/sensai/hyperopt.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>hyperopt</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-sensai.hyperopt">
+<span id="hyperopt"></span><h1>hyperopt<a class="headerlink" href="#module-sensai.hyperopt" title="Permalink to this heading">#</a></h1>
+<p class="source-link"><strong>Source code:</strong> <a class="reference internal" href="../_modules/sensai/hyperopt.html#sensai/hyperopt.py"><span>sensai/hyperopt.py</span></a></p>
+<hr class="docutils" />
+<dl class="py function">
+<dt class="sig sig-object py" id="sensai.hyperopt.iter_param_combinations">
+<span class="sig-name descname"><span class="pre">iter_param_combinations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hyper_param_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Generator</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#iter_param_combinations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.iter_param_combinations" title="Permalink to this definition">#</a></dt>
+<dd><p>Create all possible combinations of values from a dictionary of possible parameter values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>hyper_param_values</strong> – a mapping from parameter names to lists of possible values</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a dictionary mapping each parameter name to one of the values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sensai.hyperopt.iter_subsets">
+<span class="sig-name descname"><span class="pre">iter_subsets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#iter_subsets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.iter_subsets" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>s</strong> – a set of items</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>iterator over subsets of the given set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.ParameterCombinationSkipDecider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ParameterCombinationSkipDecider</span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#ParameterCombinationSkipDecider"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.ParameterCombinationSkipDecider" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Abstraction for a functional component which is told all parameter combinations that have been considered
+and can use these as a basis for deciding whether another parameter combination shall be skipped/not be considered.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.ParameterCombinationSkipDecider.tell">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#ParameterCombinationSkipDecider.tell"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.ParameterCombinationSkipDecider.tell" title="Permalink to this definition">#</a></dt>
+<dd><p>Informs the decider about a previously evaluated parameter combination</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> – the parameter combination</p></li>
+<li><p><strong>metrics</strong> – the evaluation metrics</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.ParameterCombinationSkipDecider.is_skipped">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_skipped</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#ParameterCombinationSkipDecider.is_skipped"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.ParameterCombinationSkipDecider.is_skipped" title="Permalink to this definition">#</a></dt>
+<dd><p>Decides whether the given parameter combination shall be skipped</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>params</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True iff it shall be skipped</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.ParameterCombinationEquivalenceClassValueCache">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ParameterCombinationEquivalenceClassValueCache</span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#ParameterCombinationEquivalenceClassValueCache"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.ParameterCombinationEquivalenceClassValueCache" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Represents a cache which stores (arbitrary) values for parameter combinations, i.e. keys in the cache
+are derived from parameter combinations.
+The cache may map the equivalent parameter combinations to the same keys to indicate that the
+parameter combinations are equivalent; the keys thus correspond to representations of equivalence classes over
+parameter combinations.
+This enables hyper-parameter search to skip the re-computation of results for equivalent parameter combinations.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.ParameterCombinationEquivalenceClassValueCache.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#ParameterCombinationEquivalenceClassValueCache.set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.ParameterCombinationEquivalenceClassValueCache.set" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.ParameterCombinationEquivalenceClassValueCache.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#ParameterCombinationEquivalenceClassValueCache.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.ParameterCombinationEquivalenceClassValueCache.get" title="Permalink to this definition">#</a></dt>
+<dd><p>Gets the value associated with the (equivalence class of the) parameter combination
+:param params: the parameter combination
+:return:</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.ParametersMetricsCollection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ParametersMetricsCollection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_column_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascending</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incremental</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#ParametersMetricsCollection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.ParametersMetricsCollection" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Utility class for holding and persisting evaluation results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>csv_path</strong> – path to save the data frame to upon every update</p></li>
+<li><p><strong>sort_column_name</strong> – the column name by which to sort the data frame that is collected; if None, do not sort</p></li>
+<li><p><strong>ascending</strong> – whether to sort in ascending order; has an effect only if sortColumnName is not None</p></li>
+<li><p><strong>incremental</strong> – whether to add to an existing CSV file instead of overwriting it</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.ParametersMetricsCollection.add_values">
+<span class="sig-name descname"><span class="pre">add_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#ParametersMetricsCollection.add_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.ParametersMetricsCollection.add_values" title="Permalink to this definition">#</a></dt>
+<dd><p>Adds the provided values as a new row to the collection.
+If csvPath was provided in the constructor, saves the updated collection to that file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>values</strong> – Dict holding the evaluation results and parameters</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.ParametersMetricsCollection.get_data_frame">
+<span class="sig-name descname"><span class="pre">get_data_frame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.DataFrame</span></span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#ParametersMetricsCollection.get_data_frame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.ParametersMetricsCollection.get_data_frame" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.ParametersMetricsCollection.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#ParametersMetricsCollection.contains"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.ParametersMetricsCollection.contains" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.GridSearch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GridSearch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_factory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="vector_model.html#sensai.vector_model.VectorModel" title="sensai.vector_model.VectorModel"><span class="pre">VectorModel</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter_options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_processes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">csv_results_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incremental</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incremental_skip_existing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter_combination_skip_decider</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sensai.hyperopt.ParameterCombinationSkipDecider" title="sensai.hyperopt.ParameterCombinationSkipDecider"><span class="pre">ParameterCombinationSkipDecider</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_save_directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#GridSearch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.GridSearch" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="tracking/tracking_base.html#sensai.tracking.tracking_base.TrackingMixin" title="sensai.tracking.tracking_base.TrackingMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrackingMixin</span></code></a></p>
+<p>Instances of this class can be used for evaluating models with different user-provided parametrizations
+over the same data and persisting the results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_factory</strong> – the function to call with keyword arguments reflecting the parameters to try in order to obtain a model
+instance</p></li>
+<li><p><strong>parameter_options</strong> – a dictionary which maps from parameter names to lists of possible values - or a list of such dictionaries,
+where each dictionary in the list has the same keys</p></li>
+<li><p><strong>num_processes</strong> – the number of parallel processes to use for the search (use 1 to run without multi-processing)</p></li>
+<li><p><strong>csv_results_path</strong> – the path to a directory or concrete CSV file to which the results shall be written;
+if it is None, no CSV data will be written; if it is a directory, a file name starting with this grid search’s name (see below)
+will be created.
+The resulting CSV data will contain one line per evaluated parameter combination.</p></li>
+<li><p><strong>incremental</strong> – whether to add to an existing CSV file instead of overwriting it</p></li>
+<li><p><strong>incremental_skip_existing</strong> – if incremental mode is on, whether to skip any parameter combinations that are already present
+in the CSV file</p></li>
+<li><p><strong>parameter_combination_skip_decider</strong> – an instance to which parameters combinations can be passed in order to decide whether the
+combination shall be skipped (e.g. because it is redundant/equivalent to another combination or inadmissible)</p></li>
+<li><p><strong>model_save_directory</strong> – the directory where the serialized models shall be saved; if None, models are not saved</p></li>
+<li><p><strong>name</strong> – the name of this grid search, which will, in particular, be prepended to all saved model files;
+if None, a default name will be generated of the form “gridSearch_&lt;timestamp&gt;”</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.hyperopt.GridSearch.log">
+<span class="sig-name descname"><span class="pre">log</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Logger</span> <span class="pre">sensai.hyperopt.GridSearch</span> <span class="pre">(WARNING)&gt;</span></em><a class="headerlink" href="#sensai.hyperopt.GridSearch.log" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.GridSearch.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metrics_evaluator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="evaluation/evaluator.html#sensai.evaluation.evaluator.MetricsDictProvider" title="sensai.evaluation.evaluator.MetricsDictProvider"><span class="pre">MetricsDictProvider</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_column_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascending</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#sensai.hyperopt.GridSearch.Result" title="sensai.hyperopt.GridSearch.Result"><span class="pre">Result</span></a></span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#GridSearch.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.GridSearch.run" title="Permalink to this definition">#</a></dt>
+<dd><p>Run the grid search. If csvResultsPath was provided in the constructor, each evaluation result will be saved
+to that file directly after being computed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>metrics_evaluator</strong> – the evaluator or cross-validator with which to evaluate models</p></li>
+<li><p><strong>sort_column_name</strong> – the name of the metric (column) by which to sort the data frame of results; if None, do not sort.
+Note that all Metric instances have a static member <cite>name</cite>, e.g. you could use <cite>RegressionMetricMSE.name</cite>.</p></li>
+<li><p><strong>ascending</strong> – whether to sort in ascending order; has an effect only if <cite>sort_column_name</cite> is specified.
+The result object will assume, by default, that the resulting top/first element is the best,
+i.e. ascending=False means “higher is better”, and ascending=True means “Lower is better”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>an object holding the results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.GridSearch.Result">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_metric_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_higher_is_better</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#GridSearch.Result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.GridSearch.Result" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.GridSearch.Result.BestParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BestParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#GridSearch.Result.BestParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.GridSearch.Result.BestParams" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.hyperopt.GridSearch.Result.BestParams.metric_name">
+<span class="sig-name descname"><span class="pre">metric_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#sensai.hyperopt.GridSearch.Result.BestParams.metric_name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.hyperopt.GridSearch.Result.BestParams.metric_value">
+<span class="sig-name descname"><span class="pre">metric_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#sensai.hyperopt.GridSearch.Result.BestParams.metric_value" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.hyperopt.GridSearch.Result.BestParams.params">
+<span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#sensai.hyperopt.GridSearch.Result.BestParams.params" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.GridSearch.Result.get_best_params">
+<span class="sig-name descname"><span class="pre">get_best_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">higher_is_better</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#sensai.hyperopt.GridSearch.Result.BestParams" title="sensai.hyperopt.GridSearch.Result.BestParams"><span class="pre">BestParams</span></a></span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#GridSearch.Result.get_best_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.GridSearch.Result.get_best_params" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>metric_name</strong> – the metric name for which to return the best result; can be None if the GridSearch used
+a metric to sort by</p></li>
+<li><p><strong>higher_is_better</strong> – whether higher is better for the metric to sort by; can be None if the GridSearch
+use a metric to sort by and configured the sort order such that the best configuration is at the top</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a pair (d, v) where d dictionary with the best parameters found during the grid search and v is the
+corresponding metric value</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.SAHyperOpt">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SAHyperOpt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_factory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="vector_model.html#sensai.vector_model.VectorModel" title="sensai.vector_model.VectorModel"><span class="pre">VectorModel</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ops_and_weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sensai.hyperopt.SAHyperOpt.State" title="sensai.hyperopt.SAHyperOpt.State"><span class="pre">State</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#sensai.hyperopt.SAHyperOpt.ParameterChangeOperator" title="sensai.hyperopt.SAHyperOpt.ParameterChangeOperator"><span class="pre">ParameterChangeOperator</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics_evaluator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="evaluation/evaluator.html#sensai.evaluation.evaluator.MetricsDictProvider" title="sensai.evaluation.evaluator.MetricsDictProvider"><span class="pre">MetricsDictProvider</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_to_optimise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimise_metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collect_data_frame</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">csv_results_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter_combination_equivalence_class_value_cache</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sensai.hyperopt.ParameterCombinationEquivalenceClassValueCache" title="sensai.hyperopt.ParameterCombinationEquivalenceClassValueCache"><span class="pre">ParameterCombinationEquivalenceClassValueCache</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#SAHyperOpt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.SAHyperOpt" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="tracking/tracking_base.html#sensai.tracking.tracking_base.TrackingMixin" title="sensai.tracking.tracking_base.TrackingMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrackingMixin</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_factory</strong> – a factory for the generation of models which is called with the current parameter combination
+(all keyword arguments), initially initialParameters</p></li>
+<li><p><strong>ops_and_weights</strong> – a sequence of tuples (operator factory, operator weight) for simulated annealing</p></li>
+<li><p><strong>initial_parameters</strong> – the initial parameter combination</p></li>
+<li><p><strong>metrics_evaluator</strong> – the evaluator/validator to use in order to evaluate models</p></li>
+<li><p><strong>metric_to_optimise</strong> – the name of the metric (as generated by the evaluator/validator) to optimise</p></li>
+<li><p><strong>minimise_metric</strong> – whether the metric is to be minimised; if False, maximise the metric</p></li>
+<li><p><strong>collect_data_frame</strong> – whether to collect (and regularly log) the data frame of all parameter combinations and
+evaluation results</p></li>
+<li><p><strong>csv_results_path</strong> – the (optional) path of a CSV file in which to store a table of all computed results;
+if this is not None, then collectDataFrame is automatically set to True</p></li>
+<li><p><strong>parameter_combination_equivalence_class_value_cache</strong> – a cache in which to store computed results and whose notion
+of equivalence can be used to avoid duplicate computations</p></li>
+<li><p><strong>p0</strong> – the initial probability (at the start of the optimisation) of accepting a state with an inferior evaluation
+to the current state’s (for the mean observed evaluation delta)</p></li>
+<li><p><strong>p1</strong> – the final probability (at the end of the optimisation) of accepting a state with an inferior evaluation
+to the current state’s (for the mean observed evaluation delta)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sensai.hyperopt.SAHyperOpt.log">
+<span class="sig-name descname"><span class="pre">log</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Logger</span> <span class="pre">sensai.hyperopt.SAHyperOpt</span> <span class="pre">(WARNING)&gt;</span></em><a class="headerlink" href="#sensai.hyperopt.SAHyperOpt.log" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.SAHyperOpt.State">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">State</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Random</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#SAHyperOpt.State"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.SAHyperOpt.State" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="local_search.html#sensai.local_search.SAState" title="sensai.local_search.SAState"><code class="xref py py-class docutils literal notranslate"><span class="pre">SAState</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.SAHyperOpt.State.compute_cost_value">
+<span class="sig-name descname"><span class="pre">compute_cost_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="local_search.html#sensai.local_search.SACostValueNumeric" title="sensai.local_search.SACostValueNumeric"><span class="pre">SACostValueNumeric</span></a></span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#SAHyperOpt.State.compute_cost_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.SAHyperOpt.State.compute_cost_value" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes the costs of this state (from scratch)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.SAHyperOpt.State.get_state_representation">
+<span class="sig-name descname"><span class="pre">get_state_representation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#SAHyperOpt.State.get_state_representation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.SAHyperOpt.State.get_state_representation" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a compact state representation (for the purpose of archiving a hitherto best result), which can later be
+applied via applyStateRepresentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a compact state representation of some sort</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.SAHyperOpt.State.apply_state_representation">
+<span class="sig-name descname"><span class="pre">apply_state_representation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">representation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#SAHyperOpt.State.apply_state_representation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.SAHyperOpt.State.apply_state_representation" title="Permalink to this definition">#</a></dt>
+<dd><p>Applies the given state representation (as returned via <cite>getStateRepresentation</cite>) in order for the optimisation result to
+be obtained by the user.
+Note that the function does not necessarily need to change this state to reflect the representation, as its sole
+purpose is for the optimsation result to be obtainable thereafter (it is not used during the optimisation process as such).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>representation</strong> – a representation as returned by <cite>getStateRepresentation</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.SAHyperOpt.ParameterChangeOperator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ParameterChangeOperator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sensai.hyperopt.SAHyperOpt.State" title="sensai.hyperopt.SAHyperOpt.State"><span class="pre">State</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#SAHyperOpt.ParameterChangeOperator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.SAHyperOpt.ParameterChangeOperator" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="local_search.html#sensai.local_search.SAOperator" title="sensai.local_search.SAOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">SAOperator</span></code></a>[<a class="reference internal" href="#sensai.hyperopt.SAHyperOpt.State" title="sensai.hyperopt.SAHyperOpt.State"><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></a>]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> – the state to which the operator is applied</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.SAHyperOpt.ParameterChangeOperator.apply_state_change">
+<span class="sig-name descname"><span class="pre">apply_state_change</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#SAHyperOpt.ParameterChangeOperator.apply_state_change"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.SAHyperOpt.ParameterChangeOperator.apply_state_change" title="Permalink to this definition">#</a></dt>
+<dd><p>Applies the operator to the state, i.e. it makes the changes to the state only
+(and does not update the associated costs)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>params</strong> – the parameters with which the operator is to be applied</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.SAHyperOpt.ParameterChangeOperator.cost_delta">
+<span class="sig-name descname"><span class="pre">cost_delta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="local_search.html#sensai.local_search.SACostValue" title="sensai.local_search.SACostValue"><span class="pre">SACostValue</span></a></span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#SAHyperOpt.ParameterChangeOperator.cost_delta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.SAHyperOpt.ParameterChangeOperator.cost_delta" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes the cost change that would apply when applying this operator with the given parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>params</strong> – an arbitrary list of parameters (specific to the concrete operator)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.SAHyperOpt.ParameterChangeOperator.choose_params">
+<span class="sig-name descname"><span class="pre">choose_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="local_search.html#sensai.local_search.SACostValue" title="sensai.local_search.SACostValue"><span class="pre">SACostValue</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#SAHyperOpt.ParameterChangeOperator.choose_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.SAHyperOpt.ParameterChangeOperator.choose_params" title="Permalink to this definition">#</a></dt>
+<dd><p>Chooses parameters for the application of the operator (e.g. randomly or greedily).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a tuple (params, costValue) or None if no suitable parameters are found, where params is the list of chosen
+parameters and costValue is either an instance of CostValue or None if the costs have not been computed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.SAHyperOpt.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">42</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collect_stats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#SAHyperOpt.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.SAHyperOpt.run" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.SAHyperOpt.get_simulated_annealing">
+<span class="sig-name descname"><span class="pre">get_simulated_annealing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="local_search.html#sensai.local_search.SimulatedAnnealing" title="sensai.local_search.SimulatedAnnealing"><span class="pre">SimulatedAnnealing</span></a></span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#SAHyperOpt.get_simulated_annealing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.SAHyperOpt.get_simulated_annealing" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.Option">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TKey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">TValue</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#Option"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.Option" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TKey</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code>], <a class="reference internal" href="util/string.html#sensai.util.string.ToStringMixin" title="sensai.util.string.ToStringMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ToStringMixin</span></code></a></p>
+<p>Represents a single option with an optional value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – a hashable identifier for the option</p></li>
+<li><p><strong>value</strong> – an optional associated value</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.OptionsGenerator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OptionsGenerator</span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#OptionsGenerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.OptionsGenerator" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TKey</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Represents a generator for combinations of options</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.OptionsGenerator.iter_options">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">iter_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sensai.hyperopt.Option" title="sensai.hyperopt.Option"><span class="pre">Option</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#OptionsGenerator.iter_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.OptionsGenerator.iter_options" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns an iterator over lists of options representing valid combinations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>an iterator of option combinations</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.OptionsGenerator.times">
+<span class="sig-name descname"><span class="pre">times</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sensai.hyperopt.OptionsGenerator" title="sensai.hyperopt.OptionsGenerator"><span class="pre">OptionsGenerator</span></a><span class="p"><span class="pre">[</span></span><span class="pre">TKey</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TValue</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#sensai.hyperopt.OptionsGenerator" title="sensai.hyperopt.OptionsGenerator"><span class="pre">OptionsGenerator</span></a><span class="p"><span class="pre">[</span></span><span class="pre">TKey</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TValue</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#OptionsGenerator.times"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.OptionsGenerator.times" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a new options generator representing the Cartesian product of this generator with another generator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – another generator to combine with</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a new generator yielding the Cartesian product</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.OptionsProduct">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OptionsProduct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sensai.hyperopt.OptionsGenerator" title="sensai.hyperopt.OptionsGenerator"><span class="pre">OptionsGenerator</span></a><span class="p"><span class="pre">[</span></span><span class="pre">TKey</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TValue</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sensai.hyperopt.OptionsGenerator" title="sensai.hyperopt.OptionsGenerator"><span class="pre">OptionsGenerator</span></a><span class="p"><span class="pre">[</span></span><span class="pre">TKey</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TValue</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#OptionsProduct"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.OptionsProduct" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TKey</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code>], <a class="reference internal" href="#sensai.hyperopt.OptionsGenerator" title="sensai.hyperopt.OptionsGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptionsGenerator</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TKey</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code>]</p>
+<p>An options generator that produces the cartesian product of two other generators</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>o1</strong> – the first option generator</p></li>
+<li><p><strong>o2</strong> – the second option generator</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.OptionsProduct.iter_options">
+<span class="sig-name descname"><span class="pre">iter_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sensai.hyperopt.Option" title="sensai.hyperopt.Option"><span class="pre">Option</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#OptionsProduct.iter_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.OptionsProduct.iter_options" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns an iterator over lists of options representing valid combinations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>an iterator of option combinations</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.OptionsGeneratorBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OptionsGeneratorBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">TKey</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">TKey</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TValue</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#OptionsGeneratorBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.OptionsGeneratorBase" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TKey</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code>], <a class="reference internal" href="#sensai.hyperopt.OptionsGenerator" title="sensai.hyperopt.OptionsGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptionsGenerator</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TKey</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Base class for option generators that are backed by a static collection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>o</strong> – an iterable of keys or a dictionary mapping keys to values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.OptionsAllOf">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OptionsAllOf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">TKey</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">TKey</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TValue</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#OptionsAllOf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.OptionsAllOf" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TKey</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code>], <a class="reference internal" href="#sensai.hyperopt.OptionsGeneratorBase" title="sensai.hyperopt.OptionsGeneratorBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptionsGeneratorBase</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TKey</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code>]</p>
+<p>Options generator that includes all the given options</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>o</strong> – an iterable of keys or a dictionary mapping keys to values</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.OptionsAllOf.iter_options">
+<span class="sig-name descname"><span class="pre">iter_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sensai.hyperopt.Option" title="sensai.hyperopt.Option"><span class="pre">Option</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#OptionsAllOf.iter_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.OptionsAllOf.iter_options" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns an iterator over lists of options representing valid combinations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>an iterator of option combinations</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.OptionsOneOf">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OptionsOneOf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">TKey</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">TKey</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TValue</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#OptionsOneOf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.OptionsOneOf" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TKey</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code>], <a class="reference internal" href="#sensai.hyperopt.OptionsGeneratorBase" title="sensai.hyperopt.OptionsGeneratorBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptionsGeneratorBase</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TKey</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code>]</p>
+<p>Options generator that includes exactly one of the given options</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>o</strong> – an iterable of keys or a dictionary mapping keys to values</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.OptionsOneOf.iter_options">
+<span class="sig-name descname"><span class="pre">iter_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sensai.hyperopt.Option" title="sensai.hyperopt.Option"><span class="pre">Option</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#OptionsOneOf.iter_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.OptionsOneOf.iter_options" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns an iterator over lists of options representing valid combinations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>an iterator of option combinations</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.OptionsMinMaxOf">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OptionsMinMaxOf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">TKey</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">TKey</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TValue</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#OptionsMinMaxOf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.OptionsMinMaxOf" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TKey</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code>], <a class="reference internal" href="#sensai.hyperopt.OptionsGeneratorBase" title="sensai.hyperopt.OptionsGeneratorBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptionsGeneratorBase</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TKey</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code>]</p>
+<p>Options generator that includes subsets of the given options within a specified size range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>o</strong> – an iterable of option keys or a dictionary mapping option keys to values</p></li>
+<li><p><strong>n_min</strong> – the minimum number of options to consider</p></li>
+<li><p><strong>n_max</strong> – the maximum number of options to consider</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.OptionsMinMaxOf.iter_options">
+<span class="sig-name descname"><span class="pre">iter_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sensai.hyperopt.Option" title="sensai.hyperopt.Option"><span class="pre">Option</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#OptionsMinMaxOf.iter_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.OptionsMinMaxOf.iter_options" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns an iterator over lists of options representing valid combinations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>an iterator of option combinations</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.OptionsOneOrNoneOf">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OptionsOneOrNoneOf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">TKey</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">TKey</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TValue</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#OptionsOneOrNoneOf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.OptionsOneOrNoneOf" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TKey</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code>], <a class="reference internal" href="#sensai.hyperopt.OptionsMinMaxOf" title="sensai.hyperopt.OptionsMinMaxOf"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptionsMinMaxOf</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TKey</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code>]</p>
+<p>Options generator that includes either none or one of the given options</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>o</strong> – an iterable of keys or a dictionary mapping keys to values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.OptionsNOf">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OptionsNOf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">TKey</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">TKey</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TValue</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#OptionsNOf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.OptionsNOf" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TKey</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code>], <a class="reference internal" href="#sensai.hyperopt.OptionsMinMaxOf" title="sensai.hyperopt.OptionsMinMaxOf"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptionsMinMaxOf</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TKey</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code>]</p>
+<p>Options generator that includes exactly N options from the given set of options</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>o</strong> – an iterable of keys or a dictionary mapping keys to values</p></li>
+<li><p><strong>n</strong> – the number of options to sample</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sensai.hyperopt.OptionsSubsets">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OptionsSubsets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">TKey</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">TKey</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TValue</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensai/hyperopt.html#OptionsSubsets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.OptionsSubsets" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TKey</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code>], <a class="reference internal" href="#sensai.hyperopt.OptionsGeneratorBase" title="sensai.hyperopt.OptionsGeneratorBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptionsGeneratorBase</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TKey</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code>]</p>
+<p>Generator that includes all possible subsets of the given options, including the empty set,
+i.e. if N options are provided, then 2^N subsets are generated (powerset).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>o</strong> – an iterable of keys or a dictionary mapping keys to values</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sensai.hyperopt.OptionsSubsets.iter_options">
+<span class="sig-name descname"><span class="pre">iter_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sensai.hyperopt.Option" title="sensai.hyperopt.Option"><span class="pre">Option</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/sensai/hyperopt.html#OptionsSubsets.iter_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensai.hyperopt.OptionsSubsets.iter_options" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns an iterator over lists of options representing valid combinations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>an iterator of option combinations</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./sensai"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="feature_importance.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">feature_importance</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lightgbm.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">lightgbm</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By sensAI contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2019-2024 by sensAI contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

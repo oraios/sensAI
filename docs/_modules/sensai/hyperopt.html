@@ -1,0 +1,1189 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sensai.hyperopt &#8212; sensAI Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/sphinx-toolbox.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/js/vega@5.js"></script>
+    <script src="../../_static/js/vega-lite@5.js"></script>
+    <script src="../../_static/js/vega-embed@5.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sensai/hyperopt';</script>
+    <link rel="canonical" href="https://tianshou.readthedocs.io/en/master/_modules/sensai/hyperopt.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/sensai-logo.png" class="logo__image only-light" alt="sensAI Documentation - Home"/>
+    <script>document.write(`<img src="../../_static/sensai-logo.png" class="logo__image only-dark" alt="sensAI Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Welcome to sensAI!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../1-supervised-learning/1-vector-models.html">Models with Modular Data Pipelines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../2-notebooks/0_intro.html">Notebook Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../2-notebooks/1-classification.html">Introduction to sensAI: Supervised Learning with VectorModels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2-notebooks/2-neural_networks.html">Neural Networks</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../sensai/index.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/catboost.html">catboost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/columngen.html">columngen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/distance_metric.html">distance_metric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/feature_importance.html">feature_importance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/hyperopt.html">hyperopt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/lightgbm.html">lightgbm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/local_search.html">local_search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/minizinc.html">minizinc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/multi_model.html">multi_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/naive_bayes.html">naive_bayes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/nearest_neighbors.html">nearest_neighbors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/normalisation.html">normalisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/sklearn_quantile.html">sklearn_quantile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/tensor_model.html">tensor_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/vector_model.html">vector_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/vectoriser.html">vectoriser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensai/xgboost.html">xgboost</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/clustering/index.html">clustering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/clustering/clustering_base.html">clustering_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/clustering/greedy_clustering.html">greedy_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/clustering/sklearn_clustering.html">sklearn_clustering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/data/index.html">data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/data/dataset.html">dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/data/io_data.html">io_data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/data_transformation/index.html">data_transformation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/data_transformation/dft.html">dft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/data_transformation/sklearn_transformer.html">sklearn_transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/data_transformation/value_transformation.html">value_transformation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/ensemble/index.html">ensemble</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/ensemble/ensemble_base.html">ensemble_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/ensemble/models.html">models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/evaluation/index.html">evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/evaluation/crossval.html">crossval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/evaluation/eval_util.html">eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/evaluation/evaluator.html">evaluator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/evaluation/evaluator_clustering.html">evaluator_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/evaluation/metric_computation.html">metric_computation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/evaluation/result_set.html">result_set</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sensai/evaluation/eval_stats/index.html">eval_stats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/evaluation/eval_stats/eval_stats_base.html">eval_stats_base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/evaluation/eval_stats/eval_stats_classification.html">eval_stats_classification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/evaluation/eval_stats/eval_stats_clustering.html">eval_stats_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/evaluation/eval_stats/eval_stats_regression.html">eval_stats_regression</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/feature_selection/index.html">feature_selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/feature_selection/rfe.html">rfe</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/featuregen/index.html">featuregen</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/featuregen/feature_generator.html">feature_generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/featuregen/feature_generator_registry.html">feature_generator_registry</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/geoanalytics/index.html">geoanalytics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/geoanalytics/geo_clustering.html">geo_clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/geoanalytics/geo_coords.html">geo_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/geoanalytics/local_coords.html">local_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/geoanalytics/map_tiles.html">map_tiles</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sensai/geoanalytics/geopandas/index.html">geopandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/geoanalytics/geopandas/coordinate_clustering.html">coordinate_clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/geoanalytics/geopandas/coordinate_clustering_ground_truth.html">coordinate_clustering_ground_truth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/geoanalytics/geopandas/coordinates.html">coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/geoanalytics/geopandas/geometry.html">geometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/geoanalytics/geopandas/graph.html">graph</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/pytorch_lightning/index.html">pytorch_lightning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/pytorch_lightning/pl_models.html">pl_models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/sklearn/index.html">sklearn</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/sklearn/sklearn_base.html">sklearn_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/sklearn/sklearn_classification.html">sklearn_classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/sklearn/sklearn_regression.html">sklearn_regression</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/torch/index.html">torch</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torch_base.html">torch_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torch_data.html">torch_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torch_enums.html">torch_enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torch_eval_util.html">torch_eval_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torch_modules.html">torch_modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torch_opt.html">torch_opt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/torch/torchtext.html">torchtext</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sensai/torch/torch_models/index.html">torch_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/torch/torch_models/lstnet/index.html">lstnet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/torch/torch_models/mlp/index.html">mlp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/torch/torch_models/residualffn/index.html">residualffn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sensai/torch/torch_models/seq/index.html">seq</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/tracking/index.html">tracking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/tracking/azure_tracking.html">azure_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/tracking/clearml_tracking.html">clearml_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/tracking/mlflow_tracking.html">mlflow_tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/tracking/tracking_base.html">tracking_base</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sensai/util/index.html">util</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/aggregation.html">aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/cache.html">cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/cache_azure.html">cache_azure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/cache_mysql.html">cache_mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/datastruct.html">datastruct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/deprecation.html">deprecation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/dtype.html">dtype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/git.html">git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/hash.html">hash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/helper.html">helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/jscode.html">jscode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/logging.html">logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/math.html">math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/multiprocessing.html">multiprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/pandas.html">pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/pickle.html">pickle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/plot.html">plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/profiling.html">profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/sequences.html">sequences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/string.html">string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/tensorboard.html">tensorboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/test.html">test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/time.html">time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/typing.html">typing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensai/util/version.html">version</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for sensai.hyperopt</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">concurrent.futures</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProcessPoolExecutor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">Random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Generator</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Hashable</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">TypeVar</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Generic</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.evaluation.evaluator</span><span class="w"> </span><span class="kn">import</span> <span class="n">MetricsDictProvider</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.local_search</span><span class="w"> </span><span class="kn">import</span> <span class="n">SACostValue</span><span class="p">,</span> <span class="n">SACostValueNumeric</span><span class="p">,</span> <span class="n">SAOperator</span><span class="p">,</span> <span class="n">SAState</span><span class="p">,</span> <span class="n">SimulatedAnnealing</span><span class="p">,</span> \
+    <span class="n">SAProbabilitySchedule</span><span class="p">,</span> <span class="n">SAProbabilityFunctionLinear</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.tracking.tracking_base</span><span class="w"> </span><span class="kn">import</span> <span class="n">TrackingMixin</span><span class="p">,</span> <span class="n">TrackedExperiment</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.util.string</span><span class="w"> </span><span class="kn">import</span> <span class="n">ToStringMixin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.vector_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">VectorModel</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="iter_param_combinations"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.iter_param_combinations">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">iter_param_combinations</span><span class="p">(</span><span class="n">hyper_param_values</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Generator</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create all possible combinations of values from a dictionary of possible parameter values</span>
+
+<span class="sd">    :param hyper_param_values: a mapping from parameter names to lists of possible values</span>
+<span class="sd">    :return: a dictionary mapping each parameter name to one of the values</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pairs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">hyper_param_values</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_iter_recursive_param_combinations</span><span class="p">(</span><span class="n">pairs</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Recursive function to create all possible combinations from a list of key-array entries.</span>
+<span class="sd">        :param pairs: a dictionary of parameter names and their corresponding values</span>
+<span class="sd">        :param i: the recursive step</span>
+<span class="sd">        :param params: a dictionary for the iteration results</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="nb">dict</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">param_name</span><span class="p">,</span> <span class="n">param_values</span> <span class="o">=</span> <span class="n">pairs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">paramValue</span> <span class="ow">in</span> <span class="n">param_values</span><span class="p">:</span>
+                <span class="n">params</span><span class="p">[</span><span class="n">param_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">paramValue</span>
+                <span class="k">yield from</span> <span class="n">_iter_recursive_param_combinations</span><span class="p">(</span><span class="n">pairs</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_iter_recursive_param_combinations</span><span class="p">(</span><span class="n">pairs</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{})</span></div>
+
+
+<div class="viewcode-block" id="iter_subsets"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.iter_subsets">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">iter_subsets</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">T</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :param s: a set of items</span>
+<span class="sd">    :return: iterator over subsets of the given set</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="ParameterCombinationSkipDecider"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.ParameterCombinationSkipDecider">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">ParameterCombinationSkipDecider</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Abstraction for a functional component which is told all parameter combinations that have been considered</span>
+<span class="sd">    and can use these as a basis for deciding whether another parameter combination shall be skipped/not be considered.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ParameterCombinationSkipDecider.tell"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.ParameterCombinationSkipDecider.tell">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">metrics</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Informs the decider about a previously evaluated parameter combination</span>
+
+<span class="sd">        :param params: the parameter combination</span>
+<span class="sd">        :param metrics: the evaluation metrics</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="ParameterCombinationSkipDecider.is_skipped"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.ParameterCombinationSkipDecider.is_skipped">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_skipped</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Decides whether the given parameter combination shall be skipped</span>
+
+<span class="sd">        :param params:</span>
+<span class="sd">        :return: True iff it shall be skipped</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="ParameterCombinationEquivalenceClassValueCache"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.ParameterCombinationEquivalenceClassValueCache">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">ParameterCombinationEquivalenceClassValueCache</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a cache which stores (arbitrary) values for parameter combinations, i.e. keys in the cache</span>
+<span class="sd">    are derived from parameter combinations.</span>
+<span class="sd">    The cache may map the equivalent parameter combinations to the same keys to indicate that the</span>
+<span class="sd">    parameter combinations are equivalent; the keys thus correspond to representations of equivalence classes over</span>
+<span class="sd">    parameter combinations.</span>
+<span class="sd">    This enables hyper-parameter search to skip the re-computation of results for equivalent parameter combinations.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_equivalence_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Hashable</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes a (hashable) equivalence class representation for the given parameter combination.</span>
+<span class="sd">        For instance, if all parameters have influence on the evaluation of a model and no two combinations would </span>
+<span class="sd">        lead to equivalent results, this could simply return a tuple containing all parameter values (in a fixed order).</span>
+
+<span class="sd">        :param params: the parameter combination</span>
+<span class="sd">        :return: a hashable key containing all the information from the parameter combination that influences the</span>
+<span class="sd">            computation of model evaluation results</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+<div class="viewcode-block" id="ParameterCombinationEquivalenceClassValueCache.set"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.ParameterCombinationEquivalenceClassValueCache.set">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_equivalence_class</span><span class="p">(</span><span class="n">params</span><span class="p">)]</span> <span class="o">=</span> <span class="n">value</span></div>
+
+<div class="viewcode-block" id="ParameterCombinationEquivalenceClassValueCache.get"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.ParameterCombinationEquivalenceClassValueCache.get">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the value associated with the (equivalence class of the) parameter combination</span>
+<span class="sd">        :param params: the parameter combination</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_equivalence_class</span><span class="p">(</span><span class="n">params</span><span class="p">))</span></div></div>
+
+
+<div class="viewcode-block" id="ParametersMetricsCollection"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.ParametersMetricsCollection">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">ParametersMetricsCollection</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Utility class for holding and persisting evaluation results</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">csv_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sort_column_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">incremental</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param csv_path: path to save the data frame to upon every update</span>
+<span class="sd">        :param sort_column_name: the column name by which to sort the data frame that is collected; if None, do not sort</span>
+<span class="sd">        :param ascending: whether to sort in ascending order; has an effect only if sortColumnName is not None</span>
+<span class="sd">        :param incremental: whether to add to an existing CSV file instead of overwriting it</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sort_column_name</span> <span class="o">=</span> <span class="n">sort_column_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">csv_path</span> <span class="o">=</span> <span class="n">csv_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ascending</span> <span class="o">=</span> <span class="n">ascending</span>
+        <span class="n">csv_path_exists</span> <span class="o">=</span> <span class="n">csv_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">csv_path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">csv_path_exists</span> <span class="ow">and</span> <span class="n">incremental</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_path</span><span class="p">)</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found existing CSV file with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2"> entries; </span><span class="si">{</span><span class="n">csv_path</span><span class="si">}</span><span class="s2"> will be extended (incremental mode)&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_current_row</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">value_dicts</span> <span class="o">=</span> <span class="p">[</span><span class="n">nt</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span> <span class="k">for</span> <span class="n">nt</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">itertuples</span><span class="p">()]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">csv_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">csv_path_exists</span><span class="p">:</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Results will be written to new file </span><span class="si">{</span><span class="n">csv_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Results in existing file (</span><span class="si">{</span><span class="n">csv_path</span><span class="si">}</span><span class="s2">) will be overwritten (non-incremental mode)&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_current_row</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">value_dicts</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="ParametersMetricsCollection.add_values"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.ParametersMetricsCollection.add_values">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds the provided values as a new row to the collection.</span>
+<span class="sd">        If csvPath was provided in the constructor, saves the updated collection to that file.</span>
+
+<span class="sd">        :param values: Dict holding the evaluation results and parameters</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+            <span class="c1"># check sort column and move it to the front</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sort_column_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sort_column_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">:</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Specified sort column &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sort_column_name</span><span class="si">}</span><span class="s2">&#39; not in list of columns: </span><span class="si">{</span><span class="n">cols</span><span class="si">}</span><span class="s2">; &quot;</span>
+                                <span class="sa">f</span><span class="s2">&quot;sorting will not take place!&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">cols</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sort_column_name</span><span class="p">)</span>
+                    <span class="n">cols</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sort_column_name</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># check for new columns</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">values</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># append data to data frame</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_current_row</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current_row</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="c1"># sort where applicable</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sort_column_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">sort_column_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sort_column_name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ascending</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_save_csv</span><span class="p">()</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_save_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">csv_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dirname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">csv_path</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dirname</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">csv_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ParametersMetricsCollection.get_data_frame"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.ParametersMetricsCollection.get_data_frame">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_data_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span></div>
+
+<div class="viewcode-block" id="ParametersMetricsCollection.contains"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.ParametersMetricsCollection.contains">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">contains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">existingValues</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_dicts</span><span class="p">:</span>
+            <span class="n">is_contained</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">ev</span> <span class="o">=</span> <span class="n">existingValues</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">ev</span> <span class="o">!=</span> <span class="n">v</span> <span class="ow">and</span> <span class="nb">str</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+                    <span class="n">is_contained</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="k">break</span>
+            <span class="k">if</span> <span class="n">is_contained</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span></div></div>
+
+
+<div class="viewcode-block" id="GridSearch"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.GridSearch">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">GridSearch</span><span class="p">(</span><span class="n">TrackingMixin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Instances of this class can be used for evaluating models with different user-provided parametrizations</span>
+<span class="sd">    over the same data and persisting the results</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">log</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">getChild</span><span class="p">(</span><span class="vm">__qualname__</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">model_factory</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">VectorModel</span><span class="p">],</span>
+            <span class="n">parameter_options</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">]],</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">]]]],</span>
+            <span class="n">num_processes</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">csv_results_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">incremental</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">incremental_skip_existing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">parameter_combination_skip_decider</span><span class="p">:</span> <span class="n">ParameterCombinationSkipDecider</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">model_save_directory</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param model_factory: the function to call with keyword arguments reflecting the parameters to try in order to obtain a model</span>
+<span class="sd">            instance</span>
+<span class="sd">        :param parameter_options: a dictionary which maps from parameter names to lists of possible values - or a list of such dictionaries,</span>
+<span class="sd">            where each dictionary in the list has the same keys</span>
+<span class="sd">        :param num_processes: the number of parallel processes to use for the search (use 1 to run without multi-processing)</span>
+<span class="sd">        :param csv_results_path: the path to a directory or concrete CSV file to which the results shall be written;</span>
+<span class="sd">            if it is None, no CSV data will be written; if it is a directory, a file name starting with this grid search&#39;s name (see below)</span>
+<span class="sd">            will be created.</span>
+<span class="sd">            The resulting CSV data will contain one line per evaluated parameter combination.</span>
+<span class="sd">        :param incremental: whether to add to an existing CSV file instead of overwriting it</span>
+<span class="sd">        :param incremental_skip_existing: if incremental mode is on, whether to skip any parameter combinations that are already present</span>
+<span class="sd">            in the CSV file</span>
+<span class="sd">        :param parameter_combination_skip_decider: an instance to which parameters combinations can be passed in order to decide whether the</span>
+<span class="sd">            combination shall be skipped (e.g. because it is redundant/equivalent to another combination or inadmissible)</span>
+<span class="sd">        :param model_save_directory: the directory where the serialized models shall be saved; if None, models are not saved</span>
+<span class="sd">        :param name: the name of this grid search, which will, in particular, be prepended to all saved model files;</span>
+<span class="sd">            if None, a default name will be generated of the form &quot;gridSearch_&lt;timestamp&gt;&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_factory</span> <span class="o">=</span> <span class="n">model_factory</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">parameter_options</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parameter_options_list</span> <span class="o">=</span> <span class="n">parameter_options</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parameter_options_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">parameter_options</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameter_options_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameter_options_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="k">if</span> <span class="nb">set</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Keys must be the same for all parameter options dictionaries&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_processes</span> <span class="o">=</span> <span class="n">num_processes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameter_combination_skip_decider</span> <span class="o">=</span> <span class="n">parameter_combination_skip_decider</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_save_directory</span> <span class="o">=</span> <span class="n">model_save_directory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span> <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">&quot;gridSearch_&quot;</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">-%H%M%S&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">csv_results_path</span> <span class="o">=</span> <span class="n">csv_results_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">incremental</span> <span class="o">=</span> <span class="n">incremental</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">incremental_skip_existing</span> <span class="o">=</span> <span class="n">incremental_skip_existing</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">csv_results_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">csv_results_path</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">csv_results_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">csv_results_path</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">_results.csv&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_combinations</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">parameter_options</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameter_options_list</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">for</span> <span class="n">options</span> <span class="ow">in</span> <span class="n">parameter_options</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="n">n</span> <span class="o">*=</span> <span class="nb">len</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">num_combinations</span> <span class="o">+=</span> <span class="n">n</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created GridSearch object for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">num_combinations</span><span class="si">}</span><span class="s2"> parameter combinations&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_executor</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_eval_params</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
+            <span class="n">model_factory</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">VectorModel</span><span class="p">],</span>
+            <span class="n">metrics_evaluator</span><span class="p">:</span> <span class="n">MetricsDictProvider</span><span class="p">,</span>
+            <span class="n">skip_decider</span><span class="p">:</span> <span class="n">ParameterCombinationSkipDecider</span><span class="p">,</span>
+            <span class="n">grid_search_name</span><span class="p">,</span> <span class="n">combination_idx</span><span class="p">,</span>
+            <span class="n">model_save_directory</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+            <span class="o">**</span><span class="n">params</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+        <span class="k">if</span> <span class="n">skip_decider</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">skip_decider</span><span class="o">.</span><span class="n">is_skipped</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
+                <span class="bp">cls</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Parameter combination is skipped according to </span><span class="si">{</span><span class="n">skip_decider</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">None</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Evaluating </span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">model_factory</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">metrics_evaluator</span><span class="o">.</span><span class="n">compute_metrics</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">model_save_directory</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">grid_search_name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">combination_idx</span><span class="si">}</span><span class="s2">.pickle&quot;</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saving trained model to </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_save_directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">))</span>
+            <span class="n">values</span><span class="p">[</span><span class="s2">&quot;filename&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filename</span>
+        <span class="n">values</span><span class="p">[</span><span class="s2">&quot;str(model)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+        <span class="n">values</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">skip_decider</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">skip_decider</span><span class="o">.</span><span class="n">tell</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">values</span>
+
+<div class="viewcode-block" id="GridSearch.run"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.GridSearch.run">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metrics_evaluator</span><span class="p">:</span> <span class="n">MetricsDictProvider</span><span class="p">,</span> <span class="n">sort_column_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;GridSearch.Result&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run the grid search. If csvResultsPath was provided in the constructor, each evaluation result will be saved</span>
+<span class="sd">        to that file directly after being computed</span>
+
+<span class="sd">        :param metrics_evaluator: the evaluator or cross-validator with which to evaluate models</span>
+<span class="sd">        :param sort_column_name: the name of the metric (column) by which to sort the data frame of results; if None, do not sort.</span>
+<span class="sd">            Note that all Metric instances have a static member `name`, e.g. you could use `RegressionMetricMSE.name`.</span>
+<span class="sd">        :param ascending: whether to sort in ascending order; has an effect only if `sort_column_name` is specified.</span>
+<span class="sd">            The result object will assume, by default, that the resulting top/first element is the best,</span>
+<span class="sd">            i.e. ascending=False means &quot;higher is better&quot;, and ascending=True means &quot;Lower is better&quot;.</span>
+<span class="sd">        :return: an object holding the results</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracked_experiment</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logging_callback</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracked_experiment</span><span class="o">.</span><span class="n">track_values</span>
+        <span class="k">elif</span> <span class="n">metrics_evaluator</span><span class="o">.</span><span class="n">tracked_experiment</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logging_callback</span> <span class="o">=</span> <span class="n">metrics_evaluator</span><span class="o">.</span><span class="n">tracked_experiment</span><span class="o">.</span><span class="n">track_values</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logging_callback</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">params_metrics_collection</span> <span class="o">=</span> <span class="n">ParametersMetricsCollection</span><span class="p">(</span><span class="n">csv_path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">csv_results_path</span><span class="p">,</span> <span class="n">sort_column_name</span><span class="o">=</span><span class="n">sort_column_name</span><span class="p">,</span>
+            <span class="n">ascending</span><span class="o">=</span><span class="n">ascending</span><span class="p">,</span> <span class="n">incremental</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">incremental</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">collect_result</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">values</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span>
+            <span class="k">if</span> <span class="n">logging_callback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">logging_callback</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+            <span class="n">params_metrics_collection</span><span class="o">.</span><span class="n">add_values</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Updated grid search result:</span><span class="se">\n</span><span class="si">{</span><span class="n">params_metrics_collection</span><span class="o">.</span><span class="n">get_data_frame</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_processes</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">combination_idx</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">parameter_options</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameter_options_list</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">params_dict</span> <span class="ow">in</span> <span class="n">iter_param_combinations</span><span class="p">(</span><span class="n">parameter_options</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">incremental_skip_existing</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">incremental</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">params_metrics_collection</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">params_dict</span><span class="p">):</span>
+                            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Skipped because parameters are already present in collection (incremental mode): </span><span class="si">{</span><span class="n">params_dict</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">continue</span>
+                    <span class="n">collect_result</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_eval_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_factory</span><span class="p">,</span> <span class="n">metrics_evaluator</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameter_combination_skip_decider</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">combination_idx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_save_directory</span><span class="p">,</span> <span class="o">**</span><span class="n">params_dict</span><span class="p">))</span>
+                    <span class="n">combination_idx</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">executor</span> <span class="o">=</span> <span class="n">ProcessPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_processes</span><span class="p">)</span>
+            <span class="n">futures</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">combination_idx</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">parameter_options</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameter_options_list</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">params_dict</span> <span class="ow">in</span> <span class="n">iter_param_combinations</span><span class="p">(</span><span class="n">parameter_options</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">incremental_skip_existing</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">incremental</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">params_metrics_collection</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">params_dict</span><span class="p">):</span>
+                            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Skipped because parameters are already present in collection (incremental mode): </span><span class="si">{</span><span class="n">params_dict</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">continue</span>
+                    <span class="n">futures</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_eval_params</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_factory</span><span class="p">,</span> <span class="n">metrics_evaluator</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">parameter_combination_skip_decider</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">combination_idx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_save_directory</span><span class="p">,</span> <span class="o">**</span><span class="n">params_dict</span><span class="p">))</span>
+                    <span class="n">combination_idx</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">for</span> <span class="n">future</span> <span class="ow">in</span> <span class="n">futures</span><span class="p">:</span>
+                <span class="n">collect_result</span><span class="p">(</span><span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">())</span>
+
+        <span class="n">df</span> <span class="o">=</span> <span class="n">params_metrics_collection</span><span class="o">.</span><span class="n">get_data_frame</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Result</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">,</span> <span class="n">default_metric_name</span><span class="o">=</span><span class="n">sort_column_name</span><span class="p">,</span> <span class="n">default_higher_is_better</span><span class="o">=</span><span class="ow">not</span> <span class="n">ascending</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GridSearch.Result"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.GridSearch.Result">[docs]</a>    <span class="k">class</span><span class="w"> </span><span class="nc">Result</span><span class="p">:</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">param_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">default_metric_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">default_higher_is_better</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span> <span class="o">=</span> <span class="n">param_names</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">default_metric_name</span> <span class="o">=</span> <span class="n">default_metric_name</span>
+            <span class="k">if</span> <span class="n">default_metric_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">default_higher_is_better</span> <span class="o">=</span> <span class="n">default_higher_is_better</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">default_higher_is_better</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="GridSearch.Result.BestParams"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.GridSearch.Result.BestParams">[docs]</a>        <span class="nd">@dataclass</span>
+        <span class="k">class</span><span class="w"> </span><span class="nc">BestParams</span><span class="p">:</span>
+            <span class="n">metric_name</span><span class="p">:</span> <span class="nb">str</span>
+            <span class="n">metric_value</span><span class="p">:</span> <span class="nb">float</span>
+            <span class="n">params</span><span class="p">:</span> <span class="nb">dict</span></div>
+
+<div class="viewcode-block" id="GridSearch.Result.get_best_params"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.GridSearch.Result.get_best_params">[docs]</a>        <span class="k">def</span><span class="w"> </span><span class="nf">get_best_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metric_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">higher_is_better</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BestParams</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">            :param metric_name: the metric name for which to return the best result; can be None if the GridSearch used</span>
+<span class="sd">                a metric to sort by</span>
+<span class="sd">            :param higher_is_better: whether higher is better for the metric to sort by; can be None if the GridSearch</span>
+<span class="sd">                use a metric to sort by and configured the sort order such that the best configuration is at the top</span>
+<span class="sd">            :return: a pair (d, v) where d dictionary with the best parameters found during the grid search and v is the</span>
+<span class="sd">                corresponding metric value</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">if</span> <span class="n">metric_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">metric_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_metric_name</span>
+                <span class="k">if</span> <span class="n">metric_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;metric_name must be specified&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">higher_is_better</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">higher_is_better</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_higher_is_better</span>
+                <span class="k">if</span> <span class="n">higher_is_better</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;higher_is_better must be specified&quot;</span><span class="p">)</span>
+
+            <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">metric_name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="ow">not</span> <span class="n">higher_is_better</span><span class="p">)</span>
+
+            <span class="n">best_params</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">:</span>
+                <span class="n">best_params</span><span class="p">[</span><span class="n">param</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">param</span><span class="p">]</span>
+            <span class="n">best_metric_value</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">metric_name</span><span class="p">]</span>
+
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">BestParams</span><span class="p">(</span><span class="n">metric_name</span><span class="o">=</span><span class="n">metric_name</span><span class="p">,</span> <span class="n">metric_value</span><span class="o">=</span><span class="n">best_metric_value</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">best_params</span><span class="p">)</span></div></div></div>
+
+
+<div class="viewcode-block" id="SAHyperOpt"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.SAHyperOpt">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SAHyperOpt</span><span class="p">(</span><span class="n">TrackingMixin</span><span class="p">):</span>
+    <span class="n">log</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">getChild</span><span class="p">(</span><span class="vm">__qualname__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SAHyperOpt.State"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.SAHyperOpt.State">[docs]</a>    <span class="k">class</span><span class="w"> </span><span class="nc">State</span><span class="p">(</span><span class="n">SAState</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">random_state</span><span class="p">:</span> <span class="n">Random</span><span class="p">,</span> <span class="n">results</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">compute_metric</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="nb">float</span><span class="p">]):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">compute_metric</span> <span class="o">=</span> <span class="n">compute_metric</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="n">results</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SAHyperOpt.State.compute_cost_value"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.SAHyperOpt.State.compute_cost_value">[docs]</a>        <span class="k">def</span><span class="w"> </span><span class="nf">compute_cost_value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SACostValueNumeric</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">SACostValueNumeric</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">compute_metric</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="SAHyperOpt.State.get_state_representation"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.SAHyperOpt.State.get_state_representation">[docs]</a>        <span class="k">def</span><span class="w"> </span><span class="nf">get_state_representation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span></div>
+
+<div class="viewcode-block" id="SAHyperOpt.State.apply_state_representation"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.SAHyperOpt.State.apply_state_representation">[docs]</a>        <span class="k">def</span><span class="w"> </span><span class="nf">apply_state_representation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">representation</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">representation</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="SAHyperOpt.ParameterChangeOperator"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.SAHyperOpt.ParameterChangeOperator">[docs]</a>    <span class="k">class</span><span class="w"> </span><span class="nc">ParameterChangeOperator</span><span class="p">(</span><span class="n">SAOperator</span><span class="p">[</span><span class="n">State</span><span class="p">]):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="s1">&#39;SAHyperOpt.State&#39;</span><span class="p">):</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SAHyperOpt.ParameterChangeOperator.apply_state_change"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.SAHyperOpt.ParameterChangeOperator.apply_state_change">[docs]</a>        <span class="k">def</span><span class="w"> </span><span class="nf">apply_state_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SAHyperOpt.ParameterChangeOperator.cost_delta"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.SAHyperOpt.ParameterChangeOperator.cost_delta">[docs]</a>        <span class="k">def</span><span class="w"> </span><span class="nf">cost_delta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SACostValue</span><span class="p">:</span>
+            <span class="n">model_params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+            <span class="n">model_params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">SACostValueNumeric</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">compute_metric</span><span class="p">(</span><span class="n">model_params</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">cost</span><span class="o">.</span><span class="n">value</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="SAHyperOpt.ParameterChangeOperator.choose_params"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.SAHyperOpt.ParameterChangeOperator.choose_params">[docs]</a>        <span class="k">def</span><span class="w"> </span><span class="nf">choose_params</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Tuple</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SACostValue</span><span class="p">]]]:</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_choose_changed_model_parameters</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+            <span class="k">return</span> <span class="p">((</span><span class="n">params</span><span class="p">,</span> <span class="p">),</span> <span class="kc">None</span><span class="p">)</span></div>
+
+        <span class="nd">@abstractmethod</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_choose_changed_model_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+            <span class="k">pass</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">model_factory</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">VectorModel</span><span class="p">],</span>
+            <span class="n">ops_and_weights</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="s1">&#39;SAHyperOpt.State&#39;</span><span class="p">],</span> <span class="s1">&#39;SAHyperOpt.ParameterChangeOperator&#39;</span><span class="p">],</span> <span class="nb">float</span><span class="p">]],</span>
+            <span class="n">initial_parameters</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+            <span class="n">metrics_evaluator</span><span class="p">:</span> <span class="n">MetricsDictProvider</span><span class="p">,</span>
+            <span class="n">metric_to_optimise</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">minimise_metric</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">collect_data_frame</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">csv_results_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">parameter_combination_equivalence_class_value_cache</span><span class="p">:</span> <span class="n">ParameterCombinationEquivalenceClassValueCache</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">p0</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+            <span class="n">p1</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param model_factory: a factory for the generation of models which is called with the current parameter combination</span>
+<span class="sd">            (all keyword arguments), initially initialParameters</span>
+<span class="sd">        :param ops_and_weights: a sequence of tuples (operator factory, operator weight) for simulated annealing</span>
+<span class="sd">        :param initial_parameters: the initial parameter combination</span>
+<span class="sd">        :param metrics_evaluator: the evaluator/validator to use in order to evaluate models</span>
+<span class="sd">        :param metric_to_optimise: the name of the metric (as generated by the evaluator/validator) to optimise</span>
+<span class="sd">        :param minimise_metric: whether the metric is to be minimised; if False, maximise the metric</span>
+<span class="sd">        :param collect_data_frame: whether to collect (and regularly log) the data frame of all parameter combinations and</span>
+<span class="sd">            evaluation results</span>
+<span class="sd">        :param csv_results_path: the (optional) path of a CSV file in which to store a table of all computed results;</span>
+<span class="sd">            if this is not None, then collectDataFrame is automatically set to True</span>
+<span class="sd">        :param parameter_combination_equivalence_class_value_cache: a cache in which to store computed results and whose notion</span>
+<span class="sd">            of equivalence can be used to avoid duplicate computations</span>
+<span class="sd">        :param p0: the initial probability (at the start of the optimisation) of accepting a state with an inferior evaluation</span>
+<span class="sd">            to the current state&#39;s (for the mean observed evaluation delta)</span>
+<span class="sd">        :param p1: the final probability (at the end of the optimisation) of accepting a state with an inferior evaluation</span>
+<span class="sd">            to the current state&#39;s (for the mean observed evaluation delta)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">minimise_metric</span> <span class="o">=</span> <span class="n">minimise_metric</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">evaluator_or_validator</span> <span class="o">=</span> <span class="n">metrics_evaluator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric_to_optimise</span> <span class="o">=</span> <span class="n">metric_to_optimise</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initial_parameters</span> <span class="o">=</span> <span class="n">initial_parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ops_and_weights</span> <span class="o">=</span> <span class="n">ops_and_weights</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_factory</span> <span class="o">=</span> <span class="n">model_factory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">csv_results_path</span> <span class="o">=</span> <span class="n">csv_results_path</span>
+        <span class="k">if</span> <span class="n">csv_results_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">collect_data_frame</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters_metrics_collection</span> <span class="o">=</span> <span class="n">ParametersMetricsCollection</span><span class="p">(</span><span class="n">csv_path</span><span class="o">=</span><span class="n">csv_results_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">collect_data_frame</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameter_combination_equivalence_class_value_cache</span> <span class="o">=</span> <span class="n">parameter_combination_equivalence_class_value_cache</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p0</span> <span class="o">=</span> <span class="n">p0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p1</span> <span class="o">=</span> <span class="n">p1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sa</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_eval_params</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
+            <span class="n">model_factory</span><span class="p">,</span>
+            <span class="n">metrics_evaluator</span><span class="p">:</span> <span class="n">MetricsDictProvider</span><span class="p">,</span>
+            <span class="n">parameters_metrics_collection</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ParametersMetricsCollection</span><span class="p">],</span>
+            <span class="n">parameter_combination_equivalence_class_value_cache</span><span class="p">,</span>
+            <span class="n">tracked_experiment</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TrackedExperiment</span><span class="p">],</span>
+            <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">tracked_experiment</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">metrics_evaluator</span><span class="o">.</span><span class="n">tracked_experiment</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tracked experiment already set in evaluator, results will be tracked twice and&quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;might get overwritten!&quot;</span><span class="p">)</span>
+
+        <span class="n">metrics</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">parameter_combination_equivalence_class_value_cache</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">metrics</span> <span class="o">=</span> <span class="n">parameter_combination_equivalence_class_value_cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">metrics</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Result for parameter combination </span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2"> could be retrieved from cache, not adding new result&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Evaluating parameter combination </span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">model_factory</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
+            <span class="n">metrics</span> <span class="o">=</span> <span class="n">metrics_evaluator</span><span class="o">.</span><span class="n">compute_metrics</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Got metrics </span><span class="si">{</span><span class="n">metrics</span><span class="si">}</span><span class="s2"> for </span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="n">values</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
+            <span class="n">values</span><span class="p">[</span><span class="s2">&quot;str(model)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+            <span class="n">values</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">tracked_experiment</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">tracked_experiment</span><span class="o">.</span><span class="n">track_values</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">parameters_metrics_collection</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">parameters_metrics_collection</span><span class="o">.</span><span class="n">add_values</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+                <span class="bp">cls</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data frame with all results:</span><span class="se">\n\n</span><span class="si">{</span><span class="n">parameters_metrics_collection</span><span class="o">.</span><span class="n">get_data_frame</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">parameter_combination_equivalence_class_value_cache</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">parameter_combination_equivalence_class_value_cache</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">metrics</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">metrics</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_compute_metric</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
+        <span class="n">metrics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eval_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_factory</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">evaluator_or_validator</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters_metrics_collection</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parameter_combination_equivalence_class_value_cache</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracked_experiment</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+        <span class="n">metric_value</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">metric_to_optimise</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">minimise_metric</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="n">metric_value</span>
+        <span class="k">return</span> <span class="n">metric_value</span>
+
+<div class="viewcode-block" id="SAHyperOpt.run"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.SAHyperOpt.run">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_steps</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">random_seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span> <span class="n">collect_stats</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="n">sa</span> <span class="o">=</span> <span class="n">SimulatedAnnealing</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">SAProbabilitySchedule</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">SAProbabilityFunctionLinear</span><span class="p">(</span><span class="n">p0</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p0</span><span class="p">,</span> <span class="n">p1</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p1</span><span class="p">)),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ops_and_weights</span><span class="p">,</span> <span class="n">max_steps</span><span class="o">=</span><span class="n">max_steps</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">duration</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="n">random_seed</span><span class="p">,</span> <span class="n">collect_stats</span><span class="o">=</span><span class="n">collect_stats</span><span class="p">)</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sa</span> <span class="o">=</span> <span class="n">sa</span>
+        <span class="n">sa</span><span class="o">.</span><span class="n">optimise</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">State</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">initial_parameters</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_metric</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">results</span></div>
+
+<div class="viewcode-block" id="SAHyperOpt.get_simulated_annealing"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.SAHyperOpt.get_simulated_annealing">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_simulated_annealing</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SimulatedAnnealing</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sa</span></div></div>
+
+
+<span class="n">TKey</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;TKey&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">Hashable</span><span class="p">)</span>
+<span class="n">TValue</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;TValue&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Option"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.Option">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Option</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">],</span> <span class="n">ToStringMixin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Represents a single option with an optional value&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">TKey</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">TValue</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param key: a hashable identifier for the option</span>
+<span class="sd">        :param value: an optional associated value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="OptionsGenerator"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.OptionsGenerator">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">OptionsGenerator</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">],</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Represents a generator for combinations of options&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="OptionsGenerator.iter_options"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.OptionsGenerator.iter_options">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">iter_options</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Option</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns an iterator over lists of options representing valid combinations.</span>
+
+<span class="sd">        :return: an iterator of option combinations</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="OptionsGenerator.times"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.OptionsGenerator.times">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;OptionsGenerator[TKey, TValue]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;OptionsGenerator[TKey, TValue]&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a new options generator representing the Cartesian product of this generator with another generator.</span>
+
+<span class="sd">        :param other: another generator to combine with</span>
+<span class="sd">        :return: a new generator yielding the Cartesian product</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">OptionsProduct</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="OptionsProduct"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.OptionsProduct">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">OptionsProduct</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">],</span> <span class="n">OptionsGenerator</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;An options generator that produces the cartesian product of two other generators&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o1</span><span class="p">:</span> <span class="n">OptionsGenerator</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">],</span> <span class="n">o2</span><span class="p">:</span> <span class="n">OptionsGenerator</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param o1: the first option generator</span>
+<span class="sd">        :param o2: the second option generator</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">o1</span> <span class="o">=</span> <span class="n">o1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">o2</span> <span class="o">=</span> <span class="n">o2</span>
+
+<div class="viewcode-block" id="OptionsProduct.iter_options"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.OptionsProduct.iter_options">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">iter_options</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Option</span><span class="p">]]:</span>
+        <span class="k">for</span> <span class="n">r1</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">o1</span><span class="o">.</span><span class="n">iter_options</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">r2</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">o2</span><span class="o">.</span><span class="n">iter_options</span><span class="p">():</span>
+                <span class="k">yield</span> <span class="n">r1</span> <span class="o">+</span> <span class="n">r2</span></div></div>
+
+
+<div class="viewcode-block" id="OptionsGeneratorBase"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.OptionsGeneratorBase">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">OptionsGeneratorBase</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">],</span> <span class="n">OptionsGenerator</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">],</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for option generators that are backed by a static collection&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">TKey</span><span class="p">]</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param o: an iterable of keys or a dictionary mapping keys to values</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">Option</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">o</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">Option</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">o</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="OptionsAllOf"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.OptionsAllOf">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">OptionsAllOf</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">],</span> <span class="n">OptionsGeneratorBase</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Options generator that includes all the given options&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="OptionsAllOf.iter_options"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.OptionsAllOf.iter_options">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">iter_options</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Option</span><span class="p">]]:</span>
+        <span class="k">yield</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">values</span><span class="p">())</span></div></div>
+
+
+<div class="viewcode-block" id="OptionsOneOf"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.OptionsOneOf">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">OptionsOneOf</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">],</span> <span class="n">OptionsGeneratorBase</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Options generator that includes exactly one of the given options&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="OptionsOneOf.iter_options"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.OptionsOneOf.iter_options">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">iter_options</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Option</span><span class="p">]]:</span>
+        <span class="k">for</span> <span class="n">option</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">yield</span> <span class="p">[</span><span class="n">option</span><span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="OptionsMinMaxOf"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.OptionsMinMaxOf">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">OptionsMinMaxOf</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">],</span> <span class="n">OptionsGeneratorBase</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Options generator that includes subsets of the given options within a specified size range.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">TKey</span><span class="p">]</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">],</span> <span class="n">n_min</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n_max</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param o: an iterable of option keys or a dictionary mapping option keys to values</span>
+<span class="sd">        :param n_min: the minimum number of options to consider</span>
+<span class="sd">        :param n_max: the maximum number of options to consider</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_min</span> <span class="o">=</span> <span class="n">n_min</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_max</span> <span class="o">=</span> <span class="n">n_max</span>
+
+<div class="viewcode-block" id="OptionsMinMaxOf.iter_options"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.OptionsMinMaxOf.iter_options">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">iter_options</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Option</span><span class="p">]]:</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_min</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_max</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">n</span><span class="p">):</span>
+                <span class="k">yield</span> <span class="nb">list</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="OptionsOneOrNoneOf"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.OptionsOneOrNoneOf">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">OptionsOneOrNoneOf</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">],</span> <span class="n">OptionsMinMaxOf</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Options generator that includes either none or one of the given options&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">TKey</span><span class="p">]</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param o: an iterable of keys or a dictionary mapping keys to values</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="OptionsNOf"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.OptionsNOf">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">OptionsNOf</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">],</span> <span class="n">OptionsMinMaxOf</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Options generator that includes exactly N options from the given set of options&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">TKey</span><span class="p">]</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">],</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param o: an iterable of keys or a dictionary mapping keys to values</span>
+<span class="sd">        :param n: the number of options to sample</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="OptionsSubsets"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.OptionsSubsets">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">OptionsSubsets</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">],</span> <span class="n">OptionsGeneratorBase</span><span class="p">[</span><span class="n">TKey</span><span class="p">,</span> <span class="n">TValue</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generator that includes all possible subsets of the given options, including the empty set,</span>
+<span class="sd">    i.e. if N options are provided, then 2^N subsets are generated (powerset).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="OptionsSubsets.iter_options"><a class="viewcode-back" href="../../sensai/hyperopt.html#sensai.hyperopt.OptionsSubsets.iter_options">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">iter_options</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Option</span><span class="p">]]:</span>
+        <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">iter_subsets</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
+            <span class="k">yield</span> <span class="nb">list</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By sensAI contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2019-2024 by sensAI contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
