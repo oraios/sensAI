@@ -67,7 +67,7 @@ setup(
     url="https://github.com/oraios/sensAI",
     packages=find_namespace_packages(where="src"),
     include_package_data=True,
-    version='1.4.0',
+    version='1.5.0b1',
     description='The Python library for sensible AI',
     install_requires=relaxed_requirements_from_file("requirements.txt"),
     dependency_links=["https://download.pytorch.org/whl/torch_stable.html"],
