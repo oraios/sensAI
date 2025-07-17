@@ -422,22 +422,20 @@ class MetricComparisonBarPlot(Plot):
     Shows metric bar plots for a data frame of metrics for several entities.
     The bar plots are shown horizontally, grouped by metric, with a different colour for each entity.
 
-    Usage example:
+    Usage example::
 
-    ```python
-    import pandas as pd
-    import matplotlib.pyplot as plt
+        import pandas as pd
+        import matplotlib.pyplot as plt
 
-    data = {
-        'accuracy': [0.85, 0.78, 0.92],
-        'precision': [0.80, 0.75, 0.88],
-        'recall': [0.83, 0.77, 0.90],
-        'f1_score': [0.81, 0.76, 0.89]
-    }
+        data = {
+            'accuracy': [0.85, 0.78, 0.92],
+            'precision': [0.80, 0.75, 0.88],
+            'recall': [0.83, 0.77, 0.90],
+            'f1_score': [0.81, 0.76, 0.89]
+        }
 
-    df = pd.DataFrame(data, index=['Model A', 'Model B', 'Model C'])
-    MetricComparisonBarPlot(df)
-    ```
+        df = pd.DataFrame(data, index=['Model A', 'Model B', 'Model C'])
+        MetricComparisonBarPlot(df)
     """
     def __init__(self, df: pd.DataFrame, ax: Optional[plt.Axes] = None, metric_label="metric", value_label="value", entity_label="model"):
         """
